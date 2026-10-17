@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Priya's CAT Coach</title>
+<meta name="theme-color" content="#1e1b4b">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1e1b4b;--ink2:#4b4a6b;--mut:#8a89a6;--bg:#f7f6fb;--card:#fff;--line:#e8e6f2;--acc:#f97316;--acc2:#fff1e6;--ok:#16a34a;--ok2:#e9f9ef;--bad:#dc2626;--bad2:#fdecec;--vio:#6d28d9;--vio2:#f1ebff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Plus Jakarta Sans",system-ui,sans-serif}
+button{font:inherit;cursor:pointer;border:0}
+a{color:var(--vio)}
+.top{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff;padding:12px 16px 10px;padding-top:max(12px,env(safe-area-inset-top))}
+.top .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cd{font-weight:800;font-size:26px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.cd small{font-size:12px;font-weight:600;opacity:.75;letter-spacing:0;margin-left:6px}
+.pill{background:rgba(255,255,255,.12);border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+.bar{height:6px;background:rgba(255,255,255,.15);border-radius:9px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#fb923c,#facc15);border-radius:9px}
+.barlbl{font-size:11px;opacity:.7;margin-top:4px;display:flex;justify-content:space-between}
+main{padding:16px 16px 96px;max-width:640px;margin:0 auto}
+h1{font-size:24px;line-height:1.2;margin:4px 0 6px;letter-spacing:-.4px}
+h2{font-size:17px;margin:22px 0 10px}
+h3{font-size:15px;margin:0 0 4px}
+p{margin:0 0 10px;color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.hero{background:linear-gradient(135deg,#312e81,#6d28d9);color:#fff;border:0}
+.hero p{color:#e0dcff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--acc);color:#fff;font-weight:700;border-radius:12px;padding:12px 18px;width:100%;font-size:15px}
+.btn.sec{background:var(--vio2);color:var(--vio)}
+.btn.ghost{background:transparent;color:var(--ink2);border:1px solid var(--line)}
+.btn:disabled{opacity:.45}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.stat b{display:block;font-size:20px}
+.stat span{font-size:11px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.task{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line)}
+.task:first-of-type{border-top:0}
+.task input{width:20px;height:20px;margin-top:2px;accent-color:var(--ok);flex:none}
+.task.done span{text-decoration:line-through;color:var(--mut)}
+.secCard{display:flex;align-items:center;gap:12px;cursor:pointer}
+.secIcon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex:none}
+.secCard .meta{flex:1;min-width:0}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;background:var(--ok);border-radius:9px}
+.lvls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.lvl{aspect-ratio:1;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:17px;background:var(--line);color:var(--mut);position:relative}
+.lvl.open{background:var(--acc);color:#fff;box-shadow:0 4px 12px rgba(249,115,22,.35)}
+.lvl.pass{background:var(--ok);color:#fff}
+.lvl small{position:absolute;bottom:3px;font-size:9px;font-weight:700}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--vio2);color:var(--vio)}
+.tag.ok{background:var(--ok2);color:var(--ok)}.tag.bad{background:var(--bad2);color:var(--bad)}.tag.acc{background:var(--acc2);color:#c2410c}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:20}
+nav button{flex:1;background:none;padding:8px 0 10px;font-size:11px;font-weight:700;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button b{font-size:20px;line-height:1}
+nav button.on{color:var(--ink)}
+/* quiz */
+.qtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.timer{font-weight:800;font-variant-numeric:tabular-nums;font-size:18px}
+.timer.low{color:var(--bad)}
+.stem{background:#fbfaff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14px;white-space:pre-wrap;max-height:42vh;overflow:auto;margin-bottom:12px;color:var(--ink2)}
+.qtext{font-weight:600;white-space:pre-wrap;margin-bottom:12px}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;color:var(--ink)}
+.opt.sel{border-color:var(--vio);background:var(--vio2)}
+.opt.right{border-color:var(--ok);background:var(--ok2)}
+.opt.wrong{border-color:var(--bad);background:var(--bad2)}
+.tita{width:100%;font:inherit;font-size:18px;padding:12px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:8px}
+.exp{background:var(--acc2);border-radius:12px;padding:12px;font-size:14px;margin:8px 0}
+.dots{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.dots button{width:30px;height:30px;border-radius:8px;background:var(--line);font-size:12px;font-weight:700;color:var(--ink2)}
+.dots button.ans{background:var(--vio);color:#fff}.dots button.cur{outline:2px solid var(--acc)}
+.row2{display:flex;gap:8px}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(15,12,40,.6);z-index:50;display:flex;align-items:flex-end;justify-content:center;animation:fade .2s}
+.sheet{background:#fff;border-radius:22px 22px 0 0;width:100%;max-width:640px;max-height:92vh;overflow:auto;padding:20px 16px calc(20px + env(safe-area-inset-bottom));animation:up .3s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}@keyframes fade{from{opacity:0}}
+.big{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1}
+.campus{border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#c7d2fe,#fbcfe8);aspect-ratio:16/9;display:grid;place-items:center;color:var(--ink);font-weight:800;margin-bottom:10px}
+.campus img{width:100%;height:100%;object-fit:cover;display:block}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.links a{font-size:13px;font-weight:700;text-decoration:none;background:var(--vio2);padding:6px 10px;border-radius:99px}
+.pop{position:fixed;left:50%;top:40%;transform:translateX(-50%);font-size:30px;font-weight:800;color:var(--ok);pointer-events:none;z-index:60;animation:pop 1s ease-out forwards}
+@keyframes pop{to{transform:translate(-50%,-80px);opacity:0}}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left}
+th{font-size:12px;color:var(--mut);text-transform:uppercase}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.muted{color:var(--mut);font-size:13px}
+.center{text-align:center}
+ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-bottom:4px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="row"><div class="cd" id="cd">…</div><div class="pill" id="xp">⚡ 0 XP</div></div>
+  <div class="bar"><i id="pbar" style="width:0"></i></div>
+  <div class="barlbl"><span id="plbl"></span><span id="streak"></span></div>
+</header>
+<main id="app"></main>
+<nav id="nav">
+  <button data-v="home"><b>🏠</b>Home</button>
+  <button data-v="practice"><b>🎯</b>Practice</button>
+  <button data-v="plan"><b>🗓️</b>Plan</button>
+  <button data-v="colleges"><b>🎓</b>Colleges</button>
+  <button data-v="guide"><b>📘</b>Guide</button>
+</nav>
+<div id="modal"></div>
+
+<script src="data.js"></script>
+<script>
+const NAME = "Priya";
+const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
+const PLAN = buildPlan();
+const KEY = "catpriya_v1";
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// ---------- state ----------
+let S;
+try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { S = {}; }
+S = Object.assign({ xp:0, levels:{VARC:0,DILR:0,QA:0}, tasks:{}, history:[], streak:{last:null,count:0}, diag:null, lastBoost:null, imgs:{} }, S);
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+const todayIST = () => new Date(Date.now() + 19800000).toISOString().slice(0, 10);
+function bumpStreak() {
+  const t = todayIST(); if (S.streak.last === t) return;
+  const y = new Date(Date.now() + 19800000 - 864e5).toISOString().slice(0, 10);
+  S.streak.count = S.streak.last === y ? S.streak.count + 1 : 1; S.streak.last = t; save();
+}
+
+// ---------- header countdown ----------
+const examT = new Date(EXAM.date).getTime(), startT = new Date(EXAM.prepStart).getTime();
+function tick() {
+  const ms = examT - Date.now();
+  let txt;
+  if (ms <= 0) txt = "CAT DAY 🔥<small>you've got this</small>";
+  else if (ms > 7 * 864e5) txt = `D-${Math.ceil(ms / 864e5)}<small>days to CAT</small>`;
+  else if (ms > 864e5) txt = `${Math.floor(ms / 36e5)} hrs<small>to CAT</small>`;
+  else { const h = Math.floor(ms / 36e5), m = Math.floor(ms % 36e5 / 6e4), s = Math.floor(ms % 6e4 / 1e3); txt = `${h}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}<small>to CAT</small>`; }
+  $("#cd").innerHTML = txt;
+  const pct = Math.min(100, Math.max(0, (Date.now() - startT) / (examT - startT) * 100));
+  const done = Object.values(S.tasks).filter(Boolean).length, total = PLAN.reduce((a, d) => a + d.tasks.length, 0);
+  $("#pbar").style.width = (done / total * 100) + "%";
+  $("#plbl").textContent = `Plan ${Math.round(done / total * 100)}% done · time used ${Math.round(pct)}%`;
+  $("#xp").textContent = `⚡ ${S.xp} XP`;
+  $("#streak").textContent = S.streak.count ? `🔥 ${S.streak.count}-day streak` : "";
+}
+setInterval(tick, 1000);
+
+// ---------- helpers ----------
+const todayPlan = () => PLAN.find(d => d.date === todayIST()) || (todayIST() < PLAN[0].date ? PLAN[0] : PLAN[PLAN.length - 1]);
+function estPct(net, max) { // deliberately conservative
+  const r = Math.max(0, net) / max;
+  return Math.max(20, Math.floor((25 + r * 50) / 5) * 5);
+}
+function allQs() { const out = []; for (const sec in LEVELS) LEVELS[sec].forEach(l => l.qs.forEach(q => out.push({ ...q, sec }))); return out; }
+function norm(s) { return String(s).replace(/[\s,]/g, "").toLowerCase(); }
+function isRight(q, a) { if (a == null || a === "") return null; return q.type === "mcq" ? a === q.ans : norm(a) === norm(q.ans); }
+function marks(q, a) { const r = isRight(q, a); return r === null ? 0 : r ? 3 : (q.type === "mcq" ? -1 : 0); }
+function popXP(t) { const d = document.createElement("div"); d.className = "pop"; d.textContent = t; document.body.appendChild(d); setTimeout(() => d.remove(), 1000); }
+function levelName(n) { return ["Starter","Explorer","Climber","Builder","Challenger","Contender","Achiever","Ranker","Topper","IIM-ready","Legend"][Math.min(n, 10)]; }
+
+// campus images from Wikipedia (first real photo, not logo)
+async function campusImg(c) {
+  if (S.imgs[c.wiki] !== undefined) return S.imgs[c.wiki];
+  let src = null;
+  try {
+    const r = await fetch("https://en.wikipedia.org/api/rest_v1/page/media-list/" + encodeURIComponent(c.wiki.replace(/ /g, "_")));
+    const j = await r.json();
+    const imgs = (j.items || []).filter(i => i.type === "image" && !/logo|seal|emblem|\.svg|map|flag|icon|signature|anniversary|portrait/i.test(i.title));
+    const it = imgs.find(i => /campus|building|gate|aerial|view|lake|hall|block|library|entrance/i.test(i.title)) || imgs[0];
+    if (it && it.srcset && it.srcset.length) src = "https:" + it.srcset[it.srcset.length - 1].src.replace(/^https?:/, "");
+  } catch {}
+  S.imgs[c.wiki] = src; save(); return src;
+}
+function fillImgs() {
+  document.querySelectorAll("[data-img]").forEach(async el => {
+    const c = COLLEGES[+el.dataset.img]; const src = await campusImg(c);
+    if (src) el.innerHTML = `<img loading="lazy" alt="${esc(c.name)} campus" src="${src}" onerror="this.parentNode.textContent='🎓 ${esc(c.name)}'">`;
+  });
+}
+
+// ---------- views ----------
+let view = "home";
+function go(v) { view = v; document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.v === v)); render(); scrollTo(0, 0); }
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => go(b.dataset.v));
+
+function render() {
+  const a = $("#app");
+  if (!S.diag) { a.innerHTML = welcomeView(); return; }
+  a.innerHTML = ({ home: homeView, practice: practiceView, plan: planView, colleges: collegesView, guide: guideView })[view]();
+  fillImgs(); tick();
+}
+
+function welcomeView() {
+  $("#nav").style.display = "none";
+  return `<div class="card hero" style="margin-top:6px"><div style="font-size:40px">👋</div><h1>Hi ${NAME}. Welcome to your CAT crash course.</h1>
+  <p>For the next six weeks I'm your coach, your question bank and your hype team. We start with a quick check so I know exactly where you stand.</p></div>
+  <div class="card"><h3>📝 The diagnostic</h3><p>10 real CAT-style questions — 4 Verbal, 3 Data/Logic, 3 Quant. 20 minutes. CAT marking: +3 right, −1 wrong (MCQ), no negative on type-in answers.</p>
+  <p class="muted">Don't stress — it's not judging you, it's mapping you. Skip anything you're unsure of; skipping costs nothing.</p>
+  <button class="btn" onclick="startQuiz('diag')">Start diagnostic →</button></div>`;
+}
+
+function homeView() {
+  $("#nav").style.display = "flex";
+  const d = todayPlan(), boost = BOOSTS[d.n % BOOSTS.length];
+  const tasks = d.tasks.map((t, i) => { const k = d.date + ":" + i; return `<label class="task ${S.tasks[k] ? "done" : ""}"><input type="checkbox" ${S.tasks[k] ? "checked" : ""} onchange="toggleTask('${k}',this.checked)"><span>${esc(t)}</span></label>`; }).join("");
+  const dg = S.diag;
+  const total = Object.values(S.levels).reduce((a, b) => a + b, 0);
+  return `<h1>Good ${greet()}, ${NAME} ✨</h1><p>Day ${d.n} of ${PLAN.length} · <span class="tag acc">${d.phase}</span></p>
+  <div class="card"><h3>🎯 Today's mission</h3>${tasks}</div>
+  <div class="grid3"><div class="stat"><b>${dg.pct}</b><span>Est. %ile</span></div><div class="stat"><b>${total}/30</b><span>Levels</span></div><div class="stat"><b>${S.history.filter(h => h.kind === "mock").length}</b><span>Mocks</span></div></div>
+  <h2>Your three sections</h2>${secCards()}
+  <button class="btn" style="margin-top:4px" onclick="startQuiz('mock')">⏱️ Speed Mock — 12 Qs · 24 min</button>
+  <div class="card" style="margin-top:12px;background:var(--acc2);border:0"><h3>💬 Coach says</h3><p style="margin:0">${esc(boost)}</p></div>
+  <h2>Recent activity</h2>${historyList(5)}`;
+}
+const greet = () => { const h = new Date(Date.now() + 19800000).getUTCHours(); return h < 12 ? "morning" : h < 17 ? "afternoon" : "evening"; };
+
+function secCards() {
+  return Object.keys(SECS).map(k => { const s = SECS[k], n = S.levels[k];
+    return `<div class="card secCard" onclick="openSec('${k}')"><div class="secIcon" style="background:${s.bg}">${s.icon}</div><div class="meta"><h3>${k} · ${s.label}</h3>
+    <div class="muted">Level ${n}/10 · ${levelName(n)} · diagnostic ${S.diag.bySec[k].c}/${S.diag.bySec[k].t}</div><div class="prog"><i style="width:${n * 10}%"></i></div></div><b style="color:var(--mut)">›</b></div>`; }).join("");
+}
+function historyList(n) {
+  const h = S.history.slice(-n).reverse();
+  if (!h.length) return `<p class="muted">Nothing yet — clear a level!</p>`;
+  return `<div class="card">${h.map(x => `<div class="task"><span style="flex:1">${x.kind === "level" ? `${x.sec} Level ${x.level}` : x.kind === "mock" ? "Speed Mock" : "Diagnostic"} · ${x.c}/${x.t} correct · net ${x.net}</span><span class="tag ${x.pass ? "ok" : ""}">${x.date.slice(5)}</span></div>`).join("")}</div>`;
+}
+
+let curSec = "VARC";
+function openSec(k) { curSec = k; go("practice"); }
+function practiceView() {
+  const tabs = Object.keys(SECS).map(k => `<button class="btn ${k === curSec ? "" : "sec"}" style="padding:10px" onclick="curSec='${k}';render()">${SECS[k].icon} ${k}</button>`).join("");
+  const n = S.levels[curSec], avail = LEVELS[curSec].length;
+  const cells = Array.from({ length: 10 }, (_, i) => { const L = i + 1;
+    const cls = L <= n ? "pass" : (L === n + 1 && L <= avail) ? "open" : "";
+    const click = (L <= n || (L === n + 1 && L <= avail)) ? `onclick="startQuiz('level','${curSec}',${i})"` : "";
+    return `<button class="lvl ${cls}" ${click}>${L <= n ? "✓" : L}<small>${L <= n ? "redo" : L === n + 1 && L <= avail ? "GO" : "🔒"}</small></button>`; }).join("");
+  const next = n < avail ? LEVELS[curSec][n] : null;
+  return `<div class="grid3">${tabs}</div>
+  <div class="card" style="margin-top:12px"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/10</h3><p class="muted">Rank: <b>${levelName(n)}</b>. Score 4/5 to clear a level and unlock the next.</p><div class="lvls">${cells}</div></div>
+  ${next ? `<div class="card"><h3>Next up: Level ${n + 1} · ${next.title}</h3><p class="muted">5 questions · ${next.mins} min · instant feedback after each answer</p><button class="btn" onclick="startQuiz('level','${curSec}',${n})">Play Level ${n + 1} →</button></div>`
+    : n >= 10 ? `<div class="card hero"><h3>🏆 All 10 levels cleared. Legend.</h3></div>` : `<div class="card" style="background:var(--acc2);border:0"><h3>🔓 Level ${n + 1} drops soon</h3><p style="margin:0">You've cleared everything live right now — your coach is building the next level. Check back tomorrow, and try the Speed Mock meanwhile.</p></div>`}
+  <h2>Concept videos</h2><div class="card">${VIDEOS.filter(v => v.title.includes(curSec) || (curSec === "QA" && /QA|Rodha/.test(v.title))).map(v => `<div class="task"><a href="${v.url}" target="_blank" rel="noopener">▶ ${esc(v.title)}</a></div>`).join("") || `<p class="muted">See Guide → Videos.</p>`}</div>`;
+}
+
+function toggleTask(k, v) { S.tasks[k] = v; if (v) { S.xp += 5; popXP("+5"); bumpStreak(); } save(); render(); }
+
+function planView() {
+  const t = todayIST();
+  return `<h1>Your 6-week battle plan</h1><p>Foundation → Build & Test → Mock Season → Taper. Tick tasks as you finish them.</p>` +
+    PLAN.map(d => { const done = d.tasks.filter((_, i) => S.tasks[d.date + ":" + i]).length; const isT = d.date === t;
+      return `<details class="card" ${isT ? "open" : ""} style="${isT ? "border:2px solid var(--acc)" : d.date < t ? "opacity:.75" : ""}"><summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:8px"><span><b>Day ${d.n}</b> · ${fmtDate(d.date)} ${isT ? '<span class="tag acc">TODAY</span>' : ""}<br><span class="muted">${d.phase} · D-${d.left}</span></span><span class="tag ${done === d.tasks.length ? "ok" : ""}">${done}/${d.tasks.length}</span></summary>
+      <div style="margin-top:8px">${d.tasks.map((x, i) => { const k = d.date + ":" + i; return `<label class="task ${S.tasks[k] ? "done" : ""}"><input type="checkbox" ${S.tasks[k] ? "checked" : ""} onchange="toggleTask('${k}',this.checked)"><span>${esc(x)}</span></label>`; }).join("")}</div></details>`; }).join("") +
+    `<div class="card" style="background:#f0fdf4;border:0"><h3>🏁 29 Nov · CAT Day</h3><p style="margin:0">Reach the centre early. VARC → DILR → QA, 40 minutes each. Skip smartly, never panic.</p></div>`;
+}
+const fmtDate = d => new Date(d + "T12:00:00+05:30").toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" });
+
+let pctSel = null;
+function collegesView() {
+  const p = pctSel ?? Math.max(90, S.diag.pct);
+  const reach = COLLEGES.map((c, i) => ({ c, i })).filter(x => x.c.cutoff <= p), stretch = COLLEGES.map((c, i) => ({ c, i })).filter(x => x.c.cutoff > p);
+  const card = ({ c, i }) => `<div class="card"><div class="campus" data-img="${i}">🎓 ${esc(c.name)}</div><div style="display:flex;justify-content:space-between;gap:8px"><h3>${esc(c.name)}</h3><span class="tag ${c.cutoff <= p ? "ok" : "acc"}">~${c.cutoff}+ %ile</span></div>
+    <p class="muted" style="margin-bottom:6px">📍 ${esc(c.city)}</p><p>✨ ${esc(c.wow)}</p><p>🚀 <b>Where it leads:</b> ${esc(c.future)}</p>
+    <div class="links"><a target="_blank" rel="noopener" href="${yt(c.name + " campus tour")}">▶ Campus tour</a><a target="_blank" rel="noopener" href="${yt(c.name + " day in the life MBA student")}">▶ Student life</a><a target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(c.name + " campus")}">📷 More photos</a></div></div>`;
+  return `<h1>Where you're headed 🎓</h1><p>Slide to see which colleges open up at each percentile. Cut-offs are approximate General-category call ranges from past years — non-engineers and women often get extra diversity weight at IIMs.</p>
+  <div class="card"><div style="display:flex;justify-content:space-between"><b>If you score</b><b style="color:var(--acc);font-size:20px">${p} %ile</b></div>
+  <input type="range" min="80" max="100" step="1" value="${p}" oninput="pctSel=+this.value;render()"><p class="muted" style="margin:0">${reach.length} colleges in range · ${stretch.length} more to unlock</p></div>
+  <h2>✅ In range at ${p}</h2>${reach.map(card).join("") || `<p class="muted">Move the slider up — every point unlocks more.</p>`}
+  <h2>🔓 Unlock by scoring higher</h2>${stretch.map(card).join("")}`;
+}
+
+function guideView() {
+  return `<h1>📘 Your handbook</h1>
+  <div class="card"><h3>How this app works</h3><ul class="clean">
+  <li><b>Home</b> — today's mission. Tick every task; ticks build your plan progress bar and streak.</li>
+  <li><b>Practice</b> — 3 sections × 10 levels. Score 4/5 to unlock the next level. New levels drop regularly.</li>
+  <li><b>Speed Mock</b> — timed, CAT marking, results at the end like the real thing.</li>
+  <li><b>Plan</b> — the full day-by-day schedule till 29 Nov.</li>
+  <li><b>Colleges</b> — what each percentile unlocks, with campus photos and videos.</li>
+  <li><b>Share progress</b> (below) — send your report to Abhilash each evening so your coach can adjust tomorrow's plan.</li></ul>
+  <button class="btn" onclick="shareReport()">📤 Share today's progress</button></div>
+
+  <div class="card"><h3>CAT 2026 at a glance</h3><table>
+  <tr><td>Date</td><td><b>Sun, 29 Nov 2026</b></td></tr><tr><td>Conducted by</td><td>IIM Indore</td></tr>
+  <tr><td>Duration</td><td>120 min — 40 min per section, fixed order, no switching</td></tr>
+  <tr><td>Questions</td><td>~68 total (VARC 24 · DILR 22 · QA 22)</td></tr>
+  <tr><td>Marking</td><td>+3 correct · −1 wrong MCQ · 0 for wrong type-in (TITA)</td></tr>
+  <tr><td>Admit card</td><td>From 4 Nov on iimcat.ac.in</td></tr></table>
+  <p class="muted" style="margin-top:8px">Three sections, not four — the pattern has been stable since 2024. Confirm exact numbers on the official site.</p></div>
+
+  <div class="card"><h3>📖 VARC — your power section</h3><ul class="clean"><li>~16 RC questions (4 passages) + ~8 verbal ability (para jumbles, summaries, odd one out).</li><li>Difficulty: moderate. RCs reward exactly what English Honours trained — reading for argument and tone.</li><li>Target: 16–18 attempts, 80%+ accuracy. Para jumbles are TITA — no penalty, always attempt.</li></ul></div>
+  <div class="card"><h3>🧩 DILR — the selector section</h3><ul class="clean"><li>~5 sets of 4–6 questions. Puzzles, tables, games, scheduling.</li><li>Difficulty: hardest for most. Toppers solve only 2–3 sets well.</li><li>Strategy: spend the first 4 minutes scanning ALL sets, pick the 2 friendliest, solve them fully.</li></ul></div>
+  <div class="card"><h3>🔢 QA — beatable with patterns</h3><ul class="clean"><li>~22 questions: Arithmetic (~8–10) · Algebra (~6–8) · Geometry (~3–5) · Number system & modern maths (~2–4).</li><li>Difficulty: moderate-to-hard, but Arithmetic is learnable fast and is the biggest chunk.</li><li>Target: 10–12 attempts at 80% accuracy. Skip the long ones without guilt.</li></ul></div>
+
+  <div class="card"><h3>🌟 Why this is worth it</h3><ul class="clean"><li>An IIM MBA opens consulting, product management, brand management, banking and leadership tracks.</li><li>Top IIMs have reported median packages in the ₹25–35 lakh range in recent years; the long-term career ceiling matters even more.</li><li>Your alumni network becomes India's corporate leadership.</li><li>Communication is the single most valued skill in MBA interviews and careers — that's your home ground.</li></ul></div>
+
+  <div class="card"><h3>▶ Videos</h3>${VIDEOS.map(v => `<div class="task"><a target="_blank" rel="noopener" href="${v.url}">${esc(v.title)}</a></div>`).join("")}</div>
+  <div class="card"><h3>Free mocks & past papers</h3><ul class="clean"><li>Official CAT mock — iimcat.ac.in (usually released early Nov)</li><li>Previous CAT papers (2017–2025) — free on Cracku / 2IIM</li><li>Free SimCAT — IMS</li></ul></div>
+  <button class="btn ghost" onclick="if(confirm('Retake the diagnostic? Your levels stay.')){S.diag=null;save();render()}">Retake diagnostic</button>`;
+}
+
+function shareReport() {
+  const d = todayPlan(), done = d.tasks.filter((_, i) => S.tasks[d.date + ":" + i]).length;
+  const recent = S.history.slice(-8).map(h => `- ${h.date} ${h.kind === "level" ? h.sec + " L" + h.level : h.kind} ${h.c}/${h.t} net ${h.net} ${h.secs}s${h.wrong ? " wrong:" + h.wrong : ""}`).join("\n");
+  const txt = `CAT report — ${NAME} — Day ${d.n} (${d.date})\nTasks today: ${done}/${d.tasks.length}\nLevels: VARC ${S.levels.VARC}, DILR ${S.levels.DILR}, QA ${S.levels.QA}\nXP ${S.xp} · streak ${S.streak.count}\nDiagnostic: ${S.diag.net}/30 (V ${S.diag.bySec.VARC.c}/4, D ${S.diag.bySec.DILR.c}/3, Q ${S.diag.bySec.QA.c}/3)\nRecent:\n${recent}`;
+  location.href = "https://wa.me/?text=" + encodeURIComponent(txt);
+}
+
+// ---------- quiz engine ----------
+let Q = null, timerId = null;
+function startQuiz(mode, sec, idx) {
+  let qs, mins, title;
+  if (mode === "diag") { qs = DIAGNOSTIC; mins = 20; title = "Diagnostic"; }
+  else if (mode === "level") { const L = LEVELS[sec][idx]; qs = L.qs.map(q => ({ ...q, sec })); mins = L.mins; title = `${sec} · Level ${idx + 1} · ${L.title}`; }
+  else { const pool = allQs().sort(() => Math.random() - .5); const pick = ["VARC","DILR","QA"].flatMap(s => pool.filter(q => q.sec === s).slice(0, 4)); qs = pick; mins = 24; title = "Speed Mock"; }
+  Q = { mode, sec, idx, qs, title, i: 0, ans: {}, checked: {}, end: Date.now() + mins * 6e4, start: Date.now() };
+  $("#nav").style.display = "none"; clearInterval(timerId); timerId = setInterval(qTick, 500); drawQ(); scrollTo(0, 0);
+}
+function qTick() { if (!Q) return; const ms = Q.end - Date.now(); const el = $("#timer"); if (ms <= 0) { finishQuiz(true); return; } if (el) { el.textContent = `⏱ ${Math.floor(ms / 6e4)}:${String(Math.floor(ms % 6e4 / 1e3)).padStart(2, "0")}`; el.classList.toggle("low", ms < 6e4); } }
+function drawQ() {
+  const q = Q.qs[Q.i], a = Q.ans[q.id], instant = Q.mode === "level", chk = Q.checked[q.id];
+  const stem = q.set ? `<div class="stem">${esc(SETS[q.set])}</div>` : "";
+  let body;
+  if (q.type === "mcq") body = q.opts.map((o, j) => { let c = a === j ? "sel" : ""; if (chk) c = j === q.ans ? "right" : a === j ? "wrong" : ""; return `<button class="opt ${c}" ${chk ? "disabled" : ""} onclick="pick(${j})">${"ABCD"[j]}. ${esc(o)}</button>`; }).join("");
+  else body = `<input class="tita" inputmode="${/^\d+$/.test(q.ans) ? "numeric" : "text"}" placeholder="Type your answer" value="${a != null ? esc(a) : ""}" ${chk ? "disabled" : ""} oninput="Q.ans['${q.id}']=this.value.trim()">` + (chk ? `<p><b>Answer: ${esc(q.ans)}</b></p>` : "");
+  const fb = chk ? `<div class="exp">${isRight(q, a) ? "✅ <b>Correct!</b>" : a == null || a === "" ? "⏭️ Skipped." : "❌ <b>Not quite.</b>"} ${esc(q.exp)}</div>` : "";
+  const last = Q.i === Q.qs.length - 1;
+  const nav = instant
+    ? (chk ? `<button class="btn" onclick="${last ? "finishQuiz()" : "Q.i++;drawQ()"}">${last ? "See result" : "Next →"}</button>` : `<div class="row2"><button class="btn ghost" onclick="check(true)">Skip</button><button class="btn" onclick="check()">Check</button></div>`)
+    : `<div class="row2"><button class="btn ghost" ${Q.i ? "" : "disabled"} onclick="Q.i--;drawQ()">← Prev</button>${last ? `<button class="btn" onclick="if(confirm('Submit now?'))finishQuiz()">Submit</button>` : `<button class="btn" onclick="Q.i++;drawQ()">Next →</button>`}</div>`;
+  const dots = instant ? "" : `<div class="dots">${Q.qs.map((x, j) => `<button class="${Q.ans[x.id] != null && Q.ans[x.id] !== "" ? "ans" : ""} ${j === Q.i ? "cur" : ""}" onclick="Q.i=${j};drawQ()">${j + 1}</button>`).join("")}</div>`;
+  $("#app").innerHTML = `<div class="qtop"><div><b style="font-size:13px">${esc(Q.title)}</b><div class="muted">Q ${Q.i + 1}/${Q.qs.length} · ${q.sec} · ${q.type === "mcq" ? "MCQ (+3/−1)" : "Type-in (+3/0)"}</div></div><div class="timer" id="timer"></div></div>
+  ${stem}<div class="qtext">${esc(q.text)}</div>${body}${fb}${nav}${dots}
+  <button class="btn ghost" style="margin-top:14px" onclick="if(confirm('Quit? Progress in this quiz is lost.')){quitQuiz()}">Quit</button>`;
+  qTick();
+}
+function pick(j) { Q.ans[Q.qs[Q.i].id] = j; drawQ(); }
+function check(skip) {
+  const q = Q.qs[Q.i]; if (skip) delete Q.ans[q.id]; Q.checked[q.id] = true;
+  if (isRight(q, Q.ans[q.id])) { S.xp += 10; popXP("+10 ⚡"); save(); }
+  drawQ();
+}
+function quitQuiz() { clearInterval(timerId); Q = null; $("#nav").style.display = "flex"; render(); }
+function finishQuiz(timeout) {
+  clearInterval(timerId); const q = Q; Q = null;
+  let c = 0, net = 0; const bySec = {}; const wrong = [];
+  q.qs.forEach(x => { const a = q.ans[x.id], r = isRight(x, a); bySec[x.sec] = bySec[x.sec] || { c: 0, t: 0, net: 0 }; bySec[x.sec].t++;
+    if (r) { c++; bySec[x.sec].c++; } else if (r === false) wrong.push(x.id); const m = marks(x, a); net += m; bySec[x.sec].net += m; });
+  const secs = Math.round((Date.now() - q.start) / 1000), max = q.qs.length * 3;
+  const rec = { date: todayIST(), kind: q.mode, sec: q.sec, level: q.idx + 1, c, t: q.qs.length, net, secs, wrong: wrong.join(",") };
+  bumpStreak();
+  let head = "", extra = "";
+  if (q.mode === "diag") {
+    const pct = estPct(net, max); ["VARC","DILR","QA"].forEach(s => bySec[s] = bySec[s] || { c: 0, t: 0, net: 0 });
+    S.diag = { net, c, pct, bySec, date: rec.date }; S.xp += c * 10;
+    head = `<div class="center"><div style="font-size:44px">🧭</div><h1>Your starting point</h1><p>Estimated percentile today</p><div class="big" style="color:var(--acc)">~${pct}</div><p class="muted" style="margin-top:6px">${c}/10 correct · net score ${net}/30</p></div>`;
+    extra = `<div class="card"><h3>Section by section</h3>${["VARC","DILR","QA"].map(s => { const b = bySec[s], r = b.t ? b.c / b.t : 0; return `<div class="task"><span style="flex:1">${SECS[s].icon} <b>${s}</b> — ${b.c}/${b.t}</span><span class="tag ${r >= .75 ? "ok" : r >= .5 ? "" : "bad"}">${r >= .75 ? "Strength" : r >= .5 ? "Developing" : "Focus area"}</span></div>`; }).join("")}</div>
+    <div class="card" style="background:var(--acc2);border:0"><h3>The honest read</h3><p>Right now you're below the range where IIM calls start. That's normal for day 1, and it's exactly why we have a plan. The gap is real — and closable. Six weeks of daily levels, mocks and fixing mistakes is how people move 20–30 percentile points.</p><p style="margin:0"><b>Your edge:</b> Verbal is a third of the paper and it's your home ground. We'll make that rock-solid, then turn Quant and DILR from "scary" into "scoring".</p></div>`;
+  } else if (q.mode === "level") {
+    const pass = c >= 4; rec.pass = pass;
+    if (pass && S.levels[q.sec] < q.idx + 1) { S.levels[q.sec] = q.idx + 1; S.xp += 50; }
+    head = `<div class="center"><div style="font-size:52px">${pass ? "🏆" : "💪"}</div><h1>${pass ? `Level ${q.idx + 1} cleared!` : "So close — go again"}</h1><p>${c}/5 correct${timeout ? " · time ran out" : ""}</p>${pass ? `<p>You're now <b>${q.sec} Level ${S.levels[q.sec]} · ${levelName(S.levels[q.sec])}</b>. +50 XP</p>` : `<p>You need 4/5. Read the explanations, then retry — the second attempt is where learning sticks.</p>`}</div>`;
+  } else {
+    const pct = estPct(net, max);
+    head = `<div class="center"><div style="font-size:44px">⏱️</div><h1>Speed Mock done</h1><div class="big" style="color:var(--acc)">${net}/${max}</div><p>${c}/${q.qs.length} correct · ~${pct} %ile pace (conservative)</p></div>`;
+    extra = `<div class="card">${Object.keys(bySec).map(s => `<div class="task"><span style="flex:1">${SECS[s].icon} ${s}</span><b>${bySec[s].c}/${bySec[s].t}</b></div>`).join("")}</div>`;
+  }
+  S.history.push(rec); save();
+  const review = q.mode === "level" ? "" : `<h2>Review answers</h2>` + q.qs.map((x, j) => { const a = q.ans[x.id], r = isRight(x, a); return `<details class="card"><summary><b>Q${j + 1}</b> ${r ? "✅" : r === false ? "❌" : "⏭️"} <span class="muted">${x.sec}</span></summary>${x.set ? `<div class="stem">${esc(SETS[x.set])}</div>` : ""}<div class="qtext" style="margin-top:8px">${esc(x.text)}</div><p><b>Correct:</b> ${x.type === "mcq" ? esc(x.opts[x.ans]) : esc(x.ans)}${a != null && a !== "" && !r ? ` · <b>You:</b> ${x.type === "mcq" ? esc(x.opts[a]) : esc(a)}` : ""}</p><div class="exp">${esc(x.exp)}</div></details>`; }).join("");
+  $("#nav").style.display = "flex";
+  $("#app").innerHTML = `<div class="card">${head}</div>${extra}
+  ${q.mode === "level" && c < 4 ? `<button class="btn" onclick="startQuiz('level','${q.sec}',${q.idx})">Retry Level ${q.idx + 1}</button><div style="height:8px"></div>` : ""}
+  ${q.mode === "level" && c >= 4 && q.idx + 1 < LEVELS[q.sec].length ? `<button class="btn" onclick="startQuiz('level','${q.sec}',${q.idx + 1})">Play Level ${q.idx + 2} →</button><div style="height:8px"></div>` : ""}
+  <button class="btn sec" onclick="go('${q.mode === "diag" ? "colleges" : "home"}')">${q.mode === "diag" ? "See where you're headed 🎓" : "Back home"}</button>${review}`;
+  scrollTo(0, 0); tick();
+}
+
+// ---------- morning pop-up ----------
+function morning() {
+  if (!S.diag || S.lastBoost === todayIST()) return;
+  S.lastBoost = todayIST(); save();
+  const d = todayPlan(), ci = d.n % COLLEGES.length, c = COLLEGES[ci], ms = examT - Date.now();
+  $("#modal").innerHTML = `<div class="modal" onclick="if(event.target===this)this.remove()"><div class="sheet">
+  <p class="muted" style="margin:0">${fmtDate(d.date)} · Day ${d.n}</p><h1>Rise and shine, ${NAME} ☀️</h1>
+  <div class="card hero center"><div class="big">${ms > 7 * 864e5 ? Math.ceil(ms / 864e5) + " days" : Math.floor(ms / 36e5) + " hours"}</div><p style="margin:4px 0 0">until CAT 2026 — every one of them counts</p></div>
+  <div class="card"><h3>Today's headline</h3><p style="margin:0">${esc(d.tasks[0])}</p></div>
+  <div class="card"><h3>🎓 Campus of the day: ${esc(c.name)}</h3><div class="campus" data-img="${ci}">🎓 ${esc(c.name)}</div><p style="margin:0">${esc(c.wow)}</p></div>
+  <div class="card" style="background:var(--acc2);border:0"><p style="margin:0">💬 ${esc(BOOSTS[(d.n + 3) % BOOSTS.length])}</p></div>
+  <button class="btn" onclick="this.closest('.modal').remove()">Let's go 🚀</button></div></div>`;
+  fillImgs();
+}
+
+go("home"); tick(); morning();
+</script>
+</body>
+</html>
