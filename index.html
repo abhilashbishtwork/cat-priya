@@ -148,11 +148,24 @@ async function flush() {
   syncing = false;
   if (outbox.length) setTimeout(flush, 5000);
 }
+// Remote state is writable by anyone with the URL, so coerce every field before use.
+function clean(r) {
+  const N = v => Number.isFinite(+v) ? +v : 0, D = v => /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : null, SEC = v => ["VARC","DILR","QA"].includes(v) ? v : undefined;
+  const sec3 = o => Object.fromEntries(["VARC","DILR","QA"].map(k => [k, { c: N(o?.[k]?.c), t: N(o?.[k]?.t), net: N(o?.[k]?.net) }]));
+  return {
+    xp: N(r.xp), lastBoost: D(r.lastBoost),
+    levels: Object.fromEntries(["VARC","DILR","QA"].map(k => [k, Math.min(10, Math.max(0, N(r.levels?.[k])))])),
+    tasks: Object.fromEntries(Object.entries(r.tasks || {}).filter(([k]) => /^\d{4}-\d{2}-\d{2}:\d+$/.test(k)).map(([k, v]) => [k, !!v])),
+    streak: { last: D(r.streak?.last), count: N(r.streak?.count) },
+    diag: r.diag ? { net: N(r.diag.net), c: N(r.diag.c), pct: N(r.diag.pct), date: D(r.diag.date), bySec: sec3(r.diag.bySec) } : null,
+    history: (Array.isArray(r.history) ? r.history : []).filter(h => D(h?.date)).map(h => ({ date: h.date, kind: ["diag","level","mock"].includes(h.kind) ? h.kind : "mock", sec: SEC(h.sec), level: N(h.level), c: N(h.c), t: N(h.t), net: N(h.net), secs: N(h.secs), pass: !!h.pass, pct: N(h.pct), timeout: !!h.timeout, wrong: String(h.wrong || "").replace(/[^\w,]/g, "") })),
+  };
+}
 async function restore() {
   try {
     const j = await (await fetch(API + "?action=state")).json();
     const remote = j.state, rAt = Number(j.updatedAt) || 0;
-    if (remote && rAt > (S.updatedAt || 0)) { S = Object.assign(S, remote, { imgs: S.imgs, updatedAt: rAt }); save(false); if (!Q) render(); }
+    if (remote && rAt > (S.updatedAt || 0)) { S = Object.assign(S, clean(remote), { imgs: S.imgs, updatedAt: rAt }); save(false); if (!Q) render(); }
     restored = true;
     if (!remote || rAt < (S.updatedAt || 0)) syncSoon();
   } catch { setTimeout(restore, 30000); }
