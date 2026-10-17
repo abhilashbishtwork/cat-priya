@@ -126,7 +126,39 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 let S;
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { S = {}; }
 S = Object.assign({ xp:0, levels:{VARC:0,DILR:0,QA:0}, tasks:{}, history:[], streak:{last:null,count:0}, diag:null, lastBoost:null, imgs:{} }, S);
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+const save = (touch = true) => { if (touch) S.updatedAt = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} if (touch) syncSoon(); };
+
+// ---------- cloud sync (Google Sheet via Apps Script) ----------
+const API = "https://script.google.com/macros/s/AKfycbxh9Dg2RPVrlB7ZMpeG6BRPfqlCQ7T1z7TPbdQnrhdUGWflcfqWO3MB9T-11CrpRJzUaQ/exec";
+const OKEY = "catpriya_outbox";
+let outbox; try { outbox = JSON.parse(localStorage.getItem(OKEY)) || []; } catch { outbox = []; }
+const saveOutbox = () => { try { localStorage.setItem(OKEY, JSON.stringify(outbox)); } catch {} };
+function queue(ev) { ev.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 7); outbox.push(ev); saveOutbox(); syncSoon(); }
+let syncT = null, syncing = false, stateDirty = true, restored = false;
+function syncSoon() { stateDirty = true; clearTimeout(syncT); syncT = setTimeout(flush, 1500); }
+async function flush() {
+  if (syncing || (!outbox.length && !stateDirty)) return;
+  syncing = true;
+  const batch = outbox.slice(0, 15), { imgs, ...state } = S;
+  try {
+    const r = await fetch(API, { method: "POST", body: JSON.stringify(restored && S.updatedAt ? { events: batch, state, updatedAt: S.updatedAt } : { events: batch }) });
+    const j = await r.json();
+    if (j.ok) { const ids = new Set(j.ids); outbox = outbox.filter(e => !ids.has(e.id)); saveOutbox(); if (restored) stateDirty = false; }
+  } catch {}
+  syncing = false;
+  if (outbox.length) setTimeout(flush, 5000);
+}
+async function restore() {
+  try {
+    const j = await (await fetch(API + "?action=state")).json();
+    const remote = j.state, rAt = Number(j.updatedAt) || 0;
+    if (remote && rAt > (S.updatedAt || 0)) { S = Object.assign(S, remote, { imgs: S.imgs, updatedAt: rAt }); save(false); if (!Q) render(); }
+    restored = true;
+    if (!remote || rAt < (S.updatedAt || 0)) syncSoon();
+  } catch { setTimeout(restore, 30000); }
+}
+setInterval(flush, 60000);
+addEventListener("online", flush);
 const todayIST = () => new Date(Date.now() + 19800000).toISOString().slice(0, 10);
 function bumpStreak() {
   const t = todayIST(); if (S.streak.last === t) return;
@@ -177,7 +209,7 @@ async function campusImg(c) {
     const it = imgs.find(i => /campus|building|gate|aerial|view|lake|hall|block|library|entrance/i.test(i.title)) || imgs[0];
     if (it && it.srcset && it.srcset.length) src = "https:" + it.srcset[it.srcset.length - 1].src.replace(/^https?:/, "");
   } catch {}
-  S.imgs[c.wiki] = src; save(); return src;
+  S.imgs[c.wiki] = src; save(false); return src;
 }
 function fillImgs() {
   document.querySelectorAll("[data-img]").forEach(async el => {
@@ -251,7 +283,8 @@ function practiceView() {
   <h2>Concept videos</h2><div class="card">${VIDEOS.filter(v => v.title.includes(curSec) || (curSec === "QA" && /QA|Rodha/.test(v.title))).map(v => `<div class="task"><a href="${v.url}" target="_blank" rel="noopener">▶ ${esc(v.title)}</a></div>`).join("") || `<p class="muted">See Guide → Videos.</p>`}</div>`;
 }
 
-function toggleTask(k, v) { S.tasks[k] = v; if (v) { S.xp += 5; popXP("+5"); bumpStreak(); } save(); render(); }
+function toggleTask(k, v) { S.tasks[k] = v;
+  const [date, i] = k.split(":"), d = PLAN.find(x => x.date === date); if (d) queue({ type: "task", day: d.n, date, idx: +i, task: d.tasks[+i], done: v }); if (v) { S.xp += 5; popXP("+5"); bumpStreak(); } save(); render(); }
 
 function planView() {
   const t = todayIST();
@@ -373,7 +406,12 @@ function finishQuiz(timeout) {
     head = `<div class="center"><div style="font-size:44px">⏱️</div><h1>Speed Mock done</h1><div class="big" style="color:var(--acc)">${net}/${max}</div><p>${c}/${q.qs.length} correct · ~${pct} %ile pace (conservative)</p></div>`;
     extra = `<div class="card">${Object.keys(bySec).map(s => `<div class="task"><span style="flex:1">${SECS[s].icon} ${s}</span><b>${bySec[s].c}/${bySec[s].t}</b></div>`).join("")}</div>`;
   }
-  S.history.push(rec); save();
+  if (q.mode !== "level") rec.pct = estPct(net, max);
+  rec.timeout = !!timeout;
+  S.history.push(rec);
+  queue({ type: "attempt", attempt: rec, answers: q.qs.map(x => { const a = q.ans[x.id], r = isRight(x, a);
+    return { qid: x.id, sec: x.sec, type: x.type, her: a == null || a === "" ? "" : x.type === "mcq" ? "ABCD"[a] + ". " + x.opts[a] : String(a), correct: x.type === "mcq" ? "ABCD"[x.ans] + ". " + x.opts[x.ans] : x.ans, result: r ? "Right" : r === false ? "Wrong" : "Skipped", marks: marks(x, a), text: x.text.slice(0, 200) }; }) });
+  save();
   const review = q.mode === "level" ? "" : `<h2>Review answers</h2>` + q.qs.map((x, j) => { const a = q.ans[x.id], r = isRight(x, a); return `<details class="card"><summary><b>Q${j + 1}</b> ${r ? "✅" : r === false ? "❌" : "⏭️"} <span class="muted">${x.sec}</span></summary>${x.set ? `<div class="stem">${esc(SETS[x.set])}</div>` : ""}<div class="qtext" style="margin-top:8px">${esc(x.text)}</div><p><b>Correct:</b> ${x.type === "mcq" ? esc(x.opts[x.ans]) : esc(x.ans)}${a != null && a !== "" && !r ? ` · <b>You:</b> ${x.type === "mcq" ? esc(x.opts[a]) : esc(a)}` : ""}</p><div class="exp">${esc(x.exp)}</div></details>`; }).join("");
   $("#nav").style.display = "flex";
   $("#app").innerHTML = `<div class="card">${head}</div>${extra}
@@ -399,6 +437,8 @@ function morning() {
 }
 
 go("home"); tick(); morning();
+queue({ type: "open", detail: navigator.userAgent.replace(/^Mozilla\/5\.0 /, "").slice(0, 120) });
+restore();
 </script>
 </body>
 </html>
