@@ -119,7 +119,7 @@ ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-b
 const NAME = "Priya";
 const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
 const PLAN = buildPlan();
-const KEY = "catpriya_v1";
+const KEY = "catpriya_v2";
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
@@ -131,7 +131,7 @@ const save = (touch = true) => { if (touch) S.updatedAt = Date.now(); try { loca
 
 // ---------- cloud sync (Google Sheet via Apps Script) ----------
 const API = "https://script.google.com/macros/s/AKfycbxh9Dg2RPVrlB7ZMpeG6BRPfqlCQ7T1z7TPbdQnrhdUGWflcfqWO3MB9T-11CrpRJzUaQ/exec";
-const OKEY = "catpriya_outbox";
+const OKEY = "catpriya_outbox_v2";
 let outbox; try { outbox = JSON.parse(localStorage.getItem(OKEY)) || []; } catch { outbox = []; }
 const saveOutbox = () => { try { localStorage.setItem(OKEY, JSON.stringify(outbox)); } catch {} };
 function queue(ev) { ev.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 7); outbox.push(ev); saveOutbox(); syncSoon(); }
@@ -142,7 +142,7 @@ async function flush() {
   syncing = true;
   const batch = outbox.slice(0, 15), { imgs, ...state } = S;
   try {
-    const r = await fetch(API, { method: "POST", body: JSON.stringify(restored && S.updatedAt ? { events: batch, state, updatedAt: S.updatedAt } : { events: batch }) });
+    const r = await fetch(API, { method: "POST", body: JSON.stringify(restored && S.updatedAt ? { v: 2, events: batch, state, updatedAt: S.updatedAt } : { v: 2, events: batch }) });
     const j = await r.json();
     if (j.ok) { const ids = new Set(j.ids); outbox = outbox.filter(e => !ids.has(e.id)); saveOutbox(); if (restored) stateDirty = false; if (j.state) adopt(j.state); }
   } catch {}

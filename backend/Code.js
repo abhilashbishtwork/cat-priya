@@ -1,6 +1,7 @@
 // Priya CAT Coach — Google Sheet backend.
 // Frontend (GitHub Pages) POSTs events as text/plain JSON; GET ?action=state restores her progress.
 
+const APP_VERSION = 2;
 const SHEET_ID = "17Rde4-ZAhWxYuuS3n7tBf6YtA9xcK3gDkEBqEiMtOFs";
 const TABS = {
   Attempts: ["Timestamp (IST)", "Date", "Attempt ID", "Kind", "Section", "Level", "Correct", "Total", "Net score", "Seconds", "Passed", "Est. percentile", "Timed out"],
@@ -45,6 +46,8 @@ function doGet(e) {
 
 function doPost(e) {
   const body = JSON.parse(e.postData.contents);
+  // Fresh start 2026-10-17: ignore anything from older app versions (stale test data in old browsers).
+  if (body.v !== APP_VERSION) return json_({ ok: true, ids: (body.events || []).map(ev => ev.id), ignored: true });
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);
   try {
