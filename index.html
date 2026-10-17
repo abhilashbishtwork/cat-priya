@@ -114,6 +114,7 @@ ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-b
 <div id="modal"></div>
 
 <script src="data.js"></script>
+<script src="merge.js"></script>
 <script>
 const NAME = "Priya";
 const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
@@ -125,7 +126,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 // ---------- state ----------
 let S;
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { S = {}; }
-S = Object.assign({ xp:0, levels:{VARC:0,DILR:0,QA:0}, tasks:{}, history:[], streak:{last:null,count:0}, diag:null, lastBoost:null, imgs:{} }, S);
+S = Object.assign({ xp:0, levels:{VARC:0,DILR:0,QA:0}, tasks:{}, taskTs:{}, history:[], streak:{last:null,count:0}, diag:null, lastBoost:null, imgs:{} }, S);
 const save = (touch = true) => { if (touch) S.updatedAt = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} if (touch) syncSoon(); };
 
 // ---------- cloud sync (Google Sheet via Apps Script) ----------
@@ -143,7 +144,7 @@ async function flush() {
   try {
     const r = await fetch(API, { method: "POST", body: JSON.stringify(restored && S.updatedAt ? { events: batch, state, updatedAt: S.updatedAt } : { events: batch }) });
     const j = await r.json();
-    if (j.ok) { const ids = new Set(j.ids); outbox = outbox.filter(e => !ids.has(e.id)); saveOutbox(); if (restored) stateDirty = false; }
+    if (j.ok) { const ids = new Set(j.ids); outbox = outbox.filter(e => !ids.has(e.id)); saveOutbox(); if (restored) stateDirty = false; if (j.state) adopt(j.state); }
   } catch {}
   syncing = false;
   if (outbox.length) setTimeout(flush, 5000);
@@ -156,22 +157,36 @@ function clean(r) {
     xp: N(r.xp), lastBoost: D(r.lastBoost),
     levels: Object.fromEntries(["VARC","DILR","QA"].map(k => [k, Math.min(10, Math.max(0, N(r.levels?.[k])))])),
     tasks: Object.fromEntries(Object.entries(r.tasks || {}).filter(([k]) => /^\d{4}-\d{2}-\d{2}:\d+$/.test(k)).map(([k, v]) => [k, !!v])),
+    taskTs: Object.fromEntries(Object.entries(r.taskTs || {}).filter(([k]) => /^\d{4}-\d{2}-\d{2}:\d+$/.test(k)).map(([k, v]) => [k, N(v)])),
+    updatedAt: N(r.updatedAt),
     streak: { last: D(r.streak?.last), count: N(r.streak?.count) },
-    diag: r.diag ? { net: N(r.diag.net), c: N(r.diag.c), pct: N(r.diag.pct), date: D(r.diag.date), bySec: sec3(r.diag.bySec) } : null,
-    history: (Array.isArray(r.history) ? r.history : []).filter(h => D(h?.date)).map(h => ({ date: h.date, kind: ["diag","level","mock"].includes(h.kind) ? h.kind : "mock", sec: SEC(h.sec), level: N(h.level), c: N(h.c), t: N(h.t), net: N(h.net), secs: N(h.secs), pass: !!h.pass, pct: N(h.pct), timeout: !!h.timeout, wrong: String(h.wrong || "").replace(/[^\w,]/g, "") })),
+    diag: r.diag ? { at: N(r.diag.at), net: N(r.diag.net), c: N(r.diag.c), pct: N(r.diag.pct), date: D(r.diag.date), bySec: sec3(r.diag.bySec) } : null,
+    history: (Array.isArray(r.history) ? r.history : []).filter(h => D(h?.date)).map(h => ({ id: String(h.id || "").replace(/\W/g, "") || undefined, at: N(h.at), date: h.date, kind: ["diag","level","mock"].includes(h.kind) ? h.kind : "mock", sec: SEC(h.sec), level: N(h.level), c: N(h.c), t: N(h.t), net: N(h.net), secs: N(h.secs), pass: !!h.pass, pct: N(h.pct), timeout: !!h.timeout, wrong: String(h.wrong || "").replace(/[^\w,]/g, "") })),
   };
+}
+// Merge the cloud copy into this device's copy; push back if this device had anything the cloud lacked.
+function adopt(remote) {
+  const r = clean(remote), mine = clean(S), merged = mergeState(mine, r), imgs = S.imgs;
+  const changedHere = JSON.stringify(merged) !== JSON.stringify(mergeState(r, r));
+  const changedForMe = JSON.stringify(merged) !== JSON.stringify(mergeState(mine, mine));
+  S = Object.assign({}, S, merged, { imgs });
+  try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {}
+  if (changedForMe && !Q) render();
+  return changedHere;
 }
 async function restore() {
   try {
     const j = await (await fetch(API + "?action=state")).json();
-    const remote = j.state, rAt = Number(j.updatedAt) || 0;
-    if (remote && rAt > (S.updatedAt || 0)) { S = Object.assign(S, clean(remote), { imgs: S.imgs, updatedAt: rAt }); save(false); if (!Q) render(); }
+    const pushBack = j.state ? adopt(j.state) : true;
     restored = true;
-    if (!remote || rAt < (S.updatedAt || 0)) syncSoon();
+    if (pushBack && (S.diag || S.history.length || Object.keys(S.tasks).length)) syncSoon();
   } catch { setTimeout(restore, 30000); }
 }
 setInterval(flush, 60000);
+setInterval(() => { if (document.visibilityState === "visible") restore(); }, 60000);
 addEventListener("online", flush);
+addEventListener("focus", restore);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") restore(); else flush(); });
 const todayIST = () => new Date(Date.now() + 19800000).toISOString().slice(0, 10);
 function bumpStreak() {
   const t = todayIST(); if (S.streak.last === t) return;
@@ -296,7 +311,7 @@ function practiceView() {
   <h2>Concept videos</h2><div class="card">${VIDEOS.filter(v => v.title.includes(curSec) || (curSec === "QA" && /QA|Rodha/.test(v.title))).map(v => `<div class="task"><a href="${v.url}" target="_blank" rel="noopener">▶ ${esc(v.title)}</a></div>`).join("") || `<p class="muted">See Guide → Videos.</p>`}</div>`;
 }
 
-function toggleTask(k, v) { S.tasks[k] = v;
+function toggleTask(k, v) { S.tasks[k] = v; S.taskTs[k] = Date.now();
   const [date, i] = k.split(":"), d = PLAN.find(x => x.date === date); if (d) queue({ type: "task", day: d.n, date, idx: +i, task: d.tasks[+i], done: v }); if (v) { S.xp += 5; popXP("+5"); bumpStreak(); } save(); render(); }
 
 function planView() {
@@ -401,12 +416,12 @@ function finishQuiz(timeout) {
   q.qs.forEach(x => { const a = q.ans[x.id], r = isRight(x, a); bySec[x.sec] = bySec[x.sec] || { c: 0, t: 0, net: 0 }; bySec[x.sec].t++;
     if (r) { c++; bySec[x.sec].c++; } else if (r === false) wrong.push(x.id); const m = marks(x, a); net += m; bySec[x.sec].net += m; });
   const secs = Math.round((Date.now() - q.start) / 1000), max = q.qs.length * 3;
-  const rec = { date: todayIST(), kind: q.mode, sec: q.sec, level: q.idx + 1, c, t: q.qs.length, net, secs, wrong: wrong.join(",") };
+  const rec = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), at: Date.now(), date: todayIST(), kind: q.mode, sec: q.sec, level: q.idx + 1, c, t: q.qs.length, net, secs, wrong: wrong.join(",") };
   bumpStreak();
   let head = "", extra = "";
   if (q.mode === "diag") {
     const pct = estPct(net, max); ["VARC","DILR","QA"].forEach(s => bySec[s] = bySec[s] || { c: 0, t: 0, net: 0 });
-    S.diag = { net, c, pct, bySec, date: rec.date }; S.xp += c * 10;
+    S.diag = { at: Date.now(), net, c, pct, bySec, date: rec.date }; S.xp += c * 10;
     head = `<div class="center"><div style="font-size:44px">🧭</div><h1>Your starting point</h1><p>Estimated percentile today</p><div class="big" style="color:var(--acc)">~${pct}</div><p class="muted" style="margin-top:6px">${c}/10 correct · net score ${net}/30</p></div>`;
     extra = `<div class="card"><h3>Section by section</h3>${["VARC","DILR","QA"].map(s => { const b = bySec[s], r = b.t ? b.c / b.t : 0; return `<div class="task"><span style="flex:1">${SECS[s].icon} <b>${s}</b> — ${b.c}/${b.t}</span><span class="tag ${r >= .75 ? "ok" : r >= .5 ? "" : "bad"}">${r >= .75 ? "Strength" : r >= .5 ? "Developing" : "Focus area"}</span></div>`; }).join("")}</div>
     <div class="card" style="background:var(--acc2);border:0"><h3>The honest read</h3><p>Right now you're below the range where IIM calls start. That's normal for day 1, and it's exactly why we have a plan. The gap is real — and closable. Six weeks of daily levels, mocks and fixing mistakes is how people move 20–30 percentile points.</p><p style="margin:0"><b>Your edge:</b> Verbal is a third of the paper and it's your home ground. We'll make that rock-solid, then turn Quant and DILR from "scary" into "scoring".</p></div>`;

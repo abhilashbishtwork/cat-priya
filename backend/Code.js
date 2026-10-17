@@ -39,6 +39,7 @@ function doGet(e) {
     const str = row.slice(1).join("");
     return json_({ ok: true, updatedAt: row[0] || null, state: str ? JSON.parse(str) : null });
   }
+  if (action === "wipe" && e.parameter.key === ADMIN_KEY) return json_(wipe_(e.parameter.since));
   return json_({ ok: true, ping: now_() });
 }
 
@@ -54,8 +55,9 @@ function doPost(e) {
       write_(ev);
       if (ev.id) { cache.put("ev_" + ev.id, "1", 21600); done.push(ev.id); }
     });
-    if (body.state) saveState_(body.state, body.updatedAt);
-    return json_({ ok: true, ids: done });
+    let merged = null;
+    if (body.state) { merged = mergeState(readState_(), body.state); saveState_(merged); }
+    return json_({ ok: true, ids: done, state: merged });
   } finally {
     lock.releaseLock();
   }
@@ -75,12 +77,32 @@ function write_(ev) {
   }
 }
 
-function saveState_(state, updatedAt) {
-  const prev = Number(tab_("State").getRange(2, 1).getValue()) || 0;
-  if (Number(updatedAt) < prev) return; // never let an older copy overwrite a newer one
+function readState_() {
+  const str = tab_("State").getRange(2, 2, 1, 29).getValues()[0].join("");
+  return str ? JSON.parse(str) : null;
+}
+
+// Phone and laptop copies are merged (see Merge.js), never overwritten.
+function saveState_(state) {
+  const updatedAt = String(state.updatedAt || Date.now());
   const str = JSON.stringify(state), parts = [];
   for (let i = 0; i < str.length; i += 45000) parts.push(str.slice(i, i + 45000));
   const sh = tab_("State");
   sh.getRange(2, 1, 1, 30).clearContent();
-  sh.getRange(2, 1, 1, parts.length + 1).setValues([[updatedAt || now_()].concat(parts)]);
+  sh.getRange(2, 1, 1, parts.length + 1).setValues([[updatedAt].concat(parts)]);
+}
+
+// Test cleanup only: deletes rows written at/after `since` (IST "yyyy-MM-dd HH:mm:ss") and clears State.
+function wipe_(since) {
+  const out = {};
+  ["Attempts", "Answers", "Tasks", "Events"].forEach(name => {
+    const sh = tab_(name), n = sh.getLastRow() - 1;
+    if (n < 1) { out[name] = 0; return; }
+    const ts = sh.getRange(2, 1, n, 1).getValues().map(r => String(r[0]));
+    let del = 0;
+    for (let i = n - 1; i >= 0; i--) if (ts[i] >= since) { sh.deleteRow(i + 2); del++; }
+    out[name] = del;
+  });
+  tab_("State").getRange(2, 1, 1, 30).clearContent();
+  return { ok: true, deleted: out };
 }
