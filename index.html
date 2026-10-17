@@ -119,6 +119,44 @@ ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-b
 const NAME = "Priya";
 const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
 const PLAN = buildPlan();
+PLAN.forEach(d => d.base = d.tasks);
+
+// ---------- coach content (written daily by the coach agent into the Sheet's Content tab) ----------
+const CKEY = "catpriya_content_v2", BASE_LEVELS = { VARC: LEVELS.VARC.length, DILR: LEVELS.DILR.length, QA: LEVELS.QA.length }, BASE_SETS = new Set(Object.keys(SETS));
+let COACH = null;
+const str = (v, n) => typeof v === "string" ? v.slice(0, n) : "";
+function validQ(q) {
+  if (!q || typeof q.id !== "string" || typeof q.text !== "string" || typeof q.exp !== "string") return false;
+  if (q.set && !(q.set in SETS)) return false;
+  if (q.type === "mcq") return Array.isArray(q.opts) && q.opts.length === 4 && q.opts.every(o => typeof o === "string") && [0, 1, 2, 3].includes(q.ans);
+  return q.type === "tita" && (typeof q.ans === "string" || typeof q.ans === "number");
+}
+function applyContent(c) {
+  if (!c || typeof c !== "object") return;
+  Object.keys(SETS).forEach(k => { if (!BASE_SETS.has(k)) delete SETS[k]; });
+  Object.entries(c.sets || {}).forEach(([k, v]) => { if (/^[\w-]+$/.test(k) && !BASE_SETS.has(k) && typeof v === "string") SETS[k] = v.slice(0, 6000); });
+  ["VARC", "DILR", "QA"].forEach(sec => {
+    LEVELS[sec].length = BASE_LEVELS[sec];
+    (Array.isArray(c.levels?.[sec]) ? c.levels[sec] : []).forEach(L => {
+      const qs = (Array.isArray(L?.qs) ? L.qs : []).filter(validQ).map(q => ({ ...q, ans: q.type === "tita" ? String(q.ans) : q.ans }));
+      if (LEVELS[sec].length < 10 && qs.length === 5) LEVELS[sec].push({ title: str(L.title, 40) || "Coach Level", mins: Math.min(30, Math.max(5, +L.mins || 12)), qs });
+    });
+  });
+  PLAN.forEach(d => { const o = c.plan?.[d.date]; d.tasks = Array.isArray(o) && o.length ? o.filter(t => typeof t === "string").slice(0, 8).map(t => t.slice(0, 300)) : d.base; });
+  const k = c.coach;
+  COACH = k && typeof k === "object" ? { date: str(k.date, 20), headline: str(k.headline, 120), note: str(k.note, 1500), focus: (Array.isArray(k.focus) ? k.focus : []).filter(f => typeof f === "string").slice(0, 6).map(f => f.slice(0, 200)) } : null;
+}
+try { applyContent(JSON.parse(localStorage.getItem(CKEY))); } catch {}
+async function loadContent() {
+  try {
+    const j = await (await fetch(API + "?action=content")).json();
+    if (!j.content) return;
+    const before = localStorage.getItem(CKEY), now = JSON.stringify(j.content);
+    if (before === now) return;
+    try { localStorage.setItem(CKEY, now); } catch {}
+    applyContent(j.content); if (!Q) render();
+  } catch {}
+}
 const KEY = "catpriya_v2";
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -274,6 +312,7 @@ function homeView() {
   const dg = S.diag;
   const total = Object.values(S.levels).reduce((a, b) => a + b, 0);
   return `<h1>Good ${greet()}, ${NAME} ✨</h1><p>Day ${d.n} of ${PLAN.length} · <span class="tag acc">${d.phase}</span></p>
+  ${COACH && COACH.note ? `<div class="card hero"><p style="margin:0 0 4px;font-size:12px">📣 COACH'S NOTE${COACH.date ? " · " + esc(COACH.date) : ""}</p><h3 style="font-size:17px">${esc(COACH.headline)}</h3><p style="white-space:pre-wrap">${esc(COACH.note)}</p>${COACH.focus.length ? `<ul class="clean" style="color:#fff">${COACH.focus.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}</div>` : ""}
   <div class="card"><h3>🎯 Today's mission</h3>${tasks}</div>
   <div class="grid3"><div class="stat"><b>${dg.pct}</b><span>Est. %ile</span></div><div class="stat"><b>${total}/30</b><span>Levels</span></div><div class="stat"><b>${S.history.filter(h => h.kind === "mock").length}</b><span>Mocks</span></div></div>
   <h2>Your three sections</h2>${secCards()}
@@ -465,6 +504,8 @@ function morning() {
 }
 
 go("home"); tick(); morning();
+loadContent(); setInterval(() => { if (document.visibilityState === "visible") loadContent(); }, 300000);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") loadContent(); });
 queue({ type: "open", detail: navigator.userAgent.replace(/^Mozilla\/5\.0 /, "").slice(0, 120) });
 restore();
 </script>

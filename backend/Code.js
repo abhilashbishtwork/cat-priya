@@ -9,6 +9,7 @@ const TABS = {
   Tasks: ["Timestamp (IST)", "Plan day", "Date", "Task #", "Task", "Done"],
   Events: ["Timestamp (IST)", "Event", "Detail"],
   State: ["Updated at", "JSON (chunked across columns)"],
+  Content: ["Updated at", "JSON written by the coach agent (chunked across columns)"],
 };
 
 function ss_() { return SpreadsheetApp.openById(SHEET_ID); }
@@ -40,12 +41,15 @@ function doGet(e) {
     const str = row.slice(1).join("");
     return json_({ ok: true, updatedAt: row[0] || null, state: str ? JSON.parse(str) : null });
   }
+  if (action === "content") return json_({ ok: true, content: readJson_("Content") });
+  if (action === "dump" && e.parameter.key === ADMIN_KEY) return json_(dump_());
   if (action === "wipe" && e.parameter.key === ADMIN_KEY) return json_(wipe_(e.parameter.since));
   return json_({ ok: true, ping: now_() });
 }
 
 function doPost(e) {
   const body = JSON.parse(e.postData.contents);
+  if (body.admin === ADMIN_KEY && body.content) { writeJson_("Content", body.content); return json_({ ok: true, saved: "content" }); }
   // Fresh start 2026-10-17: ignore anything from older app versions (stale test data in old browsers).
   if (body.v !== APP_VERSION) return json_({ ok: true, ids: (body.events || []).map(ev => ev.id), ignored: true });
   const lock = LockService.getScriptLock();
@@ -80,9 +84,23 @@ function write_(ev) {
   }
 }
 
-function readState_() {
-  const str = tab_("State").getRange(2, 2, 1, 29).getValues()[0].join("");
+function readState_() { return readJson_("State"); }
+function readJson_(name) {
+  const str = tab_(name).getRange(2, 2, 1, 29).getValues()[0].join("");
   return str ? JSON.parse(str) : null;
+}
+function writeJson_(name, obj) {
+  const str = JSON.stringify(obj), parts = [];
+  for (let i = 0; i < str.length; i += 45000) parts.push(str.slice(i, i + 45000));
+  const sh = tab_(name);
+  sh.getRange(2, 1, 1, 30).clearContent();
+  sh.getRange(2, 1, 1, parts.length + 1).setValues([[now_()].concat(parts)]);
+}
+
+// Everything the coach agent needs to evaluate her, in one call.
+function dump_() {
+  const rows = name => { const v = tab_(name).getDataRange().getValues(); const h = v.shift(); return v.map(r => Object.fromEntries(h.map((k, i) => [k, r[i]]))); };
+  return { ok: true, now: now_(), state: readState_(), content: readJson_("Content"), attempts: rows("Attempts"), answers: rows("Answers"), tasks: rows("Tasks"), events: rows("Events").slice(-50) };
 }
 
 // Phone and laptop copies are merged (see Merge.js), never overwritten.
