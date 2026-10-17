@@ -10,7 +10,7 @@ function mergeState(a, b) {
     const useB = !inA || (inB && (tb > ta || (tb === ta && b.tasks[k])));
     tasks[k] = useB ? !!b.tasks[k] : !!a.tasks[k]; taskTs[k] = Math.max(ta, tb);
   });
-  const hist = {}, hkey = h => h.id || [h.date, h.kind, h.sec, h.level, h.c, h.net, h.secs].join("|");
+  const hist = {}, hkey = h => h.id || [h.date, h.kind, h.sec || "", +h.level || 0, +h.c || 0, +h.net || 0, +h.secs || 0].join("|");
   (a.history || []).concat(b.history || []).forEach(h => { hist[hkey(h)] = h; });
   const history = Object.keys(hist).map(k => hist[k]).sort((x, y) => (x.at || 0) - (y.at || 0) || (x.date < y.date ? -1 : x.date > y.date ? 1 : 0));
   const diag = !a.diag ? b.diag : !b.diag ? a.diag : ((b.diag.at || 0) > (a.diag.at || 0) ? b.diag : a.diag);
