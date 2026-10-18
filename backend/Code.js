@@ -49,7 +49,7 @@ function doGet(e) {
 
 function doPost(e) {
   const body = JSON.parse(e.postData.contents);
-  if (body.admin === ADMIN_KEY && body.content) { writeJson_("Content", body.content); return json_({ ok: true, saved: "content" }); }
+  if (body.admin === ADMIN_KEY && body.content) { writeJson_("Content", lightContent_(body.content)); return json_({ ok: true, saved: "content" }); }
   // Fresh start 2026-10-17: ignore anything from older app versions (stale test data in old browsers).
   if (body.v !== APP_VERSION) return json_({ ok: true, ids: (body.events || []).map(ev => ev.id), ignored: true });
   const lock = LockService.getScriptLock();
@@ -128,4 +128,16 @@ function wipe_(since) {
   });
   tab_("State").getRange(2, 1, 1, 30).clearContent();
   return { ok: true, deleted: out };
+}
+
+// Keep the Sheet light: questions/levels live in the app repo (levels.js), never here.
+// Only the coach note and the next 7 days of plan are stored.
+function lightContent_(c) {
+  const today = Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd");
+  const plan = {};
+  Object.keys(c.plan || {}).filter(d => d >= today).sort().slice(0, 7).forEach(d => { plan[d] = c.plan[d]; });
+  const out = { lastRun: c.lastRun || now_(), coach: c.coach || null, plan: plan };
+  const str = JSON.stringify(out);
+  if (str.length > 12000) throw new Error("Content too large (" + str.length + " chars); keep it under 12,000");
+  return out;
 }
