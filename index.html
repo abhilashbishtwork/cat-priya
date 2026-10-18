@@ -115,6 +115,7 @@ ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-b
 
 <script src="data.js"></script>
 <script src="merge.js"></script>
+<script src="levels.js"></script>
 <script>
 const NAME = "Priya";
 const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
@@ -132,12 +133,13 @@ function validQ(q) {
   return q.type === "tita" && (typeof q.ans === "string" || typeof q.ans === "number");
 }
 function applyContent(c) {
-  if (!c || typeof c !== "object") return;
+  if (!c || typeof c !== "object") c = {};
   Object.keys(SETS).forEach(k => { if (!BASE_SETS.has(k)) delete SETS[k]; });
-  Object.entries(c.sets || {}).forEach(([k, v]) => { if (/^[\w-]+$/.test(k) && !BASE_SETS.has(k) && typeof v === "string") SETS[k] = v.slice(0, 6000); });
+  Object.entries({ ...EXTRA.sets, ...(c.sets || {}) }).forEach(([k, v]) => { if (/^[\w-]+$/.test(k) && !BASE_SETS.has(k) && typeof v === "string") SETS[k] = v.slice(0, 6000); });
   ["VARC", "DILR", "QA"].forEach(sec => {
     LEVELS[sec].length = BASE_LEVELS[sec];
-    (Array.isArray(c.levels?.[sec]) ? c.levels[sec] : []).forEach(L => {
+    [...(EXTRA.levels[sec] || []), ...(Array.isArray(c.levels?.[sec]) ? c.levels[sec] : [])].forEach(L => {
+      if (LEVELS[sec].some(x => x.title === L?.title)) return;
       const qs = (Array.isArray(L?.qs) ? L.qs : []).filter(validQ).map(q => ({ ...q, ans: q.type === "tita" ? String(q.ans) : q.ans }));
       if (LEVELS[sec].length < 10 && qs.length === 5) LEVELS[sec].push({ title: str(L.title, 40) || "Coach Level", mins: Math.min(30, Math.max(5, +L.mins || 12)), qs });
     });
@@ -146,7 +148,7 @@ function applyContent(c) {
   const k = c.coach;
   COACH = k && typeof k === "object" ? { date: str(k.date, 20), headline: str(k.headline, 120), note: str(k.note, 1500), focus: (Array.isArray(k.focus) ? k.focus : []).filter(f => typeof f === "string").slice(0, 6).map(f => f.slice(0, 200)) } : null;
 }
-try { applyContent(JSON.parse(localStorage.getItem(CKEY))); } catch {}
+try { applyContent(JSON.parse(localStorage.getItem(CKEY))); } catch { applyContent(null); }
 async function loadContent() {
   try {
     const j = await (await fetch(API + "?action=content")).json();
