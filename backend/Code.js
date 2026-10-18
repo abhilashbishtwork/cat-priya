@@ -38,7 +38,7 @@ function doGet(e) {
   const action = (e.parameter || {}).action;
   if (action === "state") {
     const row = tab_("State").getRange(2, 1, 1, 30).getValues()[0];
-    const str = row.slice(1).join("");
+    const str = unchunk_(row.slice(1));
     return json_({ ok: true, updatedAt: row[0] || null, state: str ? JSON.parse(str) : null });
   }
   if (action === "content") return json_({ ok: true, content: readJson_("Content") });
@@ -86,12 +86,15 @@ function write_(ev) {
 
 function readState_() { return readJson_("State"); }
 function readJson_(name) {
-  const str = tab_(name).getRange(2, 2, 1, 29).getValues()[0].join("");
+  const str = unchunk_(tab_(name).getRange(2, 2, 1, 29).getValues()[0]);
   return str ? JSON.parse(str) : null;
 }
+// Long JSON is split across cells. Each chunk is stored with a leading "|" so Sheets never trims or
+// reinterprets a chunk that happens to start with a space, quote, digit or "=".
+function chunk_(str) { const parts = []; for (let i = 0; i < str.length; i += 45000) parts.push("|" + str.slice(i, i + 45000)); return parts; }
+function unchunk_(cells) { return cells.map(c => String(c)).filter(c => c !== "").map(c => c.charAt(0) === "|" ? c.slice(1) : c).join(""); }
 function writeJson_(name, obj) {
-  const str = JSON.stringify(obj), parts = [];
-  for (let i = 0; i < str.length; i += 45000) parts.push(str.slice(i, i + 45000));
+  const parts = chunk_(JSON.stringify(obj));
   const sh = tab_(name);
   sh.getRange(2, 1, 1, 30).clearContent();
   sh.getRange(2, 1, 1, parts.length + 1).setValues([[now_()].concat(parts)]);
@@ -106,8 +109,7 @@ function dump_() {
 // Phone and laptop copies are merged (see Merge.js), never overwritten.
 function saveState_(state) {
   const updatedAt = String(state.updatedAt || Date.now());
-  const str = JSON.stringify(state), parts = [];
-  for (let i = 0; i < str.length; i += 45000) parts.push(str.slice(i, i + 45000));
+  const parts = chunk_(JSON.stringify(state));
   const sh = tab_("State");
   sh.getRange(2, 1, 1, 30).clearContent();
   sh.getRange(2, 1, 1, parts.length + 1).setValues([[updatedAt].concat(parts)]);
