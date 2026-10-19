@@ -16,8 +16,10 @@ function mergeState(a, b) {
   const diag = !a.diag ? b.diag : !b.diag ? a.diag : ((b.diag.at || 0) > (a.diag.at || 0) ? b.diag : a.diag);
   const sa = a.streak || {}, sb = b.streak || {};
   const streak = (sa.last || "") === (sb.last || "") ? { last: sa.last || null, count: Math.max(sa.count || 0, sb.count || 0) } : ((sa.last || "") > (sb.last || "") ? sa : sb);
+  const fixed = Object.assign({}, a.fixed || {});
+  Object.keys(b.fixed || {}).forEach(k => { fixed[k] = Math.max(fixed[k] || 0, b.fixed[k] || 0); });
   return {
-    xp: Math.max(a.xp || 0, b.xp || 0), levels, tasks, taskTs, history, diag, streak,
+    xp: Math.max(a.xp || 0, b.xp || 0), levels, tasks, taskTs, fixed, history, diag, streak,
     lastBoost: (a.lastBoost || "") > (b.lastBoost || "") ? a.lastBoost : (b.lastBoost || a.lastBoost || null),
     updatedAt: Math.max(a.updatedAt || 0, b.updatedAt || 0),
   };

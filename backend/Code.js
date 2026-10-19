@@ -5,7 +5,7 @@ const APP_VERSION = 2;
 const SHEET_ID = "17Rde4-ZAhWxYuuS3n7tBf6YtA9xcK3gDkEBqEiMtOFs";
 const TABS = {
   Attempts: ["Timestamp (IST)", "Date", "Attempt ID", "Kind", "Section", "Level", "Correct", "Total", "Net score", "Seconds", "Passed", "Est. percentile", "Timed out"],
-  Answers: ["Timestamp (IST)", "Attempt ID", "Kind", "Q no", "Question ID", "Section", "Type", "Her answer", "Correct answer", "Result", "Marks", "Question"],
+  Answers: ["Timestamp (IST)", "Attempt ID", "Kind", "Q no", "Question ID", "Section", "Type", "Her answer", "Correct answer", "Result", "Marks", "Question", "Seconds"],
   Tasks: ["Timestamp (IST)", "Plan day", "Date", "Task #", "Task", "Done"],
   Events: ["Timestamp (IST)", "Event", "Detail"],
   State: ["Updated at", "JSON (chunked across columns)"],
@@ -74,8 +74,9 @@ function write_(ev) {
   const ts = now_();
   if (ev.type === "attempt") {
     const a = ev.attempt;
-    tab_("Attempts").appendRow([ts, a.date, ev.id, a.kind, a.sec || "Mixed", a.level || "", a.c, a.t, a.net, a.secs, a.pass === undefined ? "" : a.pass ? "Yes" : "No", a.pct || "", a.timeout ? "Yes" : ""]);
-    const rows = (ev.answers || []).map((x, i) => [ts, ev.id, a.kind, i + 1, x.qid, x.sec, x.type, x.her, x.correct, x.result, x.marks, x.text]);
+    tab_("Attempts").appendRow([ts, a.date, ev.id, a.kind + (a.retry ? " (retry)" : "") + (a.attemptNo > 1 ? " #" + a.attemptNo : ""), a.sec || "Mixed", a.kind === "level" ? a.level : "", a.c, a.t, a.net, a.secs, a.pass === undefined ? "" : a.pass ? "Yes" : "No", a.pct || "", a.timeout ? "Yes" : ""]);
+    const rows = (ev.answers || []).map((x, i) => [ts, ev.id, a.kind, i + 1, x.qid, x.sec, x.type, x.her, x.correct, x.result, x.marks, x.text, x.secs || ""]);
+    const ans = tab_("Answers"); if (ans.getRange(1, 13).getValue() !== "Seconds") ans.getRange(1, 13).setValue("Seconds").setFontWeight("bold");
     if (rows.length) { const sh = tab_("Answers"); sh.getRange(sh.getLastRow() + 1, 1, rows.length, rows[0].length).setValues(rows); }
   } else if (ev.type === "task") {
     tab_("Tasks").appendRow([ts, ev.day, ev.date, ev.idx + 1, ev.task, ev.done ? "Done" : "Unticked"]);

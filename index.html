@@ -94,6 +94,14 @@ th{font-size:12px;color:var(--mut);text-transform:uppercase}
 input[type=range]{width:100%;accent-color:var(--acc)}
 .muted{color:var(--mut);font-size:13px}
 .center{text-align:center}
+.move{background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border:0}
+.move p{color:#ffedd5}.move .btn{background:#fff;color:#c2410c}
+.verdict{display:grid;grid-template-columns:auto 1fr auto;gap:8px 10px;align-items:center;font-size:14px}
+.verdict .bar2{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.verdict .bar2 i{display:block;height:100%;border-radius:9px}
+.stars{letter-spacing:-2px;font-size:11px}
+.lvl.retry{background:#f59e0b;color:#fff}
+.kpi{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1}
+.pill2{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--line);color:var(--ink2);margin:2px 4px 2px 0}
 ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-bottom:4px}
 </style>
 </head>
@@ -107,15 +115,16 @@ ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-b
 <nav id="nav">
   <button data-v="home"><b>🏠</b>Home</button>
   <button data-v="practice"><b>🎯</b>Practice</button>
+  <button data-v="mocks"><b>⏱️</b>Mocks</button>
   <button data-v="plan"><b>🗓️</b>Plan</button>
   <button data-v="colleges"><b>🎓</b>Colleges</button>
-  <button data-v="guide"><b>📘</b>Guide</button>
 </nav>
 <div id="modal"></div>
 
 <script src="data.js"></script>
 <script src="merge.js"></script>
 <script src="levels.js"></script>
+<script src="mocks.js"></script>
 <script>
 const NAME = "Priya";
 const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
@@ -166,7 +175,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 // ---------- state ----------
 let S;
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { S = {}; }
-S = Object.assign({ xp:0, levels:{VARC:0,DILR:0,QA:0}, tasks:{}, taskTs:{}, history:[], streak:{last:null,count:0}, diag:null, lastBoost:null, imgs:{} }, S);
+S = Object.assign({ xp:0, levels:{VARC:0,DILR:0,QA:0}, tasks:{}, taskTs:{}, fixed:{}, history:[], streak:{last:null,count:0}, diag:null, lastBoost:null, imgs:{} }, S);
 const save = (touch = true) => { if (touch) S.updatedAt = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} if (touch) syncSoon(); };
 
 // ---------- cloud sync (Google Sheet via Apps Script) ----------
@@ -201,7 +210,8 @@ function clean(r) {
     updatedAt: N(r.updatedAt),
     streak: { last: D(r.streak?.last), count: N(r.streak?.count) },
     diag: r.diag ? { at: N(r.diag.at), net: N(r.diag.net), c: N(r.diag.c), pct: N(r.diag.pct), date: D(r.diag.date), bySec: sec3(r.diag.bySec) } : null,
-    history: (Array.isArray(r.history) ? r.history : []).filter(h => D(h?.date)).map(h => ({ id: String(h.id || "").replace(/\W/g, "") || undefined, at: N(h.at), date: h.date, kind: ["diag","level","mock"].includes(h.kind) ? h.kind : "mock", sec: SEC(h.sec), level: N(h.level), c: N(h.c), t: N(h.t), net: N(h.net), secs: N(h.secs), pass: !!h.pass, pct: N(h.pct), timeout: !!h.timeout, wrong: String(h.wrong || "").replace(/[^\w,]/g, "") })),
+    history: (Array.isArray(r.history) ? r.history : []).filter(h => D(h?.date)).map(h => ({ id: String(h.id || "").replace(/\W/g, "") || undefined, at: N(h.at), date: h.date, kind: ["diag","level","mock","sectional","full","drill"].includes(h.kind) ? h.kind : "mock", sec: SEC(h.sec), level: N(h.level), c: N(h.c), t: N(h.t), net: N(h.net), secs: N(h.secs), pass: !!h.pass, pct: N(h.pct), timeout: !!h.timeout, retry: !!h.retry, attemptNo: N(h.attemptNo), mock: String(h.mock || "").replace(/\W/g, "") || undefined, wrong: String(h.wrong || "").replace(/[^\w,]/g, ""), skipped: String(h.skipped || "").replace(/[^\w,]/g, "") })),
+    fixed: Object.fromEntries(Object.entries(r.fixed || {}).filter(([k]) => /^\w+$/.test(k)).map(([k, v]) => [k, N(v)])),
   };
 }
 // Merge the cloud copy into this device's copy; push back if this device had anything the cloud lacked.
@@ -294,7 +304,7 @@ document.querySelectorAll("nav button").forEach(b => b.onclick = () => go(b.data
 function render() {
   const a = $("#app");
   if (!S.diag) { a.innerHTML = welcomeView(); return; }
-  a.innerHTML = ({ home: homeView, practice: practiceView, plan: planView, colleges: collegesView, guide: guideView })[view]();
+  a.innerHTML = ({ home: homeView, practice: practiceView, mocks: mocksView, plan: planView, colleges: collegesView, guide: guideView })[view]();
   fillImgs(); tick();
 }
 
@@ -307,19 +317,64 @@ function welcomeView() {
   <button class="btn" onclick="startQuiz('diag')">Start diagnostic →</button></div>`;
 }
 
+// ---------- honest analytics: mastery, mistakes, pace ----------
+const PACE = { VARC: 100, DILR: 109, QA: 109 }; // CAT seconds per question (40 min / questions)
+function qIndex() { const m = {}; DIAGNOSTIC.forEach(q => m[q.id] = q);
+  for (const sec in LEVELS) LEVELS[sec].forEach(L => L.qs.forEach(q => m[q.id] = { ...q, sec }));
+  if (typeof MOCKS !== "undefined") Object.values(MOCKS.qs).forEach(q => m[q.id] = q);
+  return m; }
+// First attempt at each level decides mastery; retries only "clear" it.
+function levelStats() {
+  const out = { VARC: {}, DILR: {}, QA: {} };
+  S.history.filter(h => h.kind === "level" && out[h.sec]).forEach(h => { const L = out[h.sec][h.level] = out[h.sec][h.level] || { tries: 0 };
+    L.tries++; if (L.tries === 1) { L.first = !!h.pass; L.c = h.c; L.t = h.t; L.secs = h.secs; } if (h.pass && !L.passAt) L.passAt = L.tries; });
+  return out;
+}
+function openMistakes() {
+  const last = {}, idx = qIndex(), fixed = S.fixed || {};
+  S.history.forEach(h => (h.wrong || "").split(",").concat((h.skipped || "").split(",")).filter(Boolean).forEach(id => { last[id] = Math.max(last[id] || 0, h.at || 0); }));
+  return Object.keys(last).filter(id => idx[id] && !(fixed[id] >= last[id])).map(id => idx[id]);
+}
+function insights() {
+  const ls = levelStats(), mist = openMistakes(), res = {};
+  ["VARC","DILR","QA"].forEach(sec => { const lv = Object.values(ls[sec]);
+    const firsts = lv.filter(l => l.first !== undefined), fp = firsts.filter(l => l.first).length;
+    const c = firsts.reduce((a, l) => a + l.c, 0), t = firsts.reduce((a, l) => a + l.t, 0), secs = firsts.reduce((a, l) => a + l.secs, 0);
+    const mocks = S.history.filter(h => (h.kind === "sectional" && h.sec === sec));
+    const rate = firsts.length ? fp / firsts.length : 0;
+    res[sec] = { cleared: S.levels[sec], played: firsts.length, firstPass: fp, rate, acc: t ? c / t : 0, pace: t ? Math.round(secs / t) : 0,
+      mistakes: mist.filter(q => q.sec === sec).length, mock: mocks.length ? mocks[mocks.length - 1] : null,
+      verdict: rate >= .67 ? ["Strong", "ok"] : rate >= .34 ? ["Building", ""] : ["Red flag", "bad"] };
+  });
+  return { sec: res, mistakes: mist };
+}
+function nextMove() {
+  const I = insights(), secs = ["QA","DILR","VARC"];
+  const worst = secs.slice().sort((a, b) => I.sec[a].rate - I.sec[b].rate || I.sec[b].mistakes - I.sec[a].mistakes)[0], W = I.sec[worst];
+  if (W.mistakes >= 3) return { title: `Fix ${Math.min(W.mistakes, 10)} ${worst} mistakes`, why: `${worst} first-try pass rate is ${W.firstPass}/${W.played}. Passing on retry = remembering, not mastering. Prove each method on the questions you got wrong.`, cta: `Start Mistake Drill →`, act: `startQuiz('drill','${worst}')` };
+  const noMock = secs.find(s => S.levels[s] >= 8 && !I.sec[s].mock && MOCKS.list.length);
+  if (noMock) return { title: `Take your first ${noMock} sectional — real CAT format`, why: `You've cleared Level ${S.levels[noMock]}. Levels test methods; the sectional tests you at CAT difficulty and pace — 40 minutes, no help.`, cta: `Start ${noMock} Sectional →`, act: `startQuiz('sectional','${noMock}')` };
+  const lvlSec = secs.find(s => S.levels[s] < LEVELS[s].length);
+  if (lvlSec) return { title: `${lvlSec} Level ${S.levels[lvlSec] + 1} — first try or nothing`, why: `Only first-try passes earn ⭐ Mastered. Read slowly, then commit.`, cta: `Play Level ${S.levels[lvlSec] + 1} →`, act: `startQuiz('level','${lvlSec}',${S.levels[lvlSec]})` };
+  return { title: `Full CAT mock — 2 hours, all three sections`, why: `Every level is done. Now train stamina and section-switching under real timing.`, cta: `Start Full Mock →`, act: `startQuiz('full')` };
+}
+
 function homeView() {
   $("#nav").style.display = "flex";
-  const d = todayPlan(), boost = BOOSTS[d.n % BOOSTS.length];
+  const d = todayPlan(), I = insights(), M = nextMove();
   const tasks = d.tasks.map((t, i) => { const k = d.date + ":" + i; return `<label class="task ${S.tasks[k] ? "done" : ""}"><input type="checkbox" ${S.tasks[k] ? "checked" : ""} onchange="toggleTask('${k}',this.checked)"><span>${esc(t)}</span></label>`; }).join("");
-  const dg = S.diag;
-  const total = Object.values(S.levels).reduce((a, b) => a + b, 0);
-  return `<h1>Good ${greet()}, ${NAME} ✨</h1><p>Day ${d.n} of ${PLAN.length} · <span class="tag acc">${d.phase}</span></p>
-  ${COACH && COACH.note ? `<div class="card hero"><p style="margin:0 0 4px;font-size:12px">📣 COACH'S NOTE${COACH.date ? " · " + esc(COACH.date) : ""}</p><h3 style="font-size:17px">${esc(COACH.headline)}</h3><p style="white-space:pre-wrap">${esc(COACH.note)}</p>${COACH.focus.length ? `<ul class="clean" style="color:#fff">${COACH.focus.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}</div>` : ""}
-  <div class="card"><h3>🎯 Today's mission</h3>${tasks}</div>
-  <div class="grid3"><div class="stat"><b>${dg.pct}</b><span>Est. %ile</span></div><div class="stat"><b>${total}/30</b><span>Levels</span></div><div class="stat"><b>${S.history.filter(h => h.kind === "mock").length}</b><span>Mocks</span></div></div>
+  const doneT = d.tasks.filter((_, i) => S.tasks[d.date + ":" + i]).length;
+  const coach = COACH && COACH.note ? `<details class="card"><summary style="cursor:pointer;list-style:none"><p class="muted" style="margin:0 0 4px;font-size:12px">📣 COACH'S NOTE${COACH.date ? " · " + esc(COACH.date) : ""} · tap to read</p><h3 style="font-size:16px;margin:0">${esc(COACH.headline)}</h3></summary><p style="white-space:pre-wrap;margin-top:10px">${esc(COACH.note)}</p>${COACH.focus.length ? `<ul class="clean">${COACH.focus.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}</details>` : "";
+  const rows = ["VARC","DILR","QA"].map(s => { const x = I.sec[s], col = x.verdict[1] === "ok" ? "var(--ok)" : x.verdict[1] === "bad" ? "var(--bad)" : "#f59e0b";
+    return `<b>${SECS[s].icon} ${s}</b><div><div class="bar2"><i style="width:${Math.round(x.rate * 100)}%;background:${col}"></i></div><div class="muted" style="font-size:12px;margin-top:3px">⭐ ${x.firstPass}/${x.played} first-try · ${Math.round(x.acc * 100)}% acc · ${x.pace || "–"}s/q (CAT ${PACE[s]}s)${x.mock ? ` · mock ~${x.mock.pct}%ile` : ""}${x.mistakes ? ` · ${x.mistakes} to fix` : ""}</div></div><span class="tag ${x.verdict[1]}">${x.verdict[0]}</span>`; }).join("");
+  return `<h1>Good ${greet()}, ${NAME} ✨</h1><p>Day ${d.n} of ${PLAN.length} · <span class="tag acc">${d.phase}</span> · 🔥 ${S.streak.count}-day streak</p>
+  <div class="card move"><p style="margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.5px">YOUR #1 MOVE RIGHT NOW</p><h3 style="font-size:19px;line-height:1.25">${esc(M.title)}</h3><p>${esc(M.why)}</p><button class="btn" onclick="${M.act}">${esc(M.cta)}</button></div>
+  <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><h3>📊 Where you really stand</h3><span class="muted" style="font-size:12px">first-try = honest score</span></div><div class="verdict" style="margin-top:8px">${rows}</div>
+  ${I.mistakes.length ? `<button class="btn sec" style="margin-top:12px" onclick="startQuiz('drill')">🔁 Mistake Bank — ${I.mistakes.length} to fix</button>` : `<p class="muted" style="margin:10px 0 0">✅ Mistake Bank empty — every miss has been fixed.</p>`}</div>
+  ${coach}
+  <div class="card"><div style="display:flex;justify-content:space-between"><h3>🎯 Today's mission</h3><span class="tag ${doneT === d.tasks.length ? "ok" : "acc"}">${doneT}/${d.tasks.length}</span></div>${tasks}<p class="muted" style="margin:6px 0 0;font-size:12px">Tick as you go — your coach reads these every night.</p></div>
   <h2>Your three sections</h2>${secCards()}
-  <button class="btn" style="margin-top:4px" onclick="startQuiz('mock')">⏱️ Speed Mock — 12 Qs · 24 min</button>
-  <div class="card" style="margin-top:12px;background:var(--acc2);border:0"><h3>💬 Coach says</h3><p style="margin:0">${esc(boost)}</p></div>
+  <div class="row2"><button class="btn sec" onclick="go('mocks')">⏱️ Mocks</button><button class="btn sec" onclick="go('guide')">📘 Handbook</button></div>
   <h2>Recent activity</h2>${historyList(5)}`;
 }
 const greet = () => { const h = new Date(Date.now() + 19800000).getUTCHours(); return h < 12 ? "morning" : h < 17 ? "afternoon" : "evening"; };
@@ -327,28 +382,29 @@ const greet = () => { const h = new Date(Date.now() + 19800000).getUTCHours(); r
 function secCards() {
   return Object.keys(SECS).map(k => { const s = SECS[k], n = S.levels[k];
     return `<div class="card secCard" onclick="openSec('${k}')"><div class="secIcon" style="background:${s.bg}">${s.icon}</div><div class="meta"><h3>${k} · ${s.label}</h3>
-    <div class="muted">Level ${n}/10 · ${levelName(n)} · diagnostic ${S.diag.bySec[k].c}/${S.diag.bySec[k].t}</div><div class="prog"><i style="width:${n * 10}%"></i></div></div><b style="color:var(--mut)">›</b></div>`; }).join("");
+    <div class="muted">Level ${n}/10 · ${levelName(n)} · ⭐ ${Object.values(levelStats()[k]).filter(l => l.first).length} mastered</div><div class="prog"><i style="width:${n * 10}%"></i></div></div><b style="color:var(--mut)">›</b></div>`; }).join("");
 }
 function historyList(n) {
   const h = S.history.slice(-n).reverse();
   if (!h.length) return `<p class="muted">Nothing yet — clear a level!</p>`;
-  return `<div class="card">${h.map(x => `<div class="task"><span style="flex:1">${x.kind === "level" ? `${x.sec} Level ${x.level}` : x.kind === "mock" ? "Speed Mock" : "Diagnostic"} · ${x.c}/${x.t} correct · net ${x.net}</span><span class="tag ${x.pass ? "ok" : ""}">${x.date.slice(5)}</span></div>`).join("")}</div>`;
+  return `<div class="card">${h.map(x => `<div class="task"><span style="flex:1">${x.kind === "level" ? `${x.sec} Level ${x.level}` : x.kind === "mock" ? "Speed Mock" : x.kind === "sectional" ? `${x.sec} Sectional · ~${x.pct}%ile` : x.kind === "full" ? `Full Mock · ~${x.pct}%ile` : x.kind === "drill" ? "Mistake Drill" : "Diagnostic"} · ${x.c}/${x.t} correct · net ${x.net}</span><span class="tag ${x.pass ? "ok" : ""}">${x.date.slice(5)}</span></div>`).join("")}</div>`;
 }
 
 let curSec = "VARC";
 function openSec(k) { curSec = k; go("practice"); }
 function practiceView() {
   const tabs = Object.keys(SECS).map(k => `<button class="btn ${k === curSec ? "" : "sec"}" style="padding:10px" onclick="curSec='${k}';render()">${SECS[k].icon} ${k}</button>`).join("");
-  const n = S.levels[curSec], avail = LEVELS[curSec].length;
+  const n = S.levels[curSec], avail = LEVELS[curSec].length, ls = levelStats()[curSec];
   const cells = Array.from({ length: 10 }, (_, i) => { const L = i + 1;
-    const cls = L <= n ? "pass" : (L === n + 1 && L <= avail) ? "open" : "";
+    const st = ls[L], mastered = L <= n && st && st.first;
+    const cls = L <= n ? (mastered ? "pass" : "retry") : (L === n + 1 && L <= avail) ? "open" : "";
     const click = (L <= n || (L === n + 1 && L <= avail)) ? `onclick="startQuiz('level','${curSec}',${i})"` : "";
-    return `<button class="lvl ${cls}" ${click}>${L <= n ? "✓" : L}<small>${L <= n ? "redo" : L === n + 1 && L <= avail ? "GO" : "🔒"}</small></button>`; }).join("");
+    return `<button class="lvl ${cls}" ${click}>${L <= n ? (mastered ? "⭐" : "✓") : L}<small>${L <= n ? (mastered ? "mastered" : "retry") : L === n + 1 && L <= avail ? "GO" : "🔒"}</small></button>`; }).join("");
   const next = n < avail ? LEVELS[curSec][n] : null;
   return `<div class="grid3">${tabs}</div>
-  <div class="card" style="margin-top:12px"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/10</h3><p class="muted">Rank: <b>${levelName(n)}</b>. Score 4/5 to clear a level and unlock the next.</p><div class="lvls">${cells}</div></div>
+  <div class="card" style="margin-top:12px"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/10</h3><p class="muted">Rank: <b>${levelName(n)}</b>. 4/5 clears a level. <b>⭐ Mastered</b> = cleared on the first try. <span style="color:#d97706;font-weight:700">✓ Retry</span> = cleared after a fail — fix those in the Mistake Bank.</p><div class="lvls">${cells}</div></div>
   ${next ? `<div class="card"><h3>Next up: Level ${n + 1} · ${next.title}</h3><p class="muted">5 questions · ${next.mins} min · instant feedback after each answer</p><button class="btn" onclick="startQuiz('level','${curSec}',${n})">Play Level ${n + 1} →</button></div>`
-    : n >= 10 ? `<div class="card hero"><h3>🏆 All 10 levels cleared. Legend.</h3></div>` : `<div class="card" style="background:var(--acc2);border:0"><h3>🔓 Level ${n + 1} drops soon</h3><p style="margin:0">You've cleared everything live right now — your coach is building the next level. Check back tomorrow, and try the Speed Mock meanwhile.</p></div>`}
+    : n >= 10 ? `<div class="card hero"><h3>🏆 All 10 levels cleared.</h3><p style="margin:0 0 10px">Next layer: the ${curSec} sectional — real CAT difficulty, 40 minutes.</p><button class="btn" onclick="startQuiz('sectional','${curSec}')">Start ${curSec} Sectional →</button></div>` : `<div class="card" style="background:var(--acc2);border:0"><h3>🔓 Level ${n + 1} drops soon</h3><p style="margin:0">You've cleared everything live right now — your coach is building the next level. Check back tomorrow, and try the Speed Mock meanwhile.</p></div>`}
   <h2>Concept videos</h2><div class="card">${VIDEOS.filter(v => v.title.includes(curSec) || (curSec === "QA" && /QA|Rodha/.test(v.title))).map(v => `<div class="task"><a href="${v.url}" target="_blank" rel="noopener">▶ ${esc(v.title)}</a></div>`).join("") || `<p class="muted">See Guide → Videos.</p>`}</div>`;
 }
 
@@ -382,12 +438,12 @@ function collegesView() {
 function guideView() {
   return `<h1>📘 Your handbook</h1>
   <div class="card"><h3>How this app works</h3><ul class="clean">
-  <li><b>Home</b> — today's mission. Tick every task; ticks build your plan progress bar and streak.</li>
-  <li><b>Practice</b> — 3 sections × 10 levels. Score 4/5 to unlock the next level. New levels drop regularly.</li>
-  <li><b>Speed Mock</b> — timed, CAT marking, results at the end like the real thing.</li>
-  <li><b>Plan</b> — the full day-by-day schedule till 29 Nov.</li>
-  <li><b>Colleges</b> — what each percentile unlocks, with campus photos and videos.</li>
-  <li><b>Share progress</b> (below) — send your report to Abhilash each evening so your coach can adjust tomorrow's plan.</li></ul>
+  <li><b>Your #1 move</b> (top of Home) — the single most useful thing to do right now, picked from your own data. When in doubt, press it.</li>
+  <li><b>Where you really stand</b> — your honest numbers: first-try pass rate, accuracy and seconds per question against CAT pace.</li>
+  <li><b>⭐ Mastered vs ✓ Retry</b> — a level counts as mastered only on the first try. Retries shuffle the options, but the questions repeat, so memory helps. Prove the method in the Mistake Bank.</li>
+  <li><b>🔁 Mistake Bank</b> — every question you got wrong, until you get it right in a drill.</li>
+  <li><b>⏱️ Mocks</b> — real CAT format and difficulty: 40-minute sectionals and a 2-hour full mock with section locks. This is where your real percentile shows.</li>
+  <li><b>Today's mission</b> — your coach rewrites it every night from your data. Tick the tasks; the coach reads them.</li></ul>
   <button class="btn" onclick="shareReport()">📤 Share today's progress</button></div>
 
   <div class="card"><h3>CAT 2026 at a glance</h3><table>
@@ -416,30 +472,72 @@ function shareReport() {
   location.href = "https://wa.me/?text=" + encodeURIComponent(txt);
 }
 
+// ---------- mocks ----------
+// Rough CAT score→percentile curves (net ÷ max). Deliberately conservative: we subtract 5 at the end.
+const PCT_CURVE = { VARC: [[0,25],[.10,55],[.18,70],[.24,80],[.32,90],[.40,95],[.55,99]], DILR: [[0,25],[.08,55],[.15,70],[.20,80],[.28,90],[.35,95],[.50,99]],
+  QA: [[0,25],[.07,55],[.14,70],[.19,80],[.27,90],[.35,95],[.50,99]], ALL: [[0,25],[.09,55],[.16,70],[.21,80],[.29,90],[.37,95],[.50,99]] };
+function mockPct(net, max, curve) {
+  const r = Math.max(0, net) / max, c = PCT_CURVE[curve];
+  let p = c[c.length - 1][1];
+  for (let i = 1; i < c.length; i++) if (r <= c[i][0]) { const [x0, y0] = c[i - 1], [x1, y1] = c[i]; p = y0 + (y1 - y0) * (r - x0) / (x1 - x0); break; }
+  return Math.max(20, Math.min(97, Math.round(p - 5)));
+}
+function mockQs(mock, sec) { return MOCKS.list.find(m => m.id === mock).parts[sec].map(id => MOCKS.qs[id]); }
+function mocksView() {
+  const m = MOCKS.list[0];
+  if (!m) return `<h1>⏱️ Mocks</h1><p>Your first CAT-format mocks are being written. Check back soon.</p>`;
+  const past = k => S.history.filter(h => (h.kind === "sectional" && h.sec === k) || (k === "full" && h.kind === "full"));
+  const row = (k, label, mins, n) => { const p = past(k), best = p.length ? Math.max(...p.map(h => h.pct)) : null;
+    return `<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><h3>${label}</h3>${best !== null ? `<span class="tag ok">best ~${best}%ile</span>` : `<span class="tag acc">not taken</span>`}</div>
+    <p class="muted">${n} questions · ${mins} min · CAT marking · no hints until you submit${k === "full" ? " · sections lock after 40 min each, like the real exam" : ""}</p>
+    ${p.length ? `<p class="muted" style="margin-top:-4px">Attempts: ${p.map(h => `${h.date.slice(5)} → ${h.net}/${h.t * 3} (~${h.pct}%ile)`).join(" · ")}${p.length ? " · retakes reuse the same questions, so scores rise from memory" : ""}</p>` : ""}
+    <button class="btn ${p.length ? "sec" : ""}" onclick="startQuiz('${k === "full" ? "full" : "sectional"}','${k}')">${p.length ? "Retake" : "Start"} →</button></div>`; };
+  return `<h1>⏱️ CAT-format mocks</h1><p>This is the real test. Questions are at actual CAT difficulty and pace — new ones you've never seen. Your percentile here is the honest one.</p>
+  <div class="card" style="background:var(--acc2);border:0"><h3>How to take a mock</h3><ul class="clean" style="margin:0"><li>Quiet room, phone on silent, one sitting.</li><li>Skip freely — a wrong MCQ costs −1, a skip costs 0. TITA has no penalty: never leave it blank if you have a guess.</li><li>DILR: spend the first 3 minutes reading every set, then attack the 2 easiest.</li></ul></div>
+  ${row("VARC", "📖 VARC Sectional 1", 40, m.parts.VARC.length)}${row("DILR", "🧩 DILR Sectional 1", 40, m.parts.DILR.length)}${row("QA", "🔢 QA Sectional 1", 40, m.parts.QA.length)}
+  ${row("full", "🏁 Full CAT Mock 1 (all three)", 120, m.parts.VARC.length + m.parts.DILR.length + m.parts.QA.length)}
+  <p class="muted">Percentiles are rough, based on past CAT score patterns, and deliberately set low.</p>`;
+}
+
 // ---------- quiz engine ----------
 let Q = null, timerId = null;
+function shuffleOpts(q) { const ord = [0, 1, 2, 3].sort(() => Math.random() - .5); return { ...q, opts: ord.map(i => q.opts[i]), ans: ord.indexOf(q.ans) }; }
 function startQuiz(mode, sec, idx) {
-  let qs, mins, title;
+  let qs, mins, title, parts = null;
   if (mode === "diag") { qs = DIAGNOSTIC; mins = 20; title = "Diagnostic"; }
-  else if (mode === "level") { const L = LEVELS[sec][idx]; qs = L.qs.map(q => ({ ...q, sec })); mins = L.mins; title = `${sec} · Level ${idx + 1} · ${L.title}`; }
-  else { const pool = allQs().sort(() => Math.random() - .5); const pick = ["VARC","DILR","QA"].flatMap(s => pool.filter(q => q.sec === s).slice(0, 4)); qs = pick; mins = 24; title = "Speed Mock"; }
-  Q = { mode, sec, idx, qs, title, i: 0, ans: {}, checked: {}, end: Date.now() + mins * 6e4, start: Date.now() };
+  else if (mode === "level") { const L = LEVELS[sec][idx], tried = S.history.some(h => h.kind === "level" && h.sec === sec && h.level === idx + 1);
+    qs = L.qs.map(q => ({ ...q, sec })).map(q => tried && q.type === "mcq" ? shuffleOpts(q) : q); mins = L.mins; title = `${sec} · Level ${idx + 1} · ${L.title}${tried ? " (retry)" : ""}`; }
+  else if (mode === "drill") { const pool = openMistakes().filter(q => !sec || q.sec === sec).sort(() => Math.random() - .5).slice(0, 10);
+    if (!pool.length) { alert("No open mistakes — brilliant."); return; }
+    qs = pool.map(q => q.type === "mcq" ? shuffleOpts(q) : q); mins = Math.max(10, pool.length * 2); title = `Mistake Drill${sec ? " · " + sec : ""} · ${pool.length} to fix`; }
+  else if (mode === "sectional") { qs = mockQs(MOCKS.list[0].id, sec); mins = 40; title = `${sec} Sectional · ${MOCKS.list[0].title}`; }
+  else if (mode === "full") { const m = MOCKS.list[0]; qs = []; parts = [];
+    ["VARC","DILR","QA"].forEach(s => { const a = mockQs(m.id, s); parts.push({ sec: s, from: qs.length, to: qs.length + a.length, mins: 40 }); qs = qs.concat(a); });
+    mins = 40; title = `Full CAT Mock · ${m.title}`; }
+  else { const pool = allQs().sort(() => Math.random() - .5); qs = ["VARC","DILR","QA"].flatMap(s => pool.filter(q => q.sec === s).slice(0, 4)); mins = 24; title = "Speed Mock"; }
+  if (mode === "sectional") parts = [{ sec, from: 0, to: qs.length, mins: 40 }];
+  Q = { mode, sec, idx, qs, title, parts, part: 0, i: 0, ans: {}, checked: {}, qt: {}, end: Date.now() + mins * 6e4, start: Date.now() };
   $("#nav").style.display = "none"; clearInterval(timerId); timerId = setInterval(qTick, 500); drawQ(); scrollTo(0, 0);
 }
-function qTick() { if (!Q) return; const ms = Q.end - Date.now(); const el = $("#timer"); if (ms <= 0) { finishQuiz(true); return; } if (el) { el.textContent = `⏱ ${Math.floor(ms / 6e4)}:${String(Math.floor(ms % 6e4 / 1e3)).padStart(2, "0")}`; el.classList.toggle("low", ms < 6e4); } }
+function stamp() { if (!Q) return; const now = Date.now(); if (Q.curId) Q.qt[Q.curId] = (Q.qt[Q.curId] || 0) + (now - Q.shownAt); Q.curId = Q.qs[Q.i] && Q.qs[Q.i].id; Q.shownAt = now; }
+function nextPart() { stamp(); if (Q.parts && Q.part < Q.parts.length - 1) { Q.part++; Q.i = Q.parts[Q.part].from; Q.end = Date.now() + Q.parts[Q.part].mins * 6e4; drawQ(); scrollTo(0, 0); } else finishQuiz(); }
+function qTick() { if (!Q) return; const ms = Q.end - Date.now(); const el = $("#timer"); if (ms <= 0) { if (Q.parts && Q.part < Q.parts.length - 1) nextPart(); else finishQuiz(true); return; } if (el) { el.textContent = `⏱ ${Math.floor(ms / 6e4)}:${String(Math.floor(ms % 6e4 / 1e3)).padStart(2, "0")}`; el.classList.toggle("low", ms < 6e4); } }
 function drawQ() {
-  const q = Q.qs[Q.i], a = Q.ans[q.id], instant = Q.mode === "level", chk = Q.checked[q.id];
-  const stem = q.set ? `<div class="stem">${esc(SETS[q.set])}</div>` : "";
+  stamp();
+  const q = Q.qs[Q.i], a = Q.ans[q.id], instant = Q.mode === "level" || Q.mode === "drill", chk = Q.checked[q.id];
+  const P = Q.parts ? Q.parts[Q.part] : { from: 0, to: Q.qs.length };
+  const stem = q.set ? `<div class="stem">${esc(SETS[q.set] || MOCKS.sets[q.set] || "")}</div>` : "";
   let body;
   if (q.type === "mcq") body = q.opts.map((o, j) => { let c = a === j ? "sel" : ""; if (chk) c = j === q.ans ? "right" : a === j ? "wrong" : ""; return `<button class="opt ${c}" ${chk ? "disabled" : ""} onclick="pick(${j})">${"ABCD"[j]}. ${esc(o)}</button>`; }).join("");
-  else body = `<input class="tita" inputmode="${/^\d+$/.test(q.ans) ? "numeric" : "text"}" placeholder="Type your answer" value="${a != null ? esc(a) : ""}" ${chk ? "disabled" : ""} oninput="Q.ans['${q.id}']=this.value.trim()">` + (chk ? `<p><b>Answer: ${esc(q.ans)}</b></p>` : "");
+  else body = `<input class="tita" inputmode="${/^-?\d+$/.test(q.ans) ? "numeric" : "text"}" placeholder="Type your answer" value="${a != null ? esc(a) : ""}" ${chk ? "disabled" : ""} oninput="Q.ans['${q.id}']=this.value.trim()">` + (chk ? `<p><b>Answer: ${esc(q.ans)}</b></p>` : "");
   const fb = chk ? `<div class="exp">${isRight(q, a) ? "✅ <b>Correct!</b>" : a == null || a === "" ? "⏭️ Skipped." : "❌ <b>Not quite.</b>"} ${esc(q.exp)}</div>` : "";
-  const last = Q.i === Q.qs.length - 1;
+  const last = Q.i === P.to - 1, lastPart = !Q.parts || Q.part === Q.parts.length - 1;
   const nav = instant
-    ? (chk ? `<button class="btn" onclick="${last ? "finishQuiz()" : "Q.i++;drawQ()"}">${last ? "See result" : "Next →"}</button>` : `<div class="row2"><button class="btn ghost" onclick="check(true)">Skip</button><button class="btn" onclick="check()">Check</button></div>`)
-    : `<div class="row2"><button class="btn ghost" ${Q.i ? "" : "disabled"} onclick="Q.i--;drawQ()">← Prev</button>${last ? `<button class="btn" onclick="if(confirm('Submit now?'))finishQuiz()">Submit</button>` : `<button class="btn" onclick="Q.i++;drawQ()">Next →</button>`}</div>`;
-  const dots = instant ? "" : `<div class="dots">${Q.qs.map((x, j) => `<button class="${Q.ans[x.id] != null && Q.ans[x.id] !== "" ? "ans" : ""} ${j === Q.i ? "cur" : ""}" onclick="Q.i=${j};drawQ()">${j + 1}</button>`).join("")}</div>`;
-  $("#app").innerHTML = `<div class="qtop"><div><b style="font-size:13px">${esc(Q.title)}</b><div class="muted">Q ${Q.i + 1}/${Q.qs.length} · ${q.sec} · ${q.type === "mcq" ? "MCQ (+3/−1)" : "Type-in (+3/0)"}</div></div><div class="timer" id="timer"></div></div>
+    ? (chk ? `<button class="btn" onclick="${Q.i === Q.qs.length - 1 ? "finishQuiz()" : "Q.i++;drawQ()"}">${Q.i === Q.qs.length - 1 ? "See result" : "Next →"}</button>` : `<div class="row2"><button class="btn ghost" onclick="check(true)">Skip</button><button class="btn" onclick="check()">Check</button></div>`)
+    : `<div class="row2"><button class="btn ghost" ${Q.i > P.from ? "" : "disabled"} onclick="Q.i--;drawQ()">← Prev</button>${last ? `<button class="btn" onclick="if(confirm('${lastPart ? "Submit now?" : "Submit this section? You cannot come back to it."}'))${lastPart ? "finishQuiz()" : "nextPart()"}">${lastPart ? "Submit" : "Submit section →"}</button>` : `<button class="btn" onclick="Q.i++;drawQ()">Next →</button>`}</div>`;
+  const dots = instant ? "" : `<div class="dots">${Q.qs.slice(P.from, P.to).map((x, k) => { const j = P.from + k; return `<button class="${Q.ans[x.id] != null && Q.ans[x.id] !== "" ? "ans" : ""} ${j === Q.i ? "cur" : ""}" onclick="Q.i=${j};drawQ()">${k + 1}</button>`; }).join("")}</div>`;
+  const partLbl = Q.parts && Q.parts.length > 1 ? ` · Section ${Q.part + 1}/3 ${Q.parts[Q.part].sec}` : "";
+  $("#app").innerHTML = `<div class="qtop"><div><b style="font-size:13px">${esc(Q.title)}</b><div class="muted">Q ${Q.i - P.from + 1}/${P.to - P.from}${partLbl} · ${q.sec} · ${q.type === "mcq" ? "MCQ (+3/−1)" : "Type-in (+3/0)"}</div></div><div class="timer" id="timer"></div></div>
   ${stem}<div class="qtext">${esc(q.text)}</div>${body}${fb}${nav}${dots}
   <button class="btn ghost" style="margin-top:14px" onclick="if(confirm('Quit? Progress in this quiz is lost.')){quitQuiz()}">Quit</button>`;
   qTick();
@@ -447,44 +545,66 @@ function drawQ() {
 function pick(j) { Q.ans[Q.qs[Q.i].id] = j; drawQ(); }
 function check(skip) {
   const q = Q.qs[Q.i]; if (skip) delete Q.ans[q.id]; Q.checked[q.id] = true;
-  if (isRight(q, Q.ans[q.id])) { S.xp += 10; popXP("+10 ⚡"); save(); }
+  if (isRight(q, Q.ans[q.id])) { S.xp += 10; popXP("+10 ⚡"); if (Q.mode === "drill") { S.fixed = S.fixed || {}; S.fixed[q.id] = Date.now(); } save(); }
   drawQ();
 }
 function quitQuiz() { clearInterval(timerId); Q = null; $("#nav").style.display = "flex"; render(); }
 function finishQuiz(timeout) {
-  clearInterval(timerId); const q = Q; Q = null;
-  let c = 0, net = 0; const bySec = {}; const wrong = [];
-  q.qs.forEach(x => { const a = q.ans[x.id], r = isRight(x, a); bySec[x.sec] = bySec[x.sec] || { c: 0, t: 0, net: 0 }; bySec[x.sec].t++;
-    if (r) { c++; bySec[x.sec].c++; } else if (r === false) wrong.push(x.id); const m = marks(x, a); net += m; bySec[x.sec].net += m; });
+  stamp(); clearInterval(timerId); const q = Q; Q = null;
+  let c = 0, net = 0; const bySec = {}; const wrong = [], skipped = [];
+  q.qs.forEach(x => { const a = q.ans[x.id], r = isRight(x, a); bySec[x.sec] = bySec[x.sec] || { c: 0, t: 0, net: 0, w: 0, neg: 0, s: 0, time: 0 }; const B = bySec[x.sec]; B.t++; if (a != null && a !== "") { B.at = (B.at || 0) + 1; B.time += (q.qt[x.id] || 0) / 1000; }
+    if (r) { c++; B.c++; } else if (r === false) { wrong.push(x.id); B.w++; if (x.type === "mcq") B.neg++; } else { skipped.push(x.id); B.s++; } const m = marks(x, a); net += m; B.net += m; });
   const secs = Math.round((Date.now() - q.start) / 1000), max = q.qs.length * 3;
-  const rec = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), at: Date.now(), date: todayIST(), kind: q.mode, sec: q.sec, level: q.idx + 1, c, t: q.qs.length, net, secs, wrong: wrong.join(",") };
+  const priorLevel = q.mode === "level" && S.history.some(h => h.kind === "level" && h.sec === q.sec && h.level === q.idx + 1);
+  const rec = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), at: Date.now(), date: todayIST(), kind: q.mode, sec: q.sec, level: q.idx + 1, c, t: q.qs.length, net, secs, wrong: wrong.join(","), skipped: q.mode === "diag" ? skipped.join(",") : "" }; // mock skips are strategy, not mistakes
   bumpStreak();
   let head = "", extra = "";
+  const paceLine = s => { const B = bySec[s]; if (!B.at) return "no questions attempted"; const per = Math.round(B.time / B.at); return `${per}s per question · CAT pace ${PACE[s]}s ${per > PACE[s] * 1.15 ? "— too slow, speed is now the gap" : per < PACE[s] * .5 && B.c < B.at ? "— rushing, slow down and read" : "— on pace"}`; };
   if (q.mode === "diag") {
     const pct = estPct(net, max); ["VARC","DILR","QA"].forEach(s => bySec[s] = bySec[s] || { c: 0, t: 0, net: 0 });
     S.diag = { at: Date.now(), net, c, pct, bySec, date: rec.date }; S.xp += c * 10;
     head = `<div class="center"><div style="font-size:44px">🧭</div><h1>Your starting point</h1><p>Estimated percentile today</p><div class="big" style="color:var(--acc)">~${pct}</div><p class="muted" style="margin-top:6px">${c}/10 correct · net score ${net}/30</p></div>`;
-    extra = `<div class="card"><h3>Section by section</h3>${["VARC","DILR","QA"].map(s => { const b = bySec[s], r = b.t ? b.c / b.t : 0; return `<div class="task"><span style="flex:1">${SECS[s].icon} <b>${s}</b> — ${b.c}/${b.t}</span><span class="tag ${r >= .75 ? "ok" : r >= .5 ? "" : "bad"}">${r >= .75 ? "Strength" : r >= .5 ? "Developing" : "Focus area"}</span></div>`; }).join("")}</div>
-    <div class="card" style="background:var(--acc2);border:0"><h3>The honest read</h3><p>Right now you're below the range where IIM calls start. That's normal for day 1, and it's exactly why we have a plan. The gap is real — and closable. Six weeks of daily levels, mocks and fixing mistakes is how people move 20–30 percentile points.</p><p style="margin:0"><b>Your edge:</b> Verbal is a third of the paper and it's your home ground. We'll make that rock-solid, then turn Quant and DILR from "scary" into "scoring".</p></div>`;
+    extra = `<div class="card"><h3>Section by section</h3>${["VARC","DILR","QA"].map(s => { const b = bySec[s], r = b.t ? b.c / b.t : 0; return `<div class="task"><span style="flex:1">${SECS[s].icon} <b>${s}</b> — ${b.c}/${b.t}</span><span class="tag ${r >= .75 ? "ok" : r >= .5 ? "" : "bad"}">${r >= .75 ? "Strength" : r >= .5 ? "Developing" : "Focus area"}</span></div>`; }).join("")}</div>`;
   } else if (q.mode === "level") {
-    const pass = c >= 4; rec.pass = pass;
-    if (pass && S.levels[q.sec] < q.idx + 1) { S.levels[q.sec] = q.idx + 1; S.xp += 50; }
-    head = `<div class="center"><div style="font-size:52px">${pass ? "🏆" : "💪"}</div><h1>${pass ? `Level ${q.idx + 1} cleared!` : "So close — go again"}</h1><p>${c}/5 correct${timeout ? " · time ran out" : ""}</p>${pass ? `<p>You're now <b>${q.sec} Level ${S.levels[q.sec]} · ${levelName(S.levels[q.sec])}</b>. +50 XP</p>` : `<p>You need 4/5. Read the explanations, then retry — the second attempt is where learning sticks.</p>`}</div>`;
+    const pass = c >= 4; rec.pass = pass; rec.retry = priorLevel;
+    if (pass && S.levels[q.sec] < q.idx + 1) { S.levels[q.sec] = q.idx + 1; S.xp += priorLevel ? 20 : 80; }
+    const badge = pass ? (priorLevel ? "✓ Cleared on retry — not yet mastered" : "⭐ MASTERED — first try!") : "";
+    head = `<div class="center"><div style="font-size:52px">${pass ? (priorLevel ? "✅" : "🌟") : "💪"}</div><h1>${pass ? `Level ${q.idx + 1} cleared` : "Not yet — and that's data"}</h1><p>${c}/5 correct${timeout ? " · time ran out" : ""} · ${paceLine(q.sec)}</p>${pass ? `<p><b>${badge}</b>${priorLevel ? "<br><span class='muted'>Retries reuse questions, so memory helps. The wrong ones go to your Mistake Bank — fixing them proves the method.</span>" : " +80 XP"}</p>` : `<p>Read every explanation below, then do the Mistake Drill before retrying. Retrying straight away tests memory, not method.</p>`}</div>`;
+    extra = `<h2>What went wrong</h2>` + (q.qs.filter(x => isRight(x, q.ans[x.id]) !== true).map(x => `<div class="card"><div class="qtext">${esc(x.text)}</div><p><b>Answer:</b> ${x.type === "mcq" ? esc(x.opts[x.ans]) : esc(x.ans)}</p><div class="exp">${esc(x.exp)}</div></div>`).join("") || `<p class="muted">Nothing. Clean sweep.</p>`);
+  } else if (q.mode === "drill") {
+    head = `<div class="center"><div style="font-size:48px">🔁</div><h1>${c}/${q.qs.length} fixed</h1><p>${c === q.qs.length ? "Every one of them. That's mastery, not memory." : `${q.qs.length - c} still open — they'll come back in your next drill.`}</p><p class="muted">${openMistakes().length} mistakes left in the bank.</p></div>`;
+  } else if (q.mode === "sectional" || q.mode === "full") {
+    const curve = q.mode === "full" ? "ALL" : q.sec, pct = mockPct(net, max, curve); rec.pct = pct; rec.mock = MOCKS.list[0].id;
+    rec.attemptNo = S.history.filter(h => h.kind === q.mode && (q.mode === "full" || h.sec === q.sec)).length + 1;
+    const lost = Object.values(bySec).reduce((a, B) => a + B.neg, 0), skippedN = skipped.length, attempts = q.qs.length - skippedN, acc = attempts ? Math.round(100 * c / attempts) : 0;
+    const titaBlank = q.qs.filter(x => x.type === "tita" && (q.ans[x.id] == null || q.ans[x.id] === "")).length;
+    const slow = q.qs.map(x => ({ x, t: (q.qt[x.id] || 0) / 1000 })).sort((a, b) => b.t - a.t).slice(0, 3);
+    const acts = [];
+    if (acc < 60 && attempts > 5) acts.push(`Accuracy ${acc}% is too low to pay off. Attempt fewer, choose better — target 75%+ accuracy.`);
+    if (lost >= 3) acts.push(`You lost ${lost} marks to wrong MCQs. Skip any MCQ where you can't eliminate two options.`);
+    if (titaBlank) acts.push(`${titaBlank} type-in questions left blank. TITA has no negative marking — always enter your best attempt.`);
+    if (slow[0] && slow[0].t > 240) acts.push(`You spent ${Math.round(slow[0].t / 60)} min on one question. Hard rule: 3 minutes, then move on.`);
+    if (pct < 85) acts.push(`Next 3 days: drill the topics below, then retake a fresh mock — not this one.`);
+    if (!acts.length) acts.push(`Strong mock. Next: a full mock under exam timing, 8:30 am, one sitting.`);
+    head = `<div class="center"><div style="font-size:44px">${pct >= 90 ? "🚀" : pct >= 75 ? "📈" : "🧭"}</div><h1>${q.mode === "full" ? "Full mock done" : q.sec + " sectional done"}</h1><div class="big" style="color:var(--acc)">~${pct}<span style="font-size:20px"> %ile</span></div><p class="muted" style="margin-top:6px">Net ${net}/${max} · ${c} right · ${wrong.length} wrong · ${skippedN} skipped · accuracy ${acc}%${rec.attemptNo > 1 ? " · retake (questions seen before)" : ""}</p><p class="muted" style="font-size:12px">Rough, deliberately conservative estimate.</p></div>`;
+    extra = `<div class="card move"><h3>Do this next</h3><ul class="clean" style="color:#fff;margin:0">${acts.map(a => `<li>${esc(a)}</li>`).join("")}</ul></div>
+    <div class="card"><h3>By section</h3>${Object.keys(bySec).map(s => { const B = bySec[s]; return `<div class="task"><span style="flex:1"><b>${SECS[s].icon} ${s}</b> · ${B.c}/${B.t} right · ${B.w} wrong · ${B.s} skipped · net ${B.net}<br><span class="muted">${paceLine(s)}${q.mode === "full" ? ` · ~${mockPct(B.net, B.t * 3, s)}%ile` : ""}</span></span></div>`; }).join("")}</div>
+    <div class="card"><h3>Where your time went</h3>${slow.map(o => `<div class="task"><span style="flex:1">${esc(o.x.text.slice(0, 70))}…</span><b>${Math.round(o.t)}s</b></div>`).join("")}</div>`;
   } else {
     const pct = estPct(net, max);
-    head = `<div class="center"><div style="font-size:44px">⏱️</div><h1>Speed Mock done</h1><div class="big" style="color:var(--acc)">${net}/${max}</div><p>${c}/${q.qs.length} correct · ~${pct} %ile pace (conservative)</p></div>`;
-    extra = `<div class="card">${Object.keys(bySec).map(s => `<div class="task"><span style="flex:1">${SECS[s].icon} ${s}</span><b>${bySec[s].c}/${bySec[s].t}</b></div>`).join("")}</div>`;
+    head = `<div class="center"><div style="font-size:44px">⏱️</div><h1>Speed Mock done</h1><div class="big" style="color:var(--acc)">${net}/${max}</div><p>${c}/${q.qs.length} correct · these are practice questions you've seen before</p></div>`;
   }
-  if (q.mode !== "level") rec.pct = estPct(net, max);
+  if (q.mode === "diag" || q.mode === "mock") rec.pct = estPct(net, max);
   rec.timeout = !!timeout;
   S.history.push(rec);
   queue({ type: "attempt", attempt: rec, answers: q.qs.map(x => { const a = q.ans[x.id], r = isRight(x, a);
-    return { qid: x.id, sec: x.sec, type: x.type, her: a == null || a === "" ? "" : x.type === "mcq" ? "ABCD"[a] + ". " + x.opts[a] : String(a), correct: x.type === "mcq" ? "ABCD"[x.ans] + ". " + x.opts[x.ans] : x.ans, result: r ? "Right" : r === false ? "Wrong" : "Skipped", marks: marks(x, a), text: x.text.slice(0, 200) }; }) });
+    return { qid: x.id, sec: x.sec, type: x.type, her: a == null || a === "" ? "" : x.type === "mcq" ? "ABCD"[a] + ". " + x.opts[a] : String(a), correct: x.type === "mcq" ? "ABCD"[x.ans] + ". " + x.opts[x.ans] : x.ans, result: r ? "Right" : r === false ? "Wrong" : "Skipped", marks: marks(x, a), text: x.text.slice(0, 200), secs: Math.round((q.qt[x.id] || 0) / 1000) }; }) });
   save();
-  const review = q.mode === "level" ? "" : `<h2>Review answers</h2>` + q.qs.map((x, j) => { const a = q.ans[x.id], r = isRight(x, a); return `<details class="card"><summary><b>Q${j + 1}</b> ${r ? "✅" : r === false ? "❌" : "⏭️"} <span class="muted">${x.sec}</span></summary>${x.set ? `<div class="stem">${esc(SETS[x.set])}</div>` : ""}<div class="qtext" style="margin-top:8px">${esc(x.text)}</div><p><b>Correct:</b> ${x.type === "mcq" ? esc(x.opts[x.ans]) : esc(x.ans)}${a != null && a !== "" && !r ? ` · <b>You:</b> ${x.type === "mcq" ? esc(x.opts[a]) : esc(a)}` : ""}</p><div class="exp">${esc(x.exp)}</div></details>`; }).join("");
+  const review = (q.mode === "level" || q.mode === "drill") ? "" : `<h2>Review every question</h2>` + q.qs.map((x, j) => { const a = q.ans[x.id], r = isRight(x, a); return `<details class="card"><summary><b>Q${j + 1}</b> ${r ? "✅" : r === false ? "❌" : "⏭️"} <span class="muted">${x.sec} · ${Math.round((q.qt[x.id] || 0) / 1000)}s</span></summary>${x.set ? `<div class="stem">${esc(SETS[x.set] || MOCKS.sets[x.set] || "")}</div>` : ""}<div class="qtext" style="margin-top:8px">${esc(x.text)}</div><p><b>Correct:</b> ${x.type === "mcq" ? esc(x.opts[x.ans]) : esc(x.ans)}${a != null && a !== "" && !r ? ` · <b>You:</b> ${x.type === "mcq" ? esc(x.opts[a]) : esc(a)}` : ""}</p><div class="exp">${esc(x.exp)}</div></details>`; }).join("");
+  const mist = openMistakes().filter(x => !q.sec || x.sec === q.sec).length;
   $("#nav").style.display = "flex";
   $("#app").innerHTML = `<div class="card">${head}</div>${extra}
-  ${q.mode === "level" && c < 4 ? `<button class="btn" onclick="startQuiz('level','${q.sec}',${q.idx})">Retry Level ${q.idx + 1}</button><div style="height:8px"></div>` : ""}
+  ${q.mode === "level" && c < 4 ? `${mist ? `<button class="btn" onclick="startQuiz('drill','${q.sec}')">Fix these in a Mistake Drill first →</button><div style="height:8px"></div>` : ""}<button class="btn ${mist ? "ghost" : ""}" onclick="startQuiz('level','${q.sec}',${q.idx})">Retry Level ${q.idx + 1}</button><div style="height:8px"></div>` : ""}
   ${q.mode === "level" && c >= 4 && q.idx + 1 < LEVELS[q.sec].length ? `<button class="btn" onclick="startQuiz('level','${q.sec}',${q.idx + 1})">Play Level ${q.idx + 2} →</button><div style="height:8px"></div>` : ""}
   <button class="btn sec" onclick="go('${q.mode === "diag" ? "colleges" : "home"}')">${q.mode === "diag" ? "See where you're headed 🎓" : "Back home"}</button>${review}`;
   scrollTo(0, 0); tick();
