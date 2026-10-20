@@ -1,4 +1,4 @@
-// Levels 4–10 per section (coach-written, answer keys verified). Lives in the repo, not the Sheet, to keep the Sheet light.
+// Levels 4–20 per section (coach-written, answer keys verified). Lives in the repo, not the Sheet, to keep the Sheet light.
 // Order matters: EXTRA.levels[sec][0] is Level 4. Append only — her unlocks are counted by position.
 const EXTRA = {
  "levels": {
@@ -445,6 +445,674 @@ const EXTRA = {
       ],
       "ans": 2,
       "exp": "A summary keeps the conclusion, not the example. A restates only the rain example. B is extreme ('meaningless', 'anyone'): the paragraph says accuracy 'can mislead when outcomes are lopsided', a conditional claim. D draws the opposite lesson, since forecasting the common outcome is what the paragraph calls useless. C carries the final sentence's criterion: improvement over an informed baseline."
+     }
+    ]
+   },
+   {
+    "title": "The Verdict of Boredom",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l11_VARC_1",
+      "type": "mcq",
+      "text": "The primary purpose of the passage is to:",
+      "opts": [
+       "argue that boredom should generally be overridden, since it is usually a miscalibrated response.",
+       "recast boredom as a fallible evaluative signal that deserves scrutiny rather than suppression.",
+       "condemn digital media for causing a modern epidemic of boredom.",
+       "show that boredom, properly understood, is a reliable guide to what is worth doing."
+      ],
+      "ans": 1,
+      "exp": "The author moves from 'boredom is a judgment' to 'it can be miscalibrated' to 'it should be interrogated, treated as a claim that may be true or false.' Option 2 captures both halves (evaluative + fallible). Closest trap is option 4: it keeps the 'judgment' half but drops the explicit concession 'None of this means boredom is infallible.' Option 3 distorts: the feed prevents boredom's verdict, it is not said to cause boredom.",
+      "set": "c_vr11"
+     },
+     {
+      "id": "l11_VARC_2",
+      "type": "mcq",
+      "text": "A reader puts down a demanding novel after twenty pages because she finds it dull. Based on the passage, the author would most likely say that she has:",
+      "opts": [
+       "correctly obeyed a judgment that the novel lacks value.",
+       "displayed the shallowness that eighteenth-century moralists attributed to the bored.",
+       "possibly mistaken a deferred reward for an absent one, having not persisted long enough to tell the two apart.",
+       "been conditioned by industries that profit from abolishing boredom."
+      ],
+      "ans": 2,
+      "exp": "Paragraphs 3-4: some goods disclose themselves only after 'initial flatness', and the two kinds of boredom 'differ in what follows when one persists'. Quitting at twenty pages means she never tested which kind hers was, so option 3 (hedged with 'possibly'). Option 1 is the trap: the author grants boredom can be correct, but cannot say it is correct here without persistence. Option 2 revives the deficiency view the author rejects; option 4 is unsupported by the scenario.",
+      "set": "c_vr11"
+     },
+     {
+      "id": "l11_VARC_3",
+      "type": "mcq",
+      "text": "The author attributes each of the following to the 'endlessly refreshing feed' EXCEPT that it:",
+      "opts": [
+       "reliably supplies content that users, on reflection, judge worth their time.",
+       "forestalls the question of whether an activity is worth one's life.",
+       "delivers stimulus at a pace designed to outrun evaluative judgment.",
+       "erodes a restlessness that once prompted people to make major life changes."
+      ],
+      "ans": 0,
+      "exp": "Options 2, 3 and 4 paraphrase paragraph 2: it 'prevent[s] [the question] from being asked', is 'calibrated to stay just ahead of the judgment', and removes 'the restlessness that once drove people to quit jobs...'. Option 1 is never claimed; the whole point is that the feed stops users from reaching any reflective verdict, so it cannot be credited with passing that verdict. Trap: option 4 may look like an extrapolation, but 'with it the restlessness' states it directly.",
+      "set": "c_vr11"
+     },
+     {
+      "id": "l11_VARC_4",
+      "type": "tita",
+      "text": "Arrange the sentences into a logical paragraph. Type the order (e.g. 12345).\n\n1. Critics soon complained that such readers were consulting books without reading them, plucking out what they wanted through the back door.\n2. Printing changed this by fixing each passage to a stable page number, so that a reference made in one copy held for all.\n3. The complaint sounds familiar because it is the one now levelled at search engines, with the index cast as their disreputable ancestor.\n4. Before the printed book, an index was of limited use, since the same passage fell on different leaves in every handwritten copy.\n5. This stability turned the index from a private aide-memoire into a public instrument that any reader could use.",
+      "ans": "42513",
+      "exp": "4 opens: it sets up the problem (variable leaves in manuscripts). 2 follows: 'Printing changed THIS' = that problem. 5 follows: 'This STABILITY' = the stable page numbers of 2. 1 follows: 'SUCH readers' = the 'any reader' using the index in 5. 3 closes: 'The COMPLAINT' = the critics' complaint in 1. Every link is a forced back-reference, so no other order works."
+     },
+     {
+      "id": "l11_VARC_5",
+      "type": "mcq",
+      "text": "Choose the option that best captures the essence of the paragraph:\n\nWe often say we trust experts because they know more than we do, but this cannot be the whole story, since we are rarely in a position to verify that they do. What we actually assess are proxies: credentials, institutional affiliation, the agreement of other experts, the track record of a field. Each proxy can fail, and each can be gamed. Yet the alternative, judging every claim on its merits, is not available to finite beings in a complex society. Rational trust, then, is less a matter of checking the expert than of checking the system that produced and certifies the expert.",
+      "opts": [
+       "Since proxies for expertise can be gamed, laypeople should evaluate expert claims on their merits.",
+       "Experts deserve trust because they know more than laypeople, as their credentials show.",
+       "Trust in experts is irrational in complex societies because every proxy for expertise can fail.",
+       "Because laypeople cannot verify expertise directly, rational trust depends on assessing the fallible institutions that certify experts."
+      ],
+      "ans": 3,
+      "exp": "The paragraph concludes that rational trust means 'checking the system that produced and certifies the expert', while conceding proxies are fallible. Option 4 keeps both. Option 3 is the close trap: it takes the 'proxies can fail' premise to a conclusion (trust is irrational) the paragraph explicitly avoids. Option 1 recommends the alternative the paragraph calls unavailable; option 2 is the view it calls 'not the whole story'."
+     }
+    ]
+   },
+   {
+    "title": "No Ribbon for Repairs",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l12_VARC_1",
+      "type": "mcq",
+      "text": "The author's central contention is that:",
+      "opts": [
+       "governments should redirect spending from new construction to the upkeep of existing infrastructure.",
+       "institutions depreciate faster than physical infrastructure because their decay leaves no visible trace.",
+       "measurement practices that make upkeep invisible bias societies toward novelty, so that the choice between building and keeping is made by default.",
+       "deferred maintenance is the principal cause of infrastructure failure in modern democracies."
+      ],
+      "ans": 2,
+      "exp": "The last paragraph states the 'deeper problem': 'our instruments of measurement make the choice for us... the decision between them is rarely posed as a decision at all.' Option 3 says exactly this. Option 1 is the conclusion the author explicitly calls 'too simple'. Option 2 distorts: institutions are 'harder to see', not said to decay faster. Option 4 is a causal claim the passage never makes.",
+      "set": "c_vr12"
+     },
+     {
+      "id": "l12_VARC_2",
+      "type": "mcq",
+      "text": "Which of the following, if true, would most weaken the author's account of why maintenance is routinely deferred?",
+      "opts": [
+       "Voters reliably identify and punish the officials whose past budget cuts caused later infrastructure failures, even many years afterwards.",
+       "Engineers report that designing new structures is more professionally rewarding than maintaining old ones.",
+       "Many private firms also underinvest in the maintenance of their equipment.",
+       "The share of public budgets spent on maintenance differs widely from one country to another."
+      ],
+      "ans": 0,
+      "exp": "The author's mechanism is that deferral is costless to the decision-maker: the bill arrives later, 'often to a different administration', and is 'blamed on age or bad luck rather than on the choice that caused it'. If voters reliably trace and punish the original choice (option 1), that mechanism collapses. Option 2 is consistent with (even supports) the passage's claim about what engineers are rewarded for. Option 3 is compatible with the account; option 4 is irrelevant without a link to measurement or accountability.",
+      "set": "c_vr12"
+     },
+     {
+      "id": "l12_VARC_3",
+      "type": "mcq",
+      "text": "Which of the following is most analogous to the institutional cases described in the third paragraph?",
+      "opts": [
+       "A city replaces its ageing tram fleet with new buses after a public cost comparison.",
+       "A museum allows a temporary installation to decay because the artist intended it to.",
+       "A factory's machinery rusts after its owner stops paying for lubrication.",
+       "A professional association adds a new rule every year to cover edge cases and never retires old ones, until members can no longer say what the code requires."
+      ],
+      "ans": 3,
+      "exp": "Paragraph 3's cases are non-physical institutions degrading through accumulation and neglect that 'no one can explain' (a court whose procedures 'accrete exceptions', a curriculum 'extended every year and pruned never'). Option 4 mirrors this exactly. Option 3 is the trap: it is deferred maintenance, but physical, with literal rust, which is the contrast the author draws ('there is no rust'). Option 1 is a deliberate, visible choice; option 2 is decay chosen on purpose.",
+      "set": "c_vr12"
+     },
+     {
+      "id": "l12_VARC_4",
+      "type": "tita",
+      "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does NOT belong.\n\n1. Each time a memory is recalled, it becomes briefly unstable and must be stored again.\n2. During this window, the memory can be altered by new information, emotions, or suggestions present at the moment of recall.\n3. This is why confident eyewitnesses can nonetheless be wrong: their memories have been rewritten through repeated retelling.\n4. Sleep, particularly deep slow-wave sleep, plays a key role in transferring new memories from the hippocampus to the cortex.\n5. Paradoxically, then, the memories we revisit most often may be the least faithful to the original event.",
+      "ans": "4",
+      "exp": "Sentences 1-2-3-5 form one argument about recall making memories unstable and rewritable (reconsolidation), ending in the paradox that the most-revisited memories are least faithful. Sentence 4 is about first-time consolidation of new memories during sleep: same broad topic (memory), different process, and it connects to nothing about recall."
+     },
+     {
+      "id": "l12_VARC_5",
+      "type": "mcq",
+      "text": "Where does the following sentence best fit in the paragraph?\n\nSentence: There are records of mill owners quietly setting their clocks back in the mornings and forward at night, and of workers forbidden to carry watches of their own.\n\nParagraph: Before mechanical clocks governed work, the labouring day in much of Europe was measured by tasks rather than hours: one worked until the hay was in or the bread was baked. ___(1)___ The factory changed this, because a mill whose machines ran continuously needed workers who arrived and left together. ___(2)___ Employers responded by installing clocks, ringing bells and fining latecomers, and workers responded, at first, by contesting whose clock counted. ___(3)___ Within a few generations, however, the struggle was no longer over the clock but over the hours it measured: the ten-hour day, then the eight. ___(4)___",
+      "opts": [
+       "Position 1",
+       "Position 2",
+       "Position 3",
+       "Position 4"
+      ],
+      "ans": 2,
+      "exp": "The sentence is evidence for a dispute over 'whose clock counted' (owners manipulating clocks, workers barred from keeping their own time), so it belongs right after that claim, at (3), before 'however' turns to the later struggle over hours. At (2) it would mention mill clocks before the paragraph has introduced employers installing them. At (4) it would jump back in time after the paragraph has moved on to the eight-hour day."
+     }
+    ]
+   },
+   {
+    "title": "Fair Is a Long Line",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l13_VARC_1",
+      "type": "mcq",
+      "text": "The author's attitude toward the queue is best described as:",
+      "opts": [
+       "dismissive: it is an inefficient relic that paid alternatives rightly replace.",
+       "nostalgic: it belongs to a lost era when all citizens waited as equals.",
+       "appreciative yet clear-eyed: it is valued for its symbolic function despite its unequal burdens.",
+       "neutral: the arguments on both sides are set out without the author taking a position."
+      ],
+      "ans": 2,
+      "exp": "The author calls the queue 'among the most underrated of social institutions' and defends its value as a 'public demonstration', while insisting its egalitarianism is 'of form rather than of burden' and 'partly a fiction'. That is appreciation with open eyes: option 3. Option 4 is the trap: the passage does lay out both sides, but the author then takes a position ('Neither side, I think, has quite grasped...'). There is no lost era (option 2), and the author resists replacing queues with paid lanes (option 1).",
+      "set": "c_vr13"
+     },
+     {
+      "id": "l13_VARC_2",
+      "type": "mcq",
+      "text": "Each of the following is presented in the passage as a feature or consequence of the ordinary queue EXCEPT that it:",
+      "opts": [
+       "is maintained without formal authority or written rules.",
+       "distributes goods more efficiently than paid alternatives do.",
+       "imposes heavier costs on those whose time is scarce.",
+       "exposes rich and poor to the same tedium together."
+      ],
+      "ans": 1,
+      "exp": "Options 1, 3 and 4 are stated in paragraphs 1, 2 and 3 respectively. On efficiency, the author says only that the queue distributes goods 'badly'; the passage never compares its efficiency with paid lanes, let alone favourably. Option 3 might look like criticism rather than a 'feature', but it is plainly asserted ('the parent with a child in tow pays more').",
+      "set": "c_vr13"
+     },
+     {
+      "id": "l13_VARC_3",
+      "type": "mcq",
+      "text": "It can be inferred that the author regards the defenders of paid priority arrangements as:",
+      "opts": [
+       "right that the queue already contains an inequality, but blind to the symbolic function that selling places would destroy.",
+       "wrong to claim that the queue's burdens are unevenly distributed.",
+       "valuing efficiency over justice, which the author takes to be the queue's primary purpose.",
+       "motivated chiefly by the self-interest of the wealthy."
+      ],
+      "ans": 0,
+      "exp": "Paragraph 2 independently endorses the defenders' premise (the queue 'rewards those who can afford to wait'), so they are right on that point; yet 'Neither side... has quite grasped what the queue does', namely staging a demonstration that 'cannot survive being openly sold'. Option 1 holds both halves. Option 3 is the close trap: the author explicitly says the queue distributes justly 'only roughly', so justice is not its primary purpose. Option 2 contradicts paragraph 2; option 4 is never suggested.",
+      "set": "c_vr13"
+     },
+     {
+      "id": "l13_VARC_4",
+      "type": "tita",
+      "text": "Arrange the sentences into a logical paragraph. Type the order (e.g. 12345).\n\n1. For them, physicians proposed cures ranging from leeches to threats of being buried alive and, most reliably, a ticket home.\n2. That shift matters, because a place can be returned to while a past cannot, which is why the modern condition admits no ticket home.\n3. The word 'nostalgia' was coined in 1688 by a Swiss medical student to name a disease.\n4. Only in the twentieth century did the term drift from geography to time, so that one now longs not for a place but for a past.\n5. Its sufferers, mostly soldiers serving far from home, were said to waste away from longing for their native valleys.",
+      "ans": "35142",
+      "exp": "3 opens (the coinage). 5 follows: 'ITS sufferers' = the disease of 3. 1 follows: 'For THEM' = the soldiers of 5 (1 cannot precede 5, since 'them' would have no referent). 4 follows: 'Only in the twentieth century' moves on from the 17th-18th-century medical history. 2 closes: 'That SHIFT' = the drift from place to time in 4, and its 'no ticket home' answers the cure in 1."
+     },
+     {
+      "id": "l13_VARC_5",
+      "type": "tita",
+      "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does NOT belong.\n\n1. Street trees cool cities not only by shading pavements but by releasing water vapour through their leaves.\n2. On a hot afternoon, a tree-lined street can be several degrees cooler than a bare one only a block away.\n3. These benefits, however, are unevenly distributed, since wealthier neighbourhoods have historically been planted far more densely.\n4. The result is that the residents least able to afford air-conditioning often live on the hottest streets.\n5. Many cities now choose tree species for their drought tolerance, as hotter summers place greater stress on urban plantings.",
+      "ans": "5",
+      "exp": "1-2-3-4 build one argument: trees cool streets, the cooling is unequally distributed, so the poorest live on the hottest streets. Sentence 5 shares the vocabulary (trees, heat) but changes the subject to the trees' own survival under heat stress; it neither follows from 4 nor sets up any of the others."
+     }
+    ]
+   },
+   {
+    "title": "Six Species Map the World",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l14_VARC_1",
+      "type": "mcq",
+      "text": "The passage is primarily concerned with:",
+      "opts": [
+       "arguing that research on model organisms should be replaced by studies of human-derived tissue.",
+       "explaining why cellular machinery shared across species makes model organisms reliable guides to human biology.",
+       "documenting the failure in human trials of treatments first tested on mice.",
+       "showing how the convenience-driven choice of a few model organisms has both limited the reach of findings and skewed the direction of inquiry."
+      ],
+      "ans": 3,
+      "exp": "The passage covers why the models were chosen (convenience), where findings fail to transfer (late-evolving, variable processes), the 'subtler problem' of shaping which questions get asked, and why the dependence persists. Option 4 covers all of this. Option 2 is just the 'standard defence', which the author only partly accepts; option 3 is one illustrative clause; option 1 goes beyond the author, who calls abandonment of the old models a 'naive' expectation and argues for no replacement.",
+      "set": "c_vr14"
+     },
+     {
+      "id": "l14_VARC_2",
+      "type": "mcq",
+      "text": "According to the passage, the 'standard defence' is weakest when applied to which of the following research questions?",
+      "opts": [
+       "How chromosomes are copied before a cell divides.",
+       "How a person's immune system responds to a chronic infection over many years.",
+       "How proteins are assembled from genetic instructions.",
+       "How the molecular structure of DNA is preserved during replication."
+      ],
+      "ans": 1,
+      "exp": "The defence is 'largely correct' for conserved, early-evolved machinery (DNA copying, protein synthesis, cell division), which covers options 1, 3 and 4. It is 'less convincing' for processes that 'evolved late and vary widely: immune responses... the course of chronic disease'. Option 2 combines two of these and also involves an adult with a history, unlike the young, sterile lab mouse.",
+      "set": "c_vr14"
+     },
+     {
+      "id": "l14_VARC_3",
+      "type": "mcq",
+      "text": "Which of the following, if true, would most strengthen the author's claim in the third paragraph that model organisms shape which questions get asked?",
+      "opts": [
+       "Many drugs that are effective in mice have failed in human clinical trials.",
+       "The cost of sequencing a genome has fallen sharply over the past two decades.",
+       "Biological phenomena absent from the six model species are markedly under-represented in research publications relative to their estimated medical importance.",
+       "Researchers who work on fruit flies report higher job satisfaction than those who work on other species."
+      ],
+      "ans": 2,
+      "exp": "The claim is that topics not studiable in model organisms get neglected regardless of importance. Option 3 provides exactly that evidence: under-representation measured against importance. Option 1 is the trap: it is in the same paragraph, but it supports the separate point that models 'sometimes... mislead', which the author explicitly sets aside ('The point is not that...'). Options 2 and 4 are irrelevant to question selection.",
+      "set": "c_vr14"
+     },
+     {
+      "id": "l14_VARC_4",
+      "type": "mcq",
+      "text": "Choose the option that best captures the essence of the paragraph:\n\nTranslators are often praised for being 'invisible', for producing a text that reads as though it had been written in the target language. But invisibility has a cost. A translation that smooths away every foreign turn of phrase also erases the evidence that the work came from elsewhere, and readers come away believing that a distant culture thinks much as they do. A degree of strangeness, deliberately preserved, may be the more honest service: it reminds readers that they are reading across a distance, and that something has been carried over that does not fully belong to their language.",
+      "opts": [
+       "Fluent, 'invisible' translation is praised, but by erasing foreignness it misleads readers; deliberately preserving some strangeness may be more honest.",
+       "Translators should preserve every foreign construction so that readers experience the original exactly as written.",
+       "Readers dislike translations that feel foreign, which is why translators strive for invisibility.",
+       "Because no translation can fully capture its original, all translation is inherently dishonest."
+      ],
+      "ans": 0,
+      "exp": "Option 1 captures the contrast (praised invisibility versus its hidden cost) and the tentative recommendation ('a degree of strangeness... may be'). Option 2 is the trap: it overstates 'a degree of strangeness' as 'every foreign construction' and adds an impossible goal. Option 3 invents a reader preference; option 4 inflates the critique of one style into a verdict on all translation."
+     },
+     {
+      "id": "l14_VARC_5",
+      "type": "mcq",
+      "text": "Where does the following sentence best fit in the paragraph?\n\nSentence: Nor are they paid for the work, or credited for it in any way that advances their careers.\n\nParagraph: Peer review is often described as the gatekeeper of science, as though it certified that published findings are true. ___(1)___ In practice, reviewers rarely have access to the raw data, almost never attempt to reproduce the experiments, and are given a few hours to judge work that took years. ___(2)___ What review can reasonably do is check whether the claims follow from the evidence presented and whether obvious alternatives have been considered. ___(3)___ The real test of a finding comes afterwards, when other laboratories try to build on it and either succeed or quietly fail. ___(4)___",
+      "opts": [
+       "Position 1",
+       "Position 2",
+       "Position 3",
+       "Position 4"
+      ],
+      "ans": 1,
+      "exp": "'Nor' needs a preceding list of negatives, and 'they' needs reviewers as its referent: both are supplied only by the sentence ending at (2), which lists what reviewers do not have or do. At (1), no reviewers have yet been mentioned. At (3), the preceding sentence is positive (what review CAN do), so 'Nor' jars. At (4), 'they' would refer to the other laboratories, which makes no sense."
+     }
+    ]
+   },
+   {
+    "title": "Varnish, Time and Truth",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l15_VARC_1",
+      "type": "mcq",
+      "text": "The primary purpose of the passage is to:",
+      "opts": [
+       "argue that both sides of restoration debates rest on a static conception of a painting's original state, and to propose reframing restoration as a choice along a trajectory.",
+       "defend conservators against critics who object to the cleaning of old paintings.",
+       "show that painters of earlier centuries deliberately pitched their colours higher than they wished them to be seen.",
+       "argue that, since no single answer exists, restorers should leave old paintings untouched."
+      ],
+      "ans": 0,
+      "exp": "The author faults both parties ('both... misconceive it'), diagnoses the shared error (the painting treated as 'a static thing'), and proposes the trajectory question. Option 1 covers all three. Option 2 is the trap: the conservators' rebuttal of the critics is reported, but the author then finds the conservators equally wrong. Option 3 is supporting evidence only; option 4 contradicts the passage, which accepts that an institution must decide and asks only that it decide knowingly.",
+      "set": "c_vr15"
+     },
+     {
+      "id": "l15_VARC_2",
+      "type": "mcq",
+      "text": "Which of the following practices would the author most likely regard as consistent with the approach recommended in the final paragraph?",
+      "opts": [
+       "A museum fully cleans a painting and announces that visitors can now see it exactly as the artist intended.",
+       "A museum declines to clean a painting because the public has grown fond of its mellow tones.",
+       "A museum studies the artist's materials and methods, removes part of the varnish to reach a state it judges the painter likely anticipated, and publishes its reasoning as one defensible choice among several.",
+       "A museum adopts a fixed rule that every painting over two centuries old is to be cleaned to the same degree, whatever the artist."
+      ],
+      "ans": 2,
+      "exp": "The author wants restorers to ask 'what trajectory was it meant to follow' and to decide 'in the knowledge that it is a choice among defensible states'. Option 3 does both: it reconstructs the anticipated ageing and frames its decision as a choice. Option 1 repeats the conservators' error ('simply uncovering the truth'); option 2 repeats the critics' error (familiarity as the criterion). Option 4 is the subtle trap: it is deliberate, but a uniform rule ignores what each maker 'to varying degrees, anticipated'.",
+      "set": "c_vr15"
+     },
+     {
+      "id": "l15_VARC_3",
+      "type": "mcq",
+      "text": "The statement that 'a habit of perception is not an intention' serves primarily to:",
+      "opts": [
+       "concede that the critics' attachment to darkened paintings has some aesthetic justification.",
+       "deny that long familiarity with a painting's aged appearance can establish what the work is meant to be.",
+       "suggest that the conservators' reliance on the artist's intention is equally misguided.",
+       "imply that viewers' perceptions are irrelevant to the criticism of art."
+      ],
+      "ans": 1,
+      "exp": "The sentence answers the critics, who treat the darkened surface as 'the true painting because it is the one they... have known'. It cuts the inference from 'we are used to it' to 'that is the work'. Option 3 is the trap: the author does fault the conservators, but in the previous paragraph and for a different reason (freezing intention at day one); this sentence addresses only the critics. Option 1 reverses its function; option 4 overgeneralises, since the author says familiarity tells us 'something about our history'.",
+      "set": "c_vr15"
+     },
+     {
+      "id": "l15_VARC_4",
+      "type": "tita",
+      "text": "Arrange the sentences into a logical paragraph. Type the order (e.g. 12345).\n\n1. The analogy was seductive but strange, for a star has a true position, whereas there is no one soldier of whom all the others are flawed copies.\n2. Astronomers had long known that repeated sightings of a star scatter around a mean, and had learned to take the mean of many readings as the best estimate of where the star truly is.\n3. Yet the fiction proved durable, and the habit of treating deviation from the average as a kind of error still shapes what we call 'normal'.\n4. Measuring the chests of thousands of Scottish soldiers, he treated their variation as though it were error around a single ideal body, which he called 'the average man'.\n5. In the 1830s, the Belgian astronomer Adolphe Quetelet turned this technique on human beings.",
+      "ans": "25413",
+      "exp": "2 opens: it is the only sentence that needs nothing before it. 5 follows: 'THIS TECHNIQUE' = taking the mean of readings in 2. 4 follows: 'HE' = Quetelet, introduced only in 5. 1 follows: 'The ANALOGY' = treating soldiers like star readings in 4. 3 closes: 'Yet the FICTION proved durable' presupposes the critique in 1 that no true 'average soldier' exists. Each step is pinned by a reference word, so no other order works."
+     },
+     {
+      "id": "l15_VARC_5",
+      "type": "tita",
+      "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does NOT belong.\n\n1. Irony depends on a gap between what is said and what is meant, and on the listener's ability to notice that gap.\n2. For this reason it is a peculiarly social figure: it presupposes a shared background against which the literal statement can be seen to be absurd.\n3. Sarcasm, its cruder relative, adds to this gap an evident intention to wound.\n4. Among strangers, irony is therefore risky, since the speaker cannot be sure the background is shared.\n5. Written irony is riskier still, because it strips away the tone and expression that might have signalled the gap.",
+      "ans": "3",
+      "exp": "1, 2, 4 and 5 form one chain about irony's reliance on a shared background: the gap (1), so irony is social (2), so it is risky among strangers (4), and riskier still in writing (5, where 'riskier still' answers 'risky' in 4). Sentence 3 shares the word 'gap' but turns to defining sarcasm and its intent to wound, which has nothing to do with shared background or risk."
+     }
+    ]
+   },
+   {
+    "title": "Minds, Notebooks & Marginalia",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l16_VARC_1",
+      "type": "mcq",
+      "text": "The author's principal criticism of those who attack the parity argument 'at its edges' is that they:",
+      "opts": [
+       "underestimate how unreliable biological memory is compared with external resources.",
+       "grant the functionalist premise and thereby reduce the dispute to a comparison of failure rates that they cannot clearly win.",
+       "have not yet catalogued enough cases of unreliable external resources to refute the thesis.",
+       "wrongly assume that ownership of mental states is anchored in biology."
+      ],
+      "ans": 1,
+      "exp": "B is the criticism: the edge-attack 'concedes the decisive premise' (role, not holding, makes a state mental), turning the debate 'actuarial', which biological memory cannot obviously win. A is only the supporting reason the actuarial contest is unwinnable, not the criticism itself. C inverts the point: more cases would not help, because the strategy is flawed in kind, not in quantity. D is a claim the author rejects in paragraph 3 against a different inference ('mind stops at the skin'), not one attributed to the edge-critics.",
+      "set": "c_vr16"
+     },
+     {
+      "id": "l16_VARC_2",
+      "type": "mcq",
+      "text": "The author would most likely DISAGREE with which of the following?",
+      "opts": [
+       "A state can guide a person's behaviour without being owned by that person.",
+       "Some external artefacts can come to belong to a person's mind in the normative sense.",
+       "Other things being equal, the more fully a resource satisfies the parity conditions, the more likely it is to become a state the agent owns.",
+       "The functionalist neglect of ownership is a deliberate feature of its method rather than an oversight."
+      ],
+      "ans": 2,
+      "exp": "C reverses the final paragraph: the resources that 'most perfectly satisfy the parity conditions' are 'least likely to be owned', because frictionlessness forecloses corrective engagement. A is the author's own conclusion ('states that guide what we do while answering to no one'). B is the scholar's-marginalia point. D restates 'not because it is careless but because it is designed to be'.",
+      "set": "c_vr16"
+     },
+     {
+      "id": "l16_VARC_3",
+      "type": "mcq",
+      "text": "The sentence about the scholar who has annotated her copy of a text for thirty years serves primarily to:",
+      "opts": [
+       "show that external records can be more reliable than biological memory.",
+       "concede that the parity principle correctly classifies some external states as mental.",
+       "suggest that deliberated states are invariably owned more fully than accrued ones.",
+       "illustrate that ownership depends on a history of engaged uptake rather than on location, blocking the inference that the mind ends at the skin."
+      ],
+      "ans": 3,
+      "exp": "D: the sentence directly follows 'It would be a mistake... to conclude that the mind therefore stops at the skin' and 'anchored to a history of uptake'; the marginalia are owned because deliberated and stood by. A shifts the criterion back to reliability, which the author has set aside. B is tempting but wrong: parity classifies by function, and the author's point is normative; the marginalia count because of answerability, not because they satisfy parity. C overgeneralises: the author says 'more so, perhaps', not 'invariably'.",
+      "set": "c_vr16"
+     },
+     {
+      "id": "l16_VARC_4",
+      "type": "tita",
+      "text": "Arrange the sentences into a logical paragraph. Type the order (e.g. 12345).\n\n1. Yet the claim that a word is untranslatable is usually advanced in a translation: an essay, written in the reader's language, that explains at length what the word means.\n2. Every few years a list circulates of words said to have no equivalent in English: a Portuguese term for longing, a Japanese term for light falling through leaves.\n3. The performance thus refutes the thesis it is meant to illustrate, for what the essay demonstrates is not that the word cannot be translated but that it cannot be translated by one word.\n4. And that is a far weaker claim, since almost no word in any language is ever rendered by a single equivalent once its connotations are taken seriously.\n5. Such lists are offered as evidence that languages carve the world into incommensurable pieces.",
+      "ans": "25134",
+      "exp": "2 introduces the lists and must open (no sentence it depends on). 5 'Such lists' needs 2 immediately before it. 1 'Yet the claim...' contrasts with the thesis stated in 5. 3 'The performance thus' refers to the explanatory essay in 1. 4 'that is a far weaker claim' can only refer to 3's 'cannot be translated by one word'. 1 cannot open (Yet), and 3/4 are locked by their back-references, so 25134 is the only order."
+     },
+     {
+      "id": "l16_VARC_5",
+      "type": "mcq",
+      "text": "Choose the option that best captures the essence of the paragraph.\n\nWe tend to think that a forgery, once exposed, loses value because we have learned something about the object: that it is not what it claimed to be. But nothing about the canvas has changed; its pigments, composition and effects on the eye are exactly as they were the day before the exposure. What has changed is our relation to a history of making. To admire a painting is partly to admire an achievement, and an achievement is indexed to a person, a time and a set of problems solved. The forger's skill is real, but it solves a different problem, that of resembling, rather than the problem the original painter solved, that of inventing. The drop in value is therefore not a snobbish reaction to a label but a correct revision of what, exactly, we were admiring.",
+      "opts": [
+       "Exposure justifiably devalues a forgery, because appreciating a painting includes appreciating the achievement it embodies, and the forger's achievement of resemblance differs from the original's achievement of invention.",
+       "Since the physical object is unchanged by exposure, a forgery's devaluation reflects a change in beliefs about its provenance rather than any change in its aesthetic merit.",
+       "Forgers display genuine skill, so exposure should shift admiration from the original painter to the forger rather than reduce it.",
+       "A forgery loses value on exposure because viewers care more about labels than about what the canvas visibly offers."
+      ],
+      "ans": 0,
+      "exp": "A captures both the justification and its ground (achievement, resembling vs inventing). B is the closest trap: it separates provenance from aesthetic merit, whereas the paragraph folds achievement into what we admire, so the revision is aesthetic, not merely about provenance. C is never suggested: the forger's skill solves a different problem, it does not inherit the admiration. D is the 'snobbish reaction to a label' view the paragraph explicitly rejects."
+     }
+    ]
+   },
+   {
+    "title": "Scarcity Is a Relation",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l17_VARC_1",
+      "type": "mcq",
+      "text": "Which of the following, if true, would most seriously weaken the author's account of what enclosure did?",
+      "opts": [
+       "Enclosure was typically accompanied by drainage and quarrying that permanently destroyed much of the cultivable soil, so that far less land could yield crops afterwards than before.",
+       "Many commoners excluded by enclosure later found work as wage labourers on the very land they had once used.",
+       "Some commons had been heavily over-grazed in the decades before they were enclosed.",
+       "The rules defining who could legitimately claim the yield of a common varied widely from one region to another."
+      ],
+      "ans": 0,
+      "exp": "The author claims enclosure 'did not make land scarcer in any physical sense' and 'the quantity of the good was unchanged'. A directly contradicts this by showing a physical reduction. B fits the account (claimants excluded, the rest converted into market participants). C concerns the condition of the commons before enclosure and perhaps its justification, not whether enclosure itself changed physical quantity. D supports the claim that legitimate demand is fixed by rules that are 'neither natural nor arbitrary'.",
+      "set": "c_vr17"
+     },
+     {
+      "id": "l17_VARC_2",
+      "type": "mcq",
+      "text": "All of the following can be inferred from the passage EXCEPT:",
+      "opts": [
+       "The author regards the critics' examples as accurate but their conclusion as mistaken.",
+       "In the author's view, both the textbook definition and its critics leave unaddressed the question of how finite goods ought to be shared.",
+       "The author believes an economy can be efficient by its own measure while failing to register some of the most urgent needs.",
+       "The author implies that the textbook definition should be replaced by one that explicitly names markets and property."
+      ],
+      "ans": 3,
+      "exp": "D cannot be inferred: the author says 'None of this requires abandoning the analysis of scarcity' and the definition 'is not false', only incomplete; the remedy is to recognise its political presupposition, not to replace it with a market-specific definition. A: 'Each example is accurate, but the conclusion... mistakes the shape'. B: the critic is left 'with nothing to say about how finite goods ought to be shared', and the textbook is 'silent on the prior allocation'. C: stated in paragraph 4.",
+      "set": "c_vr17"
+     },
+     {
+      "id": "l17_VARC_3",
+      "type": "mcq",
+      "text": "In saying that the definition's neutrality 'looks less like impartiality than like a decision not to look', the author implies that:",
+      "opts": [
+       "economists deliberately hide the political origins of scarcity in order to protect existing interests.",
+       "the definition's apparent neutrality is achieved by excluding from analysis the very distribution of claims that shapes outcomes.",
+       "a truly impartial economics would treat every want as effective demand.",
+       "the definition is incoherent because it applies equally to households and planned economies."
+      ],
+      "ans": 1,
+      "exp": "B: the next sentence explains the 'decision', taking 'the pattern of claims as given' and staying silent on the prior allocation. A reads 'decision' as a motive; the author describes a methodological exclusion and its effect (favouring the status quo), and attributes no intent to protect interests. C is never proposed: the author asks only that the question of entitlement be faced. D twists the neutrality praised in paragraph 1 into incoherence, which the author never claims.",
+      "set": "c_vr17"
+     },
+     {
+      "id": "l17_VARC_4",
+      "type": "tita",
+      "text": "Four of the five sentences below form a coherent paragraph. Identify the odd sentence out and type its number.\n\n1. An archive is often imagined as a neutral repository, a place where the past simply deposits itself to await the historian.\n2. But every archive is the residue of countless decisions about what was worth keeping, made by clerks and institutions with purposes of their own.\n3. The sheer volume of records produced by modern bureaucracies has made the task of cataloguing them more difficult than ever.\n4. The historian who reads an archive therefore reads not the past but the past as it was filtered by those with the power to preserve it.\n5. Reading against the grain, attending to silences and to people who appear only as numbers, is the discipline's attempt to recover what that filtering excluded.",
+      "ans": "3",
+      "exp": "1-2-4-5 form an epistemic argument: the archive looks neutral (1) but is the product of selection (2), so the historian reads a filtered past (4, 'therefore' follows 2), and reading against the grain tries to recover what was filtered out (5). Sentence 3 is about archives too, but it raises a practical problem (how hard it is to catalogue large volumes), not the question of what was kept and why. It does not lead to 4's 'therefore'."
+     },
+     {
+      "id": "l17_VARC_5",
+      "type": "mcq",
+      "text": "The sentence below can be placed at one of the four numbered positions in the paragraph. Choose the most appropriate position.\n\nSentence: Such sceptics were not obscurantists; a lens that could magnify could also distort, and nothing in the image itself announced which it was doing.\n\nParagraph: Accounts of scientific revolutions usually dwell on the moment of conceptual rupture: the new theory, the anomaly it explains, the resistance of the old guard. (1) Less attention goes to the instruments, whose adoption often preceded the theory that would later be said to justify them. (2) The telescope was turned on the heavens before anyone possessed an optics adequate to explain why it should be trusted, and its early users had to argue, against reasonable sceptics, that what it showed was not an artefact of the lens. (3) The argument was won less by demonstration than by convergence: independent observers, using different instruments, began to report the same moons. (4) Trust in the instrument, in other words, was a social achievement before it was a theoretical one.",
+      "opts": [
+       "Position (1)",
+       "Position (2)",
+       "Position (3)",
+       "Position (4)"
+      ],
+      "ans": 2,
+      "exp": "'Such sceptics' needs the 'reasonable sceptics' of the telescope sentence, so the sentence must come after it: only (3) or (4). At (3) it justifies 'reasonable' and explains why 'demonstration' could not settle the matter, which leads into 'won less by demonstration than by convergence'. At (4) it would split the convergence sentence from 'in other words', which restates it, and 'Such sceptics' would point back past a sentence about something else. (1) and (2) come before any sceptics are mentioned."
+     }
+    ]
+   },
+   {
+    "title": "Suspicion's Economy of Credit",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l18_VARC_1",
+      "type": "mcq",
+      "text": "The author would most likely DISAGREE with which of the following?",
+      "opts": [
+       "The dominance of suspicious reading owed more to institutional incentives than to the persuasiveness of its theoretical sources.",
+       "Exhortations to read suspiciously were, in an important sense, successful.",
+       "Post-critical reading, by denying the priority of hidden meaning, escapes the framework within which suspicion operated.",
+       "A change in what a discipline rewards could alter the readings its members produce."
+      ],
+      "ans": 2,
+      "exp": "C contradicts paragraph 2: the post-critical remedy 'inherits the very assumption it means to escape'. Both sides treat reading as 'a contest over depth' and assume a stance can be chosen. Denying the priority of depth is still a position inside that contest. A restates 'not because critics were persuaded by Marx or Freud'. B: the author speaks of the reason 'exhortations to read more suspiciously succeeded'. D is the claim of the final paragraph.",
+      "set": "c_vr18"
+     },
+     {
+      "id": "l18_VARC_2",
+      "type": "mcq",
+      "text": "The sentence 'The seminar rewards the reading that no one else has produced, and novelty is most cheaply produced by discovering that a text is not what it seems' serves mainly to:",
+      "opts": [
+       "explain the mechanism by which an institutional setting could select for the suspicious stance.",
+       "argue that suspicious readings are generally less accurate than surface readings.",
+       "concede that suspicion was intellectually compelling in its own right.",
+       "suggest that novelty is an illegitimate aim for literary scholarship."
+      ],
+      "ans": 0,
+      "exp": "A: it comes right after the claim that the 'institutional setting' places readers in stances, and before 'Suspicion flourished... because it was the most reliable way to generate publishable difference'. It supplies the link between reward and stance. B: the author never compares accuracy. C runs the other way: the point is that suspicion succeeded for non-intellectual reasons. D goes too far: the author imagines rewarding confirmation 'rather than' novelty as one possible alternative economy, but never calls novelty illegitimate.",
+      "set": "c_vr18"
+     },
+     {
+      "id": "l18_VARC_3",
+      "type": "mcq",
+      "text": "Which of the following, if true, would most STRENGTHEN the argument of the third paragraph?",
+      "opts": [
+       "Most literary scholars, when surveyed, say they adopted suspicious reading because they found Marx and Freud persuasive.",
+       "Critics who practise surface reading publish about as often as those who practise suspicious reading.",
+       "Several prominent post-critical scholars were once committed practitioners of suspicious reading.",
+       "When a field's journals began rewarding studies that confirmed earlier findings, contrarian readings declined sharply, although few members reported any change in their interpretive convictions."
+      ],
+      "ans": 3,
+      "exp": "The paragraph claims that stances follow institutional selection, not individual conviction. D shows exactly that: readings changed when incentives changed while convictions did not. A weakens the argument (theory-driven adoption), though self-report is weak evidence. B, if anything, undercuts the claim that suspicion is the 'most reliable' route to publication. C is about individual conversion and is consistent with either explanation.",
+      "set": "c_vr18"
+     },
+     {
+      "id": "l18_VARC_4",
+      "type": "tita",
+      "text": "Arrange the sentences into a logical paragraph. Type the order (e.g. 12345).\n\n1. The spectacle is less hypocritical than it looks: what the modern author fears is not borrowing but being seen to borrow.\n2. Writers have always taken from one another, and for most of literary history the practice required no defence, since imitating exemplary models was the core of a writer's training.\n3. What changed was not the practice but its valuation, once originality came to be understood as the expression of an irreducibly individual self.\n4. Under that understanding, a visible debt counts as evidence that the self being expressed is not one's own, which is why writers learned to conceal their sources with an ingenuity they once spent on displaying them.\n5. Hence the curious modern spectacle of authors who borrow as freely as their predecessors while insisting, more strenuously than any predecessor would have, that they owe nothing.",
+      "ans": "23451",
+      "exp": "2 must open: 3's 'not the practice' refers back to the practice of taking from one another in 2. 4's 'Under that understanding' refers to 3's understanding of originality, so 3-4. 5's 'Hence' draws a consequence from the concealment in 4, and 'the spectacle' first appears in 5. 1's 'The spectacle' needs 5 before it, so 1 closes. Every link is tied by a back-reference: 23451."
+     },
+     {
+      "id": "l18_VARC_5",
+      "type": "tita",
+      "text": "Four of the five sentences below form a coherent paragraph. Identify the odd sentence out and type its number.\n\n1. Social measurements differ from physical ones in that the people being measured can learn what is measured and respond to it.\n2. A school ranked by its examination results will, in time, teach toward the examination, so that the ranking increasingly measures its own influence.\n3. An indicator that becomes a target ceases to report on the condition it was designed to track and begins to report on the efforts made to move it.\n4. Physical instruments, too, disturb what they measure, as when a thermometer warms or cools the liquid into which it is dipped.\n5. The more weight an institution places on a number, therefore, the less that number can be trusted to tell it what it wants to know.",
+      "ans": "4",
+      "exp": "The paragraph's mechanism is reflexive: the people measured learn what is measured and adapt to it (1). The school example illustrates this (2), the indicator-as-target point generalises it (3), and 5 concludes. Sentence 4 is also about measurement disturbing what it measures, so it looks like it belongs. But a thermometer's effect is passive, with no learning or response, and its 'too' blurs the very contrast sentence 1 draws. It also gives no support to 5's 'therefore', which depends on agents responding to the weight placed on a number."
+     }
+    ]
+   },
+   {
+    "title": "Beauty After the Fact",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l19_VARC_1",
+      "type": "mcq",
+      "text": "The author's central objection to both the realist and the deflationary answers is that they:",
+      "opts": [
+       "overstate the role that aesthetic judgement actually plays in theory choice.",
+       "cannot explain why simpler theories are easier to test and teach.",
+       "mistake a judgement of familiarity for evidence of a theory's truth.",
+       "treat the perception of a theory's elegance as independent of the theory's subsequent history in the field."
+      ],
+      "ans": 3,
+      "exp": "D: 'Both answers assume that the aesthetic judgement is prior to, and separable from, the history of the theory judged'. Everything that follows attacks that shared assumption. C is the closest trap, but it fits only the realist: the deflationist never treats beauty as evidence of truth, so it cannot be the objection to both. A clashes with 'This does not show that aesthetic criteria are idle'. B: the deflationist simply asserts these practical virtues, and the author does not dispute them.",
+      "set": "c_vr19"
+     },
+     {
+      "id": "l19_VARC_2",
+      "type": "mcq",
+      "text": "All of the following can be inferred from the passage EXCEPT:",
+      "opts": [
+       "The deflationary account is correct in principle, even though the realist account is a useful guide during periods of consolidation.",
+       "A theory considered ungainly when first proposed may later be considered beautiful without any change to its content.",
+       "Aesthetic preferences in a scientific community encode an expectation that past successes are a guide to future ones.",
+       "During a crisis, a successful new theory may be disfavoured because it lacks the forms the community has learned to find beautiful."
+      ],
+      "ans": 0,
+      "exp": "A cannot be inferred. The author refuses 'a single verdict on the epistemic worth of elegance'. The deflationist is 'the better guide' only in crisis, and the realist is warranted 'in practice if not in principle', which does not make the deflationist right in principle. B follows from the equations later seen as beautiful after a generation of familiarisation. C restates 'a bet that the future of inquiry will look like its past'. D restates the 'characteristic failure mode'.",
+      "set": "c_vr19"
+     },
+     {
+      "id": "l19_VARC_3",
+      "type": "mcq",
+      "text": "The sentence 'What looks like a judgement of beauty made in advance of success is often a judgement of familiarity made in its wake' functions primarily to:",
+      "opts": [
+       "deny that scientists ever make genuine aesthetic judgements.",
+       "recast apparently forward-looking aesthetic judgements as retrospective ones, undermining the assumption that beauty is perceived independently of a theory's history.",
+       "support the deflationary view that beauty is merely a name for practical convenience.",
+       "show that aesthetic criteria play no real role in theory choice."
+      ],
+      "ans": 1,
+      "exp": "B: the sentence sums up the 'different sequence' that the record reveals, which counters the shared assumption stated at the start of paragraph 2. A goes too far ('often', not 'always'). Paragraph 3 also treats aesthetic preference as real. C confuses familiarity with convenience: the author's point is about when elegance is perceived, not about calculability, and both answers are criticised. D is ruled out by 'This does not show that aesthetic criteria are idle'.",
+      "set": "c_vr19"
+     },
+     {
+      "id": "l19_VARC_4",
+      "type": "mcq",
+      "text": "Choose the option that best captures the essence of the paragraph.\n\nTolerance is often praised as the virtue of a pluralist society, but the praise conceals a peculiarity. One can only tolerate what one disapproves of; to 'tolerate' a practice one regards as harmless or admirable is a confusion, or an insult. Tolerance thus presupposes, and preserves, the very disapproval it restrains. A society that becomes perfectly tolerant of a minority has not thereby come to accept it; it has merely agreed to refrain from acting on its objection. This is why minorities who have long been tolerated so often come to demand something tolerance cannot give: not forbearance, but recognition that there is nothing to forbear.",
+      "opts": [
+       "Because tolerance requires disapproval, a tolerant society necessarily treats its minorities unjustly.",
+       "Tolerance is a confused virtue, since one cannot coherently tolerate what one finds harmless or admirable.",
+       "Tolerance restrains disapproval without dissolving it, which is why tolerated groups may seek recognition rather than mere forbearance.",
+       "A pluralist society should replace tolerance with recognition, since tolerance insults those to whom it is extended."
+      ],
+      "ans": 2,
+      "exp": "C captures both moves: tolerance keeps the disapproval it holds back (the 'peculiarity'), and this explains the demand for recognition. A adds a verdict of injustice that the paragraph never gives. B takes a detail (misapplying the word to harmless practices) and turns it into a verdict on tolerance as a whole, which the paragraph does not reach. D is prescriptive and too broad: the 'insult' arises only when one 'tolerates' what one finds harmless, not whenever tolerance is extended, and the paragraph explains a demand rather than recommending a policy."
+     },
+     {
+      "id": "l19_VARC_5",
+      "type": "mcq",
+      "text": "The sentence below can be placed at one of the four numbered positions in the paragraph. Choose the most appropriate position.\n\nSentence: A melody that falls by a semitone at the close of a phrase may sigh in a minor key and merely settle in a major one.\n\nParagraph: Music is often called the most abstract of the arts, since it represents nothing and refers to nothing outside itself. (1) Yet listeners routinely describe a passage as yearning, resigned or triumphant, and these descriptions are not idiosyncratic: they converge across listeners who have never compared notes. (2) One explanation is that music resembles the contours of human expression, the rising pitch of agitation, the slowed tempo of grief. (3) But resemblance cannot be the whole story, since the same contour can sound consoling in one context and desolate in another. (4) What the listener hears, it seems, is not a resemblance but a gesture, and gestures take their meaning from what surrounds them.",
+      "opts": [
+       "Position (1)",
+       "Position (2)",
+       "Position (3)",
+       "Position (4)"
+      ],
+      "ans": 3,
+      "exp": "The sentence illustrates one contour (a falling semitone) meaning different things in different settings (minor or major key). That is exactly the claim 'the same contour can sound consoling in one context and desolate in another', so it belongs at (4), after that claim and before the conclusion about gestures. At (3) it would offer the counter-example before the 'But' that introduces the objection, so the objection would have nothing to lead into. At (1) and (2) the contour/context question has not yet been raised."
+     }
+    ]
+   },
+   {
+    "title": "The Witness and the Promise",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l20_VARC_1",
+      "type": "mcq",
+      "text": "Which of the following best captures the author's criticism of the commitment account?",
+      "opts": [
+       "It fails to accommodate experimental evidence that people misreport the causes of their own choices.",
+       "It wrongly likens belief to promising, since beliefs, unlike promises, must answer to evidence.",
+       "It secures first-person authority only by narrowing the relevant domain of the mental to what the subject has committed to, so that the authority it guarantees is trivial.",
+       "It cannot explain how a person could sincerely avow an attitude that her conduct contradicts."
+      ],
+      "ans": 2,
+      "exp": "C: 'the authority is guaranteed only because it has been made trivial: she knows her mind because her mind has been redefined as what she has committed to'. A is wrong because the account does accommodate the findings by declaring them 'beside the point'. The author's complaint is about the cost of doing so, not a failure to do it. B is a reasonable objection in philosophy, but not the author's: the promise analogy is presented without challenge. D is contradicted by 'The commitment account does not deny this'. It can explain the case. It does so by moving the attitude outside the subject's authority.",
+      "set": "c_vr20"
+     },
+     {
+      "id": "l20_VARC_2",
+      "type": "mcq",
+      "text": "The author would most likely DISAGREE with which of the following?",
+      "opts": [
+       "Showing that first-person authority survives the experimental findings would by itself suffice to answer the sceptic about self-knowledge.",
+       "The experimental findings tell against the model of introspection as inner perception.",
+       "A person may be entitled to an avowal that misdescribes the attitudes actually guiding her conduct.",
+       "The shortcomings of the commitment account do not restore the credibility of introspection as inner perception."
+      ],
+      "ans": 0,
+      "exp": "A is what the conclusion rejects: authority to commit 'offers no assurance' of the capacity to discover, and a theory that secures the first while abandoning the second 'has not answered the sceptic; it has changed the subject'. So the survival of authority alone is not enough. B restates paragraph 1. C is the prejudice case ('fully entitled to the avowal' while her conduct is 'steered by the very attitude she disowns'). D restates 'None of this rehabilitates the inner witness'.",
+      "set": "c_vr20"
+     },
+     {
+      "id": "l20_VARC_3",
+      "type": "mcq",
+      "text": "Which of the following, if true, would most WEAKEN the argument of the third paragraph?",
+      "opts": [
+       "People who sincerely avow that they hold no prejudice frequently show it in measures of implicit association.",
+       "Many people decline to avow attitudes about which they feel uncertain.",
+       "Some defenders of the commitment account explicitly acknowledge that avowals can diverge from the attitudes guiding conduct.",
+       "Sincere avowals of an attitude reliably reshape the avower's subsequent conduct, so that within a short time her behaviour conforms to what she avowed."
+      ],
+      "ans": 3,
+      "exp": "The paragraph depends on avowal and the attitudes that actually operate being able to 'come apart', which is what makes commitment-based authority trivial. If avowals reliably bring conduct into line (D), then commitment helps determine what moves the agent, and the gap (and the charge of triviality) shrinks. A supports the divergence. B is irrelevant to avowals that are made. C targets only the side remark that defenders 'seldom acknowledge' the price. Even so, the author already grants that the account 'does not deny' divergence. The price is triviality, and acknowledging divergence does not remove it.",
+      "set": "c_vr20"
+     },
+     {
+      "id": "l20_VARC_4",
+      "type": "tita",
+      "text": "Arrange the sentences into a logical paragraph. Type the order (e.g. 12345).\n\n1. That description takes the form of a label: the object that once had a use now has only a caption telling us what the use was.\n2. To place a ritual mask in a vitrine is to promise that it will be seen as it really is, free of the clutter that surrounded it.\n3. But the clutter was not incidental; it was the dance, the firelight, the audience that knew what the mask was for.\n4. Such is the museum's characteristic exchange: it takes away what an object did and hands back a caption saying what it did.\n5. What the vitrine removes, then, is not an obstruction to the object but a part of it, and what it offers in return is description.",
+      "ans": "23514",
+      "exp": "2 opens by introducing the vitrine and the 'clutter'. 3's 'But the clutter' needs 2. 5's 'then' draws a conclusion from 3 (the clutter was part of the object), and 5 introduces 'description'. 1's 'That description' can only follow 5. 4's 'hands back a caption' needs the caption introduced in 1, and 'exchange' sums up the removal and return described in 5 and 1. 5 cannot follow 2 directly, because without 3 there is nothing to support 'not an obstruction but a part of it'. Order: 23514."
+     },
+     {
+      "id": "l20_VARC_5",
+      "type": "tita",
+      "text": "Four of the five sentences below form a coherent paragraph. Identify the odd sentence out and type its number.\n\n1. No rule can specify the conditions of its own application, for any such specification would itself be a rule requiring application.\n2. Legal systems that rely heavily on precedent tend to produce more predictable outcomes than those that rely on detailed statutory codes.\n3. At some point, therefore, following a rule must rest on something that is not a further rule: a trained sense of how to go on.\n4. This is why codes of conduct, however detailed, never eliminate the need for judgement but only relocate it to the interpretation of the code.\n5. The demand for ever more explicit rules, made in the hope of removing discretion, is thus self-defeating: each new rule opens a new site at which discretion must be exercised.",
+      "ans": "2",
+      "exp": "1-3-4-5 is a single regress argument. Rules cannot fix their own application (1), so rule-following rests on trained judgement (3, 'therefore' follows 1). Detailed codes only relocate judgement (4). Demanding more explicit rules therefore defeats itself (5). Sentence 2 shares the vocabulary (precedent, codes), but it makes an empirical claim comparing the predictability of legal systems. That claim neither follows from the regress nor supports 'this is why' or 'thus'. It also blocks the 1→3 'therefore' link."
      }
     ]
    }
@@ -897,6 +1565,610 @@ const EXTRA = {
       "set": "c_dl10"
      }
     ]
+   },
+   {
+    "title": "Club Crossover Count",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l11_DILR_1",
+      "type": "tita",
+      "text": "How many students belong to exactly one of the three clubs?",
+      "ans": "47",
+      "exp": "Members in at least one club = 100 − 25 = 75. All three = 24/6 = 4. Exactly one = 75 − 24 − 4 = 47.",
+      "set": "c_dl11"
+     },
+     {
+      "id": "l11_DILR_2",
+      "type": "mcq",
+      "text": "How many students belong to the Music club only?",
+      "opts": [
+       "20",
+       "22",
+       "24",
+       "26"
+      ],
+      "ans": 1,
+      "exp": "Let MD-only = d, MDr-only = e, DDr-only = f, all three = 4. d + e + f = 24 and d = e + 2. Drama: c + e + f + 4 = 30 with c = f, so 2f + e = 26. From d + e + f = 24: 2e + 2 + f = 24, so f = 22 − 2e. Then 44 − 4e + e = 26 gives e = 6, d = 8, f = 10, c = 10. Music only = 40 − 8 − 6 − 4 = 22.",
+      "set": "c_dl11"
+     },
+     {
+      "id": "l11_DILR_3",
+      "type": "tita",
+      "text": "How many students belong to the Dance club or the Drama club (or both) but NOT to the Music club?",
+      "ans": "35",
+      "exp": "Dance only = 37 − 8 − 10 − 4 = 15, Drama only = 10, Dance and Drama but not Music = 10. Total = 15 + 10 + 10 = 35. (Check: 75 in some club − 40 in Music = 35.)",
+      "set": "c_dl11"
+     },
+     {
+      "id": "l11_DILR_4",
+      "type": "mcq",
+      "text": "By how much does the number of students in exactly one club exceed the number in exactly two clubs?",
+      "opts": [
+       "21",
+       "23",
+       "25",
+       "27"
+      ],
+      "ans": 1,
+      "exp": "Exactly one = 22 + 15 + 10 = 47; exactly two = 24. Difference = 47 − 24 = 23.",
+      "set": "c_dl11"
+     },
+     {
+      "id": "l11_DILR_5",
+      "type": "tita",
+      "text": "Some students who currently belong to no club join only the Drama club. What is the minimum number of such students needed for Drama to have strictly more members than each of the other two clubs?",
+      "ans": "11",
+      "exp": "Music has 40 members, Dance 37, Drama 30. Drama needs at least 41, so 41 − 30 = 11 students must join. There are 25 students in no club, so this is possible.",
+      "set": "c_dl11"
+     }
+    ]
+   },
+   {
+    "title": "Bakery Ledger Detective",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l12_DILR_1",
+      "type": "tita",
+      "text": "What was the percentage growth in T's sales from 2024 to 2025?",
+      "ans": "70",
+      "exp": "P 2025 = 80 × 1.25 = 100. P : T = 25 : 17, so T 2025 = 68. Growth = (68 − 40)/40 × 100 = 70%.",
+      "set": "c_dl12"
+     },
+     {
+      "id": "l12_DILR_2",
+      "type": "mcq",
+      "text": "Which outlet had the highest absolute increase in sales from 2024 to 2025?",
+      "opts": [
+       "P",
+       "R",
+       "S",
+       "T"
+      ],
+      "ans": 1,
+      "exp": "Q 2024 = 132/1.1 = 120; S 2024 = 400 − 80 − 120 − 60 − 40 = 100, so S 2025 = 110. Total 2025 = 100 + 132 + R + 110 + 68 = 410 + R and R = 0.18(410 + R) gives 0.82R = 73.8, R = 90. Increases: P 20, Q 12, R 30, S 10, T 28. Highest is R.",
+      "set": "c_dl12"
+     },
+     {
+      "id": "l12_DILR_3",
+      "type": "tita",
+      "text": "What percentage of the total 2025 sales was contributed by S?",
+      "ans": "22",
+      "exp": "Total 2025 = 410 + 90 = 500. S 2025 = 110. Share = 110/500 × 100 = 22%.",
+      "set": "c_dl12"
+     },
+     {
+      "id": "l12_DILR_4",
+      "type": "tita",
+      "text": "How many outlets recorded a percentage growth strictly greater than the overall percentage growth of the chain from 2024 to 2025?",
+      "ans": "2",
+      "exp": "Overall growth = (500 − 400)/400 = 25%. Growths: P 25%, Q 10%, R 50%, S 10%, T 70%. Only R and T are strictly above 25%, so the answer is 2.",
+      "set": "c_dl12"
+     },
+     {
+      "id": "l12_DILR_5",
+      "type": "mcq",
+      "text": "If every outlet's sales grow from 2025 to 2026 at the same percentage rate as from 2024 to 2025, what will be the total 2026 sales (in Rs. lakh)?",
+      "opts": [
+       "625.0",
+       "641.8",
+       "650.4",
+       "662.5"
+      ],
+      "ans": 1,
+      "exp": "2026 sales: P 100 × 1.25 = 125, Q 132 × 1.1 = 145.2, R 90 × 1.5 = 135, S 110 × 1.1 = 121, T 68 × 1.7 = 115.6. Total = 641.8.",
+      "set": "c_dl12"
+     }
+    ]
+   },
+   {
+    "title": "Six Floors, Six Colours",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l13_DILR_1",
+      "type": "mcq",
+      "text": "Who likes Blue?",
+      "opts": [
+       "A",
+       "C",
+       "E",
+       "F"
+      ],
+      "ans": 2,
+      "exp": "Key fact: White is on floor 1 and Green is below A, so Green is on floor 2 or higher and A is on floor 3 or higher. Also C is not on floor 1 (C does not like White). Case C odd (3 or 5): F likes Yellow, so F is on floor 6; B is even and above C, so B = 4 and C = 3. A, D, E take floors 1, 2, 5 with E above A, so A is on 1 or 2 — contradicts A ≥ 3. So C is on an even floor and F lives immediately above D. Case C = 2: if B = 4, the D–F pair must be 5–6, leaving A on 1 or 3 with E above A, so A = 1 — contradiction; if B = 6, the D–F pair is 3–4 or 4–5, again forcing A = 1 — contradiction. So C = 4, B = 6. Floors 1, 2, 3, 5 remain; A ≥ 3 and E above A (not 6) give A = 3, E = 5, so D = 1, F = 2. Colours: Yellow on 6 = B, White on 1 = D, Black immediately above A = C (4), Green below A on floor 2 = F. Red and Blue are one person apart on floors 3 and 5; A is not Blue, so A = Red, E = Blue. Final: 1 D White, 2 F Green, 3 A Red, 4 C Black, 5 E Blue, 6 B Yellow. So E likes Blue.",
+      "set": "c_dl13"
+     },
+     {
+      "id": "l13_DILR_2",
+      "type": "tita",
+      "text": "On which floor does C live?",
+      "ans": "4",
+      "exp": "From the final arrangement (1 D White, 2 F Green, 3 A Red, 4 C Black, 5 E Blue, 6 B Yellow), C lives on floor 4.",
+      "set": "c_dl13"
+     },
+     {
+      "id": "l13_DILR_3",
+      "type": "tita",
+      "text": "How many people live between F and E?",
+      "ans": "2",
+      "exp": "F is on floor 2 and E on floor 5, so the people on floors 3 and 4 (A and C) are between them: 2.",
+      "set": "c_dl13"
+     },
+     {
+      "id": "l13_DILR_4",
+      "type": "mcq",
+      "text": "Which colour does F like?",
+      "opts": [
+       "Red",
+       "Green",
+       "Yellow",
+       "Black"
+      ],
+      "ans": 1,
+      "exp": "Green must be below A (floor 3); floor 1 is White, so Green is on floor 2, which is F's floor.",
+      "set": "c_dl13"
+     },
+     {
+      "id": "l13_DILR_5",
+      "type": "mcq",
+      "text": "Which of the following statements is true?",
+      "opts": [
+       "B likes Yellow and lives on floor 6",
+       "D lives immediately below A",
+       "The person who likes Black lives on floor 5",
+       "A likes Green"
+      ],
+      "ans": 0,
+      "exp": "Final: 1 D White, 2 F Green, 3 A Red, 4 C Black, 5 E Blue, 6 B Yellow. D is on 1 (not immediately below A on 3), Black is on floor 4, A likes Red. Only 'B likes Yellow and lives on floor 6' is true.",
+      "set": "c_dl13"
+     }
+    ]
+   },
+   {
+    "title": "Courier Cost Crunch",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l14_DILR_1",
+      "type": "tita",
+      "text": "What is the minimum cost (in Rs. hundred) of sending a parcel from S to T?",
+      "ans": "22",
+      "exp": "Key routes: S–C–E–T = 9 + 1 + 4 + 3 + 5 = 22; S–A–D–T = 4 + 3 + 8 + 2 + 6 = 23; S–B–D–T = 7 + 4 + 5 + 2 + 6 = 24; S–A–B–D–T = 4 + 3 + 2 + 4 + 5 + 2 + 6 = 26. Every other route costs more, so the minimum is 22.",
+      "set": "c_dl14"
+     },
+     {
+      "id": "l14_DILR_2",
+      "type": "mcq",
+      "text": "What is the minimum cost (in Rs. hundred) of a route from S to T that passes through B?",
+      "opts": [
+       "24",
+       "26",
+       "27",
+       "28"
+      ],
+      "ans": 0,
+      "exp": "Routes through B: S–B–D–T = 7 + 4 + 5 + 2 + 6 = 24 is the cheapest (S–A–B–D–T = 26, S–B–C–E–T = 27, others higher). Answer 24.",
+      "set": "c_dl14"
+     },
+     {
+      "id": "l14_DILR_3",
+      "type": "mcq",
+      "text": "The halt fee at C is increased by x (an integer, in Rs. hundred). What is the smallest x for which no cheapest S-to-T route passes through C?",
+      "opts": [
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "ans": 1,
+      "exp": "The best route through C is S–C–E–T at 22 + x; the best route avoiding C is S–A–D–T at 23. At x = 1 they tie at 23, so a cheapest route still uses C. At x = 2, 24 > 23, so x = 2.",
+      "set": "c_dl14"
+     },
+     {
+      "id": "l14_DILR_4",
+      "type": "tita",
+      "text": "How many different routes from S to T have a total cost of at most 27 (Rs. hundred)?",
+      "ans": "7",
+      "exp": "Listing routes by cost: S–C–E–T 22, S–A–D–T 23, S–B–D–T 24, S–A–B–D–T 26, S–A–D–E–T 27, S–B–C–E–T 27, S–C–E–D–T 27. The next one (S–B–D–E–T) costs 28. So 7 routes.",
+      "set": "c_dl14"
+     },
+     {
+      "id": "l14_DILR_5",
+      "type": "mcq",
+      "text": "A van must go from S to T and then return from T to S, with no road used more than once over the whole trip (halt fees are paid on each passage). What is the minimum total cost (in Rs. hundred)?",
+      "opts": [
+       "44",
+       "45",
+       "46",
+       "48"
+      ],
+      "ans": 1,
+      "exp": "The trip is two S–T routes with no common road. The two cheapest routes, S–C–E–T (22) and S–A–D–T (23), share no road, so the minimum is 22 + 23 = 45. Nothing smaller is possible because 22 cannot be used twice (it would repeat roads) and 23 is the next lowest cost.",
+      "set": "c_dl14"
+     }
+    ]
+   },
+   {
+    "title": "Quiz Final Scorecard",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l15_DILR_1",
+      "type": "tita",
+      "text": "What was R's final score?",
+      "ans": "19",
+      "exp": "S: 4c − w = 30 with c + w ≤ 10 gives c = 8, w = 2. Q: 4c − (10 − c) = 20 gives c = 6, w = 4. P: c + w = 9, score = 5c − 9; it must exceed 20 and be below 30, so c = 6 (21) or c = 7 (26). Unattempted total 5: P 1, Q 0, S 0, so R left 4 and attempted 6. Correct total 26 gives P + R correct = 12. If P = 6 correct, R = 6 correct, 0 wrong, score 24 > Q — not allowed. So P = 7 correct, 2 wrong (26); R = 5 correct, 1 wrong, score 20 − 1 = 19.",
+      "set": "c_dl15"
+     },
+     {
+      "id": "l15_DILR_2",
+      "type": "tita",
+      "text": "How many wrong answers were given by the four contestants in total?",
+      "ans": "9",
+      "exp": "Wrong answers: P 2, Q 4, R 1, S 2. Total = 9.",
+      "set": "c_dl15"
+     },
+     {
+      "id": "l15_DILR_3",
+      "type": "mcq",
+      "text": "Who finished second in the contest?",
+      "opts": [
+       "P",
+       "Q",
+       "R",
+       "Cannot be determined"
+      ],
+      "ans": 0,
+      "exp": "Scores: S 30, P 26, Q 20, R 19. P is second.",
+      "set": "c_dl15"
+     },
+     {
+      "id": "l15_DILR_4",
+      "type": "tita",
+      "text": "What was the total of the four contestants' scores?",
+      "ans": "95",
+      "exp": "30 + 26 + 20 + 19 = 95. (Check: 4 × 26 correct − 9 wrong = 95.)",
+      "set": "c_dl15"
+     },
+     {
+      "id": "l15_DILR_5",
+      "type": "mcq",
+      "text": "If the scheme had instead been +3 for a correct answer and −1 for a wrong answer, what would have been the difference between the highest and the lowest score?",
+      "opts": [
+       "6",
+       "8",
+       "10",
+       "12"
+      ],
+      "ans": 1,
+      "exp": "New scores: P 3×7 − 2 = 19, Q 3×6 − 4 = 14, R 3×5 − 1 = 14, S 3×8 − 2 = 22. Difference = 22 − 14 = 8.",
+      "set": "c_dl15"
+     }
+    ]
+   },
+   {
+    "title": "The Unless Clause Gauntlet",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l16_DILR_1",
+      "type": "tita",
+      "text": "How many different schedules satisfy all the conditions?",
+      "ans": "6",
+      "exp": "Key branch: 'C on Wed unless G on Thu'. Case 1: C=Wed. Then C is not on the weekend and not Thu, so E must be on Mon/Wed/Fri/Sun (not Sun, not Wed) -> Mon or Fri. Working through D-F (gap of 3) and the A/E and B/D conditionals leaves A-G-C-D-E-B-F, A-G-C-F-E-B-D, E-F-C-G-D-A-B and E-F-C-G-D-B-A. Case 2: G=Thu, C not Wed. C=Mon gives C-F-E-G-D-A-B and C-F-E-G-D-B-A; every other placement violates a clue (e.g., C on the weekend forces D=Mon, and then F=Thu clashes with G). Total = 6 schedules.",
+      "set": "c_dl16"
+     },
+     {
+      "id": "l16_DILR_2",
+      "type": "mcq",
+      "text": "If Analytics is held on Monday, which workshop is held on Friday?",
+      "opts": [
+       "Ethics",
+       "Design",
+       "Branding",
+       "Finance"
+      ],
+      "ans": 0,
+      "exp": "With A on Monday, only two schedules survive: A-G-C-D-E-B-F and A-G-C-F-E-B-D. In both, Friday hosts E (Ethics). (A=Mon kills the G=Thu branch because C would then need Mon.)",
+      "set": "c_dl16"
+     },
+     {
+      "id": "l16_DILR_3",
+      "type": "mcq",
+      "text": "Which of the following CANNOT be true?",
+      "opts": [
+       "C is held on Monday",
+       "D is held on Thursday",
+       "G is held on Wednesday",
+       "A is held on Saturday"
+      ],
+      "ans": 2,
+      "exp": "G appears only on Tuesday (A-G-C-... schedules) or Thursday (all others), so G on Wednesday is impossible. C=Mon (C-F-E-G-D-A-B), D=Thu (A-G-C-D-E-B-F) and A=Sat (E-F-C-G-D-A-B) all occur in valid schedules.",
+      "set": "c_dl16"
+     },
+     {
+      "id": "l16_DILR_4",
+      "type": "tita",
+      "text": "If Branding is held on Saturday, how many different workshops could be held on Monday?",
+      "ans": "3",
+      "exp": "B=Sat leaves four schedules: A-G-C-D-E-B-F, A-G-C-F-E-B-D, C-F-E-G-D-B-A, E-F-C-G-D-B-A. Monday can host A, C or E -> 3.",
+      "set": "c_dl16"
+     },
+     {
+      "id": "l16_DILR_5",
+      "type": "mcq",
+      "text": "If Ethics is held on Wednesday, which of the following must be true?",
+      "opts": [
+       "D is held on Friday",
+       "A is held on Saturday",
+       "B is held on Sunday",
+       "C is held on Wednesday"
+      ],
+      "ans": 0,
+      "exp": "E=Wed means C is not on Wed, so G=Thu. Then C must be Mon (C-F-E-G-D-?-?), giving C-F-E-G-D-A-B or C-F-E-G-D-B-A. D is on Friday in both; A and B can swap Sat/Sun; C is on Monday, not Wednesday.",
+      "set": "c_dl16"
+     }
+    ]
+   },
+   {
+    "title": "Ratios Hiding in Plain Sight",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l17_DILR_1",
+      "type": "tita",
+      "text": "What is the total number of employees in the firm?",
+      "ans": "504",
+      "exp": "36% of North must be an integer, so North is a multiple of 25; North = 1.25 x East, so North = 25m, East = 20m, women N = 9m, women E = 9m. Women S = 18m = 62.5% of South, so South = 28.8m -> m must be a multiple of 5. Let m = 5k: N = 125k, E = 100k, S = 144k (women 90k, men 54k). West men = 108k = 80% of West, so West = 135k (women 27k). Total = 504k < 1000 forces k = 1 -> 504.",
+      "set": "c_dl17"
+     },
+     {
+      "id": "l17_DILR_2",
+      "type": "mcq",
+      "text": "Approximately what percentage of the firm's employees are women?",
+      "opts": [
+       "38.6%",
+       "41.1%",
+       "43.5%",
+       "45.8%"
+      ],
+      "ans": 1,
+      "exp": "Women = 45 + 45 + 90 + 27 = 207 out of 504 -> 207/504 = 41.07% ~ 41.1%.",
+      "set": "c_dl17"
+     },
+     {
+      "id": "l17_DILR_3",
+      "type": "mcq",
+      "text": "Which region has the highest ratio of men to women?",
+      "opts": [
+       "North",
+       "East",
+       "South",
+       "West"
+      ],
+      "ans": 3,
+      "exp": "Men:Women -> North 80:45 (1.78), East 55:45 (1.22), South 54:90 (0.6), West 108:27 (4.0). West is highest.",
+      "set": "c_dl17"
+     },
+     {
+      "id": "l17_DILR_4",
+      "type": "mcq",
+      "text": "If 15 women move from South to East (no other change), by how many percentage points does the share of women in East's workforce rise (approximately)?",
+      "opts": [
+       "5.83",
+       "6.52",
+       "7.17",
+       "8.04"
+      ],
+      "ans": 2,
+      "exp": "East currently: 45 women of 100 = 45%. After the move: 60 of 115 = 52.17%. Rise = 7.17 percentage points ~ 7.17.",
+      "set": "c_dl17"
+     },
+     {
+      "id": "l17_DILR_5",
+      "type": "tita",
+      "text": "By how many does the number of men in the firm exceed the number of women?",
+      "ans": "90",
+      "exp": "Men = 80 + 55 + 54 + 108 = 297; women = 207. Difference = 90.",
+      "set": "c_dl17"
+     }
+    ]
+   },
+   {
+    "title": "Points Table Detective",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l18_DILR_1",
+      "type": "tita",
+      "text": "How many of its matches did A draw?",
+      "ans": "2",
+      "exp": "A has 11 points from 5 unbeaten matches: 3w+d = 11 with w+d = 5 -> w = 3, d = 2. So A drew 2 matches.",
+      "set": "c_dl18"
+     },
+     {
+      "id": "l18_DILR_2",
+      "type": "mcq",
+      "text": "What was the result of the match between A and B?",
+      "opts": [
+       "A won",
+       "B won",
+       "The match was drawn",
+       "Cannot be determined"
+      ],
+      "ans": 0,
+      "exp": "B lost to C, so B earned 9 points from its other 4 matches. 2 wins + 3 draws would need 5 matches, so B must have 3 wins, 0 draws and 2 losses. A is unbeaten, so A-B was not a B win, and B had no draws, so it was not a draw either. Hence A won.",
+      "set": "c_dl18"
+     },
+     {
+      "id": "l18_DILR_3",
+      "type": "tita",
+      "text": "What is the maximum number of points E could have scored?",
+      "ans": "8",
+      "exp": "Total points = 3 x 15 - 4 draws = 41, so C + E = 41 - (11+9+7+2) = 12, with E > C. C beat B (3 points). C cannot have lost to F, otherwise F would have at least 3 points; so C-F was at least a draw and C >= 4. Hence E <= 8. E = 8, C = 4 is achievable (e.g., C: W vs B, D vs F, L in the other three; E: 2 wins, 2 draws), so the maximum is 8.",
+      "set": "c_dl18"
+     },
+     {
+      "id": "l18_DILR_4",
+      "type": "tita",
+      "text": "What is the minimum number of points C could have scored?",
+      "ans": "4",
+      "exp": "C beat B (3 points) and could not have lost to F (F has only 2 points), so C >= 4. C = 4 occurs in a valid table (C beats B, draws F, loses to A, D and E), so the minimum is 4.",
+      "set": "c_dl18"
+     },
+     {
+      "id": "l18_DILR_5",
+      "type": "mcq",
+      "text": "If E finished strictly above D in points, how many points did C score?",
+      "opts": [
+       "3",
+       "4",
+       "5",
+       "6"
+      ],
+      "ans": 1,
+      "exp": "D has 7. E above D means E >= 8; since E is at most 8, E = 8 and C = 12 - 8 = 4.",
+      "set": "c_dl18"
+     }
+    ]
+   },
+   {
+    "title": "Liars, Pets and Paradoxes",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l19_DILR_1",
+      "type": "tita",
+      "text": "How many of the five friends are Liars?",
+      "ans": "3",
+      "exp": "Suppose A is a Truth-teller: then B is too, so E ('A is a Liar') lies, so B owns Dog or Rabbit; A's 'Dog owner is a Liar' rules out Dog, so B owns Rabbit; D's 'Rabbit owner is a Truth-teller' is then true, so D is truthful and C (who says D is truthful) is truthful -> only 1 Liar, contradicting truthful B's 'exactly three'. So A is a Liar, hence B is a Truth-teller (A's 'same type' is false) and E is a Truth-teller. B truthful -> exactly 3 Liars, i.e., A, C and D.",
+      "set": "c_dl19"
+     },
+     {
+      "id": "l19_DILR_2",
+      "type": "mcq",
+      "text": "Who owns the Rabbit?",
+      "opts": [
+       "A",
+       "B",
+       "D",
+       "E"
+      ],
+      "ans": 2,
+      "exp": "Liars: A, C, D. C lies -> A owns the Fish. B truthful -> C owns the Parrot. A lies -> the Dog owner is a Truth-teller (B or E); E truthful -> B owns neither Dog nor Rabbit, so E owns the Dog. D lies -> the Rabbit owner is a Liar; remaining Cat/Rabbit go to B and D, and B can't have the Rabbit -> D owns the Rabbit, B the Cat.",
+      "set": "c_dl19"
+     },
+     {
+      "id": "l19_DILR_3",
+      "type": "mcq",
+      "text": "Which pair consists of two Truth-tellers?",
+      "opts": [
+       "A and C",
+       "B and E",
+       "B and D",
+       "C and E"
+      ],
+      "ans": 1,
+      "exp": "The Truth-tellers are exactly B and E.",
+      "set": "c_dl19"
+     },
+     {
+      "id": "l19_DILR_4",
+      "type": "mcq",
+      "text": "Which pet - owner pairing is correct?",
+      "opts": [
+       "Cat - D",
+       "Fish - E",
+       "Dog - E",
+       "Parrot - D"
+      ],
+      "ans": 2,
+      "exp": "Final allocation: A-Fish, B-Cat, C-Parrot, D-Rabbit, E-Dog. So Dog - E is correct.",
+      "set": "c_dl19"
+     },
+     {
+      "id": "l19_DILR_5",
+      "type": "tita",
+      "text": "Of the ten statements made, how many are true?",
+      "ans": "4",
+      "exp": "Truth-tellers B and E make 2 true statements each; the three Liars' 6 statements are all false. Total true = 4.",
+      "set": "c_dl19"
+     }
+    ]
+   },
+   {
+    "title": "CAT Boss: The Allocation Engine",
+    "mins": 16,
+    "qs": [
+     {
+      "id": "l20_DILR_1",
+      "type": "tita",
+      "text": "How many different allocations satisfy all the conditions?",
+      "ans": "27",
+      "exp": "There are 6!/(2!2!2!) = 90 ways to form the three named pairs. Applying the five rules by brute-force case work on R's project (X or Y) and P/Q placement leaves 27 valid allocations.",
+      "set": "c_dl20"
+     },
+     {
+      "id": "l20_DILR_2",
+      "type": "tita",
+      "text": "What is the maximum possible team score?",
+      "ans": "48",
+      "exp": "Unconstrained best would be P-X 8, Q-Y 9, R-Z 9, S-X 9, T-Y 8, U-Z 8 = 51, but R cannot be on Z. Moving R to Y (7) pushes T off Y; T to Z (7) with U-Z (8): X = {P, S}, Y = {Q, R}, Z = {T, U} -> 8+9+7+9+7+8 = 48. All rules hold (S on X, T on Z, U and R apart). No valid allocation beats 48.",
+      "set": "c_dl20"
+     },
+     {
+      "id": "l20_DILR_3",
+      "type": "mcq",
+      "text": "In the allocation with the maximum team score, who works with T?",
+      "opts": [
+       "U",
+       "P",
+       "R",
+       "S"
+      ],
+      "ans": 0,
+      "exp": "The unique optimum is X = {P, S}, Y = {Q, R}, Z = {T, U}. T is paired with U.",
+      "set": "c_dl20"
+     },
+     {
+      "id": "l20_DILR_4",
+      "type": "tita",
+      "text": "What is the minimum possible team score of a valid allocation?",
+      "ans": "32",
+      "exp": "Exhaustively scoring all 27 valid allocations, the lowest is 32 (e.g., X = {T, U}, Y = {P, R}, Z = {Q, S}: 5+4+6+7+4+6 = 32).",
+      "set": "c_dl20"
+     },
+     {
+      "id": "l20_DILR_5",
+      "type": "tita",
+      "text": "Management adds one more rule: Q must be on Project X. What is now the maximum possible team score?",
+      "ans": "44",
+      "exp": "With Q on X (7), P cannot be on X, and the old optimum (P, S on X) breaks. S keeps X (9) as Q's partner; P goes to Y (6), which also allows R to join Y (7) without clashing with U; T and U take Z (7 + 8). Team = 7 + 9 + 6 + 7 + 7 + 8 = 44 (X = {Q, S}, Y = {P, R}, Z = {T, U}). Checking all valid allocations with Q on X, none exceeds 44.",
+      "set": "c_dl20"
+     }
+    ]
    }
   ],
   "QA": [
@@ -1264,6 +2536,536 @@ const EXTRA = {
       "exp": "3 × r³ = 81, so r³ = 27, r = 3. Sum = a(rⁿ − 1)/(r − 1) = 3 × (729 − 1)/2 = 3 × 364 = 1092. (364 forgets to multiply by a.)"
      }
     ]
+   },
+   {
+    "title": "Triangle Tactics",
+    "mins": 14,
+    "qs": [
+     {
+      "id": "l11_QA_1",
+      "type": "tita",
+      "text": "In triangle ABC, angle A = 90°, AB = 15 cm and AC = 20 cm. AD is the perpendicular from A to BC. Find BD (in cm).",
+      "ans": "9",
+      "exp": "BC = √(15² + 20²) = 25. In a right triangle, each leg² = (its adjacent hypotenuse segment) × hypotenuse, so AB² = BD × BC → BD = 225 ÷ 25 = 9. Trap: using AC² instead gives 16 — that is DC, not BD. (Altitude AD = 15×20/25 = 12.)"
+     },
+     {
+      "id": "l11_QA_2",
+      "type": "mcq",
+      "text": "In triangle ABC, AB = 12, AC = 18 and BC = 20. The bisector of angle A meets BC at D. What is the length of AD?",
+      "opts": [
+       "2√29",
+       "2√30",
+       "6√6",
+       "4√6"
+      ],
+      "ans": 1,
+      "exp": "Angle bisector theorem: BD:DC = AB:AC = 12:18 = 2:3, so BD = 8, DC = 12. Shortcut: AD² = AB×AC − BD×DC = 216 − 96 = 120 → AD = 2√30. Traps: taking D as the midpoint (BD = DC = 10) gives 216 − 100 = 116 → 2√29; forgetting to subtract gives √216 = 6√6."
+     },
+     {
+      "id": "l11_QA_3",
+      "type": "tita",
+      "text": "In triangle ABC, D lies on AB and E lies on AC such that DE is parallel to BC, and AD : DB = 2 : 3. If the area of quadrilateral DECB is 84 sq cm, find the area of triangle ABC (in sq cm).",
+      "ans": "100",
+      "exp": "ΔADE ~ ΔABC with ratio AD:AB = 2:5 (not 2:3!). Area ratio = 4:25, so the trapezium is 21/25 of ABC → ABC = 84 × 25/21 = 100. Trap: using 2:3 directly gives area ratio 4:9 and a wrong answer of 151.2."
+     },
+     {
+      "id": "l11_QA_4",
+      "type": "mcq",
+      "text": "A triangle has sides 13 cm, 14 cm and 15 cm. What is the radius of its circumcircle (in cm)?",
+      "opts": [
+       "4",
+       "7",
+       "65/8",
+       "65/4"
+      ],
+      "ans": 2,
+      "exp": "Heron: s = 21, area = √(21×8×7×6) = 84. R = abc/(4×Area) = 2730/336 = 65/8 = 8.125. Traps: 4 is the inradius (Area/s); 65/4 comes from abc/(2×Area); 7 is half the middle side."
+     },
+     {
+      "id": "l11_QA_5",
+      "type": "tita",
+      "text": "P is a point inside rectangle ABCD (vertices in order) such that PA = 3, PB = 4 and PC = 5. Find PD².",
+      "ans": "18",
+      "exp": "British Flag theorem: for any point inside a rectangle, PA² + PC² = PB² + PD² (opposite corners pair up). 9 + 25 = 16 + PD² → PD² = 18. Trap: pairing adjacent corners (PA² + PB² = PC² + PD²) gives 0 — impossible, which is your hint the pairing is wrong."
+     }
+    ]
+   },
+   {
+    "title": "Circles, Polygons & Solids",
+    "mins": 14,
+    "qs": [
+     {
+      "id": "l12_QA_1",
+      "type": "tita",
+      "text": "Two parallel chords of a circle have lengths 16 cm and 30 cm and lie on opposite sides of the centre. The distance between the chords is 23 cm. Find the radius of the circle (in cm).",
+      "ans": "17",
+      "exp": "Let the distances from the centre be d and 23 − d. r² = 8² + d² = 15² + (23 − d)². 64 + d² = 225 + 529 − 46d + d² → 46d = 690 → d = 15, so r² = 64 + 225 = 289 → r = 17. Fast check: 8-15-17 and 15-8-17 triples. Trap: halving is easy to forget — use half-chords 8 and 15, not 16 and 30."
+     },
+     {
+      "id": "l12_QA_2",
+      "type": "mcq",
+      "text": "A regular hexagon has side 6 cm. Joining its alternate vertices forms a triangle. What is the area of this triangle (in sq cm)?",
+      "opts": [
+       "18√3",
+       "27√3",
+       "36√3",
+       "54√3"
+      ],
+      "ans": 1,
+      "exp": "The triangle is equilateral with side = √3 × 6 = 6√3 (a short diagonal). Area = (√3/4)(6√3)² = 27√3 — exactly half the hexagon (54√3). Traps: 54√3 is the whole hexagon; the hexagon is 6 small equilateral triangles of 9√3 each, so 36√3 (4 of them) and 18√3 (2 of them) are miscounts."
+     },
+     {
+      "id": "l12_QA_3",
+      "type": "tita",
+      "text": "A sector of angle 216° is cut from a circular sheet of radius 10 cm and folded (without overlap) into a right circular cone. If the volume of the cone is kπ cubic cm, find k.",
+      "ans": "96",
+      "exp": "Arc length = (216/360) × 2π × 10 = 12π = circumference of the base → base radius 6. Slant height = 10, so height = √(100 − 36) = 8. V = (1/3)π × 36 × 8 = 96π. Traps: forgetting 1/3 gives 288; swapping radius and height gives 128."
+     },
+     {
+      "id": "l12_QA_4",
+      "type": "mcq",
+      "text": "Two circles of radii 9 cm and 4 cm touch each other externally. What is the length of their direct (external) common tangent?",
+      "opts": [
+       "13 cm",
+       "12 cm",
+       "6 cm",
+       "2√13 cm"
+      ],
+      "ans": 1,
+      "exp": "Distance between centres d = 9 + 4 = 13. Direct common tangent = √(d² − (r₁ − r₂)²) = √(169 − 25) = 12. Shortcut for touching circles: 2√(r₁r₂) = 2√36 = 12. Trap: 13 is the distance between centres; using (r₁ + r₂) in the formula gives 0 (that is the transverse tangent)."
+     },
+     {
+      "id": "l12_QA_5",
+      "type": "tita",
+      "text": "Each interior angle of a regular polygon is 156°. How many diagonals does the polygon have?",
+      "ans": "90",
+      "exp": "Exterior angle = 180° − 156° = 24°, so n = 360/24 = 15. Diagonals = n(n − 3)/2 = 15 × 12/2 = 90. Trap: using C(15,2) = 105 counts the 15 sides too."
+     }
+    ]
+   },
+   {
+    "title": "Count, Choose & Chance",
+    "mins": 14,
+    "qs": [
+     {
+      "id": "l13_QA_1",
+      "type": "tita",
+      "text": "In how many distinct ways can the letters of the word BANANA be arranged so that the two N's are never next to each other?",
+      "ans": "40",
+      "exp": "Gap method: arrange B, A, A, A first: 4!/3! = 4 ways. This creates 5 gaps; choose 2 of them for the identical N's: C(5,2) = 10. Total = 4 × 10 = 40. (Check: all arrangements 60, with NN together 20 → 60 − 20 = 40.) Trap: forgetting the A's are identical and using 4! = 24 gives 240."
+     },
+     {
+      "id": "l13_QA_2",
+      "type": "mcq",
+      "text": "A committee of 5 is to be chosen from 6 men and 4 women. In how many ways can it be done if the committee must have at least 2 women?",
+      "opts": [
+       "120",
+       "186",
+       "246",
+       "252"
+      ],
+      "ans": 1,
+      "exp": "Complement: total C(10,5) = 252; remove 0 women: C(6,5) = 6; remove exactly 1 woman: 4 × C(6,4) = 60. Answer = 252 − 66 = 186. (Direct: 2W 120 + 3W 60 + 4W 6 = 186.) Traps: 120 counts only 'exactly 2'; 246 removes only the all-men case."
+     },
+     {
+      "id": "l13_QA_3",
+      "type": "mcq",
+      "text": "Three fair dice are rolled. What is the probability that the three numbers shown, read in order (first, second, third die), are strictly increasing?",
+      "opts": [
+       "1/6",
+       "5/54",
+       "7/27",
+       "5/9"
+      ],
+      "ans": 1,
+      "exp": "Any 3 distinct numbers can be arranged in strictly increasing order in exactly one way, so favourable = C(6,3) = 20. P = 20/216 = 5/54. Trap: 1/6 = 1/3! ignores the cases with repeated numbers; 7/27 = 56/216 is for non-decreasing (repeats allowed)."
+     },
+     {
+      "id": "l13_QA_4",
+      "type": "tita",
+      "text": "How many ordered triples of non-negative integers (a, b, c) satisfy a + b + c = 10 with each of a, b, c at most 5?",
+      "ans": "21",
+      "exp": "Without the cap: C(12,2) = 66. If a ≥ 6, put a = 6 + a': a' + b + c = 4 → C(6,2) = 15; same for b and c → 45. Two variables can't both be ≥ 6 (sum would exceed 10). Answer = 66 − 45 = 21. Trap: forgetting the cap gives 66; using 'positive' formula C(9,2) = 36 is wrong since 0 is allowed."
+     },
+     {
+      "id": "l13_QA_5",
+      "type": "tita",
+      "text": "Six friends, including Asha and Bina, sit around a circular table. In how many arrangements are Asha and Bina NOT seated next to each other?",
+      "ans": "72",
+      "exp": "Circular arrangements of 6 = (6 − 1)! = 120. Asha and Bina together: treat as one unit → (5 − 1)! × 2 = 48. Not together = 120 − 48 = 72. Trap: using linear 6! = 720 or forgetting the ×2 (gives 96)."
+     }
+    ]
+   },
+   {
+    "title": "Mod Squad & Function Fun",
+    "mins": 14,
+    "qs": [
+     {
+      "id": "l14_QA_1",
+      "type": "tita",
+      "text": "How many integers x satisfy |x − 3| + |x + 2| ≤ 11?",
+      "ans": "12",
+      "exp": "|x − 3| + |x + 2| is the sum of distances from 3 and −2; it equals 5 for −2 ≤ x ≤ 3 and grows by 2 per unit outside. x > 3: 2x − 1 ≤ 11 → x ≤ 6. x < −2: 1 − 2x ≤ 11 → x ≥ −5. So x = −5 … 6 → 12 integers. Trap: counting only 6 (one side) or 11 (off-by-one)."
+     },
+     {
+      "id": "l14_QA_2",
+      "type": "mcq",
+      "text": "A function f satisfies f(x) + 2f(1/x) = 3x for every non-zero real x. What is f(2)?",
+      "opts": [
+       "1",
+       "−1",
+       "3/2",
+       "−3/2"
+      ],
+      "ans": 1,
+      "exp": "Put x = 2: f(2) + 2f(1/2) = 6. Put x = 1/2: f(1/2) + 2f(2) = 3/2. Multiply the second by 2: 2f(1/2) + 4f(2) = 3. Subtract from the first: −3f(2) = 3 → f(2) = −1. Trap: sign slip when subtracting gives +1."
+     },
+     {
+      "id": "l14_QA_3",
+      "type": "tita",
+      "text": "How many integer values of x satisfy x² − 7|x| + 10 < 0?",
+      "ans": "4",
+      "exp": "Since x² = |x|², this is (|x| − 2)(|x| − 5) < 0 → 2 < |x| < 5 → |x| = 3 or 4 → x = ±3, ±4. That is 4 integers. Trap: forgetting negative values gives 2; using ≤ would add ±2, ±5."
+     },
+     {
+      "id": "l14_QA_4",
+      "type": "mcq",
+      "text": "What is the minimum value of |x − 1| + |x − 2| + |x − 3| + … + |x − 10| over all real x?",
+      "opts": [
+       "20",
+       "25",
+       "27.5",
+       "30"
+      ],
+      "ans": 1,
+      "exp": "A sum of distances is minimised at the median of the points: any x in [5, 6]. At x = 5: (4+3+2+1+0) + (1+2+3+4+5) = 10 + 15 = 25. Trap: plugging x = 1 or 10 (endpoints) gives 45; arithmetic slips give 20 or 30."
+     },
+     {
+      "id": "l14_QA_5",
+      "type": "tita",
+      "text": "Let f(x) = max(x², 4 − 3x) for all real x. What is the minimum value of f(x)?",
+      "ans": "1",
+      "exp": "x² = 4 − 3x → x² + 3x − 4 = 0 → x = 1 or x = −4. Between −4 and 1 the line 4 − 3x is on top and decreases to 1 at x = 1; for x > 1, x² > 1; for x < −4, x² > 16. So the minimum is 1, at x = 1. Trap: answering 0 (min of x² alone) — but at x = 0, f = max(0, 4) = 4."
+     }
+    ]
+   },
+   {
+    "title": "Number Ninja",
+    "mins": 14,
+    "qs": [
+     {
+      "id": "l15_QA_1",
+      "type": "tita",
+      "text": "How many even factors does 2160 have?",
+      "ans": "32",
+      "exp": "2160 = 2⁴ × 3³ × 5. Total factors = 5 × 4 × 2 = 40. An even factor needs at least one 2: choices for the power of 2 are 1–4 (4 ways) → 4 × 4 × 2 = 32. Trap: 40 is all factors; 8 is the odd factors (40 − 32)."
+     },
+     {
+      "id": "l15_QA_2",
+      "type": "mcq",
+      "text": "What is the remainder when 7¹⁰⁰ is divided by 13?",
+      "opts": [
+       "1",
+       "3",
+       "9",
+       "10"
+      ],
+      "ans": 2,
+      "exp": "Fermat: 7¹² ≡ 1 (mod 13). 100 = 12 × 8 + 4, so 7¹⁰⁰ ≡ 7⁴. 7² = 49 ≡ 10 ≡ −3, so 7⁴ ≡ 9. Remainder 9. Traps: assuming 7¹⁰⁰ ≡ 1 (100 isn't a multiple of 12); stopping at 7² gives 10; 3 is from sign slip (−3)."
+     },
+     {
+      "id": "l15_QA_3",
+      "type": "tita",
+      "text": "A three-digit number N is written as 'abc' in base 7 and as 'cba' in base 9 (a and c are non-zero). Find N in decimal.",
+      "ans": "248",
+      "exp": "49a + 7b + c = 81c + 9b + a → 48a = 2b + 80c → 24a = b + 40c. Digits must be base-7 valid (0–6). b = 24a − 40c must be in 0–6: only a = 5, c = 3 gives b = 0. N = 5×49 + 0 + 3 = 248 (check: 3×81 + 0 + 5 = 248). Trap: forgetting digits must be < 7 lets in extra 'solutions'."
+     },
+     {
+      "id": "l15_QA_4",
+      "type": "mcq",
+      "text": "What is the highest power of 12 that divides 30! ?",
+      "opts": [
+       "10",
+       "13",
+       "14",
+       "26"
+      ],
+      "ans": 1,
+      "exp": "12 = 2² × 3. Power of 2 in 30!: 15 + 7 + 3 + 1 = 26 → 26/2 = 13 copies of 2². Power of 3: 10 + 3 + 1 = 14. The limiting factor is min(13, 14) = 13. Traps: 14 uses only the 3s; 26 forgets that 12 needs two 2s."
+     },
+     {
+      "id": "l15_QA_5",
+      "type": "tita",
+      "text": "Find the smallest positive integer that leaves remainder 2 when divided by each of 3, 4, 5 and 6, and is exactly divisible by 7.",
+      "ans": "182",
+      "exp": "LCM(3,4,5,6) = 60, so N = 60k + 2. Need 60k + 2 ≡ 0 (mod 7): 60 ≡ 4, so 4k ≡ −2 ≡ 5 (mod 7) → k ≡ 3 (since 4×3 = 12 ≡ 5). N = 182 = 7 × 26. Trap: using LCM = 360 (product) or stopping at 62/122 without checking 7."
+     }
+    ]
+   },
+   {
+    "title": "Track Kings & Leaky Vessels",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l16_QA_1",
+      "type": "tita",
+      "text": "A circular track is 600 m long. A and B start together from point P and run clockwise at 10 m/s and 16 m/s; at the same instant C starts from P running anticlockwise at 20 m/s. In the first 30 minutes (excluding the start, including the instant t = 30 min), how many times are all three runners at the same point of the track?",
+      "ans": "18",
+      "exp": "A and B together: relative speed 6 m/s, so every 600/6 = 100 s. A and C together: relative speed 30 m/s, so every 20 s. B and C: every 600/36 = 50/3 s. All three together = common multiple of 100, 20 and 50/3 = every 100 s. In 1800 s: 1800/100 = 18. Trap: computing when all three are back at P (LCM of lap times 60, 37.5, 30 = 300 s) gives 6 - but they can coincide anywhere, not only at P."
+     },
+     {
+      "id": "l16_QA_2",
+      "type": "mcq",
+      "text": "A, B and C can each finish a job alone in 12, 18 and 36 days. They work in pairs on a rotating schedule: Day 1 A+B, Day 2 B+C, Day 3 C+A, then repeat. From Day 4 onwards B works at only half his efficiency. On which day is the job completed?",
+      "opts": [
+       "Day 9",
+       "Day 10",
+       "Day 10½",
+       "Day 11"
+      ],
+      "ans": 1,
+      "exp": "Take work = 36 units: A=3, B=2, C=1 per day. Days 1-3: 5+3+4 = 12. From Day 4, B=1: cycle = (3+1)+(1+1)+(1+3) = 10 per 3 days. Remaining 24: Days 4-9 give 20, leaving 4; Day 10 is A+B = 3+1 = 4, so it finishes exactly at the end of Day 10. Trap: ignoring the drop gives 12 per cycle, so 9 days; using 10 units per cycle from Day 1 gives about 10½-11."
+     },
+     {
+      "id": "l16_QA_3",
+      "type": "tita",
+      "text": "A vessel is full of pure milk. 10 litres are taken out and replaced with water. Then 15 litres of the mixture are taken out and replaced with water. Now milk : water = 5 : 3. What is the capacity of the vessel (in litres)?",
+      "ans": "60",
+      "exp": "Milk left as a fraction = (1 − 10/V)(1 − 15/V) = 5/8. So 8(V − 10)(V − 15) = 5V², which gives 3V² − 200V + 1200 = 0, so V = 60 or V = 20/3. Trap: V = 20/3 is a root of the equation but you cannot remove 10 L from a 6.67 L vessel. Check 60: (5/6)(3/4) = 5/8. Answer 60."
+     },
+     {
+      "id": "l16_QA_4",
+      "type": "mcq",
+      "text": "A man walks up an escalator that is moving upwards. Walking at his normal speed he takes 20 steps to reach the top. When he walks at 3 times that speed, he takes 30 steps. How many steps are visible on the escalator when it is stationary?",
+      "opts": [
+       "36",
+       "40",
+       "45",
+       "50"
+      ],
+      "ans": 1,
+      "exp": "Let walking speed = v steps per unit time and escalator speed = e, with N visible steps. At speed v: time = 20/v, so N = 20 + 20e/v. At speed 3v: time = 30/(3v) = 10/v, so N = 30 + 10e/v. Equating gives 10e/v = 10, so e/v = 1 and N = 40. Trap: the faster run takes more steps but less time; people who treat the times as equal get a wrong N."
+     },
+     {
+      "id": "l16_QA_5",
+      "type": "tita",
+      "text": "Two trains start at the same time from stations P and Q towards each other. After they cross, they take 9 hours and 16 hours respectively to reach Q and P. If the faster train runs at 60 km/h, what is the distance PQ in km?",
+      "ans": "1260",
+      "exp": "Speed ratio = √(16/9) = 4/3, so the speeds are 60 and 45. Time to meet t = √(9 × 16) = 12 h. PQ = (60 + 45) × 12 = 1260. Trap: using the ratio 16/9 without the square root, or taking the slower train as 60."
+     }
+    ]
+   },
+   {
+    "title": "Roots, Logs & Telescopes",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l17_QA_1",
+      "type": "tita",
+      "text": "For how many integer values of k in the range −10 ≤ k ≤ 10 does the equation x² + 2(k − 1)x + k + 5 = 0 have at least one positive real root?",
+      "ans": "10",
+      "exp": "Discriminant ≥ 0: (k − 1)² − (k + 5) ≥ 0, so k² − 3k − 4 ≥ 0, so k ≤ −1 or k ≥ 4. If the product k + 5 < 0, one root is positive (k < −5). If k = −5, the roots are 0 and 12. If k + 5 > 0, both roots have the same sign and we need the sum −2(k − 1) > 0, so k < 1; with the discriminant this gives −5 < k ≤ −1. Together: every k ≤ −1, which is k = −10 to −1, so 10 values. Trap: also counting k ≥ 4 (real roots, but both negative) gives 17."
+     },
+     {
+      "id": "l17_QA_2",
+      "type": "mcq",
+      "text": "Find the value of 1/(1·2·3) + 1/(2·3·4) + 1/(3·4·5) + … + 1/(20·21·22).",
+      "opts": [
+       "115/462",
+       "1/4",
+       "230/231",
+       "229/924"
+      ],
+      "ans": 0,
+      "exp": "1/(n(n+1)(n+2)) = ½[1/(n(n+1)) − 1/((n+1)(n+2))], so the sum telescopes to ½[1/2 − 1/(21·22)] = ½[1/2 − 1/462] = ½ × 230/462 = 115/462. Trap: forgetting the factor ½ gives 230/462. Taking the infinite-sum limit gives 1/4."
+     },
+     {
+      "id": "l17_QA_3",
+      "type": "tita",
+      "text": "Positive reals x, y, z satisfy: log₂x + log₄y + log₄z = 2, log₃y + log₉z + log₉x = 2, and log₄z + log₁₆x + log₁₆y = 2. Find the value of 3(x + z) − 8y.",
+      "ans": "7",
+      "exp": "Rewrite each in one base: log₂(x√(yz)) = 2 gives x²yz = 16. Similarly y²zx = 81 and z²xy = 256. Multiply: (xyz)⁴ = 16·81·256, so xyz = 2·3·4 = 24. Then x = 16/24 = 2/3, y = 81/24 = 27/8, z = 256/24 = 32/3. So 3(x + z) − 8y = 3(34/3) − 27 = 7. Trap: solving for xyz alone and stopping, or mixing up which base belongs to which equation."
+     },
+     {
+      "id": "l17_QA_4",
+      "type": "mcq",
+      "text": "For which values of a does exactly one root of x² − 2(a + 1)x + a² + 2a − 3 = 0 lie strictly between 0 and 4?",
+      "opts": [
+       "(−3, 5)",
+       "(−3, 1) ∪ (1, 5)",
+       "(−1, 3)",
+       "[−3, 5] excluding a = 1"
+      ],
+      "ans": 1,
+      "exp": "Discriminant/4 = (a + 1)² − (a² + 2a − 3) = 4, so the roots are a + 3 and a − 1. They differ by exactly 4, so both can never lie inside the open interval (0, 4). Exactly one lies inside when a − 1 ∈ (0, 4), so a ∈ (1, 5), or when a + 3 ∈ (0, 4), so a ∈ (−3, 1). Trap: at a = 1 the roots are 0 and 4, and neither is strictly inside, so a = 1 must be excluded. Answer: (−3, 1) ∪ (1, 5)."
+     },
+     {
+      "id": "l17_QA_5",
+      "type": "tita",
+      "text": "How many terms are common to the arithmetic progressions 3, 7, 11, …, 407 and 2, 9, 16, …, 709?",
+      "ans": "14",
+      "exp": "Common terms satisfy x ≡ 3 (mod 4) and x ≡ 2 (mod 7). The first common term is 23, and the common difference is LCM(4, 7) = 28. The terms must be ≤ 407 (the smaller last term): 23 + 28(n − 1) ≤ 407 gives n − 1 ≤ 13.7, so n = 14. Trap: using 709 as the bound, or starting from 3 or 2 instead of 23."
+     }
+    ]
+   },
+   {
+    "title": "Tangents, Cones & Diamonds",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l18_QA_1",
+      "type": "mcq",
+      "text": "Two circles of radii 9 cm and 4 cm touch each other externally, and both touch a straight line L. A third circle, lying in the gap between the two circles and L, touches both circles and the line L. What is its radius?",
+      "opts": [
+       "36/25 cm",
+       "6/5 cm",
+       "36/13 cm",
+       "1 cm"
+      ],
+      "ans": 0,
+      "exp": "For circles of radii a and b touching each other and a common line, the tangent points are 2√(ab) apart. For the small circle r: 2√(9r) + 2√(4r) = 2√36 = 12, so 6√r + 4√r = 12, √r = 6/5, r = 36/25. (Shortcut: 1/√r = 1/√9 + 1/√4 = 5/6.) Trap: stopping at √r = 6/5 and marking 6/5."
+     },
+     {
+      "id": "l18_QA_2",
+      "type": "tita",
+      "text": "A right circular cone has base radius 12 cm and height 16 cm. A sphere is placed inside so that it touches the base and the curved surface. A second, smaller sphere is placed above it, touching the first sphere and the curved surface. Find the radius of the smaller sphere in millimetres.",
+      "ans": "15",
+      "exp": "The vertical cross-section is a triangle with sides 20, 20, 24, area 192 and semi-perimeter 32, so the first sphere's radius = 192/32 = 6 cm. Its top is at height 12, leaving a similar cone of height 16 − 12 = 4, scale factor 4/16 = 1/4. The small sphere is the inscribed sphere of that cone: 6/4 = 1.5 cm = 15 mm. Trap: using height ratio with the sphere's centre (16 − 6)/16 instead of the top tangent plane."
+     },
+     {
+      "id": "l18_QA_3",
+      "type": "tita",
+      "text": "Find the area (in square units) of the region in the xy-plane that satisfies both |x − 2| + |y + 1| ≤ 6 and xy ≥ 0.",
+      "ans": "32",
+      "exp": "The first condition is a square (diamond) with vertices (8, −1), (2, 5), (−4, −1), (2, −7). xy ≥ 0 keeps quadrants I and III. Quadrant I: polygon (0,0), (7,0), (2,5), (0,3), area 41/2 by the shoelace formula. Quadrant III: polygon (0,0), (−3,0), (−4,−1), (0,−5), area 23/2. Total = 41/2 + 23/2 = 32. Trap: assuming symmetry about the origin and doubling one quadrant; the diamond is centred at (2, −1), not at the origin."
+     },
+     {
+      "id": "l18_QA_4",
+      "type": "tita",
+      "text": "A circle has centre O and radius 9 cm. P is a point with OP = 15 cm, and PA and PB are the tangents from P. The tangent to the circle at the point of the minor arc AB nearest to P meets PA at X and PB at Y. Find XY in cm.",
+      "ans": "9",
+      "exp": "PA = √(15² − 9²) = 12, and the half-angle θ at P has tan θ = 9/12 = 3/4. The nearest point Q is on PO with PQ = 15 − 9 = 6, and XY is perpendicular to PO at Q. So XY = 2 × 6 × tan θ = 2 × 6 × 3/4 = 9. Trap: the well-known result 'perimeter of PXY = 2·PA = 24' answers a different question; and XY is not PA/2."
+     },
+     {
+      "id": "l18_QA_5",
+      "type": "mcq",
+      "text": "Each corner of a cube of side 4 cm is sliced off by a plane passing through the midpoints of the three edges meeting at that corner. What is the ratio of the total surface area of the resulting solid to that of the original cube?",
+      "opts": [
+       "5/6",
+       "(3 + √3)/6",
+       "(2 + √3)/4",
+       "(3 + √3)/12"
+      ],
+      "ans": 1,
+      "exp": "Each face of the cube becomes a square with its 4 corner triangles removed: 16 − 4 × 2 = 8, so 6 faces give 48. Each of the 8 cuts adds an equilateral triangle of side 2√2 with area (√3/4) × 8 = 2√3, giving 16√3 in total. Ratio = (48 + 16√3)/96 = (3 + √3)/6. Trap: 5/6 is the volume ratio (64 − 8 × 4/3 = 160/3), not the surface-area ratio."
+     }
+    ]
+   },
+   {
+    "title": "Remainders & Rolling Dice",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l19_QA_1",
+      "type": "tita",
+      "text": "Find the remainder when 2²⁰²⁶ is divided by 1000.",
+      "ans": "864",
+      "exp": "Split 1000 = 8 × 125. Mod 8: 2²⁰²⁶ ≡ 0. Mod 125: φ(125) = 100, so 2²⁰²⁶ ≡ 2²⁶. Since 2⁷ = 128 ≡ 3, 2²⁶ = (2⁷)³ × 2⁵ ≡ 27 × 32 = 864 ≡ 114 (mod 125). Now find the number ≡ 114 (mod 125) that is divisible by 8: from 114, 239, 364, 489, 614, 739, 864, 989 it is 864. Trap: applying Euler with φ(1000) = 400 directly fails because 2 and 1000 are not coprime."
+     },
+     {
+      "id": "l19_QA_2",
+      "type": "mcq",
+      "text": "How many 5-digit natural numbers have a digit sum of exactly 10?",
+      "opts": [
+       "715",
+       "714",
+       "705",
+       "1001"
+      ],
+      "ans": 1,
+      "exp": "Let the first digit be d₁ = 1 + a with a ≥ 0, so a + d₂ + d₃ + d₄ + d₅ = 9: C(13, 4) = 715 solutions. No digit d₂ to d₅ can exceed 9, but a = 9 would make d₁ = 10, which is not a digit. Remove that 1 case: 714. Trap: 715 forgets the cap on the leading digit. 1001 = C(14, 4) allows a leading zero."
+     },
+     {
+      "id": "l19_QA_3",
+      "type": "tita",
+      "text": "In how many ways can 8 identical balls be placed in 4 distinct boxes so that no box gets more than 3 balls? (Boxes may be empty.)",
+      "ans": "31",
+      "exp": "Without the cap: C(11, 3) = 165. Subtract cases where some box has ≥ 4: 4 × C(7, 3) = 140. Add back cases where two boxes have ≥ 4 (exactly 4 each): C(4, 2) × 1 = 6. Total = 165 − 140 + 6 = 31. Trap: forgetting the add-back step gives 25."
+     },
+     {
+      "id": "l19_QA_4",
+      "type": "mcq",
+      "text": "A, B and C take turns rolling a fair die in the order A, B, C, A, B, C, …. The first person to roll a 6 wins. What is the probability that C wins?",
+      "opts": [
+       "1/3",
+       "30/91",
+       "25/91",
+       "36/91"
+      ],
+      "ans": 2,
+      "exp": "C wins on the first round with probability (5/6)(5/6)(1/6) = 25/216. Each full round with no six has probability (5/6)³ = 125/216, so P(C) = (25/216)/(1 − 125/216) = 25/91. (A = 36/91, B = 30/91.) Trap: assuming fairness gives 1/3; 36/91 is A's chance."
+     },
+     {
+      "id": "l19_QA_5",
+      "type": "tita",
+      "text": "What is the largest integer n such that 12ⁿ divides 50! ?",
+      "ans": "22",
+      "exp": "12ⁿ = 2²ⁿ × 3ⁿ. Power of 2 in 50!: 25 + 12 + 6 + 3 + 1 = 47, so pairs of 2s allow n ≤ 23. Power of 3: 16 + 5 + 1 = 22, so n ≤ 22. The binding factor is 3, so n = 22. Trap: assuming the larger prime power or the factor 2 limits n, which gives 23."
+     }
+    ]
+   },
+   {
+    "title": "CAT Boss: The 99%ile Gate",
+    "mins": 15,
+    "qs": [
+     {
+      "id": "l20_QA_1",
+      "type": "tita",
+      "text": "How many ordered pairs of integers (x, y) satisfy x² − y² = 2025?",
+      "ans": "30",
+      "exp": "(x − y)(x + y) = 2025 = 3⁴ × 5², which is odd, so every factor pair has the same parity and gives an integer solution. Positive divisors: 5 × 3 = 15, so 15 ordered factor pairs (d, 2025/d). Negative pairs double this to 30. (d = 45 gives y = 0, which is still counted once in each sign.) Trap: answering 15 (positive factors only) or 7 (positive x, y with y > 0)."
+     },
+     {
+      "id": "l20_QA_2",
+      "type": "mcq",
+      "text": "In triangle ABC, AB = 13, BC = 14 and CA = 15. What is the distance between its incentre and its circumcentre?",
+      "opts": [
+       "√65/8",
+       "√65/4",
+       "65/64",
+       "1/2"
+      ],
+      "ans": 0,
+      "exp": "Area = 84 (Heron, s = 21), so r = 84/21 = 4 and R = abc/(4 × Area) = 2730/336 = 65/8. Euler's formula: OI² = R² − 2Rr = 4225/64 − 65 = 65/64, so OI = √65/8. Trap: 65/64 is OI², not OI. Using R² − Rr gives other wrong values."
+     },
+     {
+      "id": "l20_QA_3",
+      "type": "tita",
+      "text": "Pipes A and B can fill a tank in 20 and 30 minutes, and pipe C can empty the full tank in 15 minutes. Starting with an empty tank, the pipes are opened one at a time for 1 minute each in the order A, B, C, A, B, C, …. After how many minutes is the tank full for the first time?",
+      "ans": "167",
+      "exp": "Take capacity = 60 units: A = +3, B = +2, C = −4 per minute. Each 3-minute cycle adds a net 1, but within a cycle the level rises by 5 before C runs. The tank fills during a cycle once the start level is ≥ 55. That is after 55 cycles = 165 minutes (level 55). Then A gives 58 at 166 minutes and B gives 60 at 167 minutes. Trap: 60 cycles × 3 = 180 minutes ignores the peak inside a cycle."
+     },
+     {
+      "id": "l20_QA_4",
+      "type": "mcq",
+      "text": "x, y, z are positive reals with x + y + z = 12. What is the maximum value of x·y²·z³?",
+      "opts": [
+       "4096",
+       "5184",
+       "6912",
+       "8192"
+      ],
+      "ans": 2,
+      "exp": "Weighted AM-GM: split the sum into x, y/2, y/2, z/3, z/3, z/3 (6 parts summing to 12, so each is 2 at the maximum). This gives x = 2, y = 4, z = 6, and the maximum = 2 × 16 × 216 = 6912. Trap: taking x = y = z = 4 gives 4096. Getting the weights on the wrong variables gives other options."
+     },
+     {
+      "id": "l20_QA_5",
+      "type": "tita",
+      "text": "How many 7-digit numbers that use each of the digits 1, 2, 3, 4, 5, 6, 7 exactly once are divisible by 11?",
+      "ans": "576",
+      "exp": "Let S be the sum of the 4 odd-position digits; the even positions sum to 28 − S. Divisibility by 11 needs 2S − 28 ≡ 0 (mod 11), so S = 14 (S = 25 > 22 and S = 3 are impossible). The 4-element subsets of {1,…,7} with sum 14 are {1,2,4,7}, {1,2,5,6}, {1,3,4,6}, {2,3,4,5}: 4 subsets. Each gives 4! × 3! = 144 arrangements, so 4 × 144 = 576. Trap: forgetting to arrange the 3 even-position digits (×3!) gives 4 × 24 = 96; also, a difference of ±22 is impossible here, so no extra cases."
+     }
+    ]
    }
   ]
  },
@@ -1281,6 +3083,26 @@ const EXTRA = {
   "c_vr7": "Boredom has long had a poor reputation. Moralists treated it as a symptom of idleness, and psychologists, for most of the twentieth century, filed it alongside fatigue as a state to be minimised. Yet a growing body of research suggests that this view mistakes the signal for the problem. Boredom, on this account, is less a deficiency of stimulation than a judgement: the mind's verdict that what it is currently doing is not worth doing. Seen this way, boredom resembles pain. Pain is unpleasant precisely because it must be; an organism that felt nothing when its hand touched a flame would not keep its hand for long. Similarly, a mind that never grew restless during a pointless task would have no reason to abandon it for a better one.\n\nThis reframing has an uncomfortable implication for how we now manage boredom. The smartphone offers an escape so immediate that the signal is silenced before it can be read. The person waiting in a queue who reaches for a feed does not ask what the restlessness is pointing toward; the itch is scratched, and the question disappears. Some researchers report that people made to sit with a dull task for a few minutes subsequently generate more varied ideas than those who are not, though the effect is modest and its durability unclear. The case, then, is not that boredom is pleasant or that it should be sought out for its own sake. It is that an alarm we continually switch off cannot tell us anything, and that a culture which treats every idle minute as an emergency may be losing access to one of the few internal instruments that tell it when to change course.",
   "c_vr8": "When a government wants hospitals to treat patients faster, the obvious move is to measure waiting times and reward the hospitals that reduce them. The difficulty is that a measure, once rewarded, ceases to be a neutral window onto performance and becomes a target that institutions learn to hit. Hospitals told to see emergency patients within four hours have, in some documented cases, kept ambulances waiting outside so that the clock would not start, or admitted patients to a ward in name only. None of this requires villainy. Administrators under pressure do what the incentive literally asks, and the literal request is never quite the same as the intention behind it.\n\nThe standard response is to add more measures, on the theory that it is harder to game ten indicators than one. But this often deepens the problem. Each new metric demands staff time to record, and the dashboard grows so crowded that managers attend to whichever numbers are reviewed most often, not those that matter most. What began as an effort to see the institution clearly ends by replacing the institution, in the minds of those who run it, with its own reflection.\n\nNone of this means that measurement should be abandoned. Numbers expose neglect that anecdote would hide, and a hospital that does not count its infections will not notice when they rise. The lesson is narrower: a figure works best as a diagnostic, consulted by people who understand what lies beneath it, and worst as a verdict mechanically attached to rewards. The more distance there is between those who set the numbers and those who know the work, the more likely the numbers are to be performed rather than achieved.",
   "c_vr9": "The claim that reading fiction makes us better people has become something like a professional creed among those who teach literature. It is usually defended on the grounds that novels train us to inhabit other minds, and that this practice, repeated over years, enlarges our capacity for sympathy. Laboratory studies have lent the claim a scientific gloss, reporting that participants who read a short literary story perform slightly better on tests of reading emotions in faces than those who read popular fiction or nothing at all. Yet the findings have proved fragile on replication, and even taken at face value they establish something much narrower than the creed requires: a brief improvement in a perceptual task is not a disposition to act kindly.\n\nThere is, moreover, a difficulty that no experiment can easily remove. People who choose to read serious fiction may already be unusually attentive to others; the habit may be a symptom of sympathy rather than its cause. And the historical record offers little comfort. Some of the most cultivated readers of their age have also been among its most accomplished administrators of cruelty, which suggests that the capacity to imagine another's suffering can coexist with an indifference to relieving it.\n\nNone of this shows that literature is morally inert. It may be that fiction's real contribution lies not in making readers kinder but in making them more precise: better able to distinguish one kind of suffering from another, less content with the stock phrase. That is a smaller claim, and a less flattering one for the profession, but it has the advantage of being something a novel might plausibly do.",
-  "c_vr10": "The parable of the overgrazed pasture has done remarkable work for a story with almost no empirical content. In its familiar form, each herder reasons that the gain from adding one more animal accrues to him alone while the cost of the degraded grass is shared by all; each therefore adds animals until the pasture is ruined. The conclusion usually drawn is that shared resources must be either enclosed as private property or placed under the authority of the state. What the parable assumes, without announcing it, is that the herders cannot speak to one another, that they are strangers who meet only through the grass.\n\nField studies of actual commons tell a less tidy story. Fisheries, irrigation systems and grazing lands have been managed collectively for centuries by communities that devised their own rules about who may take what and when, monitored one another, and graduated their penalties so that a first offence drew a reproach rather than expulsion. Such arrangements fail, certainly; but they tend to fail under identifiable conditions: when the group grows too large for members to observe each other, when outsiders can enter freely, or when a distant authority overrides local rules it does not understand.\n\nIt would be a mistake, though, to replace one parable with its mirror image, in which communities are naturally wise and only interference corrupts them. The more defensible conclusion is conditional: the parable describes not the fate of shared resources as such but the fate of shared resources among people who have no means of making and enforcing agreements. That is a real situation, and in a world of global fisheries and a shared atmosphere, perhaps an increasingly common one. But it is a situation, not a law of nature."
+  "c_vr10": "The parable of the overgrazed pasture has done remarkable work for a story with almost no empirical content. In its familiar form, each herder reasons that the gain from adding one more animal accrues to him alone while the cost of the degraded grass is shared by all; each therefore adds animals until the pasture is ruined. The conclusion usually drawn is that shared resources must be either enclosed as private property or placed under the authority of the state. What the parable assumes, without announcing it, is that the herders cannot speak to one another, that they are strangers who meet only through the grass.\n\nField studies of actual commons tell a less tidy story. Fisheries, irrigation systems and grazing lands have been managed collectively for centuries by communities that devised their own rules about who may take what and when, monitored one another, and graduated their penalties so that a first offence drew a reproach rather than expulsion. Such arrangements fail, certainly; but they tend to fail under identifiable conditions: when the group grows too large for members to observe each other, when outsiders can enter freely, or when a distant authority overrides local rules it does not understand.\n\nIt would be a mistake, though, to replace one parable with its mirror image, in which communities are naturally wise and only interference corrupts them. The more defensible conclusion is conditional: the parable describes not the fate of shared resources as such but the fate of shared resources among people who have no means of making and enforcing agreements. That is a real situation, and in a world of global fisheries and a shared atmosphere, perhaps an increasingly common one. But it is a situation, not a law of nature.",
+  "c_dl11": "Each of the 100 students of Class XII at Riverdale School was asked whether they belong to the Music club (M), the Dance club (D) and the Drama club (Dr). A student may belong to any number of these three clubs, including none.\n• 25 students belong to none of the three clubs.\n• The Music, Dance and Drama clubs have 40, 37 and 30 members respectively.\n• 24 students belong to exactly two of the three clubs.\n• The number of students who belong to all three clubs is one-sixth of the number who belong to exactly two clubs.\n• The number of students in Music and Dance but not Drama is 2 more than the number in Music and Drama but not Dance.\n• The number of students in Drama only equals the number in Dance and Drama but not Music.",
+  "c_dl12": "The table shows the annual sales (in Rs. lakh) of five outlets P, Q, R, S and T of a bakery chain in 2024 and 2025, along with the percentage growth in sales from 2024 to 2025. Some entries are missing (shown as ?).\nOutlet | Sales 2024 | Sales 2025 | Growth (%)\nP | 80 | ? | 25\nQ | ? | 132 | 10\nR | 60 | ? | ?\nS | ? | ? | 10\nT | 40 | ? | ?\nAdditional information:\n• The total sales of all five outlets in 2024 was Rs. 400 lakh.\n• In 2025, the ratio of P's sales to T's sales was 25 : 17.\n• In 2025, R contributed exactly 18% of the total sales of the five outlets.",
+  "c_dl13": "Six friends A, B, C, D, E and F live in a six-storey building, one on each floor. The floors are numbered 1 (lowest) to 6 (top). Each of them likes a different colour among Red, Blue, Green, Yellow, White and Black.\n• B lives on an even-numbered floor, somewhere above C.\n• E lives above A, but E does not live on the top floor.\n• If C lives on an odd-numbered floor, then F likes Yellow; otherwise F lives on the floor immediately above D.\n• Exactly one person lives between the person who likes Red and the person who likes Blue. A does not like Blue.\n• The person who likes Black lives on the floor immediately above A.\n• The person who likes White lives on floor 1; this person is none of C, E and F.\n• The person who likes Green lives on some floor below A.\n• The person who likes Yellow lives on the top floor.",
+  "c_dl14": "A courier company moves parcels from its hub S to the city T through the cities A, B, C, D and E. The roads (each usable in either direction) and their travel costs (in Rs. hundred) are:\nS–A: 4, S–B: 7, S–C: 9, A–B: 2, A–D: 8, B–C: 3, B–D: 5, B–E: 9, C–E: 4, D–E: 2, D–T: 6, E–T: 5\nNo other roads exist. In addition, every city passed through on the way (other than S and T) charges a halt fee (in Rs. hundred) each time a courier passes through it:\nA: 3, B: 4, C: 1, D: 2, E: 3\n• The cost of a route = sum of the travel costs of the roads used + the halt fees of all intermediate cities.\n• A route from S to T never visits any city more than once.\n• Unless stated otherwise, the fees and costs above apply.",
+  "c_dl15": "Four contestants P, Q, R and S took part in the final of a quiz contest. Each contestant faced the same 10 questions and, for each question, either answered it or left it unattempted. A correct answer earned +4 points, a wrong answer earned −1 point, and an unattempted question earned 0.\n• The four final scores were all different, and S topped the contest with 30 points.\n• Q attempted every question and scored 20 points.\n• P left exactly one question unattempted and scored more than Q.\n• The four contestants together gave 26 correct answers.\n• Altogether, 5 questions were left unattempted across the four contestants.\n• R gave fewer wrong answers than each of the other three contestants, but scored less than Q.",
+  "c_dl16": "Seven workshops - Analytics (A), Branding (B), Coding (C), Design (D), Ethics (E), Finance (F) and Growth (G) - are held at an incubator on the seven days of one week, Monday to Sunday, exactly one workshop per day. Saturday and Sunday are the weekend days. The schedule obeys all of the following:\n• If C is held on a weekend day, then D is held on Monday.\n• A is held on an earlier day than E, unless F is held on Tuesday.\n• Exactly two workshops are held between D and F.\n• E is held on Monday, Wednesday, Friday or Sunday, unless C is held on Thursday.\n• If B is held on an earlier day than D, then G is held on an earlier day than C.\n• A and C are held on consecutive days only if E is held on Wednesday.\n• C is held on Wednesday, unless G is held on Thursday.\n• E is not held on Sunday.",
+  "c_dl17": "A logistics firm has employees in exactly four regions - North, East, South and West. Every employee is either a man or a woman, and every count below is a whole number.\n• North has 25% more employees than East.\n• Women make up 36% of North's employees and 45% of East's employees.\n• The number of women in South equals the number of women in North and East combined; women make up 62.5% of South's employees.\n• West has twice as many men as South, and only 20% of West's employees are women.\n• The firm has fewer than 1,000 employees in all.",
+  "c_dl18": "Six teams - A, B, C, D, E and F - played a single round-robin football tournament (each pair met exactly once, 15 matches). A win earned 3 points, a draw 1 point to each side, a loss 0. The following is known about the final standings:\n• A finished with 11 points, B with 9, D with 7 and F with 2.\n• Exactly 4 of the 15 matches ended in draws.\n• A did not lose a single match.\n• C defeated B.\n• E finished with strictly more points than C.",
+  "c_dl19": "Five friends - A, B, C, D and E - each own exactly one pet, all different: a Cat, a Dog, a Fish, a Parrot and a Rabbit. Each friend is either a Truth-teller (every statement true) or a Liar (every statement false). Each makes two statements:\n• A: \"B and I are of the same type.\" / \"The Dog owner is a Liar.\"\n• B: \"C owns the Parrot.\" / \"Exactly three of us five are Liars.\"\n• C: \"A does not own the Fish.\" / \"D is a Truth-teller.\"\n• D: \"The Rabbit owner is a Truth-teller.\" / \"A owns the Cat.\"\n• E: \"B owns neither the Dog nor the Rabbit.\" / \"A is a Liar.\"",
+  "c_dl20": "Six interns - P, Q, R, S, T and U - must be split across three projects X, Y and Z, exactly two interns per project. The table gives each intern's productivity score on each project; the team score of an allocation is the sum of the six interns' scores on their assigned projects.\nIntern | X | Y | Z\nP | 8 | 6 | 5\nQ | 7 | 9 | 4\nR | 6 | 7 | 9\nS | 9 | 5 | 6\nT | 5 | 8 | 7\nU | 4 | 6 | 8\nThe allocation must satisfy:\n• P and Q cannot be on the same project.\n• R cannot be on Project Z.\n• If S is on Project Z, then T must be on Project X.\n• U and R can be on the same project only if P is on Project Y.\n• If T is on Project Y, then S is not on Project X.",
+  "c_vr11": "Boredom has long been treated as a deficiency of the bored: a failure of inner resources, a symptom of a mind too shallow to furnish its own entertainment. The moralists of the eighteenth century scolded it as idleness; their modern descendants medicalise it as an attentional disorder. Both verdicts share an assumption worth questioning: that boredom is a malfunction to be corrected rather than information to be read. If we take the experience on its own terms, it begins to look less like an absence than a judgment. To be bored is to register, before one can articulate why, that a situation offers nothing one has reason to care about. The bored student in a lecture hall is not merely failing to attend; she is assessing the lecture, and her assessment may well be correct.\n\nThis reframing has an uncomfortable implication. If boredom is evaluative, then the industries devoted to abolishing it are not neutral servants of our wellbeing. The endlessly refreshing feed does not answer the question boredom poses (is this worth my life?) so much as prevent it from being asked. It supplies stimulus at a rate calibrated to stay just ahead of the judgment. What disappears is not the tedium but the verdict, and with it the restlessness that once drove people to quit jobs, abandon creeds, or leave towns that had nothing left to teach them.\n\nNone of this means boredom is infallible. Like fear, it can be miscalibrated. The novice pianist bored by scales is not detecting a genuine absence of value; she is mistaking the slowness of a reward for its nonexistence. Some goods disclose themselves only to those who have endured an initial flatness, and a person who obeyed every flicker of tedium would never acquire a demanding skill or finish a difficult book. The point is not that boredom should always be heeded but that it should be interrogated: treated as a claim that may be true or false, rather than a noise to be drowned.\n\nWhat would such interrogation look like? It would require, first, tolerating the state long enough to hear it. One cannot evaluate a judgment one has fled. It would require, second, distinguishing the boredom that says 'this is empty' from the boredom that says 'this is hard and its rewards are deferred.' The two feel alike from inside; they differ in what follows when one persists. The first deepens into a conviction; the second, given time, gives way to absorption. A culture that cannot sit with tedium long enough to tell these apart loses not only its capacity for patience but its capacity for refusal.",
+  "c_vr12": "Economies are very good at counting things that are new and very bad at counting things that are kept. A bridge built appears in the national accounts as investment, its contractors' wages as income, its steel as output. A bridge maintained (repainted, its bearings replaced, its joints resealed) appears, if at all, as a cost to be minimised. The asymmetry is not a mere accounting quirk. It shapes what politicians promise, what engineers are rewarded for, and what citizens notice. No minister cuts a ribbon on a resurfaced road.\n\nThe bias toward novelty is reinforced by the peculiar invisibility of success. A maintenance budget that works produces nothing to look at: the absence of collapse. Its achievement is counterfactual, and counterfactuals do not win elections. Deferred maintenance, by contrast, produces no immediate cost either; its bill arrives years later, often to a different administration, and is then blamed on age or bad luck rather than on the choice that caused it. The result is a systematic transfer of costs from the present to the future, conducted without anyone deciding to make it.\n\nEconomists have a vocabulary for this (depreciation, the consumption of capital), but the vocabulary tends to be applied to firms rather than to the public realm, and to physical stock rather than to institutions. Yet institutions also depreciate. A regulatory agency whose experienced staff retire without successors, a court whose procedures accrete exceptions until no one can explain them, a university whose curriculum is extended every year and pruned never: these are cases of deferred maintenance as surely as a crumbling viaduct, and they are harder to see, because there is no rust.\n\nIt would be too simple to conclude that we should spend less on the new and more on the old. Some things ought to be allowed to decay; maintenance can become a way of embalming arrangements that have outlived their purpose, and a society that only repaired would never discover anything better. The deeper problem is that our instruments of measurement make the choice for us. Because building is legible and upkeep is not, the decision between them is rarely posed as a decision at all. To make it deliberately, we would first need ways of seeing what endures: of recording, alongside what a society has made, what it has managed to keep.",
+  "c_vr13": "The queue is among the most underrated of social institutions. It requires no authority to enforce it, no written rules, and no shared language; strangers who will never meet again sustain it through nothing more than mutual watchfulness and a vague sense of what is owed. Sociologists who have studied queues report that violations are punished less by the person directly behind the intruder than by those further back, who have less to lose and more moral indignation to spend. The queue, in this sense, is a miniature commonwealth, policed by its members on behalf of a principle (first come, first served) that none of them invented.\n\nBut the principle is less innocent than it looks. First come, first served is fair only on the assumption that everyone's time is equally available and equally valuable, and that assumption is false. The retiree and the shift worker do not pay the same price for an hour in line; the parent with a child in tow pays more than either. The queue converts waiting into entitlement, and so it rewards those who can afford to wait. Its egalitarianism is real, but it is an egalitarianism of form rather than of burden.\n\nThis helps explain the curious ambivalence that greets paid alternatives to queuing: the express lane, the priority pass, the professional line-stander hired to hold a place. Defenders argue that such arrangements merely make explicit an inequality the queue already contained: if waiting is a cost, why not let people pay it in money rather than time? Critics answer that something is lost when the cost becomes purchasable. In the ordinary queue, the wealthy and the poor at least suffer the same tedium side by side; the experience, however unevenly burdensome, is shared. The priority lane removes the rich from that common experience, and with it removes one of the few remaining occasions on which they are visibly subject to the same rules as everyone else.\n\nNeither side, I think, has quite grasped what the queue does. Its value lies not in distributing goods efficiently, which it does badly, nor in distributing them justly, which it does only roughly, but in staging a public demonstration that a rule can bind people irrespective of who they are. That demonstration is partly a fiction, since the burdens are not equal, but it is a fiction societies may need, and one that cannot survive being openly sold.",
+  "c_vr14": "Much of what we know about biology we know about a handful of creatures: a bacterium that lives in the gut, a yeast used in brewing, a nematode worm a millimetre long, a fruit fly, a small flowering weed, and the laboratory mouse. These 'model organisms' were not chosen because they were typical of life. They were chosen because they were convenient: quick to breed, cheap to house, easy to manipulate genetically. Their convenience made them productive, and their productivity made them more convenient still, as each generation of researchers inherited the strains, techniques and databases of the last. The result is a science of extraordinary depth resting on an extraordinarily narrow base.\n\nThe standard defence of this arrangement is that life is conservative. The machinery of the cell (how DNA is copied, how proteins are made, how cells divide) was established early in evolution and has changed little since; what holds for yeast holds, in its essentials, for us. This defence is largely correct for the processes it names. It is less convincing for the processes that matter most to medicine, which tend to be precisely those that evolved late and vary widely: immune responses, metabolism, behaviour, the course of chronic disease. A laboratory mouse is a young, genetically uniform animal raised in sterile isolation on a constant diet. It is, in other words, a model of almost nothing that a human patient is.\n\nThe point is not that model organisms mislead, though sometimes they do: many treatments that cure disease in mice fail in human trials. The subtler problem is that they shape which questions are asked. A phenomenon that is easy to study in a fly will be studied; one that does not occur in flies, or cannot be measured in them, will tend to be neglected, not because anyone judged it unimportant but because no one had the tools to begin. Over decades, the map of biological knowledge comes to reflect the habits of six species as much as the structure of life.\n\nRecent technologies (cheap genome sequencing, organoids grown from human cells, methods for editing the genes of almost any species) have begun to loosen this dependence. Yet it would be naive to expect the old models simply to be abandoned. Their accumulated infrastructure is itself a reason to keep using them, and that is exactly the difficulty: in science as elsewhere, the path already taken tends to be the one that looks most promising.",
+  "c_vr15": "Every few decades a major restoration provokes a quarrel that follows the same script. Conservators remove centuries of yellowed varnish and grime from a celebrated painting; the colours that emerge are brighter, harsher, sometimes startlingly modern; and a chorus of critics protests that the picture has been 'skinned', its subtleties scrubbed away along with the dirt. The conservators reply that they have merely revealed what the artist painted, and that the critics are attached not to the work but to the accumulated damage they mistook for it.\n\nBoth parties appeal to the same authority, the artist's original intention, and both, I want to suggest, misconceive it. The conservators assume that intention is fixed at the moment the last brushstroke dried, so that whatever was on the canvas then is the work and everything since is accretion. But painters of earlier centuries knew perfectly well that their pigments would darken and their glazes sink; many painted with that ageing in mind, pitching their colours higher than they wished them to be seen. To restore the painting to its day-one appearance may therefore be to restore a state the painter regarded as provisional.\n\nThe critics' error is the mirror image. They treat the darkened surface as the true painting because it is the one they, and generations before them, have known. But a habit of perception is not an intention. That we learned to love a painting in its yellowed state tells us something about our history, not about the work's; to make familiarity the criterion is to let the accidents of survival legislate for the object.\n\nWhat the quarrel obscures is that a painting is not a static thing that either retains or loses an original condition, but an event extended in time, whose appearance was always going to change and whose maker, to varying degrees, anticipated that change. The question for a restorer is therefore not 'what did it look like?' but 'what trajectory was it meant to follow, and where along that trajectory should we arrest it?' This question has no single answer, and that is uncomfortable for an institution that must, in the end, either remove the varnish or leave it. But a decision taken in the knowledge that it is a choice among defensible states is very different from one taken in the belief that it is simply uncovering the truth.",
+  "c_vr16": "A familiar argument for the extended mind holds that a notebook can be part of a person's mind. The provocation lies less in the claim itself than in the criterion used to defend it. If an external resource is reliably available, automatically endorsed and easily accessed, the argument runs, it plays the same functional role as biological memory, and parity demands that we treat it the same way. The argument is usually attacked at its edges: critics multiply cases of notebooks lost, phones hacked, search engines that lie, as if the thesis would fall once enough unreliable prostheses were catalogued. But this strategy concedes the decisive premise, that what makes something mental is the role it plays rather than the way it is held. Once that is granted, the dispute becomes an actuarial one about failure rates, and biological memory, which confabulates as freely as any search engine, has no obvious claim to win it.\n\nThe more interesting objection begins elsewhere. A belief is not only a state that guides behaviour; it is a state for which I can be asked for reasons and in which I can be found wanting. When I misremember a date, the error is mine in a way that demands no further explanation: I do not blame my hippocampus. When the notebook contains a wrong entry, by contrast, there is always a further question, who wrote it and when, and the answer can come apart from me. Ownership of this kind is not a functional property; it does not show up in any description of inputs, outputs and access conditions. It is a normative relation, constituted by the practices through which we hold one another answerable. The parity principle is blind to it not because it is careless but because it is designed to be: functionalism earns its generality precisely by abstracting from who answers for a state.\n\nIt would be a mistake, however, to conclude that the mind therefore stops at the skin. Ownership is not anchored to biology either; it is anchored to a history of uptake. A scholar who has annotated her own copy of a text for thirty years may be answerable for its marginalia in exactly the way she is answerable for her recollections, more so, perhaps, since the marginalia were deliberated and the recollections merely accrued. What matters is not where a state is located or how reliably it is retrieved but whether the agent has, over time, made it hers by correcting, revising and standing by it. On this view the boundary of the mind is neither fixed nor arbitrary; it is achieved, and it can be lost.\n\nThis reframing has an uncomfortable consequence for the enthusiasts of cognitive extension. The resources that most perfectly satisfy the parity conditions, the always-on, frictionless, automatically trusted feeds that now mediate so much of what we claim to know, are precisely those least likely to be owned, since their frictionlessness forecloses the corrective engagement through which ownership is built. The more seamlessly a device extends cognition in the functional sense, the less it may extend the mind in the normative one. Parity, pursued to its limit, yields not a larger self but a more crowded one, populated by states that guide what we do while answering to no one in particular.",
+  "c_vr17": "Economics textbooks still open, more or less, with the definition that made the discipline modern: the study of how societies allocate scarce means among competing ends. The definition is admired for its neutrality. It says nothing about markets, money or property; it applies equally to a household, a monastery and a planned economy. Yet its neutrality is purchased by treating scarcity as a datum, something the economist finds in the world before analysis begins, rather than as something the analysis might itself have to explain.\n\nThe critics who have noticed this tend to overcorrect. Scarcity, they say, is manufactured: enclosure turned abundant commons into scarce private plots, patents turn freely copyable knowledge into rationed goods, and planned obsolescence turns durable objects into recurrent needs. Each example is accurate, but the conclusion drawn from them, that scarcity is an ideological fiction concealing a latent abundance, mistakes the shape of the problem. Land really is finite; the hours in which a surgeon can operate really are limited. To call such constraints fictions is to trade one dogma for another, and to leave the critic with nothing to say about how finite goods ought to be shared.\n\nA more productive approach begins from the observation that scarcity is not a property of things but a relation between things and the claims made upon them. A field is not scarce in itself; it is scarce relative to the number of people who may legitimately demand its yield, and what counts as a legitimate demand is fixed by rules that are neither natural nor arbitrary. Enclosure did not make land scarcer in any physical sense; it redistributed the claims, excluding some claimants altogether and converting the rest into buyers. The quantity of the good was unchanged; the structure of scarcity was transformed.\n\nSeen this way, the neutrality of the textbook definition looks less like impartiality than like a decision not to look. By taking the pattern of claims as given, the economist can describe efficient allocation within it while remaining silent on the prior allocation that determines whose wants count as demand at all. This silence is not a minor omission. An economy can be perfectly efficient in allocating what is effectively demanded while the most urgent needs, unbacked by purchasing power, register nowhere in its accounts. Efficiency, so measured, is a verdict on how well an economy serves the claims it already recognises, and it is silent on the claims it does not.\n\nNone of this requires abandoning the analysis of scarcity. It requires recognising that every such analysis presupposes an answer to a political question, namely who is entitled to claim what, and that the answer is not supplied by the facts of finitude. The discipline's founding definition is not false. It is incomplete in a way that systematically favours whatever distribution of entitlements happens to obtain.",
+  "c_vr18": "For much of the last century, to read critically was to read suspiciously. The critic's task was to show that a text meant something other than it said: that its professions of universality concealed a class interest, its coherence a repressed contradiction, its innocence a desire. The method's prestige derived from an asymmetry. The suspicious reader always knew something the text did not, and the more confidently a work announced its meaning, the more surely it betrayed another one. Lately this posture has come under attack, and the attack has a familiar shape. Suspicion, it is said, has become a reflex rather than a discovery; it finds what it looks for because it already knows what it will find; and it has been absorbed so thoroughly by the culture it once unmasked that conspiracy theorists now practise it more fluently than professors.\n\nThe diagnosis is largely correct, but the remedy usually proposed, a turn to surface reading, attentive description or affirmative attachment to the works we love, inherits the very assumption it means to escape. Both suspicion and its critics treat the relationship between reader and text as a contest over depth: the suspicious reader insists on a hidden layer, the post-critical reader denies its priority, but each accepts that the question to be settled is where meaning lives. What neither position asks is whether the reader's stance can be chosen in the way both imagine, as though one could decide, at the threshold of a reading, to be generous or wary.\n\nThat assumption deserves scepticism of its own. Readers do not adopt stances so much as find themselves in them, and what puts them there is less a theory of interpretation than the institutional setting in which reading is done. The seminar rewards the reading that no one else has produced, and novelty is most cheaply produced by discovering that a text is not what it seems. Suspicion flourished not because critics were persuaded by Marx or Freud but because it was the most reliable way to generate publishable difference. If this is right, exhortations to read more generously will fail for the same reason that exhortations to read more suspiciously succeeded: they address individual dispositions while leaving untouched the conditions that select for them.\n\nThe implication is not that interpretive method is irrelevant but that it is downstream. A discipline that wanted different readings would have to reward different things: the confirmation of an insight rather than its novelty, say, or the patient elaboration of what others have already noticed. Whether literary study could survive such a change in its economy of credit is an open question. That it will not change its readings without one is less open than its post-critical reformers suppose, for a reform that leaves the incentives intact will be absorbed by them, and the generous reading will become, in its turn, the newest way of being different.",
+  "c_vr19": "Physicists have long confessed, with a mixture of pride and embarrassment, that they choose among theories partly on grounds of beauty. The confession is usually framed as a puzzle: why should the universe care about our taste? Two answers dominate, and each can cite its cases. The realist answer holds that elegance is a symptom of truth: the world is in fact economical, and minds shaped by it have learned to recognise its economy as beauty. The deflationary answer holds that elegance is merely convenient: simpler theories are easier to calculate with, easier to test and easier to teach, and their beauty is a name for these practical virtues dressed in honorific language.\n\nBoth answers assume that the aesthetic judgement is prior to, and separable from, the history of the theory judged. On this assumption the scientist meets a theory, perceives its elegance, and must then decide what that perception is worth. But the record suggests a different sequence. The equations now cited as paradigms of beauty were frequently regarded, when first proposed, as ungainly, artificial or ad hoc; their elegance became visible only after a generation of work had reorganised the field around them, rewritten its textbooks in their notation, and trained students for whom they were the natural starting point. What looks like a judgement of beauty made in advance of success is often a judgement of familiarity made in its wake.\n\nThis does not show that aesthetic criteria are idle. A community that has internalised the forms of its successful theories will, when confronting a new problem, prefer candidates that resemble them, and this preference is neither arbitrary nor infallible. It is a bet that the future of inquiry will look like its past, that the structures which have worked will continue to work. Such a bet is often sound, which is why the realist can always produce examples in which beauty led to truth. But it is a bet with a characteristic failure mode: it is least reliable precisely where a field most needs it, at the points where the old forms have stopped working and the successful theory will, at first, look ugly.\n\nThe interesting consequence is that the two dominant answers are not rivals so much as descriptions of different moments. During periods of consolidation, beauty is a reliable heuristic, and the realist's confidence is warranted in practice if not in principle. During periods of crisis, beauty is a conservative force, and the deflationist's suspicion is the better guide. The error lies in seeking a single verdict on the epistemic worth of elegance, when its worth is indexed to the state of the field that perceives it. A physicist who asks whether beauty is a guide to truth has asked a question with no answer; one who asks when it is a guide has asked a question that history can begin to settle.",
+  "c_vr20": "The claim that each of us has a special authority over our own minds once rested on a picture of introspection as inner perception. I know that I believe it will rain, on this picture, because I can look inward and see the belief, much as I can look outward and see the clouds; my authority is that of a privileged witness, stationed where no one else can stand. The picture has not survived its encounter with experimental psychology. Subjects confidently report reasons for choices that demonstrably had other causes; they deny preferences their behaviour reveals; they describe the course of their own deliberations in ways that match, item for item, what an outsider would guess. If introspection is a form of perception, it is a strikingly unreliable one, and the authority it was meant to underwrite looks like a courtesy extended by convention.\n\nA more resilient account locates first-person authority not in observation but in commitment. When I say that I believe it will rain, I am not usually reporting a discovery about my inner states; I am taking a stand on the weather, and the stand is mine to take. My authority over the avowal is like my authority over a promise: no one else can make it for me, and its sincerity does not wait on evidence. The experimental findings, on this view, are beside the point. They show that people are poor witnesses to the causes of their attitudes, but avowal was never testimony about causes in the first place.\n\nThe commitment account purchases its resilience at a price that its defenders seldom acknowledge. If avowing a belief is taking a stand rather than reporting a fact, then the authority it confers is authority over what one is answerable for, not over what is the case in one's head. Those can come apart. A person may sincerely avow that she holds no prejudice against a group, and be fully entitled to the avowal in the sense that she has committed herself to its content, while her conduct continues to be steered by the very attitude she disowns. The commitment account does not deny this; it simply relocates the attitude outside the domain of the mental over which she has authority. But that domain is now defined by her commitments, and the authority is guaranteed only because it has been made trivial: she knows her mind because her mind has been redefined as what she has committed to.\n\nNone of this rehabilitates the inner witness. It suggests rather that self-knowledge names two achievements that the tradition ran together, the authority to commit and the capacity to discover, and that the first offers no assurance of the second. A theory that secures the one by abandoning the other has not answered the sceptic; it has changed the subject, and the question the sceptic asked, whether we can find out what actually moves us, is left exactly where it was."
  }
 };

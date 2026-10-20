@@ -128,6 +128,7 @@ ul.clean{padding-left:18px;margin:0 0 8px;color:var(--ink2)}ul.clean li{margin-b
 <script>
 const NAME = "Priya";
 const SECS = { VARC:{label:"Verbal & Reading", icon:"📖", bg:"#f1ebff"}, DILR:{label:"Data & Logic", icon:"🧩", bg:"#e0f2fe"}, QA:{label:"Quant", icon:"🔢", bg:"#fff1e6"} };
+const MAXL = 20; // levels per section
 const PLAN = buildPlan();
 PLAN.forEach(d => d.base = d.tasks);
 
@@ -150,7 +151,7 @@ function applyContent(c) {
     [...(EXTRA.levels[sec] || []), ...(Array.isArray(c.levels?.[sec]) ? c.levels[sec] : [])].forEach(L => {
       if (LEVELS[sec].some(x => x.title === L?.title)) return;
       const qs = (Array.isArray(L?.qs) ? L.qs : []).filter(validQ).map(q => ({ ...q, ans: q.type === "tita" ? String(q.ans) : q.ans }));
-      if (LEVELS[sec].length < 10 && qs.length === 5) LEVELS[sec].push({ title: str(L.title, 40) || "Coach Level", mins: Math.min(30, Math.max(5, +L.mins || 12)), qs });
+      if (LEVELS[sec].length < MAXL && qs.length === 5) LEVELS[sec].push({ title: str(L.title, 40) || "Coach Level", mins: Math.min(30, Math.max(5, +L.mins || 12)), qs });
     });
   });
   PLAN.forEach(d => { const o = c.plan?.[d.date]; d.tasks = Array.isArray(o) && o.length ? o.filter(t => typeof t === "string").slice(0, 8).map(t => t.slice(0, 300)) : d.base; });
@@ -204,7 +205,7 @@ function clean(r) {
   const sec3 = o => Object.fromEntries(["VARC","DILR","QA"].map(k => [k, { c: N(o?.[k]?.c), t: N(o?.[k]?.t), net: N(o?.[k]?.net) }]));
   return {
     xp: N(r.xp), lastBoost: D(r.lastBoost),
-    levels: Object.fromEntries(["VARC","DILR","QA"].map(k => [k, Math.min(10, Math.max(0, N(r.levels?.[k])))])),
+    levels: Object.fromEntries(["VARC","DILR","QA"].map(k => [k, Math.min(MAXL, Math.max(0, N(r.levels?.[k])))])),
     tasks: Object.fromEntries(Object.entries(r.tasks || {}).filter(([k]) => /^\d{4}-\d{2}-\d{2}:\d+$/.test(k)).map(([k, v]) => [k, !!v])),
     taskTs: Object.fromEntries(Object.entries(r.taskTs || {}).filter(([k]) => /^\d{4}-\d{2}-\d{2}:\d+$/.test(k)).map(([k, v]) => [k, N(v)])),
     updatedAt: N(r.updatedAt),
@@ -274,7 +275,7 @@ function norm(s) { return String(s).replace(/[\s,]/g, "").toLowerCase(); }
 function isRight(q, a) { if (a == null || a === "") return null; return q.type === "mcq" ? a === q.ans : norm(a) === norm(q.ans); }
 function marks(q, a) { const r = isRight(q, a); return r === null ? 0 : r ? 3 : (q.type === "mcq" ? -1 : 0); }
 function popXP(t) { const d = document.createElement("div"); d.className = "pop"; d.textContent = t; document.body.appendChild(d); setTimeout(() => d.remove(), 1000); }
-function levelName(n) { return ["Starter","Explorer","Climber","Builder","Challenger","Contender","Achiever","Ranker","Topper","IIM-ready","Legend"][Math.min(n, 10)]; }
+function levelName(n) { return ["Starter","Explorer","Climber","Builder","Challenger","Contender","Achiever","Ranker","Topper","IIM-ready","CAT Warrior","Sharpshooter","Strategist","Mastermind","Elite","Percentile Hunter","99 Chaser","IIM Contender","IIM Calibre","Legend","CAT Legend"][Math.min(n, MAXL)]; }
 
 // campus images from Wikipedia (first real photo, not logo)
 async function campusImg(c) {
@@ -382,7 +383,7 @@ const greet = () => { const h = new Date(Date.now() + 19800000).getUTCHours(); r
 function secCards() {
   return Object.keys(SECS).map(k => { const s = SECS[k], n = S.levels[k];
     return `<div class="card secCard" onclick="openSec('${k}')"><div class="secIcon" style="background:${s.bg}">${s.icon}</div><div class="meta"><h3>${k} · ${s.label}</h3>
-    <div class="muted">Level ${n}/10 · ${levelName(n)} · ⭐ ${Object.values(levelStats()[k]).filter(l => l.first).length} mastered</div><div class="prog"><i style="width:${n * 10}%"></i></div></div><b style="color:var(--mut)">›</b></div>`; }).join("");
+    <div class="muted">Level ${n}/${MAXL} · ${levelName(n)} · ⭐ ${Object.values(levelStats()[k]).filter(l => l.first).length} mastered</div><div class="prog"><i style="width:${n / MAXL * 100}%"></i></div></div><b style="color:var(--mut)">›</b></div>`; }).join("");
 }
 function historyList(n) {
   const h = S.history.slice(-n).reverse();
@@ -395,16 +396,16 @@ function openSec(k) { curSec = k; go("practice"); }
 function practiceView() {
   const tabs = Object.keys(SECS).map(k => `<button class="btn ${k === curSec ? "" : "sec"}" style="padding:10px" onclick="curSec='${k}';render()">${SECS[k].icon} ${k}</button>`).join("");
   const n = S.levels[curSec], avail = LEVELS[curSec].length, ls = levelStats()[curSec];
-  const cells = Array.from({ length: 10 }, (_, i) => { const L = i + 1;
+  const cells = Array.from({ length: MAXL }, (_, i) => { const L = i + 1;
     const st = ls[L], mastered = L <= n && st && st.first;
     const cls = L <= n ? (mastered ? "pass" : "retry") : (L === n + 1 && L <= avail) ? "open" : "";
     const click = (L <= n || (L === n + 1 && L <= avail)) ? `onclick="startQuiz('level','${curSec}',${i})"` : "";
     return `<button class="lvl ${cls}" ${click}>${L <= n ? (mastered ? "⭐" : "✓") : L}<small>${L <= n ? (mastered ? "mastered" : "retry") : L === n + 1 && L <= avail ? "GO" : "🔒"}</small></button>`; }).join("");
   const next = n < avail ? LEVELS[curSec][n] : null;
   return `<div class="grid3">${tabs}</div>
-  <div class="card" style="margin-top:12px"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/10</h3><p class="muted">Rank: <b>${levelName(n)}</b>. 4/5 clears a level. <b>⭐ Mastered</b> = cleared on the first try. <span style="color:#d97706;font-weight:700">✓ Retry</span> = cleared after a fail — fix those in the Mistake Bank.</p><div class="lvls">${cells}</div></div>
+  <div class="card" style="margin-top:12px"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/${MAXL}</h3><p class="muted" style="margin:-4px 0 6px">Levels 1–10: methods · 11–15: CAT moderate · 16–20: CAT hard</p><p class="muted">Rank: <b>${levelName(n)}</b>. 4/5 clears a level. <b>⭐ Mastered</b> = cleared on the first try. <span style="color:#d97706;font-weight:700">✓ Retry</span> = cleared after a fail — fix those in the Mistake Bank.</p><div class="lvls">${cells}</div></div>
   ${next ? `<div class="card"><h3>Next up: Level ${n + 1} · ${next.title}</h3><p class="muted">5 questions · ${next.mins} min · instant feedback after each answer</p><button class="btn" onclick="startQuiz('level','${curSec}',${n})">Play Level ${n + 1} →</button></div>`
-    : n >= 10 ? `<div class="card hero"><h3>🏆 All 10 levels cleared.</h3><p style="margin:0 0 10px">Next layer: the ${curSec} sectional — real CAT difficulty, 40 minutes.</p><button class="btn" onclick="startQuiz('sectional','${curSec}')">Start ${curSec} Sectional →</button></div>` : `<div class="card" style="background:var(--acc2);border:0"><h3>🔓 Level ${n + 1} drops soon</h3><p style="margin:0">You've cleared everything live right now — your coach is building the next level. Check back tomorrow, and try the Speed Mock meanwhile.</p></div>`}
+    : n >= MAXL ? `<div class="card hero"><h3>🏆 All ${MAXL} levels cleared.</h3><p style="margin:0 0 10px">Next layer: the ${curSec} sectional — real CAT difficulty, 40 minutes.</p><button class="btn" onclick="startQuiz('sectional','${curSec}')">Start ${curSec} Sectional →</button></div>` : `<div class="card" style="background:var(--acc2);border:0"><h3>🔓 Level ${n + 1} drops soon</h3><p style="margin:0 0 10px">You've cleared everything live right now. Meanwhile, the real test is waiting:</p><button class="btn" onclick="startQuiz('sectional','${curSec}')">Take the ${curSec} Sectional →</button></div>`}
   <h2>Concept videos</h2><div class="card">${VIDEOS.filter(v => v.title.includes(curSec) || (curSec === "QA" && /QA|Rodha/.test(v.title))).map(v => `<div class="task"><a href="${v.url}" target="_blank" rel="noopener">▶ ${esc(v.title)}</a></div>`).join("") || `<p class="muted">See Guide → Videos.</p>`}</div>`;
 }
 
