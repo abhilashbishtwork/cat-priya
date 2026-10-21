@@ -349,7 +349,26 @@ function insights() {
   });
   return { sec: res, mistakes: mist };
 }
+// ---------- QA-first gate ----------
+// VARC/DILR unlock each day only after QA work. Until her first QA sectional, that sectional is the key.
+function qaSectionalTaken() { return S.history.some(h => (h.kind === "sectional" && h.sec === "QA") || h.kind === "full"); }
+function qaDoneToday() {
+  const t = todayIST(), today = S.history.filter(h => h.date === t);
+  if (!qaSectionalTaken()) return false;
+  return today.some(h => h.kind === "full" || (h.sec === "QA" && ["level", "drill", "sectional"].includes(h.kind)));
+}
+const gated = sec => (sec === "VARC" || sec === "DILR") && !qaDoneToday();
+function gateCard() {
+  const first = !qaSectionalTaken();
+  return `<div class="card move"><p style="margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.5px">🔒 QA FIRST, EVERY DAY</p><h3 style="font-size:19px">${first ? "Unlock VARC & DILR: take your QA Sectional" : "Unlock VARC & DILR: do today's QA"}</h3>
+  <p>${first ? "40 minutes, timed, real CAT difficulty. It's the most important number we don't have yet: your honest Quant percentile. VARC and DILR open the moment you submit." : "One QA session today — a level, a Mistake Drill or a sectional — and VARC & DILR open for the rest of the day."}</p>
+  <button class="btn" onclick="${first ? "startQuiz('sectional','QA')" : (openMistakes().some(q => q.sec === "QA") ? "startQuiz('drill','QA')" : `startQuiz('level','QA',${Math.min(S.levels.QA, LEVELS.QA.length - 1)})`)}">${first ? "Start QA Sectional →" : "Do today's QA →"}</button></div>`;
+}
+
 function nextMove() {
+  if (!qaDoneToday()) return qaSectionalTaken()
+    ? { title: "QA first today — then VARC & DILR unlock", why: "One QA session (a level, a Mistake Drill or a sectional) opens everything else for the day.", cta: "Do today's QA →", act: openMistakes().some(q => q.sec === "QA") ? "startQuiz('drill','QA')" : `startQuiz('level','QA',${Math.min(S.levels.QA, LEVELS.QA.length - 1)})` }
+    : { title: "QA Sectional — 40 minutes, before anything else", why: "Your honest Quant percentile is the number that decides IIM A/B/C. VARC & DILR stay locked until you take it.", cta: "Start QA Sectional →", act: "startQuiz('sectional','QA')" };
   const I = insights(), secs = ["QA","DILR","VARC"];
   const worst = secs.slice().sort((a, b) => I.sec[a].rate - I.sec[b].rate || I.sec[b].mistakes - I.sec[a].mistakes)[0], W = I.sec[worst];
   if (W.mistakes >= 3) return { title: `Fix ${Math.min(W.mistakes, 10)} ${worst} mistakes`, why: `${worst} first-try pass rate is ${W.firstPass}/${W.played}. Passing on retry = remembering, not mastering. Prove each method on the questions you got wrong.`, cta: `Start Mistake Drill →`, act: `startQuiz('drill','${worst}')` };
@@ -402,9 +421,9 @@ function practiceView() {
     const click = (L <= n || (L === n + 1 && L <= avail)) ? `onclick="startQuiz('level','${curSec}',${i})"` : "";
     return `<button class="lvl ${cls}" ${click}>${L <= n ? (mastered ? "⭐" : "✓") : L}<small>${L <= n ? (mastered ? "mastered" : "retry") : L === n + 1 && L <= avail ? "GO" : "🔒"}</small></button>`; }).join("");
   const next = n < avail ? LEVELS[curSec][n] : null;
-  return `<div class="grid3">${tabs}</div>
-  <div class="card" style="margin-top:12px"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/${MAXL}</h3><p class="muted" style="margin:-4px 0 6px">Levels 1–10: methods · 11–15: CAT moderate · 16–20: CAT hard</p><p class="muted">Rank: <b>${levelName(n)}</b>. 4/5 clears a level. <b>⭐ Mastered</b> = cleared on the first try. <span style="color:#d97706;font-weight:700">✓ Retry</span> = cleared after a fail — fix those in the Mistake Bank.</p><div class="lvls">${cells}</div></div>
-  ${next ? `<div class="card"><h3>Next up: Level ${n + 1} · ${next.title}</h3><p class="muted">5 questions · ${next.mins} min · instant feedback after each answer</p><button class="btn" onclick="startQuiz('level','${curSec}',${n})">Play Level ${n + 1} →</button></div>`
+  return `<div class="grid3">${tabs}</div>${gated(curSec) ? `<div style="margin-top:12px">${gateCard()}</div>` : ""}
+  <div class="card" style="margin-top:12px;${gated(curSec) ? "opacity:.5;pointer-events:none" : ""}"><h3>${SECS[curSec].icon} ${SECS[curSec].label} — Level ${n}/${MAXL}</h3><p class="muted" style="margin:-4px 0 6px">Levels 1–10: methods · 11–15: CAT moderate · 16–20: CAT hard</p><p class="muted">Rank: <b>${levelName(n)}</b>. 4/5 clears a level. <b>⭐ Mastered</b> = cleared on the first try. <span style="color:#d97706;font-weight:700">✓ Retry</span> = cleared after a fail — fix those in the Mistake Bank.</p><div class="lvls">${cells}</div></div>
+  ${gated(curSec) ? "" : next ? `<div class="card"><h3>Next up: Level ${n + 1} · ${next.title}</h3><p class="muted">5 questions · ${next.mins} min · instant feedback after each answer</p><button class="btn" onclick="startQuiz('level','${curSec}',${n})">Play Level ${n + 1} →</button></div>`
     : n >= MAXL ? `<div class="card hero"><h3>🏆 All ${MAXL} levels cleared.</h3><p style="margin:0 0 10px">Next layer: the ${curSec} sectional — real CAT difficulty, 40 minutes.</p><button class="btn" onclick="startQuiz('sectional','${curSec}')">Start ${curSec} Sectional →</button></div>` : `<div class="card" style="background:var(--acc2);border:0"><h3>🔓 Level ${n + 1} drops soon</h3><p style="margin:0 0 10px">You've cleared everything live right now. Meanwhile, the real test is waiting:</p><button class="btn" onclick="startQuiz('sectional','${curSec}')">Take the ${curSec} Sectional →</button></div>`}
   <h2>Concept videos</h2><div class="card">${VIDEOS.filter(v => v.title.includes(curSec) || (curSec === "QA" && /QA|Rodha/.test(v.title))).map(v => `<div class="task"><a href="${v.url}" target="_blank" rel="noopener">▶ ${esc(v.title)}</a></div>`).join("") || `<p class="muted">See Guide → Videos.</p>`}</div>`;
 }
@@ -493,7 +512,7 @@ function mocksView() {
     <p class="muted">${n} questions · ${mins} min · CAT marking · no hints until you submit${k === "full" ? " · sections lock after 40 min each, like the real exam" : ""}</p>
     ${p.length ? `<p class="muted" style="margin-top:-4px">Attempts: ${p.map(h => `${h.date.slice(5)} → ${h.net}/${h.t * 3} (~${h.pct}%ile)`).join(" · ")}${p.length ? " · retakes reuse the same questions, so scores rise from memory" : ""}</p>` : ""}
     <button class="btn ${p.length ? "sec" : ""}" onclick="startQuiz('${k === "full" ? "full" : "sectional"}','${k}')">${p.length ? "Retake" : "Start"} →</button></div>`; };
-  return `<h1>⏱️ CAT-format mocks</h1><p>This is the real test. Questions are at actual CAT difficulty and pace — new ones you've never seen. Your percentile here is the honest one.</p>
+  return `${!qaDoneToday() ? gateCard() : ""}<h1>⏱️ CAT-format mocks</h1><p>This is the real test. Questions are at actual CAT difficulty and pace — new ones you've never seen. Your percentile here is the honest one.</p>
   <div class="card" style="background:var(--acc2);border:0"><h3>How to take a mock</h3><ul class="clean" style="margin:0"><li>Quiet room, phone on silent, one sitting.</li><li>Skip freely — a wrong MCQ costs −1, a skip costs 0. TITA has no penalty: never leave it blank if you have a guess.</li><li>DILR: spend the first 3 minutes reading every set, then attack the 2 easiest.</li></ul></div>
   ${row("VARC", "📖 VARC Sectional 1", 40, m.parts.VARC.length)}${row("DILR", "🧩 DILR Sectional 1", 40, m.parts.DILR.length)}${row("QA", "🔢 QA Sectional 1", 40, m.parts.QA.length)}
   ${row("full", "🏁 Full CAT Mock 1 (all three)", 120, m.parts.VARC.length + m.parts.DILR.length + m.parts.QA.length)}
@@ -504,6 +523,7 @@ function mocksView() {
 let Q = null, timerId = null;
 function shuffleOpts(q) { const ord = [0, 1, 2, 3].sort(() => Math.random() - .5); return { ...q, opts: ord.map(i => q.opts[i]), ans: ord.indexOf(q.ans) }; }
 function startQuiz(mode, sec, idx) {
+  if (["level", "drill", "sectional"].includes(mode) && gated(sec)) { $("#nav").style.display = "flex"; $("#app").innerHTML = gateCard() + `<button class="btn ghost" onclick="go('home')">Back home</button>`; scrollTo(0, 0); return; }
   let qs, mins, title, parts = null;
   if (mode === "diag") { qs = DIAGNOSTIC; mins = 20; title = "Diagnostic"; }
   else if (mode === "level") { const L = LEVELS[sec][idx], tried = S.history.some(h => h.kind === "level" && h.sec === sec && h.level === idx + 1);
