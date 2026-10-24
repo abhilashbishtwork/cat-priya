@@ -2538,161 +2538,161 @@ const EXTRA = {
     ]
    },
    {
-    "title": "Triangle Tactics",
-    "mins": 14,
+    "title": "Logs & Powers: The 5 Rules",
+    "mins": 12,
     "qs": [
      {
       "id": "l11_QA_1",
       "type": "tita",
-      "text": "In triangle ABC, angle A = 90°, AB = 15 cm and AC = 20 cm. AD is the perpendicular from A to BC. Find BD (in cm).",
-      "ans": "9",
-      "exp": "BC = √(15² + 20²) = 25. In a right triangle, each leg² = (its adjacent hypotenuse segment) × hypotenuse, so AB² = BD × BC → BD = 225 ÷ 25 = 9. Trap: using AC² instead gives 16 — that is DC, not BD. (Altitude AD = 15×20/25 = 12.)"
+      "text": "Find the value of log₂64 + log₃81 − log₅125.",
+      "ans": "7",
+      "exp": "log_b(b^k) = k. 64 = 2⁶ → 6; 81 = 3⁴ → 4; 125 = 5³ → 3. 6 + 4 − 3 = 7. The rule: write the number as a power of the base, and the log is just that power."
      },
      {
       "id": "l11_QA_2",
       "type": "mcq",
-      "text": "In triangle ABC, AB = 12, AC = 18 and BC = 20. The bisector of angle A meets BC at D. What is the length of AD?",
+      "text": "Given log 2 = 0.301 and log 3 = 0.477, what is log 72?",
       "opts": [
-       "2√29",
-       "2√30",
-       "6√6",
-       "4√6"
+       "1.778",
+       "1.954",
+       "1.857",
+       "1.903"
       ],
-      "ans": 1,
-      "exp": "Angle bisector theorem: BD:DC = AB:AC = 12:18 = 2:3, so BD = 8, DC = 12. Shortcut: AD² = AB×AC − BD×DC = 216 − 96 = 120 → AD = 2√30. Traps: taking D as the midpoint (BD = DC = 10) gives 216 − 100 = 116 → 2√29; forgetting to subtract gives √216 = 6√6."
+      "ans": 2,
+      "exp": "72 = 8 × 9 = 2³ × 3². log(ab) = log a + log b and log(aⁿ) = n·log a → 3(0.301) + 2(0.477) = 0.903 + 0.954 = 1.857. Trap: 1.778 comes from 2³ × 3 (forgetting the square on 3)."
      },
      {
       "id": "l11_QA_3",
       "type": "tita",
-      "text": "In triangle ABC, D lies on AB and E lies on AC such that DE is parallel to BC, and AD : DB = 2 : 3. If the area of quadrilateral DECB is 84 sq cm, find the area of triangle ABC (in sq cm).",
-      "ans": "100",
-      "exp": "ΔADE ~ ΔABC with ratio AD:AB = 2:5 (not 2:3!). Area ratio = 4:25, so the trapezium is 21/25 of ABC → ABC = 84 × 25/21 = 100. Trap: using 2:3 directly gives area ratio 4:9 and a wrong answer of 151.2."
+      "text": "Solve log₂(x + 3) + log₂(x − 3) = 4.",
+      "ans": "5",
+      "exp": "Add logs → multiply: log₂[(x + 3)(x − 3)] = 4 → x² − 9 = 2⁴ = 16 → x² = 25 → x = ±5. Logs need positive inputs, so x − 3 > 0 → x = 5. Trap: keeping x = −5."
      },
      {
       "id": "l11_QA_4",
       "type": "mcq",
-      "text": "A triangle has sides 13 cm, 14 cm and 15 cm. What is the radius of its circumcircle (in cm)?",
+      "text": "If 9ˣ = 27^(x − 1), what is x?",
       "opts": [
-       "4",
-       "7",
-       "65/8",
-       "65/4"
+       "1",
+       "3",
+       "−3",
+       "3/2"
       ],
-      "ans": 2,
-      "exp": "Heron: s = 21, area = √(21×8×7×6) = 84. R = abc/(4×Area) = 2730/336 = 65/8 = 8.125. Traps: 4 is the inradius (Area/s); 65/4 comes from abc/(2×Area); 7 is half the middle side."
+      "ans": 1,
+      "exp": "Same base first: 9 = 3², 27 = 3³ → 3^(2x) = 3^(3x − 3). Equal bases → equal powers: 2x = 3x − 3 → x = 3. This 'convert to one base' move solves most CAT index questions."
      },
      {
       "id": "l11_QA_5",
       "type": "tita",
-      "text": "P is a point inside rectangle ABCD (vertices in order) such that PA = 3, PB = 4 and PC = 5. Find PD².",
-      "ans": "18",
-      "exp": "British Flag theorem: for any point inside a rectangle, PA² + PC² = PB² + PD² (opposite corners pair up). 9 + 25 = 16 + PD² → PD² = 18. Trap: pairing adjacent corners (PA² + PB² = PC² + PD²) gives 0 — impossible, which is your hint the pairing is wrong."
+      "text": "Given log 2 = 0.301, how many digits does 2³⁰ have?",
+      "ans": "10",
+      "exp": "log(2³⁰) = 30 × 0.301 = 9.03. A number whose log is 9.something lies between 10⁹ and 10¹⁰, so it has 9 + 1 = 10 digits. Rule: digits = (whole part of the log) + 1."
      }
     ]
    },
    {
-    "title": "Circles, Polygons & Solids",
+    "title": "Profit, Percent & Interest at CAT Pace",
     "mins": 14,
     "qs": [
      {
       "id": "l12_QA_1",
       "type": "tita",
-      "text": "Two parallel chords of a circle have lengths 16 cm and 30 cm and lie on opposite sides of the centre. The distance between the chords is 23 cm. Find the radius of the circle (in cm).",
-      "ans": "17",
-      "exp": "Let the distances from the centre be d and 23 − d. r² = 8² + d² = 15² + (23 − d)². 64 + d² = 225 + 529 − 46d + d² → 46d = 690 → d = 15, so r² = 64 + 225 = 289 → r = 17. Fast check: 8-15-17 and 15-8-17 triples. Trap: halving is easy to forget — use half-chords 8 and 15, not 16 and 30."
+      "text": "A shopkeeper marks goods 40% above cost price and then gives a 15% discount. What is his profit percentage?",
+      "ans": "19",
+      "exp": "Use multipliers: 1.40 × 0.85 = 1.19 → 19% profit. Trap: 40 − 15 = 25%. Percentages stack by multiplying, never by subtracting."
      },
      {
       "id": "l12_QA_2",
       "type": "mcq",
-      "text": "A regular hexagon has side 6 cm. Joining its alternate vertices forms a triangle. What is the area of this triangle (in sq cm)?",
+      "text": "The price of sugar rises by 25%. By what percentage must a family cut its sugar consumption so that its spending stays the same?",
       "opts": [
-       "18√3",
-       "27√3",
-       "36√3",
-       "54√3"
+       "25%",
+       "20%",
+       "18%",
+       "22.5%"
       ],
       "ans": 1,
-      "exp": "The triangle is equilateral with side = √3 × 6 = 6√3 (a short diagonal). Area = (√3/4)(6√3)² = 27√3 — exactly half the hexagon (54√3). Traps: 54√3 is the whole hexagon; the hexagon is 6 small equilateral triangles of 9√3 each, so 36√3 (4 of them) and 18√3 (2 of them) are miscounts."
+      "exp": "Spending = price × quantity. Price × 5/4 → quantity × 4/5, a cut of 1/5 = 20%. Shortcut: a rise of r% needs a cut of r/(100 + r) × 100 = 25/125 = 20%. Trap: 25%."
      },
      {
       "id": "l12_QA_3",
       "type": "tita",
-      "text": "A sector of angle 216° is cut from a circular sheet of radius 10 cm and folded (without overlap) into a right circular cone. If the volume of the cone is kπ cubic cm, find k.",
-      "ans": "96",
-      "exp": "Arc length = (216/360) × 2π × 10 = 12π = circumference of the base → base radius 6. Slant height = 10, so height = √(100 − 36) = 8. V = (1/3)π × 36 × 8 = 96π. Traps: forgetting 1/3 gives 288; swapping radius and height gives 128."
+      "text": "A sum at compound interest grows to ₹8,820 in 2 years and to ₹9,261 in 3 years. Find the principal (in ₹).",
+      "ans": "8000",
+      "exp": "Year 3 alone: 9,261 / 8,820 = 1.05 → rate 5%. Principal = 8,820 / 1.05² = 8,820 / 1.1025 = 8,000. Trap: using simple interest (441 a year) and getting 7,938."
      },
      {
       "id": "l12_QA_4",
       "type": "mcq",
-      "text": "Two circles of radii 9 cm and 4 cm touch each other externally. What is the length of their direct (external) common tangent?",
+      "text": "A town's population rises 10% in year 1, falls 10% in year 2 and rises 20% in year 3. What is the net change over the three years?",
       "opts": [
-       "13 cm",
-       "12 cm",
-       "6 cm",
-       "2√13 cm"
+       "20% increase",
+       "18.8% increase",
+       "19.8% increase",
+       "17.6% increase"
       ],
       "ans": 1,
-      "exp": "Distance between centres d = 9 + 4 = 13. Direct common tangent = √(d² − (r₁ − r₂)²) = √(169 − 25) = 12. Shortcut for touching circles: 2√(r₁r₂) = 2√36 = 12. Trap: 13 is the distance between centres; using (r₁ + r₂) in the formula gives 0 (that is the transverse tangent)."
+      "exp": "1.1 × 0.9 × 1.2 = 1.188 → 18.8% increase. Trap: +10 − 10 + 20 = 20%. A 10% rise followed by a 10% fall always leaves you 1% below where you started."
      },
      {
       "id": "l12_QA_5",
       "type": "tita",
-      "text": "Each interior angle of a regular polygon is 156°. How many diagonals does the polygon have?",
-      "ans": "90",
-      "exp": "Exterior angle = 180° − 156° = 24°, so n = 360/24 = 15. Diagonals = n(n − 3)/2 = 15 × 12/2 = 90. Trap: using C(15,2) = 105 counts the 15 sides too."
+      "text": "A trader sells two phones at ₹1,980 each, gaining 10% on one and losing 10% on the other. What is his net loss in ₹?",
+      "ans": "40",
+      "exp": "Find each CP: 1,980 / 1.1 = 1,800 and 1,980 / 0.9 = 2,200. Total CP = 4,000, total SP = 3,960 → loss ₹40. Shortcut: equal SPs with ±x% always give a loss of x²/100 % = 1% of 4,000. Trap: 'no profit, no loss'."
      }
     ]
    },
    {
-    "title": "Count, Choose & Chance",
+    "title": "Ratio, Mixtures & Averages at CAT Pace",
     "mins": 14,
     "qs": [
      {
       "id": "l13_QA_1",
       "type": "tita",
-      "text": "In how many distinct ways can the letters of the word BANANA be arranged so that the two N's are never next to each other?",
-      "ans": "40",
-      "exp": "Gap method: arrange B, A, A, A first: 4!/3! = 4 ways. This creates 5 gaps; choose 2 of them for the identical N's: C(5,2) = 10. Total = 4 × 10 = 40. (Check: all arrangements 60, with NN together 20 → 60 − 20 = 40.) Trap: forgetting the A's are identical and using 4! = 24 gives 240."
+      "text": "The average of 11 results is 50. The average of the first 6 is 49 and of the last 6 is 52. Find the 6th result.",
+      "ans": "56",
+      "exp": "The 6th result is counted in both groups. 6 × 49 + 6 × 52 = 294 + 312 = 606. All 11 add to 550. So the 6th = 606 − 550 = 56."
      },
      {
       "id": "l13_QA_2",
       "type": "mcq",
-      "text": "A committee of 5 is to be chosen from 6 men and 4 women. In how many ways can it be done if the committee must have at least 2 women?",
+      "text": "In what ratio must rice at ₹60/kg be mixed with rice at ₹75/kg so that the mixture costs ₹65/kg?",
       "opts": [
-       "120",
-       "186",
-       "246",
-       "252"
+       "2 : 1",
+       "1 : 2",
+       "3 : 2",
+       "2 : 3"
       ],
-      "ans": 1,
-      "exp": "Complement: total C(10,5) = 252; remove 0 women: C(6,5) = 6; remove exactly 1 woman: 4 × C(6,4) = 60. Answer = 252 − 66 = 186. (Direct: 2W 120 + 3W 60 + 4W 6 = 186.) Traps: 120 counts only 'exactly 2'; 246 removes only the all-men case."
+      "ans": 0,
+      "exp": "Alligation: cheap : dear = (75 − 65) : (65 − 60) = 10 : 5 = 2 : 1. The mix price sits closer to the cheaper rice, so more cheap rice is used. Trap: 1 : 2 (ratio flipped)."
      },
      {
       "id": "l13_QA_3",
-      "type": "mcq",
-      "text": "Three fair dice are rolled. What is the probability that the three numbers shown, read in order (first, second, third die), are strictly increasing?",
-      "opts": [
-       "1/6",
-       "5/54",
-       "7/27",
-       "5/9"
-      ],
-      "ans": 1,
-      "exp": "Any 3 distinct numbers can be arranged in strictly increasing order in exactly one way, so favourable = C(6,3) = 20. P = 20/216 = 5/54. Trap: 1/6 = 1/3! ignores the cases with repeated numbers; 7/27 = 56/216 is for non-decreasing (repeats allowed)."
+      "type": "tita",
+      "text": "A 60-litre mixture has milk and water in the ratio 2 : 1. How many litres of water must be added to make the ratio 1 : 2?",
+      "ans": "60",
+      "exp": "Milk stays fixed: 40 L (water 20 L). For milk : water = 1 : 2, water must be 80 L. Add 80 − 20 = 60 L. Rule: hold the part that doesn't change."
      },
      {
       "id": "l13_QA_4",
-      "type": "tita",
-      "text": "How many ordered triples of non-negative integers (a, b, c) satisfy a + b + c = 10 with each of a, b, c at most 5?",
-      "ans": "21",
-      "exp": "Without the cap: C(12,2) = 66. If a ≥ 6, put a = 6 + a': a' + b + c = 4 → C(6,2) = 15; same for b and c → 45. Two variables can't both be ≥ 6 (sum would exceed 10). Answer = 66 − 45 = 21. Trap: forgetting the cap gives 66; using 'positive' formula C(9,2) = 36 is wrong since 0 is allowed."
+      "type": "mcq",
+      "text": "₹7,000 is divided among A, B and C so that A : B = 2 : 3 and B : C = 4 : 5. What is C's share?",
+      "opts": [
+       "₹2,400",
+       "₹3,500",
+       "₹3,000",
+       "₹1,600"
+      ],
+      "ans": 2,
+      "exp": "Make B match: A : B = 8 : 12, B : C = 12 : 15 → A : B : C = 8 : 12 : 15 (35 parts). One part = 7,000 / 35 = 200. C = 15 × 200 = ₹3,000."
      },
      {
       "id": "l13_QA_5",
       "type": "tita",
-      "text": "Six friends, including Asha and Bina, sit around a circular table. In how many arrangements are Asha and Bina NOT seated next to each other?",
-      "ans": "72",
-      "exp": "Circular arrangements of 6 = (6 − 1)! = 120. Asha and Bina together: treat as one unit → (5 − 1)! × 2 = 48. Not together = 120 − 48 = 72. Trap: using linear 6! = 720 or forgetting the ×2 (gives 96)."
+      "text": "The average age of a class of 30 students is 15 years. When the teacher's age is included, the average rises by 1 year. What is the teacher's age?",
+      "ans": "46",
+      "exp": "Total before: 30 × 15 = 450. After: 31 × 16 = 496. Teacher = 496 − 450 = 46. Shortcut: 15 + 31 × 1 = 46 (the teacher lifts all 31 people by 1). Trap: 16."
      }
     ]
    },
@@ -2909,60 +2909,60 @@ const EXTRA = {
     ]
    },
    {
-    "title": "Tangents, Cones & Diamonds",
+    "title": "Equations & Inequalities: CAT Hard",
     "mins": 15,
     "qs": [
      {
       "id": "l18_QA_1",
-      "type": "mcq",
-      "text": "Two circles of radii 9 cm and 4 cm touch each other externally, and both touch a straight line L. A third circle, lying in the gap between the two circles and L, touches both circles and the line L. What is its radius?",
-      "opts": [
-       "36/25 cm",
-       "6/5 cm",
-       "36/13 cm",
-       "1 cm"
-      ],
-      "ans": 0,
-      "exp": "For circles of radii a and b touching each other and a common line, the tangent points are 2√(ab) apart. For the small circle r: 2√(9r) + 2√(4r) = 2√36 = 12, so 6√r + 4√r = 12, √r = 6/5, r = 36/25. (Shortcut: 1/√r = 1/√9 + 1/√4 = 5/6.) Trap: stopping at √r = 6/5 and marking 6/5."
+      "type": "tita",
+      "text": "How many pairs of positive integers (x, y) satisfy 3x + 5y = 100?",
+      "ans": "6",
+      "exp": "x = (100 − 5y)/3 must be a positive integer. 100 − 5y divisible by 3 → y = 2, 5, 8, 11, 14, 17 (step 3, and 5y < 100). That's 6 pairs. Trick: find one solution, then step y by the other coefficient (3)."
      },
      {
       "id": "l18_QA_2",
-      "type": "tita",
-      "text": "A right circular cone has base radius 12 cm and height 16 cm. A sphere is placed inside so that it touches the base and the curved surface. A second, smaller sphere is placed above it, touching the first sphere and the curved surface. Find the radius of the smaller sphere in millimetres.",
-      "ans": "15",
-      "exp": "The vertical cross-section is a triangle with sides 20, 20, 24, area 192 and semi-perimeter 32, so the first sphere's radius = 192/32 = 6 cm. Its top is at height 12, leaving a similar cone of height 16 − 12 = 4, scale factor 4/16 = 1/4. The small sphere is the inscribed sphere of that cone: 6/4 = 1.5 cm = 15 mm. Trap: using height ratio with the sphere's centre (16 − 6)/16 instead of the top tangent plane."
+      "type": "mcq",
+      "text": "The roots of x² − px + 12 = 0 differ by 1. If p is positive, what is p?",
+      "opts": [
+       "8",
+       "6",
+       "7",
+       "5"
+      ],
+      "ans": 2,
+      "exp": "Roots r and r + 1 with product 12 → 3 and 4. Sum of roots = p = 7. Check: x² − 7x + 12 = (x − 3)(x − 4)."
      },
      {
       "id": "l18_QA_3",
       "type": "tita",
-      "text": "Find the area (in square units) of the region in the xy-plane that satisfies both |x − 2| + |y + 1| ≤ 6 and xy ≥ 0.",
-      "ans": "32",
-      "exp": "The first condition is a square (diamond) with vertices (8, −1), (2, 5), (−4, −1), (2, −7). xy ≥ 0 keeps quadrants I and III. Quadrant I: polygon (0,0), (7,0), (2,5), (0,3), area 41/2 by the shoelace formula. Quadrant III: polygon (0,0), (−3,0), (−4,−1), (0,−5), area 23/2. Total = 41/2 + 23/2 = 32. Trap: assuming symmetry about the origin and doubling one quadrant; the diamond is centred at (2, −1), not at the origin."
+      "text": "α and β are the roots of x² − 7x + 3 = 0. Find α² + β².",
+      "ans": "43",
+      "exp": "Don't solve — use sum and product. α + β = 7, αβ = 3. α² + β² = (α + β)² − 2αβ = 49 − 6 = 43."
      },
      {
       "id": "l18_QA_4",
-      "type": "tita",
-      "text": "A circle has centre O and radius 9 cm. P is a point with OP = 15 cm, and PA and PB are the tangents from P. The tangent to the circle at the point of the minor arc AB nearest to P meets PA at X and PB at Y. Find XY in cm.",
-      "ans": "9",
-      "exp": "PA = √(15² − 9²) = 12, and the half-angle θ at P has tan θ = 9/12 = 3/4. The nearest point Q is on PO with PQ = 15 − 9 = 6, and XY is perpendicular to PO at Q. So XY = 2 × 6 × tan θ = 2 × 6 × 3/4 = 9. Trap: the well-known result 'perimeter of PXY = 2·PA = 24' answers a different question; and XY is not PA/2."
+      "type": "mcq",
+      "text": "For how many integer values of k does x² + kx + 16 = 0 have no real roots?",
+      "opts": [
+       "16",
+       "15",
+       "14",
+       "17"
+      ],
+      "ans": 1,
+      "exp": "No real roots → discriminant < 0 → k² − 64 < 0 → −8 < k < 8 → k = −7 … 7 = 15 values. Trap: 16 or 17 from including ±8 (those give equal roots, still real)."
      },
      {
       "id": "l18_QA_5",
-      "type": "mcq",
-      "text": "Each corner of a cube of side 4 cm is sliced off by a plane passing through the midpoints of the three edges meeting at that corner. What is the ratio of the total surface area of the resulting solid to that of the original cube?",
-      "opts": [
-       "5/6",
-       "(3 + √3)/6",
-       "(2 + √3)/4",
-       "(3 + √3)/12"
-      ],
-      "ans": 1,
-      "exp": "Each face of the cube becomes a square with its 4 corner triangles removed: 16 − 4 × 2 = 8, so 6 faces give 48. Each of the 8 cuts adds an equilateral triangle of side 2√2 with area (√3/4) × 8 = 2√3, giving 16√3 in total. Ratio = (48 + 16√3)/96 = (3 + √3)/6. Trap: 5/6 is the volume ratio (64 − 8 × 4/3 = 160/3), not the surface-area ratio."
+      "type": "tita",
+      "text": "If x + 1/x = 5, find x³ + 1/x³.",
+      "ans": "110",
+      "exp": "(x + 1/x)³ = x³ + 1/x³ + 3(x + 1/x). So x³ + 1/x³ = 125 − 3 × 5 = 110. Trap: 125."
      }
     ]
    },
    {
-    "title": "Remainders & Rolling Dice",
+    "title": "Remainders, Rounds & Refills",
     "mins": 15,
     "qs": [
      {
@@ -2975,35 +2975,35 @@ const EXTRA = {
      {
       "id": "l19_QA_2",
       "type": "mcq",
-      "text": "How many 5-digit natural numbers have a digit sum of exactly 10?",
+      "text": "At simple interest, a sum grows to ₹10,080 in 4 years and to ₹11,520 in 6 years. What is the sum?",
       "opts": [
-       "715",
-       "714",
-       "705",
-       "1001"
+       "₹7,000",
+       "₹7,500",
+       "₹6,800",
+       "₹7,200"
       ],
-      "ans": 1,
-      "exp": "Let the first digit be d₁ = 1 + a with a ≥ 0, so a + d₂ + d₃ + d₄ + d₅ = 9: C(13, 4) = 715 solutions. No digit d₂ to d₅ can exceed 9, but a = 9 would make d₁ = 10, which is not a digit. Remove that 1 case: 714. Trap: 715 forgets the cap on the leading digit. 1001 = C(14, 4) allows a leading zero."
+      "ans": 3,
+      "exp": "2 extra years add 11,520 − 10,080 = 1,440 → ₹720 a year. 4 years = 2,880. Principal = 10,080 − 2,880 = ₹7,200 (rate 10%)."
      },
      {
       "id": "l19_QA_3",
       "type": "tita",
-      "text": "In how many ways can 8 identical balls be placed in 4 distinct boxes so that no box gets more than 3 balls? (Boxes may be empty.)",
-      "ans": "31",
-      "exp": "Without the cap: C(11, 3) = 165. Subtract cases where some box has ≥ 4: 4 × C(7, 3) = 140. Add back cases where two boxes have ≥ 4 (exactly 4 each): C(4, 2) × 1 = 6. Total = 165 − 140 + 6 = 31. Trap: forgetting the add-back step gives 25."
+      "text": "A and B start together from the same point on a 1.2 km circular track, running in opposite directions at 4 m/s and 6 m/s. After how many seconds do they first meet again at the starting point?",
+      "ans": "600",
+      "exp": "At the start means each must finish whole laps. Lap times: 1,200/4 = 300 s and 1,200/6 = 200 s. First common time = LCM(300, 200) = 600 s. Trap: 120 s (that's their first meeting anywhere: 1,200/(4 + 6))."
      },
      {
       "id": "l19_QA_4",
       "type": "mcq",
-      "text": "A, B and C take turns rolling a fair die in the order A, B, C, A, B, C, …. The first person to roll a 6 wins. What is the probability that C wins?",
+      "text": "A vessel holds 80 litres of pure milk. 8 litres are taken out and replaced with water, and this is done three times in all. How much milk is left?",
       "opts": [
-       "1/3",
-       "30/91",
-       "25/91",
-       "36/91"
+       "56 L",
+       "57.6 L",
+       "58.32 L",
+       "59.04 L"
       ],
       "ans": 2,
-      "exp": "C wins on the first round with probability (5/6)(5/6)(1/6) = 25/216. Each full round with no six has probability (5/6)³ = 125/216, so P(C) = (25/216)/(1 − 125/216) = 25/91. (A = 36/91, B = 30/91.) Trap: assuming fairness gives 1/3; 36/91 is A's chance."
+      "exp": "Each round keeps (1 − 8/80) = 0.9 of the milk. After 3 rounds: 80 × 0.9³ = 80 × 0.729 = 58.32 L. Trap: 80 − 24 = 56 (ignores that later rounds remove diluted mix)."
      },
      {
       "id": "l19_QA_5",
@@ -3028,15 +3028,15 @@ const EXTRA = {
      {
       "id": "l20_QA_2",
       "type": "mcq",
-      "text": "In triangle ABC, AB = 13, BC = 14 and CA = 15. What is the distance between its incentre and its circumcentre?",
+      "text": "Ram earns 25% more than Shyam. Ram spends 85% of his salary and Shyam spends 75% of his. If Shyam saves ₹1,500 more than Ram, what is Shyam's salary?",
       "opts": [
-       "√65/8",
-       "√65/4",
-       "65/64",
-       "1/2"
+       "₹30,000",
+       "₹24,000",
+       "₹20,000",
+       "₹25,000"
       ],
-      "ans": 0,
-      "exp": "Area = 84 (Heron, s = 21), so r = 84/21 = 4 and R = abc/(4 × Area) = 2730/336 = 65/8. Euler's formula: OI² = R² − 2Rr = 4225/64 − 65 = 65/64, so OI = √65/8. Trap: 65/64 is OI², not OI. Using R² − Rr gives other wrong values."
+      "ans": 1,
+      "exp": "Let Shyam = S. Ram = 1.25S, saves 15% → 0.1875S. Shyam saves 0.25S. Gap 0.0625S = 1,500 → S = ₹24,000. Trap: using 25% − 15% = 10% of S (₹15,000, not an option — the 1.25 matters)."
      },
      {
       "id": "l20_QA_3",
@@ -3061,9 +3061,9 @@ const EXTRA = {
      {
       "id": "l20_QA_5",
       "type": "tita",
-      "text": "How many 7-digit numbers that use each of the digits 1, 2, 3, 4, 5, 6, 7 exactly once are divisible by 11?",
-      "ans": "576",
-      "exp": "Let S be the sum of the 4 odd-position digits; the even positions sum to 28 − S. Divisibility by 11 needs 2S − 28 ≡ 0 (mod 11), so S = 14 (S = 25 > 22 and S = 3 are impossible). The 4-element subsets of {1,…,7} with sum 14 are {1,2,4,7}, {1,2,5,6}, {1,3,4,6}, {2,3,4,5}: 4 subsets. Each gives 4! × 3! = 144 arrangements, so 4 × 144 = 576. Trap: forgetting to arrange the 3 even-position digits (×3!) gives 4 × 24 = 96; also, a difference of ±22 is impossible here, so no extra cases."
+      "text": "A boat goes 30 km upstream and 44 km downstream in 10 hours, and 40 km upstream and 55 km downstream in 13 hours. What is the boat's speed in still water (km/h)?",
+      "ans": "8",
+      "exp": "Let a = 1/upstream speed, b = 1/downstream speed. 30a + 44b = 10 and 40a + 55b = 13. ×4 and ×3: 120a + 176b = 40, 120a + 165b = 39 → 11b = 1 → downstream 11 km/h; then 30a = 6 → upstream 5 km/h. Still water = (11 + 5)/2 = 8."
      }
     ]
    }

@@ -259,7 +259,7 @@ const VIDEOS = [
   { title:"DILR: how to pick the right sets", url:yt("CAT DILR set selection strategy") },
   { title:"QA: Arithmetic one-shot", url:yt("CAT arithmetic one shot") },
   { title:"QA: Algebra one-shot", url:yt("CAT algebra one shot") },
-  { title:"QA: Geometry one-shot", url:yt("CAT geometry one shot") },
+  { title:"QA: Logarithms basics for CAT", url:yt("CAT logarithms basics") },
   { title:"Rodha — QA concept videos", url:yt("Rodha CAT quant") },
   { title:"2IIM — CAT preparation", url:yt("2IIM CAT preparation") },
   { title:"Mock analysis: how to do it", url:yt("how to analyse CAT mock") },
