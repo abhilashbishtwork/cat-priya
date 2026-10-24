@@ -98,13 +98,13 @@ const MOCKS = {
    "set": "m1_v_p1",
    "text": "The primary purpose of the passage is to:",
    "opts": [
-    "argue that scientists ought to abandon theories facing anomalies more readily than popular accounts of science suggest.",
-    "contend that the worth of theoretical tenacity depends on how commitments are distributed across a research community rather than on individual choices, and to draw out an implication of this for research institutions.",
-    "demonstrate, through historical cases, that tenacity in defence of established theories is usually vindicated in the long run.",
-    "show that since anomalies never logically refute a theory, decisions about which theories to retain are ultimately arbitrary."
+    "argue that, contrary to the popular view, scientists should give up theories facing anomalies less readily, and that institutions ought to reward this tenacity in every researcher.",
+    "contend that the value of tenacity lies in how commitments are distributed across a research community, not in individual choices, and draw out what this means for research institutions.",
+    "demonstrate, through two episodes from the history of astronomy, that tenacity in defence of an established theory is usually vindicated once the missing evidence is found.",
+    "show that because anomalies never logically refute a theory, decisions about which theories to keep are ultimately arbitrary and so beyond rational assessment by institutions."
    ],
    "ans": 1,
-   "exp": "B captures both moves: tenacity's value is a community-level matter (para 4) and the corollary for funding/evaluation (para 5). D is the closest trap: the author says blaming the theory is 'a judgement, not a deduction', but never calls it arbitrary; 'defensible preference' rules that out. A reverses the author's critique of the popular view; C ignores the second, failed case.",
+   "exp": "The correct option captures both moves: tenacity's value is a community-level matter (para 4) and the corollary for funding and evaluation (para 5). The option urging institutions to reward tenacity in every researcher gets the critique of the popular view half right but contradicts the author's point that tenacity is neither vice nor virtue individually and that what matters is a distribution of temperaments. The option about tenacity usually being vindicated ignores the second, failed orbital case. The option calling theory choice arbitrary is the closest trap: the author says blaming the theory is 'a judgement, not a deduction', but calls it a 'defensible preference', not arbitrary.",
    "sec": "VARC"
   },
   "m1_VARC_2": {
@@ -113,13 +113,13 @@ const MOCKS = {
    "set": "m1_v_p1",
    "text": "Which of the following can be inferred from the passage about the two orbital anomalies?",
    "opts": [
-    "The second anomaly proved that postulating unseen bodies is an illegitimate way of defending a theory.",
-    "The astronomers who responded to the second anomaly were dogmatic in a way that those who responded to the first were not.",
-    "The first anomaly could have been resolved equally well by revising Newtonian mechanics instead of positing a new planet.",
-    "Someone judging the two responses solely on what was known at the time each was made would have had no principled basis for endorsing one and rejecting the other."
+    "The second anomaly showed that postulating unseen bodies is an illegitimate way of defending a theory, whatever success it had enjoyed before.",
+    "The astronomers who handled the second anomaly were dogmatic in a way that those who handled the first, and found their planet, were not.",
+    "The first anomaly could have been resolved just as well by revising Newtonian mechanics as by positing a new planet that was later found.",
+    "Judged solely on what was known when each was made, the two responses offered no principled basis for endorsing one and rejecting the other."
    ],
    "ans": 3,
-   "exp": "D follows from 'nothing in the logic of the situation distinguished the two cases beforehand' and 'the same person'. B is the closest trap: it imports a hindsight distinction the author explicitly denies. A overgeneralises from one failure (the same strategy succeeded the first time); C is unsupported and contradicts the claim that the unseen body was found.",
+   "exp": "The correct option follows from 'nothing in the logic of the situation distinguished the two cases beforehand' and 'the same person'. The option calling the second group of astronomers dogmatic is the closest trap: it imports a hindsight distinction the author explicitly denies. The option calling unseen-body postulation illegitimate overgeneralises from one failure (the same strategy succeeded the first time). The option saying the first anomaly could equally have been solved by revising Newtonian mechanics is unsupported and sits badly with the fact that the unseen body was found.",
    "sec": "VARC"
   },
   "m1_VARC_3": {
@@ -128,13 +128,13 @@ const MOCKS = {
    "set": "m1_v_p1",
    "text": "The author's attitude towards present-day systems of research evaluation (grant committees, referees, hiring panels) is best described as one of:",
    "opts": [
-    "contemptuous dismissal of bodies that knowingly reward conformity over originality.",
-    "resigned acceptance that some homogenisation is the unavoidable price of rigorous evaluation.",
+    "contemptuous dismissal of committees and referees who knowingly reward conformity over originality in the work they fund.",
+    "resigned acceptance that some homogenisation of research is the unavoidable price of rigorous evaluation.",
     "measured concern that procedures sensible in each individual case may, in aggregate, undermine collective progress.",
-    "cautious approval, since rewarding prudence protects science from the costs of foolish heterodoxy."
+    "cautious approval, since rewarding individual prudence shields science from the costs of foolish heterodoxy."
    ],
    "ans": 2,
-   "exp": "C: the author grants that each body rewards what 'looks most reasonable' (individually sensible) yet warns the aggregate effect 'quietly' homogenises (concern, not outrage). A is the closest trap but overstates tone and intent: 'quietly' implies an unintended effect, not knowing conformity. B is wrong because the author treats the outcome as a problem, not an acceptable cost; D inverts the argument.",
+   "exp": "The author grants that each body rewards what 'looks most reasonable' (individually sensible) yet warns that the aggregate effect 'quietly' homogenises (concern, not outrage). The option about contemptuous dismissal is the closest trap but overstates tone and intent: 'quietly' implies an unintended effect, not knowing conformity. The option about resigned acceptance is wrong because the author treats the outcome as a problem, not an acceptable cost. The option about cautious approval inverts the argument.",
    "sec": "VARC"
   },
   "m1_VARC_4": {
@@ -143,13 +143,13 @@ const MOCKS = {
    "set": "m1_v_p1",
    "text": "Which of the following, if true, would most seriously weaken the claim made in the final paragraph of the passage?",
    "opts": [
-    "Funding bodies routinely reserve a fixed share of awards for proposals that their own reviewers judge unlikely to succeed, and the researchers so funded range from staunch defenders of orthodoxy to radical dissenters.",
-    "Researchers who defend received views long past the point of reasonableness are frequently proved right in the long run.",
-    "Referees and grant committees often disagree sharply about how to rank proposals that all fall within the mainstream of their field.",
-    "Fields with the most uniform evaluation practices have historically reached consensus on new theories faster than other fields."
+    "Funders routinely set aside a share of awards for proposals their reviewers doubt, backing researchers from staunch defenders of orthodoxy to radical dissenters.",
+    "Researchers who defend received views long past the point a neutral observer would find reasonable are frequently proved right in the long run.",
+    "Referees and grant committees frequently disagree sharply about how to rank proposals, even when all of the proposals fall squarely within their field's mainstream.",
+    "Fields with the most uniform evaluation practices have historically reached consensus on new theories faster, and more confidently, than other fields."
    ],
    "ans": 0,
-   "exp": "The final paragraph claims evaluation, applied uniformly, homogenises the diversity of commitment progress needs. A shows institutions deliberately preserve that diversity, directly undercutting the claim. C is the closest trap: disagreement among evaluators looks like diversity, but it is confined to the mainstream, so the range of commitment is still narrowed. B concerns individual tenacity, not institutions; D is consistent with (even supports) the author's 'confident, consensual' warning.",
+   "exp": "The final paragraph claims that evaluation, applied uniformly, homogenises the diversity of commitment that progress needs. If funders deliberately reserve awards for doubted proposals across the full range from orthodoxy to dissent, institutions are preserving that diversity, directly undercutting the claim. The option about referees disagreeing is the closest trap: disagreement looks like diversity, but it is confined to the mainstream, so the range of commitment is still narrowed. The option about tenacious researchers being proved right concerns individual tenacity, not institutions. The option about uniform fields reaching consensus faster is consistent with, even supports, the author's 'confident, consensual' warning.",
    "sec": "VARC"
   },
   "m1_VARC_5": {
@@ -158,13 +158,13 @@ const MOCKS = {
    "set": "m1_v_p2",
    "text": "Which of the following best describes the primary purpose of the passage?",
    "opts": [
-    "To refute the economic account of the premium on handmade goods and replace it with an account of buyers' irrational sentimentality.",
-    "To criticise artisans who profit more from narrating their working process than from improving the quality of their work.",
-    "To explain why handmade goods retain a premium despite indistinguishable machine-made imitations, and to argue that this premium buys attested human attention, which the market now packages and sells.",
-    "To argue that craft remains a genuine refuge from market logic because buyers continue to value human connection over cheapness."
+    "To refute the economic account of the premium on handmade goods and to replace it with an account rooted in buyers' irrational sentimentality about makers.",
+    "To criticise artisans who profit more from narrating their working process than from improving the quality of the attention they give their work.",
+    "To explain why handmade goods keep a premium despite indistinguishable imitations, and to argue that it buys attested human attention, which the market now sells.",
+    "To argue that craft remains a genuine refuge from market logic, because buyers continue to value human connection over cheapness and perfect finish."
    ],
    "ans": 2,
-   "exp": "C covers the puzzle (premium survives imitation), the answer (a 'receipt for attention' / economy of provenance) and the conclusion (the market sells what it seemed to destroy). A is the closest trap but distorts twice: the scarcity account 'explains less than it seems to' (incomplete, not refuted), and the author says the premium is not irrational. B is a single detail from para 4; D contradicts the final paragraph.",
+   "exp": "The correct option covers the puzzle (the premium survives imitation), the answer (a 'receipt for attention', an economy of provenance) and the conclusion (the market sells what it seemed to destroy). The option about refuting the economic account and invoking irrational sentimentality distorts twice: the scarcity account 'explains less than it seems to' (incomplete, not refuted), and the author says the premium is not irrational. The option criticising narrating artisans inflates a single detail from paragraph 4. The option calling craft a refuge from market logic contradicts the final paragraph.",
    "sec": "VARC"
   },
   "m1_VARC_6": {
@@ -173,13 +173,13 @@ const MOCKS = {
    "set": "m1_v_p2",
    "text": "It can be inferred that the premium for handwork has 'become nervous' chiefly because:",
    "opts": [
-    "the visible features that once vouched for a maker's personal involvement can no longer be relied upon to do so by themselves.",
-    "buyers have recognised that irregularity is no longer costly to produce and have therefore stopped valuing it.",
-    "certificates and studio visits add to the object a material quality that irregularity can no longer supply.",
-    "artisans have begun imitating machine-made 'artisanal' variations, blurring the distinction from the other direction."
+    "the visible features that once vouched for a maker's personal involvement can no longer be relied on to do so on their own.",
+    "buyers have recognised that irregularity is no longer costly to produce and have therefore stopped paying extra for handmade goods.",
+    "certificates and studio visits now give the object a material quality that its irregularities, once copied, can no longer supply.",
+    "artisans have begun copying the machine-made 'artisanal' variations, blurring the distinction between the two from the other direction."
    ],
    "ans": 0,
-   "exp": "A: once flaws can be counterfeited, the flaw no longer works as a 'receipt for attention', so buyers seek separate assurance (documentation). B is the closest trap: irregularity is indeed no longer costly, but the premium has 'not' collapsed, so buyers have not stopped paying; and the author says irregularity was never what was valued in itself. C contradicts 'adds nothing to the object'; D is never stated.",
+   "exp": "Once flaws can be counterfeited, the flaw no longer works by itself as a 'receipt for attention', so buyers seek separate assurance (documentation). The option about buyers no longer paying extra is the closest trap: irregularity is indeed no longer costly, but the premium has 'not' collapsed, and the author says irregularity was never what was valued in itself. The option about certificates adding a material quality contradicts 'adds nothing to the object'. The option about artisans copying machine-made variations is never stated.",
    "sec": "VARC"
   },
   "m1_VARC_7": {
@@ -188,13 +188,13 @@ const MOCKS = {
    "set": "m1_v_p2",
    "text": "The author would agree with each of the following statements EXCEPT:",
    "opts": [
-    "A buyer's belief about how an object was made can change what it is like to use that object.",
-    "The scarcity account identifies a real reason irregularity became valuable but not what buyers are ultimately paying for.",
-    "An artisan skilled at describing her own process may earn more than a more attentive maker who is not.",
-    "Buyers pay a premium for handmade goods mainly because they can perceive differences that machine-made imitations fail to reproduce."
+    "A buyer's belief about how an object came to be made can genuinely change what the experience of using that object is like.",
+    "The scarcity account identifies a real reason irregularity became valuable, though not what buyers are ultimately paying for.",
+    "An artisan skilled at describing her own process may earn more than a more attentive maker who cannot narrate her work as well.",
+    "Buyers pay the premium mainly because they can perceive differences that machine-made imitations fail to reproduce."
    ],
    "ans": 3,
-   "exp": "D contradicts the passage: imitations are 'to any ordinary inspection, indistinguishable', and what buyers purchase is a story, not a perceptible difference. A is stated in the last paragraph; C follows from 'rewards makers less for the quality of their attention than for its legibility'. B is the trap most likely to be wrongly picked: the author calls the account 'tidy' but incomplete ('explains less than it seems to'), which is exactly what B says.",
+   "exp": "The statement about perceptible differences contradicts the passage: imitations are 'to any ordinary inspection, indistinguishable', and what buyers purchase is a story, not a perceptible difference. The statement about beliefs changing the experience of use is in the last paragraph. The statement about the skilled narrator out-earning a more attentive maker follows from 'rewards makers less for the quality of their attention than for its legibility'. The statement about the scarcity account is the one most likely to be wrongly picked: the author calls the account 'tidy' but incomplete ('explains less than it seems to'), which is exactly what it says.",
    "sec": "VARC"
   },
   "m1_VARC_8": {
@@ -203,13 +203,13 @@ const MOCKS = {
    "set": "m1_v_p2",
    "text": "Which of the following situations is most closely analogous to the 'economy of provenance' described in the passage?",
    "opts": [
-    "A bakery that once sold only uniform loaves introduces deliberately irregular 'rustic' loaves and finds that they sell at a higher price.",
-    "A wine that blind tastings rate no higher than far cheaper wines keeps its high price, with the premium increasingly tied to vineyard tours, the winemaker's published notes and individually numbered bottles.",
-    "A mechanical watch sells for far more than a quartz watch because its movement is much harder and costlier to manufacture.",
-    "A hand-woven rug commands a premium after a consumer survey shows it is measurably more durable than factory-made rugs."
+    "A bakery that once sold only uniform loaves introduces deliberately irregular 'rustic' loaves, shaped by machine, and finds that they sell at a higher price.",
+    "A wine rated no better than cheap wines in blind tastings keeps its high price, its premium increasingly tied to vineyard tours, the maker's notes and numbered bottles.",
+    "A mechanical watch sells for far more than a quartz watch of identical appearance, because its movement is much harder and costlier to manufacture.",
+    "A hand-woven rug commands a premium after an independent consumer survey shows it to be measurably more durable and more colourfast than comparable, factory-made rugs of similar design."
    ],
    "ans": 1,
-   "exp": "B matches every element: no perceptible difference in the object, a premium that persists anyway, and value increasingly carried by documented biography. A is the closest trap: it mirrors manufactured 'artisanal' irregularity, which in the passage is what threatens the premium, not what the provenance economy is. C illustrates the incomplete scarcity account; D rests on material quality, which the passage says documentation does not add.",
+   "exp": "The wine case matches every element: no perceptible difference in the product, a premium that persists anyway, and value increasingly carried by documented biography. The bakery case is the closest trap: it mirrors manufactured 'artisanal' irregularity, which in the passage threatens the premium rather than constituting the provenance economy. The watch case illustrates the incomplete scarcity (cost) account. The rug case rests on material quality, which the passage says documentation does not add.",
    "sec": "VARC"
   },
   "m1_VARC_9": {
@@ -242,12 +242,12 @@ const MOCKS = {
    "text": "The passage given below is followed by four summaries. Choose the option that best captures the essence of the passage.\n\nWe tend to assume that a rule followed by everyone must have been designed by someone. Yet many of the conventions that govern daily life (which side of a corridor to walk on, how long to wait before replying to a message, when a queue has formed) were never decreed. They emerged from countless small adjustments, each person copying what seemed to work for others, until a pattern stabilised that no one had chosen and everyone now enforces. Such conventions are often remarkably efficient, but their origin also makes them hard to reform: there is no author to petition, and anyone who deviates first bears the cost of being out of step.",
    "opts": [
     "Social conventions are usually efficient because they evolve through imitation rather than design, which makes them preferable to deliberately imposed rules.",
-    "Because no one designs everyday conventions, individuals who deviate from them bear the costs, which is why such conventions rarely change.",
-    "People wrongly assume that everyday rules are designed, when in fact they arise from individuals copying behaviour that works for others.",
-    "Many everyday rules arise without a designer, through accumulated imitation; this undesigned origin can make them efficient yet resistant to deliberate reform."
+    "Because no one designs everyday conventions, the individuals who deviate from them bear all the costs, which is why such conventions rarely change.",
+    "People wrongly assume that everyday rules are designed, when in fact they arise from individuals copying whatever behaviour seems to work for others.",
+    "Many everyday rules arise without a designer, through accumulated imitation; this origin can make them efficient yet resistant to deliberate reform."
    ],
    "ans": 3,
-   "exp": "D captures all three elements: undesigned origin through imitation, efficiency, and resistance to reform because of that origin. C is the closest trap: accurate but stops halfway, omitting efficiency and the reform problem. A adds a comparative judgement ('preferable') absent from the passage; B is too narrow and misstates the causal chain (the cost of deviating is one of two reasons, and 'rarely change' overstates 'hard to reform').",
+   "exp": "The correct summary captures all three elements: undesigned origin through imitation, efficiency, and resistance to reform because of that origin. The summary about people wrongly assuming design is the closest trap: accurate but stops halfway, omitting efficiency and the reform problem. The summary calling conventions preferable to imposed rules adds a comparative judgement absent from the passage. The summary about deviators bearing the costs is too narrow and misstates the causal chain (the cost of deviating is one of two reasons, and 'rarely change' overstates 'hard to reform').",
    "sec": "VARC"
   },
   "m1_VARC_13": {
@@ -256,13 +256,13 @@ const MOCKS = {
    "set": "m1_v_p3",
    "text": "Which of the following best captures the primary purpose of the passage?",
    "opts": [
-    "To argue that the Romantic treatment of ruins was a more honest response to history than the eighteenth-century one, because it gave up the pretence of mastering the past.",
-    "To show that the eighteenth-century cult of ruins was essentially a sentimental protest against the Enlightenment doctrine of progress.",
-    "To challenge a received reading of the eighteenth-century fascination with ruins by showing that it served a reforming outlook, and to trace how that function was later lost.",
-    "To explain why the taste for ruins declined sharply once the revolutionary decades produced ruins that did not fit the older causal script."
+    "To argue that the Romantic treatment of ruins was a more honest response to history than the eighteenth-century one, since it gave up the pretence of mastering the past.",
+    "To show that the eighteenth-century cult of ruins was essentially a sentimental protest against the Enlightenment doctrine of progress and improvement.",
+    "To challenge a received reading of the eighteenth-century taste for ruins by showing that it served a reforming outlook, and to trace how that role was lost.",
+    "To explain why the taste for ruins declined sharply once the revolutionary decades produced ruins that no longer fitted the older causal script."
    ],
    "ans": 2,
-   "exp": "The passage rejects the 'standard account' (melancholy/protest), argues ruins framed improvement as vigilant postponement of decline, and then traces how revolutionary-era ruins stripped the ruin of this didactic function. Option 1 is the trap: the author mentions it is 'tempting' to see the Romantic ruin as more honest but then defends the earlier attitude ('Yet...'). Option 2 is the very view the author rejects. Option 4 contradicts the text: the taste persisted; only the confidence that ruins could be read changed.",
+   "exp": "The passage rejects the 'standard account' (melancholy/protest), argues that ruins framed improvement as vigilant postponement of decline, and then traces how revolutionary-era ruins stripped the ruin of this didactic function. The option calling the Romantic ruin more honest is the trap: the author says it is 'tempting' to see it so, then defends the earlier attitude ('Yet...'). The option calling the cult a sentimental protest against progress is the very view the author rejects. The option about the taste for ruins declining contradicts the text: the taste persisted; only the confidence that ruins could be read changed.",
    "sec": "VARC"
   },
   "m1_VARC_14": {
@@ -272,12 +272,12 @@ const MOCKS = {
    "text": "It can be inferred from the passage that the 'standard account' of the cult of ruins rests on which of the following assumptions?",
    "opts": [
     "That an eighteenth-century belief in progress could not comfortably coexist with an awareness of historical decline.",
-    "That eighteenth-century viewers of ruins felt no genuine melancholy, only a fashionable imitation of it.",
-    "That the ruins admired in the eighteenth century were mostly artificial rather than ancient.",
+    "That eighteenth-century viewers of ruins felt no genuine melancholy, only a fashionable imitation of the feeling.",
+    "That the ruins admired in the eighteenth century were, for the most part, artificial rather than ancient.",
     "That melancholy was the dominant response to ruins, though for reasons the period itself misunderstood."
    ],
    "ans": 0,
-   "exp": "The author says 'the protest reading assumes that progress and decline were understood as rivals' - i.e. that they could not coexist. Option 4 is the close trap: the standard account does treat melancholy as central, but nothing suggests it claims the period misunderstood its own reasons; that is an added distortion. Option 2 reverses the account, and option 3 is unsupported.",
+   "exp": "The author says 'the protest reading assumes that progress and decline were understood as rivals', i.e. that they could not coexist. The option about melancholy for misunderstood reasons is the close trap: the standard account does treat melancholy as central, but nothing suggests it claims the period misunderstood its own reasons. The option denying genuine melancholy reverses the account, and the option about ruins being mostly artificial is unsupported.",
    "sec": "VARC"
   },
   "m1_VARC_15": {
@@ -286,13 +286,13 @@ const MOCKS = {
    "set": "m1_v_p3",
    "text": "Which of the following would most closely exemplify the eighteenth-century attitude toward ruins as the author describes it?",
    "opts": [
-    "A poet keeps a fragment of a temple frieze on his desk because it reminds him that no explanation can capture what the past once was.",
-    "A landowner builds an artificial ruin in his garden chiefly so that his guests may enjoy an agreeable sadness on their evening walks.",
-    "A reformer studies a fallen empire and concludes that, with sufficient vigilance, modern states can permanently escape the fate of decline.",
-    "A minister commissions a study of a collapsed ancient republic to identify the habits that preceded its fall, intending to warn his own legislature against them."
+    "A poet keeps a fragment of a temple frieze on his desk because it reminds him that no explanation he could give would capture what the vanished past once was.",
+    "A landowner builds an artificial ruin in his garden chiefly so that his guests may enjoy an agreeable sadness as they stroll past it in the evening.",
+    "A reformer studies a fallen empire and concludes that, given sufficient vigilance, a modern state can permanently escape the fate of decline altogether.",
+    "A minister commissions a study of a collapsed ancient republic to identify the habits that preceded its fall, so as to warn his own legislature."
    ],
    "ans": 3,
-   "exp": "The eighteenth-century ruin was a 'diagnostic specimen': decline has discernible causes, which a vigilant reader can recognise and manage - exactly option 4. Option 3 is the trap: it shares the diagnostic spirit but distorts the goal - the author says improvement could 'postpone' a fate that 'could not be abolished', not escape it permanently. Option 1 is the Romantic attitude; option 2 is the melancholy reading the author rejects.",
+   "exp": "The eighteenth-century ruin was a 'diagnostic specimen': decline has discernible causes, which a vigilant reader can recognise and manage, exactly what the minister does. The reformer who expects a modern state to escape decline permanently is the trap: it shares the diagnostic spirit but distorts the goal, since improvement could 'postpone' a fate that 'could not be abolished'. The poet prizing the fragment as beyond explanation is the Romantic attitude; the landowner seeking agreeable sadness is the melancholy reading the author rejects.",
    "sec": "VARC"
   },
   "m1_VARC_16": {
@@ -301,13 +301,13 @@ const MOCKS = {
    "set": "m1_v_p3",
    "text": "The author's attitude toward the eighteenth-century way of reading ruins is best described as:",
    "opts": [
-    "nostalgic admiration for an outlook that understood history better than any that followed it.",
+    "nostalgic admiration for an outlook that understood history better than any of the views that came after it.",
     "qualified appreciation: conceding its naivety while valuing its insistence that reflection should lead to action.",
-    "sympathy grounded in the belief that its causal account of decline was more accurate than the Romantic view.",
-    "detached neutrality, presenting it and the Romantic view as equally limited responses to time."
+    "sympathy grounded in the belief that its causal account of decline was more accurate than the Romantic view of history.",
+    "detached neutrality, presenting it and the Romantic view as equally limited responses to the passage of time."
    ],
    "ans": 1,
-   "exp": "The last paragraph: 'Whatever its naivety' (concession) yet it 'had a virtue its successor lacked' - it 'assumed that contemplation ought to issue in conduct' (appreciation). Option 3 is the trap: the author never claims its causal account was more accurate - indeed revolutionary ruins 'did not obey the old causal script'. Option 1 is too strong (ignores 'naivety'); option 4 ignores the clear preference.",
+   "exp": "The last paragraph says 'Whatever its naivety' (concession) yet it 'had a virtue its successor lacked': it 'assumed that contemplation ought to issue in conduct' (appreciation). The option about its causal account being more accurate is the trap: the author never claims this, and revolutionary ruins 'did not obey the old causal script'. The option about nostalgic admiration is too strong and ignores 'naivety'. The option about detached neutrality ignores the clear preference.",
    "sec": "VARC"
   },
   "m1_VARC_17": {
@@ -316,13 +316,13 @@ const MOCKS = {
    "set": "m1_v_p4",
    "text": "Which of the following best expresses the central argument of the passage?",
    "opts": [
-    "Colonial revenue categories such as 'wasteland' survived independence and continue to dispossess pastoralists and fishers.",
-    "Because a category like 'wasteland' passes off a contestable judgment about whose uses count as neutral description, the remedy lies in letting affected people contest such categories before land is transformed.",
-    "Programmes to reclaim wastelands have, on balance, done more harm than good, since they measured success by state-visible output.",
-    "Customary uses of common land should be given priority over state-led development, which systematically ignores local forms of value."
+    "Colonial revenue categories such as 'wasteland' survived independence intact and continue, under a development rationale, to dispossess pastoralists and fishers.",
+    "Since a category like 'wasteland' disguises a contestable judgment about whose uses count, the remedy is letting those affected challenge it before land is transformed.",
+    "Programmes to reclaim wastelands have, on balance, done more harm than good, since they measured their success by the output that the state could see.",
+    "Customary uses of common land should take priority over state-led development, which systematically ignores the local forms of value that commons sustain for poor households."
    ],
    "ans": 1,
-   "exp": "The argument culminates in the 'procedural rather than substantive' lesson: the danger is presenting a contestable judgment as neutral, and the remedy is a process allowing challenge before transformation. Option 1 is too narrow - it captures only the historical setup. Option 3 distorts: the author says 'some of these programmes did real good' and makes no net judgment. Option 4 is the 'romantic' inversion the author explicitly rejects.",
+   "exp": "The argument culminates in the 'procedural rather than substantive' lesson: the danger is presenting a contestable judgment as neutral description, and the remedy is a process allowing challenge before transformation. The option about colonial categories surviving independence is too narrow, capturing only the historical setup. The option about reclamation doing more harm than good distorts: the author says 'some of these programmes did real good' and makes no net judgment. The option prioritising customary use is the 'romantic' inversion the author explicitly rejects.",
    "sec": "VARC"
   },
   "m1_VARC_18": {
@@ -331,13 +331,13 @@ const MOCKS = {
    "set": "m1_v_p4",
    "text": "The author would agree with each of the following statements EXCEPT:",
    "opts": [
-    "A measurement system can conceal a loss simply by never having recorded the corresponding benefit.",
-    "Institutions that govern common land locally are not immune to excluding their weakest members.",
-    "A slower method of classifying land may be preferable precisely because it raises questions a faster method avoids.",
+    "A measurement system can conceal a loss simply by never having recorded the corresponding benefit in the first place.",
+    "Institutions that govern common land locally are not immune to capture by dominant groups who exclude their weakest members.",
+    "A slower method of classifying land may be preferable precisely because it raises questions that a faster method avoids.",
     "The term 'wasteland' should be replaced with a more ecologically accurate category that records the land's real uses."
    ],
    "ans": 3,
-   "exp": "The author states 'The remedy is not a better category but a process' and that 'any category simplifies' - so replacing the term with a more accurate category is not his position. Option 1 restates 'the thing lost was never counted as a gain'; option 2 restates the capture of local institutions; option 3 restates the final sentence. Option 4 tempts because the author does criticise the term, but his fix is procedural, not terminological.",
+   "exp": "The author states 'The remedy is not a better category but a process' and that 'any category simplifies', so replacing the term with a more accurate category is not his position; it tempts because he does criticise the term, but his fix is procedural, not terminological. The statement about concealed losses restates 'the thing lost was never counted as a gain'. The statement about local institutions restates their capture by dominant groups. The statement about the slower method restates the final sentence.",
    "sec": "VARC"
   },
   "m1_VARC_19": {
@@ -346,13 +346,13 @@ const MOCKS = {
    "set": "m1_v_p4",
    "text": "Which of the following, if true, would most seriously weaken the author's claim about the afforestation of grazing commons in the third paragraph?",
    "opts": [
-    "Forest departments routinely estimated the fodder, fuel and household income lost by displaced herders, and weighed these figures before deciding whether to plant.",
-    "In several districts, herders displaced by afforestation found alternative grazing land without having to buy fodder or sell their animals.",
-    "Many grazing commons had already been overgrazed and degraded before afforestation programmes reached them.",
-    "Timber revenue from afforested commons often fell short of the projections used to justify planting."
+    "Forest departments routinely estimated the fodder, fuel and income displaced herders would lose, and weighed these before deciding whether to plant.",
+    "In several districts, herders displaced by afforestation found alternative grazing land nearby without ever having to buy fodder or sell their animals.",
+    "Many grazing commons had already been overgrazed and badly degraded by village herds well before afforestation programmes reached them.",
+    "Timber revenue from afforested commons often fell well short of the projections that forest departments had used to justify the planting."
    ],
    "ans": 0,
-   "exp": "The claim is that 'nothing in the accounting registers this as a loss'. If departments actually recorded and weighed herders' losses, the claim is directly undercut. Option 2 is the trap: it reduces the size of the harm in some places but leaves untouched the point that the accounting does not register such losses. Option 3 is something the author already concedes in the next paragraph; option 4 is about projections, not about uncounted losses.",
+   "exp": "The claim is that 'nothing in the accounting registers this as a loss'. If departments actually estimated and weighed herders' losses, the claim is directly undercut. The option about herders finding alternative grazing is the trap: it reduces the harm in some places but leaves untouched the point that the accounting does not register such losses. The option about already-overgrazed commons is something the author concedes in the next paragraph. The option about timber revenue falling short concerns projections, not uncounted losses.",
    "sec": "VARC"
   },
   "m1_VARC_20": {
@@ -361,13 +361,13 @@ const MOCKS = {
    "set": "m1_v_p4",
    "text": "The final sentence of the passage ('That is rather the point...') primarily serves to:",
    "opts": [
-    "concede that the proposed process is impractical while defending it on moral grounds.",
-    "suggest that speed in administrative surveys is invariably a mark of poor judgment.",
+    "concede that the proposed process is impractical while still defending it on moral grounds.",
+    "suggest that speed in administrative surveys is invariably a mark of poor judgment by officials.",
     "recast an apparent drawback of the proposed process as a sign of what the older method left out.",
-    "accuse district officials of deliberately suppressing local objections to reclassification."
+    "accuse district officials of deliberately suppressing local objections to the reclassification."
    ],
    "ans": 2,
-   "exp": "The author grants the process is 'slower and messier', then turns that drawback into evidence: the older method was fast only because it skipped the questions that mattered. Option 1 is the trap: the author concedes slowness, not impracticality, and argues from what was missed, not from morality. Option 2 overgeneralises ('invariably'); option 4 imputes deliberate intent the passage never claims.",
+   "exp": "The author grants the process is 'slower and messier', then turns that drawback into evidence: the older method was fast only because it skipped the questions that mattered. The option about conceding impracticality and defending on moral grounds is the trap: the author concedes slowness, not impracticality, and argues from what was missed, not from morality. The option about speed being invariably poor judgment overgeneralises. The option accusing officials of deliberate suppression imputes intent the passage never claims.",
    "sec": "VARC"
   },
   "m1_VARC_21": {
@@ -399,13 +399,13 @@ const MOCKS = {
    "type": "mcq",
    "text": "Read the paragraph and choose the option that best captures its essence.\n\nExpert forecasters in politics and economics often perform little better than simple statistical rules, yet the reason is not that their knowledge is useless. Expertise makes it easier to construct a persuasive causal story for any outcome, and a persuasive story feels like evidence of likelihood. The more one knows, the more vivid and internally coherent one's preferred scenario becomes, and coherence is mistaken for probability. Simple rules, lacking any story, are immune to this seduction. The remedy is not to discard expertise but to discipline it, by requiring experts to assign explicit probabilities and keeping score of how those probabilities fare.",
    "opts": [
-    "Since coherent stories feel probable, expert judgment is inherently unreliable for forecasting and should give way to simple statistical rules.",
-    "Experts forecast poorly because they know too much; requiring explicit probabilities would usefully limit how much knowledge they bring to bear.",
-    "Expertise hurts forecasting mainly by producing coherent narratives that are mistaken for likelihood, a flaw that can be corrected by making experts quantify their predictions and tracking the results.",
-    "Experts construct persuasive causal stories that simple statistical rules cannot, which is why the rules tend to outperform them."
+    "Since coherent stories feel probable, expert judgment is inherently unreliable for forecasting and should give way to simple statistical rules wherever they exist.",
+    "Experts forecast poorly because they know too much; requiring explicit probabilities would usefully limit how much of that knowledge they bring to each forecast.",
+    "Expertise misleads mainly because coherent narratives are mistaken for likelihood, a flaw correctable by having experts quantify predictions and keeping score.",
+    "Experts construct persuasive causal stories that simple statistical rules cannot, which is why such rules tend to outperform even well-informed experts."
    ],
    "ans": 2,
-   "exp": "Option 3 captures both the diagnosis (coherence mistaken for probability) and the remedy (discipline expertise via explicit probabilities and scorekeeping). Option 4 is the closest trap: accurate on the diagnosis but omits the paragraph's conclusion about disciplining expertise - too narrow. Option 1 contradicts 'the remedy is not to discard expertise'. Option 2 distorts the mechanism: the problem is narrative seduction, not the quantity of knowledge, and the remedy is not to reduce knowledge.",
+   "exp": "The correct option captures both the diagnosis (coherence mistaken for probability) and the remedy (discipline expertise through explicit probabilities and scorekeeping). The option saying rules outperform because experts tell stories is the closest trap: accurate on the diagnosis but omits the conclusion about disciplining expertise. The option saying expert judgment should give way to statistical rules contradicts 'the remedy is not to discard expertise'. The option about experts knowing too much distorts the mechanism: the problem is narrative seduction, not the quantity of knowledge, and the remedy is not to reduce knowledge.",
    "sec": "VARC"
   },
   "m1_DILR_1": {

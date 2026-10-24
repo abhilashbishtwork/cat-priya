@@ -26,13 +26,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's main point is that memory:",
       "opts": [
-       "is a perfect recording that fades with time.",
-       "is rebuilt each time we recall it, which makes it useful but unreliable as a record.",
-       "cannot be trusted at all and should be ignored.",
-       "works better in courtrooms than in daily life."
+       "is essentially a recording that slowly fades and blurs as time passes.",
+       "is rebuilt each time we recall it: useful, but unreliable as a record.",
+       "is so unreliable that it cannot be trusted and should never guide decisions.",
+       "is more dependable in courtrooms than in the routines of everyday life."
       ],
       "ans": 1,
-      "exp": "The passage contrasts 'recording' with 'reconstruction'. A is the view being rejected; C overreaches ('at all'); D is unsupported.",
+      "exp": "The passage replaces the 'recording' model with 'reconstruction': useful for the future, unreliable about the past. The fading-recording option is the very view being rejected. The 'never guide decisions' option overreaches; the author calls memory useful. The courtroom option is unsupported and, if anything, contradicted by the eyewitness example.",
       "set": "c_v4"
      },
      {
@@ -40,13 +40,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The example of eyewitnesses is used to show that:",
       "opts": [
-       "witnesses often lie deliberately.",
-       "sincerity does not guarantee an accurate memory.",
-       "courts should stop using testimony.",
-       "memory improves under stress."
+       "witnesses frequently invent details to influence a court's verdict.",
+       "a witness's sincerity does not guarantee that a memory is accurate.",
+       "courts should stop relying on eyewitness testimony altogether.",
+       "the stress of witnessing a crime makes memories sharper and clearer."
       ],
       "ans": 1,
-      "exp": "'Entirely sincere… may still mislead' — honest but wrong. A contradicts 'sincere'; C and D are never claimed.",
+      "exp": "'Entirely sincere... may still mislead': honest but wrong. The option about deliberate invention contradicts 'sincere'. The option about abandoning testimony is a recommendation the author never makes. The stress option is never discussed.",
       "set": "c_v4"
      },
      {
@@ -55,12 +55,12 @@ const EXTRA = {
       "text": "The author's tone is best described as:",
       "opts": [
        "explanatory and corrective",
-       "nostalgic and wistful",
-       "sarcastic and dismissive",
-       "alarmed and urgent"
+       "reflective and wistful",
+       "sceptical and dismissive",
+       "alarmed and cautionary"
       ],
       "ans": 0,
-      "exp": "The author explains research and corrects a common belief ('Most people assume… research suggests otherwise'). No sarcasm or alarm.",
+      "exp": "The author explains the research and corrects a common belief ('Most people assume... research suggests otherwise'). There is no longing for the past, no dismissiveness (memory is called useful), and no sense of alarm.",
       "set": "c_v4"
      }
     ]
@@ -88,26 +88,26 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the best summary:\n\n\"Cities are often blamed for environmental damage, yet per person, city dwellers tend to use less energy than rural residents. Dense housing shares walls and heat, public transport replaces cars, and shorter distances make walking practical. The environmental question, then, is not whether to have cities but how to build them well.\"",
       "opts": [
-       "Cities are worse for the environment than villages.",
-       "Because density cuts per-person energy use, well-designed cities can be environmentally efficient.",
-       "Everyone should move to cities immediately.",
-       "Public transport is the only answer to climate change."
+       "Cities harm the environment more than villages do, despite their efficient public transport.",
+       "Density cuts per-person energy use, so well-built cities can be environmentally efficient.",
+       "Since city dwellers use less energy, rural people should be encouraged to move to cities.",
+       "Public transport is the main reason city dwellers use less energy than rural residents."
       ],
       "ans": 1,
-      "exp": "Keeps the claim (less energy per person), the reason (density) and the conclusion (build them well). C and D overreach."
+      "exp": "The summary keeps the claim (less energy per person), the reason (density) and the conclusion (build cities well). The option saying cities are worse reverses the paragraph. The option urging people to move overreaches; the question is how to build cities, not who should live in them. The public-transport option singles out one of three reasons and calls it the main one."
      },
      {
       "id": "c20261018_V_9",
       "type": "mcq",
       "text": "The librarians' conclusion implies that the fines had:",
       "opts": [
-       "encouraged families to return books on time.",
-       "kept away families who could not afford to pay.",
-       "raised a lot of money for the library.",
-       "made children read more."
+       "encouraged most families to return their books on time.",
+       "kept away families who could not afford to pay them.",
+       "raised revenue that the library relied on to buy books.",
+       "pushed children to read more in order to avoid fines."
       ],
       "ans": 1,
-      "exp": "'Families who could not pay simply stopped coming' — the fine excluded poorer families.",
+      "exp": "'Families who could not pay simply stopped coming': the fine excluded poorer families. The on-time-returns option is contradicted, since returns improved after fines ended. Revenue is never mentioned. Reading more is what the new programme did, not the fines.",
       "set": "c_v5"
      },
      {
@@ -115,13 +115,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most weaken the librarians' conclusion?",
       "opts": [
-       "Children said they enjoyed reading in the library.",
+       "Children said they enjoyed reading in the library more than reading at home.",
        "Child membership also doubled that year in nearby towns that kept their fines.",
-       "The programme cost the library very little.",
-       "A few books were still returned late."
+       "The new programme cost the library less to run than collecting fines had.",
+       "Some children still returned their books late under the new programme."
       ],
       "ans": 1,
-      "exp": "If membership doubled elsewhere too, something else (not removing fines) may explain the rise. Weaken = offer another cause.",
+      "exp": "If membership doubled in towns that kept fines, something other than removing fines probably explains the rise, so the conclusion is weakened. Children's enjoyment and the programme's low cost do not touch the causal claim. A few late returns are consistent with returns improving overall.",
       "set": "c_v5"
      }
     ]
@@ -136,13 +136,13 @@ const EXTRA = {
       "set": "c_v6",
       "text": "The author suggests that the usual account of the paperback's arrival is:",
       "opts": [
-       "false, because publishers were motivated only by profit.",
-       "accurate, but it leaves out the commercial motive behind it.",
-       "an exaggeration invented by critics of the format.",
-       "irrelevant to how people read today."
+       "false, because publishers were driven purely by profit and not by idealism.",
+       "accurate as far as it goes, but silent on the commercial motive behind it.",
+       "an exaggeration that critics of the paperback invented to discredit it.",
+       "true of the 1930s but irrelevant to how people read books today."
       ],
       "ans": 1,
-      "exp": "'That story is true, but incomplete' → then the profit motive. A says 'false' (author says true). C and D are never claimed. Trick: 'true but incomplete' = the answer keeps the story AND adds what's missing."
+      "exp": "'That story is true, but incomplete', followed by the profit motive. The 'false' option contradicts 'true'. The critics did not invent the democratisation story; they opposed the format. Relevance to reading today is never discussed. The answer keeps the story and adds what is missing."
      },
      {
       "id": "c20261018_V_12",
@@ -150,13 +150,13 @@ const EXTRA = {
       "set": "c_v6",
       "text": "The critics' warning is mentioned mainly in order to:",
       "opts": [
-       "show that the critics were right about falling standards.",
-       "set up a prediction that the author then shows to be mistaken.",
-       "explain why publishers later raised prices.",
-       "prove that cheap books were rarely read."
+       "confirm that cheap books did in fact lead to falling literary standards.",
+       "set up a prediction that the author then shows to have been mistaken.",
+       "explain why publishers later decided to raise the price of paperbacks.",
+       "suggest that cheap books were bought far more often than they were read."
       ],
       "ans": 1,
-      "exp": "Right after the warning comes 'What they failed to anticipate…'. A view is quoted so it can be answered. Ask 'why is this sentence HERE?' — that is a function question."
+      "exp": "Right after the warning comes 'What they failed to anticipate...': the view is quoted so it can be answered. The option confirming falling standards reverses the author's verdict. Later price rises are never mentioned. The suggestion that cheap books went unread contradicts the image of reading on a crowded train. Ask why the sentence is there: it is a function question."
      },
      {
       "id": "c20261018_V_13",
@@ -165,12 +165,12 @@ const EXTRA = {
       "text": "The author's attitude towards the paperback is best described as:",
       "opts": [
        "appreciative, while acknowledging its commercial motives",
-       "hostile, because it cheapened literature",
-       "neutral, with no view on its effects",
-       "nostalgic for the leather-bound book"
+       "hostile, believing that cheap formats cheapened literature",
+       "neutral, describing its history without judging its effects",
+       "wistful, preferring the leather-bound book it displaced"
       ],
       "ans": 0,
-      "exp": "The ending praises it ('moved reading… into ordinary life'), but the author admits publishers weren't idealists. B is the critics' view. C ignores the clear verdict. D: leather books are described as furniture, not missed."
+      "exp": "The ending praises the paperback ('moved reading... into ordinary life') while admitting publishers were not idealists. The hostile option is the critics' view, which the author rejects. The neutral option ignores the clear verdict. The wistful option fails because leather books are described as furniture, not missed."
      },
      {
       "id": "c20261018_V_14",
@@ -198,12 +198,12 @@ const EXTRA = {
       "text": "The primary purpose of the passage is to argue that boredom",
       "opts": [
        "functions as a useful signal whose value is lost when it is reflexively suppressed",
-       "is a pleasant state that modern people should deliberately cultivate",
-       "is caused chiefly by smartphones and a culture of constant stimulation",
-       "reliably makes people more creative, as recent experiments have shown"
+       "is a pleasant state that modern people should deliberately seek out and cultivate",
+       "is caused chiefly by smartphones and by a culture of constant stimulation",
+       "reliably makes people more creative, as recent experiments have demonstrated"
       ],
       "ans": 0,
-      "exp": "Main-idea test: the answer must cover BOTH halves of the passage (para 1: boredom is a signal like pain; para 2: we silence it). B is directly denied ('not that boredom is pleasant'). C reverses cause and effect: phones silence boredom, they don't cause it. D is extreme: the author calls the effect 'modest' and its durability 'unclear'.",
+      "exp": "The answer must cover both halves: paragraph 1 says boredom is a signal like pain; paragraph 2 says we silence it. The 'pleasant state to cultivate' option is directly denied ('not that boredom is pleasant'). The smartphone option reverses cause and effect: phones silence boredom, they do not cause it. The creativity option is too strong: the author calls the effect 'modest' and its durability 'unclear'.",
       "set": "c_vr7"
      },
      {
@@ -211,13 +211,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author would most likely agree with which of the following?",
       "opts": [
-       "Boredom and pain are processed by the same mechanisms in the brain.",
-       "Boredom is best understood as a sign that one's surroundings lack stimulation.",
-       "Twentieth-century psychologists were right to classify boredom with fatigue.",
-       "Escaping boredom without attending to its cause is like numbing pain without examining the injury."
+       "Boredom and pain are processed by the same neural mechanisms, which is why they feel alike.",
+       "Boredom is best understood as a sign that one's surroundings offer too little stimulation.",
+       "Twentieth-century psychologists were right to class boredom with fatigue as a state to minimise.",
+       "Escaping boredom without asking what caused it is like numbing pain without examining the wound."
       ],
       "ans": 3,
-      "exp": "Inference = one small step from the text, no more. The pain analogy plus 'the itch is scratched, and the question disappears' directly support D. A is out of scope (the analogy is functional, not neurological). B contradicts 'less a deficiency of stimulation than a judgement'. C contradicts 'this view mistakes the signal for the problem'. Tip: when stuck, eliminate options that contradict a specific line, then check what survives against the author's analogy.",
+      "exp": "The pain analogy plus 'the itch is scratched, and the question disappears' directly support the option about numbing pain without examining the wound. The neural-mechanism option is out of scope: the analogy is functional, not neurological. The 'too little stimulation' option contradicts 'less a deficiency of stimulation than a judgement'. The option endorsing twentieth-century psychologists contradicts 'this view mistakes the signal for the problem'.",
       "set": "c_vr7"
      },
      {
@@ -225,13 +225,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's attitude toward the research on boredom and idea generation is best described as",
       "opts": [
-       "dismissive",
+       "politely dismissive",
        "cautiously receptive",
-       "enthusiastically approving",
+       "openly enthusiastic",
        "studiously indifferent"
       ],
       "ans": 1,
-      "exp": "Tone questions hinge on qualifiers. The author cites the finding (receptive) but immediately hedges: 'the effect is modest and its durability unclear' (cautious). 'Enthusiastically' ignores the hedge; 'dismissive' ignores that the author uses it in support; 'indifferent' ignores that it is used at all.",
+      "exp": "Tone hinges on qualifiers. The author cites the finding in support (receptive) but immediately hedges: 'the effect is modest and its durability unclear' (cautious). 'Enthusiastic' ignores the hedge; 'dismissive' ignores that the finding is used in support; 'indifferent' ignores that it is used at all.",
       "set": "c_vr7"
      },
      {
@@ -259,13 +259,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following best captures the central argument of the passage?",
       "opts": [
-       "Performance metrics in public services should be abandoned because they are invariably gamed.",
-       "Hospital administrators routinely act in bad faith to manipulate waiting-time statistics.",
+       "Performance metrics in public services should be abandoned, since institutions invariably game them.",
+       "Hospital administrators routinely act in bad faith, manipulating waiting-time figures for rewards.",
        "Metrics are valuable as diagnostic tools but tend to be distorted when mechanically tied to rewards.",
        "Adding more indicators is the most effective way to stop institutions gaming any single measure."
       ],
       "ans": 2,
-      "exp": "The final paragraph is the author's verdict ('The lesson is narrower...'). A is extreme and contradicted ('None of this means that measurement should be abandoned'). B is contradicted ('None of this requires villainy'). D is the 'standard response' the author argues against. Tip: in argumentative RC, look for where the author says 'the lesson' or 'the conclusion': the main idea lives there.",
+      "exp": "The final paragraph gives the verdict ('The lesson is narrower...'). The 'abandon metrics' option is contradicted ('None of this means that measurement should be abandoned'). The bad-faith option is contradicted ('None of this requires villainy'). The 'add more indicators' option is the standard response the author argues against. Look for where the author says 'the lesson': the main idea lives there.",
       "set": "c_vr8"
      },
      {
@@ -273,13 +273,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Based on the passage, which of the following practices is the author LEAST likely to expect to produce gamed numbers?",
       "opts": [
-       "A ministry that ranks hospitals on fifteen indicators and links budgets to the ranking.",
-       "A ward nurse who tracks her unit's patient-fall rate weekly and discusses it with her team to spot problems.",
+       "A ministry that ranks hospitals on fifteen separate indicators and ties each budget to the ranking.",
+       "A ward nurse who tracks her unit's patient-fall rate weekly and discusses it with her team.",
        "A regulator that cuts funding to any hospital whose four-hour compliance falls below 95 per cent.",
-       "A hospital board that awards bonuses to whichever department most improves its waiting-time figure."
+       "A hospital board that gives bonuses to whichever department most improves its waiting-time figure."
       ],
       "ans": 1,
-      "exp": "Application-style inference: extract the author's criteria, then test each case. Criteria: numbers are gamed when (a) mechanically tied to rewards and (b) set far from people who know the work. B is diagnostic, held by someone close to the work, with no reward attached. A, C and D all attach money to the number; A also crowds the dashboard. Approach for skipped inference Qs: write the author's rule in 5 words first, then match.",
+      "exp": "The author's rule: numbers get gamed when (a) mechanically tied to rewards and (b) set far from people who know the work. The ward nurse uses the number diagnostically, close to the work, with no reward attached. The ministry, regulator and board all attach money to the number; the fifteen-indicator ministry also crowds the dashboard. Write the author's rule in five words first, then match.",
       "set": "c_vr8"
      },
      {
@@ -287,13 +287,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most seriously weaken the author's claim that adding more measures often deepens the problem?",
       "opts": [
-       "Hospitals assessed on many indicators, recorded automatically and reviewed with equal frequency, showed less gaming than hospitals assessed on a single target.",
-       "Some hospitals assessed on a single waiting-time target reported improved patient outcomes.",
-       "Managers in several hospitals say they feel overwhelmed by the number of indicators they track.",
-       "Gaming of numerical targets has also been documented in schools and police forces."
+       "Hospitals judged on many indicators, recorded automatically and reviewed equally often, gamed less than single-target ones.",
+       "Some hospitals assessed only on a single waiting-time target went on to report real improvements in patient outcomes.",
+       "Managers in several hospitals say they feel overwhelmed by the sheer number of indicators they are now required to track.",
+       "Gaming of numerical targets has also been documented in schools and police forces that rely on performance indicators."
       ],
       "ans": 0,
-      "exp": "To weaken, attack the mechanism. The author gives two reasons more measures backfire: recording costs staff time, and managers chase the most-reviewed numbers. A removes both mechanisms and still shows less gaming with more measures, so it directly undercuts the claim. B is about single targets, not adding measures. C strengthens. D is about gaming generally and supports the author.",
+      "exp": "To weaken, attack the mechanism. The author says more measures backfire because recording costs staff time and managers chase the most-reviewed numbers. The option with automatic recording and equal review removes both mechanisms and still finds less gaming, directly undercutting the claim. The single-target option says nothing about adding measures. Overwhelmed managers strengthen the claim. Gaming in schools and police supports the author's general view.",
       "set": "c_vr8"
      },
      {
@@ -308,13 +308,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the option that best captures the essence of the paragraph.\n\nTranslation is usually discussed as a problem of loss: the pun that cannot survive the journey, the rhythm that breaks on a foreign tongue. But the history of literature suggests that translation is as much a source of invention as of loss. Forms such as the sonnet, the haiku and the ghazal travelled into new languages precisely because translators, unable to carry them across intact, were forced to improvise equivalents, and those improvisations frequently became traditions of their own. The imperfection of translation, on this view, is not merely a cost to be minimised but one of the engines by which literatures renew themselves.",
       "opts": [
-       "Although translation inevitably loses wordplay and rhythm, careful translators can minimise these losses.",
-       "Literary forms such as the sonnet and the ghazal survived in new languages only because translators preserved them intact.",
-       "Translation is fundamentally a creative act, and fidelity to the original is an outdated ideal.",
-       "Translation's inability to reproduce originals exactly has historically driven literary innovation, not merely loss."
+       "Although translation inevitably loses wordplay and rhythm, careful translators can keep these losses small.",
+       "Forms like the sonnet and the ghazal survived in new languages only because translators kept them intact.",
+       "Translation is fundamentally a creative act, so fidelity to the original is an outdated, needless ideal.",
+       "Translation's failure to reproduce originals exactly has driven literary invention, not merely loss."
       ],
       "ans": 3,
-      "exp": "A summary must keep the 'But' pivot: the paragraph moves from 'loss' to 'invention through imperfection'. A stays on the rejected side of the pivot. B contradicts 'unable to carry them across intact'. C is extreme: the paragraph never dismisses fidelity, and says 'as much... as', not 'fundamentally'. D keeps both halves ('not merely loss') and the causal link."
+      "exp": "A summary must keep the 'But' pivot from loss to invention through imperfection. The 'careful translators minimise loss' option stays on the rejected side of the pivot. The 'kept them intact' option contradicts 'unable to carry them across intact'. The 'fidelity is outdated' option is extreme: the paragraph says 'as much... as', and never dismisses fidelity. The correct option keeps both halves and the causal link."
      }
     ]
    },
@@ -327,13 +327,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's main purpose in the passage is to",
       "opts": [
-       "refute the idea that literature has any moral value",
-       "argue that laboratory studies of reading are methodologically worthless",
+       "refute the idea that literature has any moral value, for individual readers or for society",
+       "argue that laboratory studies of reading are methodologically worthless and should be ignored",
        "question a widely held claim about fiction's moral effects and propose a more modest alternative",
-       "show that cultivated readers are more likely than others to behave cruelly"
+       "show that cultivated readers are more likely than others to tolerate or commit acts of cruelty"
       ],
       "ans": 2,
-      "exp": "Structure: creed stated -> evidence for it attacked (fragile, too narrow, selection effect, history) -> 'None of this shows that literature is morally inert' -> smaller claim offered. C maps the whole arc. A is denied outright. B overstates 'fragile' and 'narrower' into 'worthless'. D distorts 'can coexist' (possibility) into 'more likely' (comparison).",
+      "exp": "Structure: creed stated, evidence attacked (fragile, too narrow, selection effect, history), then 'None of this shows that literature is morally inert', then a smaller claim offered. The correct option maps the whole arc. The 'no moral value' option is denied outright. The 'worthless studies' option inflates 'fragile' and 'narrower'. The cruelty option turns 'can coexist' (possibility) into 'more likely' (comparison).",
       "set": "c_vr9"
      },
      {
@@ -341,13 +341,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following can most reasonably be inferred from the passage?",
       "opts": [
-       "The author believes that readers of popular fiction are less empathetic than readers of literary fiction.",
-       "Finding that fiction readers score higher on empathy tests would not, by itself, show that reading causes empathy.",
-       "The author thinks literature teachers exaggerate fiction's benefits mainly to protect their profession.",
-       "If the laboratory findings were replicated, the author would accept that fiction makes readers kinder."
+       "The author believes that readers of popular fiction are, on the whole, less empathetic than literary readers.",
+       "Finding that fiction readers score higher on empathy tests would not alone show that reading causes empathy.",
+       "The author thinks literature teachers exaggerate fiction's benefits chiefly to protect their own profession.",
+       "If the laboratory findings were reliably replicated, the author would accept that fiction makes readers kinder."
       ],
       "ans": 1,
-      "exp": "B follows from the selection-effect point ('the habit may be a symptom of sympathy rather than its cause'): correlation is not causation. A attributes to the author a claim she only reports from studies and in fact doubts. C imputes a motive; 'less flattering for the profession' is not an accusation of self-interest. D is contradicted: 'even taken at face value' the findings show only a perceptual effect, not kindness. Inference trap to watch: options that turn something the author REPORTS into something the author BELIEVES.",
+      "exp": "The selection-effect point ('the habit may be a symptom of sympathy rather than its cause') means a correlation would not prove causation. The popular-fiction option turns something the author reports (and doubts) into something she believes. The 'protect their profession' option imputes a motive; 'less flattering' is not an accusation. The replication option is contradicted: 'even taken at face value' the findings show only a perceptual effect, not kindness.",
       "set": "c_vr9"
      },
      {
@@ -355,13 +355,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most strengthen the author's suggestion about fiction's 'real contribution'?",
       "opts": [
-       "Long-term readers of literary fiction donate more to charity than matched non-readers.",
-       "Readers of popular fiction report enjoying their reading more than readers of literary fiction do.",
-       "Several further laboratory studies linking fiction to empathy have failed to replicate.",
-       "Long-term readers of literary fiction use a wider and more specific vocabulary than matched non-readers when describing others' emotional states."
+       "Long-term readers of literary fiction give noticeably more to charity each year than matched non-readers.",
+       "Readers of popular fiction report enjoying their reading far more than readers of literary fiction do.",
+       "Several further laboratory studies linking fiction reading with better empathy have failed to replicate.",
+       "Long-term literary readers describe others' feelings with a wider, more specific vocabulary than non-readers."
       ],
       "ans": 3,
-      "exp": "Identify exactly which claim is targeted: not the critique, but the alternative, that fiction makes readers more PRECISE in distinguishing suffering and less content with stock phrases. D tests precision directly. A supports the kindness creed the author doubts. C supports the critique, not the alternative (scope shift). B is irrelevant.",
+      "exp": "The target is the alternative claim: fiction makes readers more precise in distinguishing kinds of suffering and less content with stock phrases. A richer, more specific emotional vocabulary tests precision directly. The charity option supports the kindness creed the author doubts. The failed-replication option supports the critique, not the alternative (scope shift). Enjoyment is irrelevant.",
       "set": "c_vr9"
      },
      {
@@ -389,13 +389,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following best expresses the author's central claim?",
       "opts": [
-       "The ruin the parable predicts depends on the absence of means to make and enforce agreements; it is not an inevitable feature of shared resources.",
-       "Shared resources are best managed by local communities, since enclosure and state control have consistently failed.",
-       "The overgrazing parable is false and should be discarded from economic reasoning.",
-       "Collective management of commons succeeds only when a distant authority supervises local rules."
+       "The ruin the parable predicts depends on lacking any means to make and enforce agreements; it is not inevitable.",
+       "Shared resources are best left to local communities, since enclosure and state control have consistently failed.",
+       "The overgrazing parable has no real empirical basis and should be discarded from economic reasoning entirely.",
+       "Collective management of a commons succeeds only when a distant authority supervises and enforces local rules."
       ],
       "ans": 0,
-      "exp": "The third paragraph gives the 'more defensible conclusion', and it is conditional. B is the 'mirror image' the author explicitly warns against. C is too strong: the author says the parable describes 'a real situation'. D reverses the text: a distant authority overriding local rules is listed as a cause of FAILURE. Hard-RC tip: when an author rejects two extremes, the answer is almost always the qualified middle.",
+      "exp": "The third paragraph gives the 'more defensible conclusion', and it is conditional. The 'leave it to local communities' option is the mirror-image parable the author warns against. The 'discard the parable' option is too strong: it describes 'a real situation'. The distant-authority option reverses the text, which lists outside override as a cause of failure. When an author rejects two extremes, the answer is usually the qualified middle.",
       "set": "c_vr10"
      },
      {
@@ -403,13 +403,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's reference to 'global fisheries and a shared atmosphere' most strongly implies that",
       "opts": [
-       "the field studies show global resources can be governed in the same way as local irrigation systems",
-       "the parable was originally meant to describe international rather than local resources",
-       "global resources are inherently unmanageable and will inevitably be degraded",
-       "the parable's grim prediction may apply with particular force to some of the largest-scale resource problems"
+       "the field studies show that global resources can be governed just as local irrigation systems are",
+       "the parable was originally intended to describe international resources rather than local pastures",
+       "global resources are inherently unmanageable and will inevitably be degraded whatever rules are made",
+       "the parable's grim prediction may apply with special force to some of the largest resource problems"
       ],
       "ans": 3,
-      "exp": "Connect the remark to the failure conditions: large groups, free entry, distant authority. Global fisheries and the atmosphere have huge, open user groups with no shared means of agreement, so they resemble the parable's strangers: 'perhaps an increasingly common' situation. A ignores those failure conditions. B is unsupported history. C is extreme and clashes with 'not a law of nature'. Note the hedge 'may': the right inference keeps the author's 'perhaps'.",
+      "exp": "Link the remark to the failure conditions: large groups, open entry, distant authority. Global fisheries and the atmosphere have vast, open user groups with no shared means of agreement, so they resemble the parable's strangers ('perhaps an increasingly common' situation). The irrigation-systems option ignores those failure conditions. The 'originally intended' option is unsupported history. The 'inherently unmanageable' option clashes with 'not a law of nature'. The right inference keeps the author's 'perhaps'.",
       "set": "c_vr10"
      },
      {
@@ -417,13 +417,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most seriously weaken the author's account of when collective arrangements fail?",
       "opts": [
-       "A communal grazing system collapsed soon after the state imposed uniform grazing rules across the region.",
-       "Some privately owned pastures have also been overgrazed by their owners.",
-       "Many communal fisheries collapsed despite small, stable membership, closed access and no outside interference.",
-       "Several irrigation communities using graduated penalties have survived for over four hundred years."
+       "A communal grazing system collapsed soon after the state imposed uniform grazing rules on the region.",
+       "Several privately owned pastures were overgrazed by owners even though no one else could use them.",
+       "Many communal fisheries collapsed despite small, stable membership, closed access and no interference.",
+       "Several irrigation communities using graduated penalties have survived intact for over four centuries."
       ],
       "ans": 2,
-      "exp": "The account says failure comes under identifiable conditions (too large, open entry, outside override). The strongest weakener shows failure when NONE of those conditions holds: C. A is an instance of the third condition, so it strengthens. D supports the general success story. B is about private property, outside the scope of when COLLECTIVE arrangements fail.",
+      "exp": "The account says collective arrangements fail under identifiable conditions (too large, open entry, outside override). The strongest weakener shows failure when none of those holds: the fisheries with small, stable, closed membership. The state-imposed-rules case is an instance of the third condition, so it strengthens. Long-surviving irrigation communities support the success story. Private pastures are outside the scope of when collective arrangements fail.",
       "set": "c_vr10"
      },
      {
@@ -438,13 +438,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the option that best captures the essence of the paragraph.\n\nWe tend to assume that a forecaster who is right more often is the better forecaster. But accuracy rates can mislead when outcomes are lopsided. In a region where it rains on one day in ten, a forecaster who announces 'no rain' every morning will be right ninety per cent of the time while telling us nothing we did not already know. The value of a forecast lies not in how often it is correct but in how much it improves on what a well-informed person would have guessed without it.",
       "opts": [
-       "Forecasters in dry regions can achieve high accuracy rates without any genuine skill.",
-       "Accuracy rates are meaningless for evaluating forecasters, since anyone can achieve them by predicting the most common outcome.",
-       "A forecast's worth lies in what it adds beyond a sensible default expectation, not in its raw rate of correctness.",
-       "Because rare events are hard to predict, forecasters should concentrate on predicting common outcomes accurately."
+       "Forecasters working in dry regions can reach very high accuracy rates without possessing any real skill.",
+       "Accuracy rates are meaningless for judging forecasters, since anyone can match them by predicting the usual.",
+       "A forecast's worth lies in what it adds beyond a sensible default expectation, not in its raw hit rate.",
+       "Because rare events are hard to predict, forecasters should focus on getting the common outcomes right."
       ],
       "ans": 2,
-      "exp": "A summary keeps the conclusion, not the example. A restates only the rain example. B is extreme ('meaningless', 'anyone'): the paragraph says accuracy 'can mislead when outcomes are lopsided', a conditional claim. D draws the opposite lesson, since forecasting the common outcome is what the paragraph calls useless. C carries the final sentence's criterion: improvement over an informed baseline."
+      "exp": "A summary keeps the conclusion, not the example. The dry-regions option restates only the rain example. The 'meaningless' option is extreme: accuracy 'can mislead when outcomes are lopsided', a conditional claim. The 'focus on common outcomes' option draws the opposite lesson, since always forecasting the common outcome is what the paragraph calls uninformative. The correct option carries the final sentence's criterion: improvement over an informed baseline."
      }
     ]
    },
@@ -459,11 +459,11 @@ const EXTRA = {
       "opts": [
        "argue that boredom should generally be overridden, since it is usually a miscalibrated response.",
        "recast boredom as a fallible evaluative signal that deserves scrutiny rather than suppression.",
-       "condemn digital media for causing a modern epidemic of boredom.",
-       "show that boredom, properly understood, is a reliable guide to what is worth doing."
+       "condemn digital media for causing a modern epidemic of boredom from which they then profit.",
+       "show that boredom, properly understood, is a reliable guide to what is worth doing with one's life."
       ],
       "ans": 1,
-      "exp": "The author moves from 'boredom is a judgment' to 'it can be miscalibrated' to 'it should be interrogated, treated as a claim that may be true or false.' Option 2 captures both halves (evaluative + fallible). Closest trap is option 4: it keeps the 'judgment' half but drops the explicit concession 'None of this means boredom is infallible.' Option 3 distorts: the feed prevents boredom's verdict, it is not said to cause boredom.",
+      "exp": "The author moves from 'boredom is a judgment' to 'it can be miscalibrated' to 'it should be interrogated, treated as a claim that may be true or false'. The correct option keeps both halves (evaluative and fallible). The closest trap is the 'reliable guide' option: it keeps the judgment half but drops 'None of this means boredom is infallible'. The 'generally overridden' option inflates the concession into the thesis. The digital-media option distorts: the feed prevents boredom's verdict; it is not said to cause boredom.",
       "set": "c_vr11"
      },
      {
@@ -471,13 +471,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "A reader puts down a demanding novel after twenty pages because she finds it dull. Based on the passage, the author would most likely say that she has:",
       "opts": [
-       "correctly obeyed a judgment that the novel lacks value.",
-       "displayed the shallowness that eighteenth-century moralists attributed to the bored.",
-       "possibly mistaken a deferred reward for an absent one, having not persisted long enough to tell the two apart.",
-       "been conditioned by industries that profit from abolishing boredom."
+       "correctly obeyed her boredom's judgment that the novel offers nothing worth caring about.",
+       "displayed the lack of inner resources that eighteenth-century moralists saw in the bored.",
+       "possibly mistaken a deferred reward for an absent one, by not persisting long enough to tell.",
+       "been conditioned by the attention industries to drop anything that does not stimulate at once."
       ],
       "ans": 2,
-      "exp": "Paragraphs 3-4: some goods disclose themselves only after 'initial flatness', and the two kinds of boredom 'differ in what follows when one persists'. Quitting at twenty pages means she never tested which kind hers was, so option 3 (hedged with 'possibly'). Option 1 is the trap: the author grants boredom can be correct, but cannot say it is correct here without persistence. Option 2 revives the deficiency view the author rejects; option 4 is unsupported by the scenario.",
+      "exp": "Some goods disclose themselves only after 'initial flatness', and the two kinds of boredom 'differ in what follows when one persists'. Quitting at twenty pages means she never tested which kind hers was, hence the hedged 'possibly mistaken a deferred reward'. The 'correctly obeyed' option is the trap: boredom can be right, but the author could not say so here without persistence. The moralists' option revives the deficiency view the author rejects. The conditioning option is unsupported by the scenario.",
       "set": "c_vr11"
      },
      {
@@ -486,12 +486,12 @@ const EXTRA = {
       "text": "The author attributes each of the following to the 'endlessly refreshing feed' EXCEPT that it:",
       "opts": [
        "reliably supplies content that users, on reflection, judge worth their time.",
-       "forestalls the question of whether an activity is worth one's life.",
-       "delivers stimulus at a pace designed to outrun evaluative judgment.",
+       "forestalls the question of whether an activity is truly worth one's life.",
+       "delivers stimulus at a pace calibrated to stay ahead of evaluative judgment.",
        "erodes a restlessness that once prompted people to make major life changes."
       ],
       "ans": 0,
-      "exp": "Options 2, 3 and 4 paraphrase paragraph 2: it 'prevent[s] [the question] from being asked', is 'calibrated to stay just ahead of the judgment', and removes 'the restlessness that once drove people to quit jobs...'. Option 1 is never claimed; the whole point is that the feed stops users from reaching any reflective verdict, so it cannot be credited with passing that verdict. Trap: option 4 may look like an extrapolation, but 'with it the restlessness' states it directly.",
+      "exp": "Paragraph 2 says the feed prevents the question from being asked, is 'calibrated to stay just ahead of the judgment', and removes 'the restlessness that once drove people to quit jobs...'. The option about content users judge worth their time is never claimed; the point is that the feed stops users reaching any reflective verdict. The restlessness option may look like an extrapolation, but 'with it the restlessness' states it directly.",
       "set": "c_vr11"
      },
      {
@@ -506,13 +506,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the option that best captures the essence of the paragraph:\n\nWe often say we trust experts because they know more than we do, but this cannot be the whole story, since we are rarely in a position to verify that they do. What we actually assess are proxies: credentials, institutional affiliation, the agreement of other experts, the track record of a field. Each proxy can fail, and each can be gamed. Yet the alternative, judging every claim on its merits, is not available to finite beings in a complex society. Rational trust, then, is less a matter of checking the expert than of checking the system that produced and certifies the expert.",
       "opts": [
-       "Since proxies for expertise can be gamed, laypeople should evaluate expert claims on their merits.",
-       "Experts deserve trust because they know more than laypeople, as their credentials show.",
-       "Trust in experts is irrational in complex societies because every proxy for expertise can fail.",
-       "Because laypeople cannot verify expertise directly, rational trust depends on assessing the fallible institutions that certify experts."
+       "Since every proxy for expertise can be gamed, laypeople should instead evaluate each expert claim on its own merits.",
+       "Experts deserve our trust because they know more than laypeople do, as their credentials and posts show.",
+       "Trust in experts is irrational in complex societies, since every proxy we use for expertise can fail.",
+       "Since laypeople cannot verify expertise directly, rational trust rests on checking the systems that certify it."
       ],
       "ans": 3,
-      "exp": "The paragraph concludes that rational trust means 'checking the system that produced and certifies the expert', while conceding proxies are fallible. Option 4 keeps both. Option 3 is the close trap: it takes the 'proxies can fail' premise to a conclusion (trust is irrational) the paragraph explicitly avoids. Option 1 recommends the alternative the paragraph calls unavailable; option 2 is the view it calls 'not the whole story'."
+      "exp": "The paragraph concludes that rational trust means 'checking the system that produced and certifies the expert', while conceding proxies are fallible. The correct option keeps both. The 'trust is irrational' option is the close trap: it takes the 'proxies can fail' premise to a conclusion the paragraph avoids. The 'judge on the merits' option recommends the alternative the paragraph calls unavailable. The 'they know more' option is the view called 'not the whole story'."
      }
     ]
    },
@@ -525,13 +525,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's central contention is that:",
       "opts": [
-       "governments should redirect spending from new construction to the upkeep of existing infrastructure.",
-       "institutions depreciate faster than physical infrastructure because their decay leaves no visible trace.",
-       "measurement practices that make upkeep invisible bias societies toward novelty, so that the choice between building and keeping is made by default.",
-       "deferred maintenance is the principal cause of infrastructure failure in modern democracies."
+       "governments should shift spending from new construction to the upkeep of infrastructure they already have.",
+       "institutions depreciate faster than physical infrastructure, since their decay leaves no rust or visible trace.",
+       "measurement that hides upkeep biases societies toward novelty, so building versus keeping is decided by default.",
+       "deferred maintenance is the principal cause of infrastructure failure in modern democracies and institutions."
       ],
       "ans": 2,
-      "exp": "The last paragraph states the 'deeper problem': 'our instruments of measurement make the choice for us... the decision between them is rarely posed as a decision at all.' Option 3 says exactly this. Option 1 is the conclusion the author explicitly calls 'too simple'. Option 2 distorts: institutions are 'harder to see', not said to decay faster. Option 4 is a causal claim the passage never makes.",
+      "exp": "The last paragraph names the 'deeper problem': 'our instruments of measurement make the choice for us... the decision between them is rarely posed as a decision at all.' The option about measurement deciding by default says exactly this. Shifting spending to upkeep is the conclusion the author calls 'too simple'. The 'institutions depreciate faster' option distorts: they are harder to see, not said to decay faster. The 'principal cause' option is a causal claim the passage never makes.",
       "set": "c_vr12"
      },
      {
@@ -539,13 +539,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most weaken the author's account of why maintenance is routinely deferred?",
       "opts": [
-       "Voters reliably identify and punish the officials whose past budget cuts caused later infrastructure failures, even many years afterwards.",
-       "Engineers report that designing new structures is more professionally rewarding than maintaining old ones.",
-       "Many private firms also underinvest in the maintenance of their equipment.",
-       "The share of public budgets spent on maintenance differs widely from one country to another."
+       "Voters reliably trace later infrastructure failures to the officials whose earlier cuts caused them, and punish them.",
+       "Engineers report that designing new structures is far more professionally rewarding than maintaining existing ones.",
+       "Many private firms also underinvest in maintaining their equipment, much as public bodies do with infrastructure.",
+       "The share of public budgets devoted to maintenance varies widely from one country to another and year to year."
       ],
       "ans": 0,
-      "exp": "The author's mechanism is that deferral is costless to the decision-maker: the bill arrives later, 'often to a different administration', and is 'blamed on age or bad luck rather than on the choice that caused it'. If voters reliably trace and punish the original choice (option 1), that mechanism collapses. Option 2 is consistent with (even supports) the passage's claim about what engineers are rewarded for. Option 3 is compatible with the account; option 4 is irrelevant without a link to measurement or accountability.",
+      "exp": "The mechanism is that deferral costs the decision-maker nothing: the bill arrives later, 'often to a different administration', and is 'blamed on age or bad luck'. If voters reliably trace and punish the original choice, that mechanism collapses. The engineers option is consistent with (even supports) the claim about what engineers are rewarded for. Private-firm underinvestment is compatible with the account. Cross-country variation is irrelevant without a link to measurement or accountability.",
       "set": "c_vr12"
      },
      {
@@ -553,13 +553,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following is most analogous to the institutional cases described in the third paragraph?",
       "opts": [
-       "A city replaces its ageing tram fleet with new buses after a public cost comparison.",
-       "A museum allows a temporary installation to decay because the artist intended it to.",
-       "A factory's machinery rusts after its owner stops paying for lubrication.",
-       "A professional association adds a new rule every year to cover edge cases and never retires old ones, until members can no longer say what the code requires."
+       "A city replaces its ageing tram fleet with new buses after publishing a full comparison of costs.",
+       "A museum lets a temporary installation decay on public display because the artist intended it to fall apart.",
+       "A factory's machinery slowly rusts and seizes after its owner stops paying for regular lubrication.",
+       "A professional body adds rules yearly and retires none, until members cannot say what its code requires."
       ],
       "ans": 3,
-      "exp": "Paragraph 3's cases are non-physical institutions degrading through accumulation and neglect that 'no one can explain' (a court whose procedures 'accrete exceptions', a curriculum 'extended every year and pruned never'). Option 4 mirrors this exactly. Option 3 is the trap: it is deferred maintenance, but physical, with literal rust, which is the contrast the author draws ('there is no rust'). Option 1 is a deliberate, visible choice; option 2 is decay chosen on purpose.",
+      "exp": "Paragraph 3's cases are non-physical institutions degrading through accumulation and neglect (procedures that 'accrete exceptions', a curriculum 'extended every year and pruned never'). The professional body's ever-growing code mirrors this. The rusting-factory option is the trap: it is deferred maintenance, but physical, with literal rust, which is the contrast the author draws ('there is no rust'). The tram replacement is a deliberate, visible choice; the museum installation is decay chosen on purpose.",
       "set": "c_vr12"
      },
      {
@@ -580,7 +580,7 @@ const EXTRA = {
        "Position 4"
       ],
       "ans": 2,
-      "exp": "The sentence is evidence for a dispute over 'whose clock counted' (owners manipulating clocks, workers barred from keeping their own time), so it belongs right after that claim, at (3), before 'however' turns to the later struggle over hours. At (2) it would mention mill clocks before the paragraph has introduced employers installing them. At (4) it would jump back in time after the paragraph has moved on to the eight-hour day."
+      "exp": "The sentence is evidence for a dispute over 'whose clock counted' (owners manipulating clocks, workers barred from keeping their own time), so it belongs right after that claim, at position 3, before 'however' turns to the later struggle over hours. At position 1 or 2 it would mention mill clocks before the paragraph has introduced employers installing them. At position 4 it would jump back in time after the paragraph has moved on to the eight-hour day."
      }
     ]
    },
@@ -593,13 +593,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's attitude toward the queue is best described as:",
       "opts": [
-       "dismissive: it is an inefficient relic that paid alternatives rightly replace.",
-       "nostalgic: it belongs to a lost era when all citizens waited as equals.",
-       "appreciative yet clear-eyed: it is valued for its symbolic function despite its unequal burdens.",
-       "neutral: the arguments on both sides are set out without the author taking a position."
+       "dismissive: it is an inefficient relic that paid priority lanes are right to replace.",
+       "nostalgic: it belongs to a lost era in which all citizens once waited as true equals.",
+       "appreciative yet clear-eyed: valued for its symbolic role despite unequal burdens.",
+       "neutral: the arguments on both sides are set out without the author taking a side."
       ],
       "ans": 2,
-      "exp": "The author calls the queue 'among the most underrated of social institutions' and defends its value as a 'public demonstration', while insisting its egalitarianism is 'of form rather than of burden' and 'partly a fiction'. That is appreciation with open eyes: option 3. Option 4 is the trap: the passage does lay out both sides, but the author then takes a position ('Neither side, I think, has quite grasped...'). There is no lost era (option 2), and the author resists replacing queues with paid lanes (option 1).",
+      "exp": "The author calls the queue 'among the most underrated of social institutions' and defends it as a 'public demonstration', while insisting its egalitarianism is 'of form rather than of burden' and 'partly a fiction': appreciation with open eyes. The neutral option is the trap: both sides are laid out, but the author then takes a position ('Neither side, I think, has quite grasped...'). There is no lost era, and the author resists replacing queues with paid lanes.",
       "set": "c_vr13"
      },
      {
@@ -607,13 +607,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Each of the following is presented in the passage as a feature or consequence of the ordinary queue EXCEPT that it:",
       "opts": [
-       "is maintained without formal authority or written rules.",
+       "is maintained without any formal authority or written rules.",
        "distributes goods more efficiently than paid alternatives do.",
-       "imposes heavier costs on those whose time is scarce.",
-       "exposes rich and poor to the same tedium together."
+       "imposes heavier costs on those whose time is scarcer or dearer.",
+       "exposes rich and poor alike to the same tedium, side by side."
       ],
       "ans": 1,
-      "exp": "Options 1, 3 and 4 are stated in paragraphs 1, 2 and 3 respectively. On efficiency, the author says only that the queue distributes goods 'badly'; the passage never compares its efficiency with paid lanes, let alone favourably. Option 3 might look like criticism rather than a 'feature', but it is plainly asserted ('the parent with a child in tow pays more').",
+      "exp": "The no-authority, heavier-costs and shared-tedium options are stated in paragraphs 1, 2 and 3. On efficiency the author says only that the queue distributes goods 'badly'; the passage never compares it favourably with paid lanes. The heavier-costs option may look like criticism rather than a 'feature', but it is plainly asserted ('the parent with a child in tow pays more').",
       "set": "c_vr13"
      },
      {
@@ -621,13 +621,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "It can be inferred that the author regards the defenders of paid priority arrangements as:",
       "opts": [
-       "right that the queue already contains an inequality, but blind to the symbolic function that selling places would destroy.",
-       "wrong to claim that the queue's burdens are unevenly distributed.",
-       "valuing efficiency over justice, which the author takes to be the queue's primary purpose.",
-       "motivated chiefly by the self-interest of the wealthy."
+       "right that the queue already hides an inequality, but blind to the symbolism that selling places would destroy.",
+       "wrong to claim that the burdens of waiting in a queue fall unevenly on different kinds of people in society.",
+       "valuing efficiency over justice, which the author takes to be the queue's primary and proper purpose.",
+       "motivated chiefly by the self-interest of wealthy people who would rather not wait alongside everyone else."
       ],
       "ans": 0,
-      "exp": "Paragraph 2 independently endorses the defenders' premise (the queue 'rewards those who can afford to wait'), so they are right on that point; yet 'Neither side... has quite grasped what the queue does', namely staging a demonstration that 'cannot survive being openly sold'. Option 1 holds both halves. Option 3 is the close trap: the author explicitly says the queue distributes justly 'only roughly', so justice is not its primary purpose. Option 2 contradicts paragraph 2; option 4 is never suggested.",
+      "exp": "Paragraph 2 independently endorses the defenders' premise (the queue 'rewards those who can afford to wait'), yet 'Neither side... has quite grasped what the queue does': staging a demonstration that 'cannot survive being openly sold'. The correct option holds both halves. The efficiency-over-justice option is the close trap: the author says the queue distributes justly 'only roughly', so justice is not its primary purpose. The 'wrong about uneven burdens' option contradicts paragraph 2; the self-interest motive is never suggested.",
       "set": "c_vr13"
      },
      {
@@ -655,13 +655,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The passage is primarily concerned with:",
       "opts": [
-       "arguing that research on model organisms should be replaced by studies of human-derived tissue.",
-       "explaining why cellular machinery shared across species makes model organisms reliable guides to human biology.",
-       "documenting the failure in human trials of treatments first tested on mice.",
-       "showing how the convenience-driven choice of a few model organisms has both limited the reach of findings and skewed the direction of inquiry."
+       "arguing that research on model organisms, being unrepresentative of human patients, should give way to studies of human-derived tissue and organoids.",
+       "explaining why cellular machinery conserved across species makes findings from yeast, flies and mice dependable guides to human biology.",
+       "documenting how treatments that cure disease in laboratory mice fail in human trials, and tracing those failures to how the mice are raised.",
+       "showing how choosing a few model organisms for convenience has limited the reach of findings and skewed which questions get asked."
       ],
       "ans": 3,
-      "exp": "The passage covers why the models were chosen (convenience), where findings fail to transfer (late-evolving, variable processes), the 'subtler problem' of shaping which questions get asked, and why the dependence persists. Option 4 covers all of this. Option 2 is just the 'standard defence', which the author only partly accepts; option 3 is one illustrative clause; option 1 goes beyond the author, who calls abandonment of the old models a 'naive' expectation and argues for no replacement.",
+      "exp": "The passage covers why the models were chosen (convenience), where findings fail to transfer (late-evolving, variable processes), the 'subtler problem' of shaping which questions get asked, and why the dependence persists. The option about convenience limiting findings and skewing questions covers all of this. The option about conserved cellular machinery is just the 'standard defence', which the author only partly accepts. The option about failed human trials expands one illustrative clause. The option about giving way to human-derived tissue goes beyond the author, who calls abandoning the old models a 'naive' expectation and argues for no replacement.",
       "set": "c_vr14"
      },
      {
@@ -669,13 +669,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "According to the passage, the 'standard defence' is weakest when applied to which of the following research questions?",
       "opts": [
-       "How chromosomes are copied before a cell divides.",
+       "How chromosomes are duplicated and then separated when a dividing cell splits in two.",
        "How a person's immune system responds to a chronic infection over many years.",
-       "How proteins are assembled from genetic instructions.",
-       "How the molecular structure of DNA is preserved during replication."
+       "How ribosomes assemble proteins from the instructions carried by messenger RNA.",
+       "How the sequence of DNA is preserved with high fidelity during each round of replication."
       ],
       "ans": 1,
-      "exp": "The defence is 'largely correct' for conserved, early-evolved machinery (DNA copying, protein synthesis, cell division), which covers options 1, 3 and 4. It is 'less convincing' for processes that 'evolved late and vary widely: immune responses... the course of chronic disease'. Option 2 combines two of these and also involves an adult with a history, unlike the young, sterile lab mouse.",
+      "exp": "The defence is 'largely correct' for conserved, early-evolved machinery: DNA copying, protein synthesis and cell division, which covers the options about chromosomes, ribosomes and DNA replication. It is 'less convincing' for processes that 'evolved late and vary widely: immune responses... the course of chronic disease'. The immune-response option combines two of these and also involves an adult with a history, unlike the young, sterile lab mouse.",
       "set": "c_vr14"
      },
      {
@@ -683,13 +683,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most strengthen the author's claim in the third paragraph that model organisms shape which questions get asked?",
       "opts": [
-       "Many drugs that are effective in mice have failed in human clinical trials.",
-       "The cost of sequencing a genome has fallen sharply over the past two decades.",
-       "Biological phenomena absent from the six model species are markedly under-represented in research publications relative to their estimated medical importance.",
-       "Researchers who work on fruit flies report higher job satisfaction than those who work on other species."
+       "Many drugs that cure disease in mice go on to fail in human clinical trials, often because mouse physiology differs from ours.",
+       "The cost of sequencing a genome has fallen so sharply that researchers can now study the genes of almost any species they choose.",
+       "Phenomena absent from the six model species are markedly under-studied relative to their estimated medical importance.",
+       "Researchers working on fruit flies publish more papers per year than colleagues working on any other species, model or otherwise."
       ],
       "ans": 2,
-      "exp": "The claim is that topics not studiable in model organisms get neglected regardless of importance. Option 3 provides exactly that evidence: under-representation measured against importance. Option 1 is the trap: it is in the same paragraph, but it supports the separate point that models 'sometimes... mislead', which the author explicitly sets aside ('The point is not that...'). Options 2 and 4 are irrelevant to question selection.",
+      "exp": "The claim is that topics not studiable in model organisms get neglected regardless of importance. The option about phenomena absent from the six species being under-studied relative to medical importance provides exactly that evidence. The option about drugs failing in human trials is the trap: it echoes the same paragraph, but supports the separate point that models 'sometimes... mislead', which the author explicitly sets aside ('The point is not that...'). The options about cheaper genome sequencing and fruit-fly publication rates say nothing about which questions get neglected.",
       "set": "c_vr14"
      },
      {
@@ -697,13 +697,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the option that best captures the essence of the paragraph:\n\nTranslators are often praised for being 'invisible', for producing a text that reads as though it had been written in the target language. But invisibility has a cost. A translation that smooths away every foreign turn of phrase also erases the evidence that the work came from elsewhere, and readers come away believing that a distant culture thinks much as they do. A degree of strangeness, deliberately preserved, may be the more honest service: it reminds readers that they are reading across a distance, and that something has been carried over that does not fully belong to their language.",
       "opts": [
-       "Fluent, 'invisible' translation is praised, but by erasing foreignness it misleads readers; deliberately preserving some strangeness may be more honest.",
-       "Translators should preserve every foreign construction so that readers experience the original exactly as written.",
-       "Readers dislike translations that feel foreign, which is why translators strive for invisibility.",
-       "Because no translation can fully capture its original, all translation is inherently dishonest."
+       "Praised 'invisible' translation hides a text's foreignness and so misleads readers; preserving some strangeness may serve them more honestly.",
+       "Translators should preserve every foreign construction intact, so that readers meet the original exactly as its first audience did.",
+       "Readers find foreign-sounding translations off-putting, which is why translators strive so hard to make their work invisible.",
+       "Because no translation can carry its original over fully, every translation, however fluent or deliberately strange, is in some way dishonest."
       ],
       "ans": 0,
-      "exp": "Option 1 captures the contrast (praised invisibility versus its hidden cost) and the tentative recommendation ('a degree of strangeness... may be'). Option 2 is the trap: it overstates 'a degree of strangeness' as 'every foreign construction' and adds an impossible goal. Option 3 invents a reader preference; option 4 inflates the critique of one style into a verdict on all translation."
+      "exp": "The option about invisible translation misleading readers and some strangeness being more honest captures the contrast (praised invisibility versus its hidden cost) and the tentative recommendation ('a degree of strangeness... may be'). The option about preserving every foreign construction is the trap: it overstates 'a degree of strangeness' and adds an impossible goal. The option about readers finding foreignness off-putting invents a reader preference. The option calling every translation dishonest inflates a critique of one style into a verdict on all translation."
      },
      {
       "id": "l14_VARC_5",
@@ -729,13 +729,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The primary purpose of the passage is to:",
       "opts": [
-       "argue that both sides of restoration debates rest on a static conception of a painting's original state, and to propose reframing restoration as a choice along a trajectory.",
-       "defend conservators against critics who object to the cleaning of old paintings.",
-       "show that painters of earlier centuries deliberately pitched their colours higher than they wished them to be seen.",
-       "argue that, since no single answer exists, restorers should leave old paintings untouched."
+       "show that both sides misconceive a painting as static, and to recast restoration as a choice of where to arrest its change over time.",
+       "defend conservators against critics who claim cleaning strips old paintings of subtlety, by showing the darkening was merely accreted damage.",
+       "show that painters of earlier centuries pitched their colours higher than intended, so that cleaned paintings look harsher than they should.",
+       "argue that, since the restoration question has no single answer, museums should leave old paintings and their varnish untouched."
       ],
       "ans": 0,
-      "exp": "The author faults both parties ('both... misconceive it'), diagnoses the shared error (the painting treated as 'a static thing'), and proposes the trajectory question. Option 1 covers all three. Option 2 is the trap: the conservators' rebuttal of the critics is reported, but the author then finds the conservators equally wrong. Option 3 is supporting evidence only; option 4 contradicts the passage, which accepts that an institution must decide and asks only that it decide knowingly.",
+      "exp": "The author faults both parties ('both... misconceive it'), diagnoses the shared error (the painting treated as 'a static thing'), and proposes the trajectory question. The option about both sides misconceiving the painting as static covers all three. The option defending conservators is the trap: their rebuttal of the critics is reported, but the author then finds the conservators equally wrong. The option about painters pitching colours higher is supporting evidence only. The option about leaving paintings untouched contradicts the passage, which accepts that an institution must decide and asks only that it decide knowingly.",
       "set": "c_vr15"
      },
      {
@@ -743,13 +743,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following practices would the author most likely regard as consistent with the approach recommended in the final paragraph?",
       "opts": [
-       "A museum fully cleans a painting and announces that visitors can now see it exactly as the artist intended.",
-       "A museum declines to clean a painting because the public has grown fond of its mellow tones.",
-       "A museum studies the artist's materials and methods, removes part of the varnish to reach a state it judges the painter likely anticipated, and publishes its reasoning as one defensible choice among several.",
-       "A museum adopts a fixed rule that every painting over two centuries old is to be cleaned to the same degree, whatever the artist."
+       "A museum fully cleans a painting after technical analysis of its pigments and announces that visitors can now see it exactly as the artist intended.",
+       "A museum consults critics and regular visitors and, finding that they cherish the painting's mellow tones, decides to leave its darkened varnish in place.",
+       "A museum studies the artist's methods, removes part of the varnish to reach a state the painter likely anticipated, and presents this as one defensible choice.",
+       "A museum adopts a carefully reasoned rule that every painting over two centuries old is cleaned to the same degree, regardless of who painted it."
       ],
       "ans": 2,
-      "exp": "The author wants restorers to ask 'what trajectory was it meant to follow' and to decide 'in the knowledge that it is a choice among defensible states'. Option 3 does both: it reconstructs the anticipated ageing and frames its decision as a choice. Option 1 repeats the conservators' error ('simply uncovering the truth'); option 2 repeats the critics' error (familiarity as the criterion). Option 4 is the subtle trap: it is deliberate, but a uniform rule ignores what each maker 'to varying degrees, anticipated'.",
+      "exp": "The author wants restorers to ask 'what trajectory was it meant to follow' and to decide 'in the knowledge that it is a choice among defensible states'. The option where the museum removes part of the varnish to an anticipated state and presents it as one defensible choice does both. The full-cleaning option repeats the conservators' error ('simply uncovering the truth'); the option deferring to visitors' fondness for mellow tones repeats the critics' error (familiarity as the criterion). The uniform two-century rule is the subtle trap: it is deliberate, but it ignores what each maker 'to varying degrees, anticipated'.",
       "set": "c_vr15"
      },
      {
@@ -757,13 +757,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The statement that 'a habit of perception is not an intention' serves primarily to:",
       "opts": [
-       "concede that the critics' attachment to darkened paintings has some aesthetic justification.",
+       "concede that the critics' long attachment to darkened paintings has some genuine aesthetic justification after all.",
        "deny that long familiarity with a painting's aged appearance can establish what the work is meant to be.",
-       "suggest that the conservators' reliance on the artist's intention is equally misguided.",
-       "imply that viewers' perceptions are irrelevant to the criticism of art."
+       "suggest that the conservators' appeal to the artist's original intention is as misguided as the critics' habit.",
+       "imply that viewers' perceptions and habits of looking are irrelevant to how a painting should be judged or restored."
       ],
       "ans": 1,
-      "exp": "The sentence answers the critics, who treat the darkened surface as 'the true painting because it is the one they... have known'. It cuts the inference from 'we are used to it' to 'that is the work'. Option 3 is the trap: the author does fault the conservators, but in the previous paragraph and for a different reason (freezing intention at day one); this sentence addresses only the critics. Option 1 reverses its function; option 4 overgeneralises, since the author says familiarity tells us 'something about our history'.",
+      "exp": "The sentence answers the critics, who treat the darkened surface as 'the true painting because it is the one they... have known'. It cuts the inference from 'we are used to it' to 'that is the work'. The option about the conservators being equally misguided is the trap: the author does fault them, but in the previous paragraph and for a different reason (freezing intention at day one); this sentence addresses only the critics. The option about conceding aesthetic justification reverses its function. The option calling perceptions irrelevant overgeneralises, since the author says familiarity tells us 'something about our history'.",
       "set": "c_vr15"
      },
      {
@@ -791,13 +791,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's principal criticism of those who attack the parity argument 'at its edges' is that they:",
       "opts": [
-       "underestimate how unreliable biological memory is compared with external resources.",
-       "grant the functionalist premise and thereby reduce the dispute to a comparison of failure rates that they cannot clearly win.",
-       "have not yet catalogued enough cases of unreliable external resources to refute the thesis.",
-       "wrongly assume that ownership of mental states is anchored in biology."
+       "underestimate how often biological memory confabulates, and so overrate its reliability compared with notebooks and search engines.",
+       "grant the functionalist premise and so reduce the dispute to a comparison of failure rates that they cannot clearly win.",
+       "have not yet catalogued enough cases of lost notebooks and lying search engines to establish that the parity thesis is false.",
+       "wrongly assume that a state's ownership is anchored in biology, and so conclude too quickly that the mind stops at the skin."
       ],
       "ans": 1,
-      "exp": "B is the criticism: the edge-attack 'concedes the decisive premise' (role, not holding, makes a state mental), turning the debate 'actuarial', which biological memory cannot obviously win. A is only the supporting reason the actuarial contest is unwinnable, not the criticism itself. C inverts the point: more cases would not help, because the strategy is flawed in kind, not in quantity. D is a claim the author rejects in paragraph 3 against a different inference ('mind stops at the skin'), not one attributed to the edge-critics.",
+      "exp": "The criticism is that the edge-attack 'concedes the decisive premise' (role, not holding, makes a state mental), turning the debate 'actuarial', which biological memory cannot obviously win. The option about underestimating biological memory's confabulation is only the supporting reason the actuarial contest is unwinnable, not the criticism itself. The option about not having catalogued enough cases inverts the point: more cases would not help, because the strategy is flawed in kind, not quantity. The option about ownership anchored in biology is a view the author rejects in paragraph 3 against a different inference, not one attributed to the edge-critics.",
       "set": "c_vr16"
      },
      {
@@ -805,13 +805,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author would most likely DISAGREE with which of the following?",
       "opts": [
-       "A state can guide a person's behaviour without being owned by that person.",
-       "Some external artefacts can come to belong to a person's mind in the normative sense.",
-       "Other things being equal, the more fully a resource satisfies the parity conditions, the more likely it is to become a state the agent owns.",
-       "The functionalist neglect of ownership is a deliberate feature of its method rather than an oversight."
+       "A state can guide what a person does without being owned by that person, in the sense of being one she answers for.",
+       "Some external artefacts, such as long-annotated texts, can come to belong to a person's mind in the normative sense.",
+       "Other things being equal, the more fully a resource satisfies the parity conditions, the more likely the agent is to own it.",
+       "The functionalist neglect of ownership is a deliberate feature of its method, the price of its generality, rather than an oversight."
       ],
       "ans": 2,
-      "exp": "C reverses the final paragraph: the resources that 'most perfectly satisfy the parity conditions' are 'least likely to be owned', because frictionlessness forecloses corrective engagement. A is the author's own conclusion ('states that guide what we do while answering to no one'). B is the scholar's-marginalia point. D restates 'not because it is careless but because it is designed to be'.",
+      "exp": "The option linking fuller satisfaction of parity conditions to greater likelihood of ownership reverses the final paragraph: the resources that 'most perfectly satisfy the parity conditions' are 'least likely to be owned', because frictionlessness forecloses corrective engagement. The option about states guiding behaviour without being owned is the author's own conclusion ('states that guide what we do while answering to no one'). The option about annotated texts belonging to the mind is the scholar's-marginalia point. The option about functionalism's deliberate neglect restates 'not because it is careless but because it is designed to be'.",
       "set": "c_vr16"
      },
      {
@@ -819,13 +819,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The sentence about the scholar who has annotated her copy of a text for thirty years serves primarily to:",
       "opts": [
-       "show that external records can be more reliable than biological memory.",
-       "concede that the parity principle correctly classifies some external states as mental.",
-       "suggest that deliberated states are invariably owned more fully than accrued ones.",
-       "illustrate that ownership depends on a history of engaged uptake rather than on location, blocking the inference that the mind ends at the skin."
+       "show that external records, being written down and deliberated, can be more reliable than recollections that merely accrue.",
+       "concede that the parity principle correctly classifies some external states, such as a scholar's marginalia, as genuinely mental.",
+       "suggest that states an agent has deliberated over are invariably owned more fully than those she has merely accumulated.",
+       "illustrate that ownership rests on a history of engaged uptake rather than on location, so the mind need not end at the skin."
       ],
       "ans": 3,
-      "exp": "D: the sentence directly follows 'It would be a mistake... to conclude that the mind therefore stops at the skin' and 'anchored to a history of uptake'; the marginalia are owned because deliberated and stood by. A shifts the criterion back to reliability, which the author has set aside. B is tempting but wrong: parity classifies by function, and the author's point is normative; the marginalia count because of answerability, not because they satisfy parity. C overgeneralises: the author says 'more so, perhaps', not 'invariably'.",
+      "exp": "The sentence directly follows 'It would be a mistake... to conclude that the mind therefore stops at the skin' and 'anchored to a history of uptake'; the marginalia are owned because deliberated and stood by, which the option about engaged uptake rather than location captures. The option about external records being more reliable shifts the criterion back to reliability, which the author has set aside. The option about parity correctly classifying marginalia is tempting but wrong: parity classifies by function, while the author's point is normative; the marginalia count because of answerability. The option saying deliberated states are invariably owned more fully overgeneralises 'more so, perhaps'.",
       "set": "c_vr16"
      },
      {
@@ -840,13 +840,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the option that best captures the essence of the paragraph.\n\nWe tend to think that a forgery, once exposed, loses value because we have learned something about the object: that it is not what it claimed to be. But nothing about the canvas has changed; its pigments, composition and effects on the eye are exactly as they were the day before the exposure. What has changed is our relation to a history of making. To admire a painting is partly to admire an achievement, and an achievement is indexed to a person, a time and a set of problems solved. The forger's skill is real, but it solves a different problem, that of resembling, rather than the problem the original painter solved, that of inventing. The drop in value is therefore not a snobbish reaction to a label but a correct revision of what, exactly, we were admiring.",
       "opts": [
-       "Exposure justifiably devalues a forgery, because appreciating a painting includes appreciating the achievement it embodies, and the forger's achievement of resemblance differs from the original's achievement of invention.",
-       "Since the physical object is unchanged by exposure, a forgery's devaluation reflects a change in beliefs about its provenance rather than any change in its aesthetic merit.",
-       "Forgers display genuine skill, so exposure should shift admiration from the original painter to the forger rather than reduce it.",
-       "A forgery loses value on exposure because viewers care more about labels than about what the canvas visibly offers."
+       "Exposure rightly devalues a forgery, since admiring a painting includes admiring its achievement, and resembling is a different achievement from inventing.",
+       "Since the canvas is physically unchanged by exposure, a forgery's devaluation reflects new beliefs about its provenance, not any loss of aesthetic merit.",
+       "The forger's skill is genuine, so exposure ought to transfer our admiration from the original painter to the forger rather than simply reduce it.",
+       "A forgery loses value on exposure because viewers care more about the label attached to a work than about what the canvas visibly offers them."
       ],
       "ans": 0,
-      "exp": "A captures both the justification and its ground (achievement, resembling vs inventing). B is the closest trap: it separates provenance from aesthetic merit, whereas the paragraph folds achievement into what we admire, so the revision is aesthetic, not merely about provenance. C is never suggested: the forger's skill solves a different problem, it does not inherit the admiration. D is the 'snobbish reaction to a label' view the paragraph explicitly rejects."
+      "exp": "The option about exposure rightly devaluing a forgery because resembling differs from inventing captures both the justification and its ground. The option separating provenance from aesthetic merit is the closest trap: the paragraph folds achievement into what we admire, so the revision is aesthetic, not merely about provenance. The option about transferring admiration to the forger is never suggested: the forger's skill solves a different problem and does not inherit the admiration. The option about viewers caring about labels is the 'snobbish reaction to a label' view the paragraph explicitly rejects."
      }
     ]
    },
@@ -859,13 +859,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most seriously weaken the author's account of what enclosure did?",
       "opts": [
-       "Enclosure was typically accompanied by drainage and quarrying that permanently destroyed much of the cultivable soil, so that far less land could yield crops afterwards than before.",
-       "Many commoners excluded by enclosure later found work as wage labourers on the very land they had once used.",
-       "Some commons had been heavily over-grazed in the decades before they were enclosed.",
-       "The rules defining who could legitimately claim the yield of a common varied widely from one region to another."
+       "Enclosure was often accompanied by drainage and quarrying that permanently ruined much cultivable soil, leaving far less land able to yield crops.",
+       "Many commoners excluded by enclosure later worked as wage labourers on the very fields they had once farmed by customary right.",
+       "Some commons had been so heavily over-grazed in the decades before enclosure that their yield had already fallen well below its former level.",
+       "The rules defining who could legitimately claim the yield of a common, and on what terms, varied widely from one region and century to the next."
       ],
       "ans": 0,
-      "exp": "The author claims enclosure 'did not make land scarcer in any physical sense' and 'the quantity of the good was unchanged'. A directly contradicts this by showing a physical reduction. B fits the account (claimants excluded, the rest converted into market participants). C concerns the condition of the commons before enclosure and perhaps its justification, not whether enclosure itself changed physical quantity. D supports the claim that legitimate demand is fixed by rules that are 'neither natural nor arbitrary'.",
+      "exp": "The author claims enclosure 'did not make land scarcer in any physical sense' and 'the quantity of the good was unchanged'. The option about drainage and quarrying ruining soil directly contradicts this by showing a physical reduction caused by enclosure. The option about commoners becoming wage labourers fits the account (claimants excluded, the rest drawn into the market). The option about prior over-grazing concerns the commons' condition before enclosure, not whether enclosure itself changed physical quantity. The option about regional variation in claim rules supports the view that legitimate demand is fixed by rules 'neither natural nor arbitrary'.",
       "set": "c_vr17"
      },
      {
@@ -873,13 +873,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "All of the following can be inferred from the passage EXCEPT:",
       "opts": [
-       "The author regards the critics' examples as accurate but their conclusion as mistaken.",
-       "In the author's view, both the textbook definition and its critics leave unaddressed the question of how finite goods ought to be shared.",
-       "The author believes an economy can be efficient by its own measure while failing to register some of the most urgent needs.",
-       "The author implies that the textbook definition should be replaced by one that explicitly names markets and property."
+       "The author regards the critics' examples of manufactured scarcity as accurate but the conclusion they draw from them as mistaken.",
+       "In the author's view, both the textbook definition and its critics leave unaddressed how finite goods ought to be shared.",
+       "The author believes an economy can be efficient by its own measure while its most urgent needs register nowhere in its accounts.",
+       "The author implies that the textbook definition should be replaced by one that explicitly names markets, money and property."
       ],
       "ans": 3,
-      "exp": "D cannot be inferred: the author says 'None of this requires abandoning the analysis of scarcity' and the definition 'is not false', only incomplete; the remedy is to recognise its political presupposition, not to replace it with a market-specific definition. A: 'Each example is accurate, but the conclusion... mistakes the shape'. B: the critic is left 'with nothing to say about how finite goods ought to be shared', and the textbook is 'silent on the prior allocation'. C: stated in paragraph 4.",
+      "exp": "The option about replacing the definition with one naming markets, money and property cannot be inferred: the author says 'None of this requires abandoning the analysis of scarcity' and the definition 'is not false', only incomplete; the remedy is to recognise its political presupposition. The option about the critics' examples: 'Each example is accurate, but the conclusion... mistakes the shape'. The option about both sides leaving sharing unaddressed: the critic has 'nothing to say about how finite goods ought to be shared', and the textbook is 'silent on the prior allocation'. The option about efficiency missing urgent needs is stated in paragraph 4.",
       "set": "c_vr17"
      },
      {
@@ -887,13 +887,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "In saying that the definition's neutrality 'looks less like impartiality than like a decision not to look', the author implies that:",
       "opts": [
-       "economists deliberately hide the political origins of scarcity in order to protect existing interests.",
+       "economists consciously conceal the political origins of scarcity in order to protect the interests of those who already hold entitlements.",
        "the definition's apparent neutrality is achieved by excluding from analysis the very distribution of claims that shapes outcomes.",
-       "a truly impartial economics would treat every want as effective demand.",
-       "the definition is incoherent because it applies equally to households and planned economies."
+       "a genuinely impartial economics would treat every human want, whether or not backed by purchasing power, as effective demand.",
+       "the definition is incoherent, since a framework that applies equally to households and planned economies cannot say anything specific."
       ],
       "ans": 1,
-      "exp": "B: the next sentence explains the 'decision', taking 'the pattern of claims as given' and staying silent on the prior allocation. A reads 'decision' as a motive; the author describes a methodological exclusion and its effect (favouring the status quo), and attributes no intent to protect interests. C is never proposed: the author asks only that the question of entitlement be faced. D twists the neutrality praised in paragraph 1 into incoherence, which the author never claims.",
+      "exp": "The next sentence explains the 'decision': taking 'the pattern of claims as given' and staying silent on the prior allocation, which is the option about neutrality achieved by excluding the distribution of claims. The option about conscious concealment reads 'decision' as a motive; the author describes a methodological exclusion and its effect, attributing no intent. The option about treating every want as effective demand is never proposed: the author asks only that the question of entitlement be faced. The option calling the definition incoherent twists the generality praised in paragraph 1 into a flaw the author never claims.",
       "set": "c_vr17"
      },
      {
@@ -927,13 +927,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author would most likely DISAGREE with which of the following?",
       "opts": [
-       "The dominance of suspicious reading owed more to institutional incentives than to the persuasiveness of its theoretical sources.",
-       "Exhortations to read suspiciously were, in an important sense, successful.",
+       "The dominance of suspicious reading owed more to institutional incentives than to the persuasiveness of Marx or Freud.",
+       "Exhortations to read more suspiciously succeeded, in an important sense, where calls to read generously are likely to fail.",
        "Post-critical reading, by denying the priority of hidden meaning, escapes the framework within which suspicion operated.",
-       "A change in what a discipline rewards could alter the readings its members produce."
+       "A change in what a discipline rewards, such as valuing confirmation over novelty, could alter the readings its members produce."
       ],
       "ans": 2,
-      "exp": "C contradicts paragraph 2: the post-critical remedy 'inherits the very assumption it means to escape'. Both sides treat reading as 'a contest over depth' and assume a stance can be chosen. Denying the priority of depth is still a position inside that contest. A restates 'not because critics were persuaded by Marx or Freud'. B: the author speaks of the reason 'exhortations to read more suspiciously succeeded'. D is the claim of the final paragraph.",
+      "exp": "The option saying post-critical reading escapes suspicion's framework contradicts paragraph 2: the remedy 'inherits the very assumption it means to escape'. Both sides treat reading as 'a contest over depth' and assume a stance can be chosen; denying depth's priority is still a position inside that contest. The option about institutional incentives restates 'not because critics were persuaded by Marx or Freud'. The option about suspicious exhortations succeeding where generous ones will fail matches 'will fail for the same reason that exhortations to read more suspiciously succeeded'. The option about changing rewards is the claim of the final paragraph.",
       "set": "c_vr18"
      },
      {
@@ -942,12 +942,12 @@ const EXTRA = {
       "text": "The sentence 'The seminar rewards the reading that no one else has produced, and novelty is most cheaply produced by discovering that a text is not what it seems' serves mainly to:",
       "opts": [
        "explain the mechanism by which an institutional setting could select for the suspicious stance.",
-       "argue that suspicious readings are generally less accurate than surface readings.",
-       "concede that suspicion was intellectually compelling in its own right.",
-       "suggest that novelty is an illegitimate aim for literary scholarship."
+       "argue that suspicious readings, being driven by novelty, are generally less accurate than surface readings.",
+       "concede that suspicion, whatever its institutional uses, was also intellectually compelling in its own right.",
+       "suggest that novelty is an illegitimate aim for literary scholarship and ought to be rewarded less."
       ],
       "ans": 0,
-      "exp": "A: it comes right after the claim that the 'institutional setting' places readers in stances, and before 'Suspicion flourished... because it was the most reliable way to generate publishable difference'. It supplies the link between reward and stance. B: the author never compares accuracy. C runs the other way: the point is that suspicion succeeded for non-intellectual reasons. D goes too far: the author imagines rewarding confirmation 'rather than' novelty as one possible alternative economy, but never calls novelty illegitimate.",
+      "exp": "The sentence comes right after the claim that the 'institutional setting' places readers in stances, and before 'Suspicion flourished... because it was the most reliable way to generate publishable difference'; it supplies the link between reward and stance, as the mechanism option says. The option about accuracy fails because the author never compares accuracy. The option conceding intellectual appeal runs the other way: the point is that suspicion succeeded for non-intellectual reasons. The option calling novelty illegitimate goes too far: the author imagines rewarding confirmation 'rather than' novelty as one possible alternative, but never condemns novelty.",
       "set": "c_vr18"
      },
      {
@@ -955,13 +955,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most STRENGTHEN the argument of the third paragraph?",
       "opts": [
-       "Most literary scholars, when surveyed, say they adopted suspicious reading because they found Marx and Freud persuasive.",
-       "Critics who practise surface reading publish about as often as those who practise suspicious reading.",
-       "Several prominent post-critical scholars were once committed practitioners of suspicious reading.",
-       "When a field's journals began rewarding studies that confirmed earlier findings, contrarian readings declined sharply, although few members reported any change in their interpretive convictions."
+       "Most literary scholars, when surveyed, say they adopted suspicious reading because they found the arguments of Marx and Freud persuasive.",
+       "Critics who practise surface reading publish about as often, and in journals as prestigious, as those who practise suspicious reading.",
+       "Several prominent post-critical scholars were once committed suspicious readers who changed their approach after reading its critics.",
+       "When journals began rewarding confirmations of earlier findings, contrarian readings fell sharply, though few scholars reported changed convictions."
       ],
       "ans": 3,
-      "exp": "The paragraph claims that stances follow institutional selection, not individual conviction. D shows exactly that: readings changed when incentives changed while convictions did not. A weakens the argument (theory-driven adoption), though self-report is weak evidence. B, if anything, undercuts the claim that suspicion is the 'most reliable' route to publication. C is about individual conversion and is consistent with either explanation.",
+      "exp": "The paragraph claims that stances follow institutional selection, not individual conviction. The option about journals rewarding confirmation shows exactly that: readings changed when incentives changed while convictions did not. The survey option about Marx and Freud weakens the argument (theory-driven adoption), though self-report is weak evidence. The option about surface readers publishing as often, if anything, undercuts the claim that suspicion is the 'most reliable' route to publication. The option about scholars converting after reading critics is about individual persuasion and, if anything, cuts against the paragraph.",
       "set": "c_vr18"
      },
      {
@@ -989,13 +989,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author's central objection to both the realist and the deflationary answers is that they:",
       "opts": [
-       "overstate the role that aesthetic judgement actually plays in theory choice.",
-       "cannot explain why simpler theories are easier to test and teach.",
-       "mistake a judgement of familiarity for evidence of a theory's truth.",
+       "overstate the role that aesthetic judgement actually plays when working physicists choose among competing theories.",
+       "cannot explain why simpler, more elegant theories are also easier to calculate with, to test and to teach.",
+       "mistake a community's familiarity with a theory's forms for evidence that the theory is actually true.",
        "treat the perception of a theory's elegance as independent of the theory's subsequent history in the field."
       ],
       "ans": 3,
-      "exp": "D: 'Both answers assume that the aesthetic judgement is prior to, and separable from, the history of the theory judged'. Everything that follows attacks that shared assumption. C is the closest trap, but it fits only the realist: the deflationist never treats beauty as evidence of truth, so it cannot be the objection to both. A clashes with 'This does not show that aesthetic criteria are idle'. B: the deflationist simply asserts these practical virtues, and the author does not dispute them.",
+      "exp": "'Both answers assume that the aesthetic judgement is prior to, and separable from, the history of the theory judged', and everything that follows attacks that shared assumption, as the option about elegance being independent of later history says. The option about mistaking familiarity for evidence of truth is the closest trap, but it fits only the realist: the deflationist never treats beauty as evidence of truth, so it cannot be the objection to both. The option about overstating aesthetic judgement clashes with 'This does not show that aesthetic criteria are idle'. The option about explaining ease of testing fails because the deflationist simply asserts these virtues and the author does not dispute them.",
       "set": "c_vr19"
      },
      {
@@ -1004,12 +1004,12 @@ const EXTRA = {
       "text": "All of the following can be inferred from the passage EXCEPT:",
       "opts": [
        "The deflationary account is correct in principle, even though the realist account is a useful guide during periods of consolidation.",
-       "A theory considered ungainly when first proposed may later be considered beautiful without any change to its content.",
-       "Aesthetic preferences in a scientific community encode an expectation that past successes are a guide to future ones.",
-       "During a crisis, a successful new theory may be disfavoured because it lacks the forms the community has learned to find beautiful."
+       "A theory regarded as ungainly when first proposed may later be considered beautiful without any change to its content or equations.",
+       "Aesthetic preferences in a scientific community encode an expectation that the structures which worked before will keep working.",
+       "During a crisis, a theory that will prove successful may be disfavoured because it lacks the forms the community has learned to find beautiful."
       ],
       "ans": 0,
-      "exp": "A cannot be inferred. The author refuses 'a single verdict on the epistemic worth of elegance'. The deflationist is 'the better guide' only in crisis, and the realist is warranted 'in practice if not in principle', which does not make the deflationist right in principle. B follows from the equations later seen as beautiful after a generation of familiarisation. C restates 'a bet that the future of inquiry will look like its past'. D restates the 'characteristic failure mode'.",
+      "exp": "The option calling the deflationary account correct in principle cannot be inferred. The author refuses 'a single verdict on the epistemic worth of elegance'; the deflationist is 'the better guide' only in crisis, and the realist is warranted 'in practice if not in principle', which does not make the deflationist right in principle. The option about ungainly theories later seen as beautiful follows from the equations admired only after a generation of familiarisation. The option about expecting past structures to keep working restates 'a bet that the future of inquiry will look like its past'. The option about crisis-era theories being disfavoured restates the 'characteristic failure mode'.",
       "set": "c_vr19"
      },
      {
@@ -1017,13 +1017,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The sentence 'What looks like a judgement of beauty made in advance of success is often a judgement of familiarity made in its wake' functions primarily to:",
       "opts": [
-       "deny that scientists ever make genuine aesthetic judgements.",
-       "recast apparently forward-looking aesthetic judgements as retrospective ones, undermining the assumption that beauty is perceived independently of a theory's history.",
-       "support the deflationary view that beauty is merely a name for practical convenience.",
-       "show that aesthetic criteria play no real role in theory choice."
+       "deny that physicists ever make genuine aesthetic judgements, since what they call beauty is always familiarity in disguise.",
+       "recast seemingly forward-looking aesthetic judgements as retrospective, undercutting the assumption that beauty is perceived apart from history.",
+       "support the deflationary view that a theory's beauty is merely an honorific name for its practical convenience in calculation.",
+       "show that aesthetic criteria play no real role in theory choice, since judgements of beauty arrive only after a theory succeeds."
       ],
       "ans": 1,
-      "exp": "B: the sentence sums up the 'different sequence' that the record reveals, which counters the shared assumption stated at the start of paragraph 2. A goes too far ('often', not 'always'). Paragraph 3 also treats aesthetic preference as real. C confuses familiarity with convenience: the author's point is about when elegance is perceived, not about calculability, and both answers are criticised. D is ruled out by 'This does not show that aesthetic criteria are idle'.",
+      "exp": "The sentence sums up the 'different sequence' the record reveals, which counters the shared assumption stated at the start of paragraph 2; the option about recasting forward-looking judgements as retrospective captures this. The option denying genuine aesthetic judgements goes too far ('often', not 'always'), and paragraph 3 treats aesthetic preference as real. The option supporting the deflationary view confuses familiarity with convenience: the point is about when elegance is perceived, and both answers are criticised. The option saying aesthetic criteria play no role is ruled out by 'This does not show that aesthetic criteria are idle'.",
       "set": "c_vr19"
      },
      {
@@ -1031,13 +1031,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Choose the option that best captures the essence of the paragraph.\n\nTolerance is often praised as the virtue of a pluralist society, but the praise conceals a peculiarity. One can only tolerate what one disapproves of; to 'tolerate' a practice one regards as harmless or admirable is a confusion, or an insult. Tolerance thus presupposes, and preserves, the very disapproval it restrains. A society that becomes perfectly tolerant of a minority has not thereby come to accept it; it has merely agreed to refrain from acting on its objection. This is why minorities who have long been tolerated so often come to demand something tolerance cannot give: not forbearance, but recognition that there is nothing to forbear.",
       "opts": [
-       "Because tolerance requires disapproval, a tolerant society necessarily treats its minorities unjustly.",
-       "Tolerance is a confused virtue, since one cannot coherently tolerate what one finds harmless or admirable.",
+       "Because tolerance presupposes disapproval, a society that tolerates its minorities necessarily treats them unjustly.",
+       "Tolerance is at bottom a confused virtue, since one cannot coherently tolerate a practice one regards as harmless or admirable.",
        "Tolerance restrains disapproval without dissolving it, which is why tolerated groups may seek recognition rather than mere forbearance.",
-       "A pluralist society should replace tolerance with recognition, since tolerance insults those to whom it is extended."
+       "A pluralist society should replace tolerance with recognition, since tolerance insults the very minorities to whom it is extended."
       ],
       "ans": 2,
-      "exp": "C captures both moves: tolerance keeps the disapproval it holds back (the 'peculiarity'), and this explains the demand for recognition. A adds a verdict of injustice that the paragraph never gives. B takes a detail (misapplying the word to harmless practices) and turns it into a verdict on tolerance as a whole, which the paragraph does not reach. D is prescriptive and too broad: the 'insult' arises only when one 'tolerates' what one finds harmless, not whenever tolerance is extended, and the paragraph explains a demand rather than recommending a policy."
+      "exp": "The option about tolerance restraining disapproval without dissolving it captures both moves: tolerance keeps the disapproval it holds back (the 'peculiarity'), and this explains the demand for recognition. The option about necessary injustice adds a verdict the paragraph never gives. The option calling tolerance a confused virtue turns a detail (misapplying the word to harmless practices) into a verdict on tolerance as a whole. The option prescribing replacement by recognition is prescriptive and too broad: the 'insult' arises only when one 'tolerates' what one finds harmless, and the paragraph explains a demand rather than recommending a policy."
      },
      {
       "id": "l19_VARC_5",
@@ -1063,13 +1063,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following best captures the author's criticism of the commitment account?",
       "opts": [
-       "It fails to accommodate experimental evidence that people misreport the causes of their own choices.",
-       "It wrongly likens belief to promising, since beliefs, unlike promises, must answer to evidence.",
-       "It secures first-person authority only by narrowing the relevant domain of the mental to what the subject has committed to, so that the authority it guarantees is trivial.",
-       "It cannot explain how a person could sincerely avow an attitude that her conduct contradicts."
+       "It fails to accommodate the experimental finding that people misreport the causes of their choices, which it can neither absorb nor explain away.",
+       "It wrongly models belief on promising, since a belief, unlike a promise, must answer to evidence and cannot be made sincere merely by declaring it.",
+       "It secures first-person authority only by shrinking the mental domain to what the subject has committed to, which makes that authority trivial.",
+       "It cannot explain how someone could sincerely avow an attitude that her conduct contradicts, and so has to deny that such cases ever really occur."
       ],
       "ans": 2,
-      "exp": "C: 'the authority is guaranteed only because it has been made trivial: she knows her mind because her mind has been redefined as what she has committed to'. A is wrong because the account does accommodate the findings by declaring them 'beside the point'. The author's complaint is about the cost of doing so, not a failure to do it. B is a reasonable objection in philosophy, but not the author's: the promise analogy is presented without challenge. D is contradicted by 'The commitment account does not deny this'. It can explain the case. It does so by moving the attitude outside the subject's authority.",
+      "exp": "The correct option paraphrases 'the authority is guaranteed only because it has been made trivial: she knows her mind because her mind has been redefined as what she has committed to'. The option about failing to accommodate the experimental findings is wrong: the account does accommodate them by declaring them 'beside the point'; the author's complaint is the cost of doing so. The option about belief answering to evidence unlike promises is a reasonable philosophical objection, but not the author's: the promise analogy is presented without challenge. The option saying the account cannot explain sincere avowals contradicted by conduct is refuted by 'The commitment account does not deny this'; it explains the case by moving the attitude outside the subject's authority.",
       "set": "c_vr20"
      },
      {
@@ -1077,13 +1077,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "The author would most likely DISAGREE with which of the following?",
       "opts": [
-       "Showing that first-person authority survives the experimental findings would by itself suffice to answer the sceptic about self-knowledge.",
-       "The experimental findings tell against the model of introspection as inner perception.",
-       "A person may be entitled to an avowal that misdescribes the attitudes actually guiding her conduct.",
-       "The shortcomings of the commitment account do not restore the credibility of introspection as inner perception."
+       "Showing that first-person authority survives the experimental findings would, by itself, be enough to answer the sceptic about self-knowledge.",
+       "The experimental findings count against the model of introspection as a kind of inner perception that gives its owner privileged access.",
+       "A person may be fully entitled to an avowal even when it misdescribes the attitudes that are actually guiding her conduct.",
+       "The weaknesses of the commitment account do nothing to restore the credibility of introspection understood as inner perception."
       ],
       "ans": 0,
-      "exp": "A is what the conclusion rejects: authority to commit 'offers no assurance' of the capacity to discover, and a theory that secures the first while abandoning the second 'has not answered the sceptic; it has changed the subject'. So the survival of authority alone is not enough. B restates paragraph 1. C is the prejudice case ('fully entitled to the avowal' while her conduct is 'steered by the very attitude she disowns'). D restates 'None of this rehabilitates the inner witness'.",
+      "exp": "The conclusion rejects the claim that surviving authority alone answers the sceptic: authority to commit 'offers no assurance' of the capacity to discover, and a theory that secures the first while abandoning the second 'has not answered the sceptic; it has changed the subject'. The option about experimental findings counting against inner perception restates paragraph 1. The option about being entitled to an avowal that misdescribes one's operative attitudes is the prejudice case ('fully entitled to the avowal' while her conduct is 'steered by the very attitude she disowns'). The option about the commitment account's weaknesses not restoring introspection restates 'None of this rehabilitates the inner witness'.",
       "set": "c_vr20"
      },
      {
@@ -1091,13 +1091,13 @@ const EXTRA = {
       "type": "mcq",
       "text": "Which of the following, if true, would most WEAKEN the argument of the third paragraph?",
       "opts": [
-       "People who sincerely avow that they hold no prejudice frequently show it in measures of implicit association.",
-       "Many people decline to avow attitudes about which they feel uncertain.",
-       "Some defenders of the commitment account explicitly acknowledge that avowals can diverge from the attitudes guiding conduct.",
-       "Sincere avowals of an attitude reliably reshape the avower's subsequent conduct, so that within a short time her behaviour conforms to what she avowed."
+       "People who sincerely avow that they hold no prejudice frequently display it on implicit-association measures and in their hiring choices.",
+       "Many people decline to avow attitudes they feel unsure about, preferring to withhold judgment until they have observed their own behaviour.",
+       "Some defenders of the commitment account explicitly acknowledge that sincere avowals can diverge from the attitudes that actually guide conduct.",
+       "Sincere avowals reliably reshape the avower's later conduct, so that her behaviour soon comes to conform to the attitude she avowed."
       ],
       "ans": 3,
-      "exp": "The paragraph depends on avowal and the attitudes that actually operate being able to 'come apart', which is what makes commitment-based authority trivial. If avowals reliably bring conduct into line (D), then commitment helps determine what moves the agent, and the gap (and the charge of triviality) shrinks. A supports the divergence. B is irrelevant to avowals that are made. C targets only the side remark that defenders 'seldom acknowledge' the price. Even so, the author already grants that the account 'does not deny' divergence. The price is triviality, and acknowledging divergence does not remove it.",
+      "exp": "The paragraph depends on avowal and the attitudes that actually operate being able to 'come apart', which is what makes commitment-based authority trivial. If avowals reliably bring conduct into line, commitment helps determine what moves the agent, and the gap (and the charge of triviality) shrinks. The option about implicit-association measures supports the divergence. The option about people declining to avow uncertain attitudes is irrelevant to avowals that are made. The option about defenders acknowledging divergence targets only the side remark that they 'seldom acknowledge' the price; the author already grants the account 'does not deny' divergence, and the price is triviality, which acknowledgement does not remove.",
       "set": "c_vr20"
      },
      {
