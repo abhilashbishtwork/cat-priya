@@ -319,6 +319,7 @@ function welcomeView() {
 }
 
 // ---------- honest analytics: mastery, mistakes, pace ----------
+const MIN_LEVEL_SECS = 60;
 const PACE = { VARC: 100, DILR: 109, QA: 109 }; // CAT seconds per question (40 min / questions)
 function qIndex() { const m = {}; DIAGNOSTIC.forEach(q => m[q.id] = q);
   for (const sec in LEVELS) LEVELS[sec].forEach(L => L.qs.forEach(q => m[q.id] = { ...q, sec }));
@@ -587,10 +588,11 @@ function finishQuiz(timeout) {
     head = `<div class="center"><div style="font-size:44px">🧭</div><h1>Your starting point</h1><p>Estimated percentile today</p><div class="big" style="color:var(--acc)">~${pct}</div><p class="muted" style="margin-top:6px">${c}/10 correct · net score ${net}/30</p></div>`;
     extra = `<div class="card"><h3>Section by section</h3>${["VARC","DILR","QA"].map(s => { const b = bySec[s], r = b.t ? b.c / b.t : 0; return `<div class="task"><span style="flex:1">${SECS[s].icon} <b>${s}</b> — ${b.c}/${b.t}</span><span class="tag ${r >= .75 ? "ok" : r >= .5 ? "" : "bad"}">${r >= .75 ? "Strength" : r >= .5 ? "Developing" : "Focus area"}</span></div>`; }).join("")}</div>`;
   } else if (q.mode === "level") {
-    const pass = c >= 4; rec.pass = pass; rec.retry = priorLevel;
+    const rushed = secs < MIN_LEVEL_SECS; // 5 questions in under a minute is clicking through, not solving
+    const pass = c >= 4 && !rushed; rec.pass = pass; rec.retry = priorLevel;
     if (pass && S.levels[q.sec] < q.idx + 1) { S.levels[q.sec] = q.idx + 1; S.xp += priorLevel ? 20 : 80; }
     const badge = pass ? (priorLevel ? "✓ Cleared on retry — not yet mastered" : "⭐ MASTERED — first try!") : "";
-    head = `<div class="center"><div style="font-size:52px">${pass ? (priorLevel ? "✅" : "🌟") : "💪"}</div><h1>${pass ? `Level ${q.idx + 1} cleared` : "Not yet — and that's data"}</h1><p>${c}/5 correct${timeout ? " · time ran out" : ""} · ${paceLine(q.sec)}</p>${pass ? `<p><b>${badge}</b>${priorLevel ? "<br><span class='muted'>Retries reuse questions, so memory helps. The wrong ones go to your Mistake Bank — fixing them proves the method.</span>" : " +80 XP"}</p>` : `<p>Read every explanation below, then do the Mistake Drill before retrying. Retrying straight away tests memory, not method.</p>`}</div>`;
+    head = `<div class="center"><div style="font-size:52px">${pass ? (priorLevel ? "✅" : "🌟") : "💪"}</div><h1>${pass ? `Level ${q.idx + 1} cleared` : rushed && c >= 4 ? "Too fast to count" : "Not yet — and that's data"}</h1><p>${c}/5 correct${timeout ? " · time ran out" : ""} · ${paceLine(q.sec)}</p>${pass ? `<p><b>${badge}</b>${priorLevel ? "<br><span class='muted'>Retries reuse questions, so memory helps. The wrong ones go to your Mistake Bank — fixing them proves the method.</span>" : " +80 XP"}</p>` : rushed && c >= 4 ? `<p>${c}/5 in ${secs} seconds is memory, not method. A level only counts if you take at least a minute and work each question. Read the explanations, then try again slowly.</p>` : `<p>Read every explanation below, then do the Mistake Drill before retrying. Retrying straight away tests memory, not method.</p>`}</div>`;
     extra = `<h2>What went wrong</h2>` + (q.qs.filter(x => isRight(x, q.ans[x.id]) !== true).map(x => `<div class="card"><div class="qtext">${esc(x.text)}</div><p><b>Answer:</b> ${x.type === "mcq" ? esc(x.opts[x.ans]) : esc(x.ans)}</p><div class="exp">${esc(x.exp)}</div></div>`).join("") || `<p class="muted">Nothing. Clean sweep.</p>`);
   } else if (q.mode === "drill") {
     head = `<div class="center"><div style="font-size:48px">🔁</div><h1>${c}/${q.qs.length} fixed</h1><p>${c === q.qs.length ? "Every one of them. That's mastery, not memory." : `${q.qs.length - c} still open — they'll come back in your next drill.`}</p><p class="muted">${openMistakes().length} mistakes left in the bank.</p></div>`;
