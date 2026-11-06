@@ -503,16 +503,23 @@ function mockPct(net, max, curve) {
   for (let i = 1; i < c.length; i++) if (r <= c[i][0]) { const [x0, y0] = c[i - 1], [x1, y1] = c[i]; p = y0 + (y1 - y0) * (r - x0) / (x1 - x0); break; }
   return Math.max(20, Math.min(97, Math.round(p - 5)));
 }
+// A mock's questions are "used" once she has seen them in a sectional or a full mock, so each start serves the next fresh one.
+function mockUsed(m, k) { return S.history.some(h => (h.mock || "m1") === m.id && (h.kind === "full" || (h.kind === "sectional" && (k === "full" || h.sec === k)))); }
+// Full mocks take the first untouched mock. Sectionals only use mocks already broken for a full mock (never one saved for a Sunday full mock); otherwise they retake.
+function nextMock(k) { const fresh = MOCKS.list.filter(m => !mockUsed(m, k)), last = MOCKS.list[MOCKS.list.length - 1];
+  if (k === "full") return fresh[0] || last;
+  return fresh.find(m => mockUsed(m, "full")) || MOCKS.list.filter(m => mockUsed(m, k)).pop() || last; }
 function mockQs(mock, sec) { return MOCKS.list.find(m => m.id === mock).parts[sec].map(id => MOCKS.qs[id]); }
 function mocksView() {
   const m = MOCKS.list[0];
+  const fresh = k => { const n = nextMock(k); return { n, num: n.title.replace(/\D/g, "") || 1, used: mockUsed(n, k) }; };
   if (!m) return `<h1>⏱️ Mocks</h1><p>Your first CAT-format mocks are being written. Check back soon.</p>`;
   const past = k => S.history.filter(h => (h.kind === "sectional" && h.sec === k) || (k === "full" && h.kind === "full"));
-  const row = (k, label, mins, n) => { const p = past(k), best = p.length ? Math.max(...p.map(h => h.pct)) : null;
+  const row = (k, label, mins, n) => { const f = fresh(k); label = label.replace(/1/, f.num); const p = past(k), best = p.length ? Math.max(...p.map(h => h.pct)) : null;
     return `<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><h3>${label}</h3>${best !== null ? `<span class="tag ok">best ~${best}%ile</span>` : `<span class="tag acc">not taken</span>`}</div>
     <p class="muted">${n} questions · ${mins} min · CAT marking · no hints until you submit${k === "full" ? " · sections lock after 40 min each, like the real exam" : ""}</p>
     ${p.length ? `<p class="muted" style="margin-top:-4px">Attempts: ${p.map(h => `${h.date.slice(5)} → ${h.net}/${h.t * 3} (~${h.pct}%ile)`).join(" · ")}${p.length ? " · retakes reuse the same questions, so scores rise from memory" : ""}</p>` : ""}
-    <button class="btn ${p.length ? "sec" : ""}" onclick="startQuiz('${k === "full" ? "full" : "sectional"}','${k}')">${p.length ? "Retake" : "Start"} →</button></div>`; };
+    <button class="btn ${f.used ? "sec" : ""}" onclick="startQuiz('${k === "full" ? "full" : "sectional"}','${k}')">${f.used ? "Retake" : p.length ? `Start fresh Mock ${f.num}` : "Start"} →</button></div>`; };
   return `${!qaDoneToday() ? gateCard() : ""}<h1>⏱️ CAT-format mocks</h1><p>This is the real test. Questions are at actual CAT difficulty and pace — new ones you've never seen. Your percentile here is the honest one.</p>
   <div class="card" style="background:var(--acc2);border:0"><h3>How to take a mock</h3><ul class="clean" style="margin:0"><li>Quiet room, phone on silent, one sitting.</li><li>Skip freely — a wrong MCQ costs −1, a skip costs 0. TITA has no penalty: never leave it blank if you have a guess.</li><li>DILR: spend the first 3 minutes reading every set, then attack the 2 easiest.</li></ul></div>
   ${row("VARC", "📖 VARC Sectional 1", 40, m.parts.VARC.length)}${row("DILR", "🧩 DILR Sectional 1", 40, m.parts.DILR.length)}${row("QA", "🔢 QA Sectional 1", 40, m.parts.QA.length)}
@@ -525,20 +532,20 @@ let Q = null, timerId = null;
 function shuffleOpts(q) { const ord = [0, 1, 2, 3].sort(() => Math.random() - .5); return { ...q, opts: ord.map(i => q.opts[i]), ans: ord.indexOf(q.ans) }; }
 function startQuiz(mode, sec, idx) {
   if (["level", "drill", "sectional"].includes(mode) && gated(sec)) { $("#nav").style.display = "flex"; $("#app").innerHTML = gateCard() + `<button class="btn ghost" onclick="go('home')">Back home</button>`; scrollTo(0, 0); return; }
-  let qs, mins, title, parts = null;
+  let qs, mins, title, parts = null, mock = null;
   if (mode === "diag") { qs = DIAGNOSTIC; mins = 20; title = "Diagnostic"; }
   else if (mode === "level") { const L = LEVELS[sec][idx], tried = S.history.some(h => h.kind === "level" && h.sec === sec && h.level === idx + 1);
     qs = L.qs.map(q => ({ ...q, sec })).map(q => tried && q.type === "mcq" ? shuffleOpts(q) : q); mins = L.mins; title = `${sec} · Level ${idx + 1} · ${L.title}${tried ? " (retry)" : ""}`; }
   else if (mode === "drill") { const pool = openMistakes().filter(q => !sec || q.sec === sec).sort(() => Math.random() - .5).slice(0, 10);
     if (!pool.length) { alert("No open mistakes — brilliant."); return; }
     qs = pool.map(q => q.type === "mcq" ? shuffleOpts(q) : q); mins = Math.max(10, pool.length * 2); title = `Mistake Drill${sec ? " · " + sec : ""} · ${pool.length} to fix`; }
-  else if (mode === "sectional") { qs = mockQs(MOCKS.list[0].id, sec); mins = 40; title = `${sec} Sectional · ${MOCKS.list[0].title}`; }
-  else if (mode === "full") { const m = MOCKS.list[0]; qs = []; parts = [];
+  else if (mode === "sectional") { mock = nextMock(sec); qs = mockQs(mock.id, sec); mins = 40; title = `${sec} Sectional · ${mock.title}`; }
+  else if (mode === "full") { const m = mock = nextMock("full"); qs = []; parts = [];
     ["VARC","DILR","QA"].forEach(s => { const a = mockQs(m.id, s); parts.push({ sec: s, from: qs.length, to: qs.length + a.length, mins: 40 }); qs = qs.concat(a); });
     mins = 40; title = `Full CAT Mock · ${m.title}`; }
   else { const pool = allQs().sort(() => Math.random() - .5); qs = ["VARC","DILR","QA"].flatMap(s => pool.filter(q => q.sec === s).slice(0, 4)); mins = 24; title = "Speed Mock"; }
   if (mode === "sectional") parts = [{ sec, from: 0, to: qs.length, mins: 40 }];
-  Q = { mode, sec, idx, qs, title, parts, part: 0, i: 0, ans: {}, checked: {}, qt: {}, end: Date.now() + mins * 6e4, start: Date.now() };
+  Q = { mode, sec, idx, qs, title, parts, mock: mock && mock.id, part: 0, i: 0, ans: {}, checked: {}, qt: {}, end: Date.now() + mins * 6e4, start: Date.now() };
   $("#nav").style.display = "none"; clearInterval(timerId); timerId = setInterval(qTick, 500); drawQ(); scrollTo(0, 0);
 }
 function stamp() { if (!Q) return; const now = Date.now(); if (Q.curId) Q.qt[Q.curId] = (Q.qt[Q.curId] || 0) + (now - Q.shownAt); Q.curId = Q.qs[Q.i] && Q.qs[Q.i].id; Q.shownAt = now; }
@@ -597,7 +604,7 @@ function finishQuiz(timeout) {
   } else if (q.mode === "drill") {
     head = `<div class="center"><div style="font-size:48px">🔁</div><h1>${c}/${q.qs.length} fixed</h1><p>${c === q.qs.length ? "Every one of them. That's mastery, not memory." : `${q.qs.length - c} still open — they'll come back in your next drill.`}</p><p class="muted">${openMistakes().length} mistakes left in the bank.</p></div>`;
   } else if (q.mode === "sectional" || q.mode === "full") {
-    const curve = q.mode === "full" ? "ALL" : q.sec, pct = mockPct(net, max, curve); rec.pct = pct; rec.mock = MOCKS.list[0].id;
+    const curve = q.mode === "full" ? "ALL" : q.sec, pct = mockPct(net, max, curve); rec.pct = pct; rec.mock = q.mock || MOCKS.list[0].id;
     rec.attemptNo = S.history.filter(h => h.kind === q.mode && (q.mode === "full" || h.sec === q.sec)).length + 1;
     const lost = Object.values(bySec).reduce((a, B) => a + B.neg, 0), skippedN = skipped.length, attempts = q.qs.length - skippedN, acc = attempts ? Math.round(100 * c / attempts) : 0;
     const titaBlank = q.qs.filter(x => x.type === "tita" && (q.ans[x.id] == null || q.ans[x.id] === "")).length;
